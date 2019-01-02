@@ -1,8 +1,13 @@
+!.gitignore
+!.gitkeep
 *.log
 *.bak
 *.txt
 *.psd
 todo/**
+!db_backup/
 db_backup/**
+!webroot/assets/
 webroot/assets/**
+!webroot/protected/runtime/
 webroot/protected/runtime/**
