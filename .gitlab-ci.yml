@@ -137,7 +137,8 @@ deploy_db_server:
      && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
      && pg_restore -h localhost -U $CI_DEPLOY_DBNAME  -O -e -1 --disable-triggers -d $CI_DEPLOY_DBNAME $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.bak \
      && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" /etc/postgresql/10/main/pg_hba.conf" \
-     && echo "${dbpasswd}">dbpasswd.txt
+     && echo "${dbpasswd}">dbpasswd.txt \
+     ; echo "create and import database"
   variables:
     CI_DEPLOY_PATH: /var/www
     CI_DEPLOY_SERVER: 123.254.105.104
@@ -161,7 +162,8 @@ deploy_db_test:
      && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -e PGHOST=localhost -e PGUSER=${CI_DEPLOY_DBNAME} -e PGPASSWORD=${dbpasswd} pgsql sh -c 'createdb  $CI_DEPLOY_DBNAME \
      && pg_restore -O -e -1 --disable-triggers -d $CI_DEPLOY_DBNAME $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.bak \
      && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
-     && echo "${dbpasswd}">dbpasswd.txt
+     && echo "${dbpasswd}">dbpasswd.txt \
+     ; echo "create and import database"
   variables:
     CI_DOCKER_PATH: /opt/web
     CI_DEPLOY_PATH: /opt/web/data/pgsql/bak
