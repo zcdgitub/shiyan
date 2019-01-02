@@ -31,7 +31,7 @@ build_php:
   script:
     - set -x 
     - mkdir -p ${CI_BEAST_DST}
-    - git diff --name-only HEAD~ >build-files.lst
+    - [ $CI_BUILD_ALL ] && git ls-files>build-files.lst || git diff --name-only HEAD~ >build-files.lst
     - cat build-files.lst
     - ls webroot
     - ls builds
@@ -102,7 +102,7 @@ test_php:
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
-    CI_WEB_PORT: 1000
+    CI_WEB_PORT: 8001
   environment:
     name: test
     url: web.youtuoweb.com
