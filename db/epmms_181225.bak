@@ -1,4 +1,4 @@
--- d4
+-- test d10
 --
 -- PostgreSQL database dump
 --
@@ -147,30 +147,54 @@ ALTER FUNCTION award.award_agent_150805(member_id integer, award_period integer,
 
 CREATE FUNCTION award.award_agent_global_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	--县级分红
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,my.membermap_id,award_type,award.get_month_perf(agent.agent_county,3)*100/count(*) over(partition by agent_county),award_sum_type
-	from epmms_membermap as my,epmms_agent as agent
-	where my.membermap_id=member_id
-    and my.membermap_id=agent.agent_memberinfo_id
-    and agent.agent_type=3;
-    --市级分红
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,my.membermap_id,award_type,award.get_month_perf(agent.agent_county,2)*100/count(*) over(partition by agent_county),award_sum_type
-	from epmms_membermap as my,epmms_agent as agent
-	where my.membermap_id=member_id
-    and my.membermap_id=agent.agent_memberinfo_id
-    and agent.agent_type=2;
-    --省级分红
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,my.membermap_id,award_type,award.get_month_perf(agent.agent_county,2)*100/count(*) over(partition by agent_county),award_sum_type
-	from epmms_membermap as my,epmms_agent as agent
-	where my.membermap_id=member_id
-    and my.membermap_id=agent.agent_memberinfo_id
-    and agent.agent_type=2;
-END;
+    AS $$
+
+BEGIN
+
+	--县级分红
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,my.membermap_id,award_type,award.get_month_perf(agent.agent_county,3)*100/count(*) over(partition by agent_county),award_sum_type
+
+	from epmms_membermap as my,epmms_agent as agent
+
+	where my.membermap_id=member_id
+
+    and my.membermap_id=agent.agent_memberinfo_id
+
+    and agent.agent_type=3;
+
+    --市级分红
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,my.membermap_id,award_type,award.get_month_perf(agent.agent_county,2)*100/count(*) over(partition by agent_county),award_sum_type
+
+	from epmms_membermap as my,epmms_agent as agent
+
+	where my.membermap_id=member_id
+
+    and my.membermap_id=agent.agent_memberinfo_id
+
+    and agent.agent_type=2;
+
+    --省级分红
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,my.membermap_id,award_type,award.get_month_perf(agent.agent_county,2)*100/count(*) over(partition by agent_county),award_sum_type
+
+	from epmms_membermap as my,epmms_agent as agent
+
+	where my.membermap_id=member_id
+
+    and my.membermap_id=agent.agent_memberinfo_id
+
+    and agent.agent_type=2;
+
+END;
+
 $$;
 
 
@@ -182,130 +206,254 @@ ALTER FUNCTION award.award_agent_global_fenhong(member_id integer, award_period 
 
 CREATE FUNCTION award.award_agent_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_provience(my.membermap_id,1),award_type,60,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-	and award.upper_provience(my.membermap_id,1) is not null;
-    
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_provience(my.membermap_id,1),award_type,30,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_provience(my.membermap_id,2) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_city(my.membermap_id),award_type,100,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_city(my.membermap_id) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_area(my.membermap_id),award_type,500,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_area(my.membermap_id) is not null;
-
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_city_city(my.membermap_id,1),award_type,80,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-	and award.upper_city_city(my.membermap_id,1) is not null;
-    
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_city_city(my.membermap_id,2),award_type,40,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_city_city(my.membermap_id,2) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_city_provience(my.membermap_id),award_type,100,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_city_provience(my.membermap_id) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_city_area(my.membermap_id),award_type,200,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_city_area(my.membermap_id) is not null;
-    
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_area_area(my.membermap_id,1),award_type,100,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-	and award.upper_area_area(my.membermap_id,1) is not null;
-    
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_area_area(my.membermap_id,2),award_type,50,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_area_area(my.membermap_id,2) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_area_provience(my.membermap_id),award_type,100,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_area_provience(my.membermap_id) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,award.upper_area_city(my.membermap_id),award_type,100,award_sum_type
-	from epmms_membermap as my
-	where my.membermap_id=member_id
-    and award.upper_city_area(my.membermap_id) is not null;
-    
-    --insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	--select award_period,award.upper_area_silver(my.membermap_id),award_type,300,award_sum_type
-	--from epmms_membermap as my
-	--where my.membermap_id=member_id
-    --and award.upper_area_silver(my.membermap_id) is not null;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,500,award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
-	where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_membertype_level=3
-    and down1.membermap_recommend_id=p.membermap_id
-    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
-    and down1.membermap_membertype_level<=3
-    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,300,award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
-	where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=3
-    and down1.membermap_recommend_id=p.membermap_id
-    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
-    and down1.membermap_membertype_level<=3
-    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,800,award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
-	where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=2
-    and down1.membermap_recommend_id=p.membermap_id
-    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
-    and down1.membermap_membertype_level<=3
-    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
-    
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,1100,award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
-	where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=1
-    and down1.membermap_recommend_id=p.membermap_id
-    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
-    and down1.membermap_membertype_level<=3
-    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
-END;
+    AS $$
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_provience(my.membermap_id,1),award_type,60,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+	and award.upper_provience(my.membermap_id,1) is not null;
+
+    
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_provience(my.membermap_id,1),award_type,30,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_provience(my.membermap_id,2) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_city(my.membermap_id),award_type,100,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_city(my.membermap_id) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_area(my.membermap_id),award_type,500,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_area(my.membermap_id) is not null;
+
+
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_city_city(my.membermap_id,1),award_type,80,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+	and award.upper_city_city(my.membermap_id,1) is not null;
+
+    
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_city_city(my.membermap_id,2),award_type,40,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_city_city(my.membermap_id,2) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_city_provience(my.membermap_id),award_type,100,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_city_provience(my.membermap_id) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_city_area(my.membermap_id),award_type,200,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_city_area(my.membermap_id) is not null;
+
+    
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_area_area(my.membermap_id,1),award_type,100,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+	and award.upper_area_area(my.membermap_id,1) is not null;
+
+    
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_area_area(my.membermap_id,2),award_type,50,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_area_area(my.membermap_id,2) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_area_provience(my.membermap_id),award_type,100,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_area_provience(my.membermap_id) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,award.upper_area_city(my.membermap_id),award_type,100,award_sum_type
+
+	from epmms_membermap as my
+
+	where my.membermap_id=member_id
+
+    and award.upper_city_area(my.membermap_id) is not null;
+
+    
+
+    --insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	--select award_period,award.upper_area_silver(my.membermap_id),award_type,300,award_sum_type
+
+	--from epmms_membermap as my
+
+	--where my.membermap_id=member_id
+
+    --and award.upper_area_silver(my.membermap_id) is not null;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,500,award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
+
+	where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_membertype_level=3
+
+    and down1.membermap_recommend_id=p.membermap_id
+
+    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
+
+    and down1.membermap_membertype_level<=3
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,300,award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
+
+	where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=3
+
+    and down1.membermap_recommend_id=p.membermap_id
+
+    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
+
+    and down1.membermap_membertype_level<=3
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,800,award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
+
+	where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=2
+
+    and down1.membermap_recommend_id=p.membermap_id
+
+    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
+
+    and down1.membermap_membertype_level<=3
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
+
+    
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,1100,award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,epmms_membermap as down1
+
+	where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=1
+
+    and down1.membermap_recommend_id=p.membermap_id
+
+    and my.membermap_recommend_path like down1.membermap_recommend_path || '/%'
+
+    and down1.membermap_membertype_level<=3
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer>=2;
+
+END;
+
 $$;
 
 
@@ -359,14 +507,22 @@ ALTER FUNCTION award.award_agent_rank(member_id integer, award_period integer, a
 
 CREATE FUNCTION award.award_agent_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,cfg.award_config_currency,award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,award.epmms_award_config_agent as cfg
-	where my.membermap_id=member_id and p.membermap_id=my.membermap_agent_id
-    and my.membermap_membertype_level=cfg.award_config_agent;
-END;
+    AS $$
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,cfg.award_config_currency,award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,award.epmms_award_config_agent as cfg
+
+	where my.membermap_id=member_id and p.membermap_id=my.membermap_agent_id
+
+    and my.membermap_membertype_level=cfg.award_config_agent;
+
+END;
+
 $$;
 
 
@@ -865,19 +1021,32 @@ ALTER FUNCTION award.award_dot(member_id integer, award_period integer, award_ty
 
 CREATE FUNCTION award.award_dot_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id
-    ,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,cfg.award_config_currency*pv(),award_sum_type
-	from epmms_membermap as p,epmms_membermap as my,award.award_config_dot_layer as cfg
-	where my.membermap_id=member_id
-    and my.membermap_path like p.membermap_path || '/%'
-    and my.membermap_layer-p.membermap_layer<@cfg.award_config_layer
-		and p.membermap_membertype_level=cfg.award_config_membertype
-    --and p.membermap_recommend_number<@cfg.award_config_recommend
-    and p.membermap_is_active=1;
-END;
+    AS $$
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id
+
+    ,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,cfg.award_config_currency*pv(),award_sum_type
+
+	from epmms_membermap as p,epmms_membermap as my,award.award_config_dot_layer as cfg
+
+	where my.membermap_id=member_id
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and my.membermap_layer-p.membermap_layer<@cfg.award_config_layer
+
+		and p.membermap_membertype_level=cfg.award_config_membertype
+
+    --and p.membermap_recommend_number<@cfg.award_config_recommend
+
+    and p.membermap_is_active=1;
+
+END;
+
 $$;
 
 
@@ -1496,21 +1665,36 @@ ALTER FUNCTION award.award_down_up_recommand_150919(member_id integer, award_per
 
 CREATE FUNCTION award.award_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer DEFAULT NULL::integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	insert into epmms_award_period(award_period_period
-    ,award_period_memberinfo_id,award_period_type_id
-    ,award_period_currency,award_period_sum_type)
-	select award_period,period.award_period_memberinfo_id,award_type
-    ,get_config_award(award_type,sum(period.award_period_currency)),award_sum_type
-	from epmms_award_period as period
-    where period.award_period_period=award_period
-    and period.award_period_sum_type=award_sum_type
-    and period.award_period_currency>0
-    and period.award_period_type_id in(614,615,616)
-	group by period.award_period_memberinfo_id
-    having sum(period.award_period_currency)>0;
-END;
+    AS $$
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period
+
+    ,award_period_memberinfo_id,award_period_type_id
+
+    ,award_period_currency,award_period_sum_type)
+
+	select award_period,period.award_period_memberinfo_id,award_type
+
+    ,get_config_award(award_type,sum(period.award_period_currency)),award_sum_type
+
+	from epmms_award_period as period
+
+    where period.award_period_period=award_period
+
+    and period.award_period_sum_type=award_sum_type
+
+    and period.award_period_currency>0
+
+    and period.award_period_type_id in(614,615,616)
+
+	group by period.award_period_memberinfo_id
+
+    having sum(period.award_period_currency)>0;
+
+END;
+
 $$;
 
 
@@ -1898,37 +2082,68 @@ ALTER FUNCTION award.award_fanben_1004(member_id integer, award_period integer, 
 
 CREATE FUNCTION award.award_fanli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    if award_sum_type=1 then
-      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-        select award_period,my.membermap_id,award_type,iif(f.finance_award<20,f.finance_award/2,10),award_sum_type
-        from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
-        where finance_memberinfo_id=my.membermap_id
-        and finance_type=3
-        and mm.memberinfo_id=my.membermap_id
-        and my.membermap_is_verify=1
-        and mm.memberinfo_is_enable=1;
-    else
-      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-        select award_period,my.membermap_id,award_type,iif(f.finance_award<20,f.finance_award/2,10),3
-        from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
-        where finance_memberinfo_id=my.membermap_id
-        and finance_type=3
-        and mm.memberinfo_id=my.membermap_id
-        and my.membermap_is_verify=1
-        and mm.memberinfo_is_enable=1;
-    end if;
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-    select award_period,my.membermap_id,617,iif(f.finance_award<20,-(f.finance_award/2),-10),2
-    from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
-    where finance_memberinfo_id=my.membermap_id
-    	and finance_type=3
-    	and my.membermap_is_verify=1
-    	and mm.memberinfo_id=my.membermap_id
-    	and my.membermap_is_verify=1
-    	and mm.memberinfo_is_enable=1;
-END;
+    AS $$
+
+BEGIN
+
+    if award_sum_type=1 then
+
+      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+        select award_period,my.membermap_id,award_type,iif(f.finance_award<20,f.finance_award/2,10),award_sum_type
+
+        from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
+
+        where finance_memberinfo_id=my.membermap_id
+
+        and finance_type=3
+
+        and mm.memberinfo_id=my.membermap_id
+
+        and my.membermap_is_verify=1
+
+        and mm.memberinfo_is_enable=1;
+
+    else
+
+      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+        select award_period,my.membermap_id,award_type,iif(f.finance_award<20,f.finance_award/2,10),3
+
+        from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
+
+        where finance_memberinfo_id=my.membermap_id
+
+        and finance_type=3
+
+        and mm.memberinfo_id=my.membermap_id
+
+        and my.membermap_is_verify=1
+
+        and mm.memberinfo_is_enable=1;
+
+    end if;
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+    select award_period,my.membermap_id,617,iif(f.finance_award<20,-(f.finance_award/2),-10),2
+
+    from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
+
+    where finance_memberinfo_id=my.membermap_id
+
+    	and finance_type=3
+
+    	and my.membermap_is_verify=1
+
+    	and mm.memberinfo_id=my.membermap_id
+
+    	and my.membermap_is_verify=1
+
+    	and mm.memberinfo_is_enable=1;
+
+END;
+
 $$;
 
 
@@ -2026,14 +2241,22 @@ ALTER FUNCTION award.award_global_180402(member_id integer, award_period integer
 
 CREATE FUNCTION award.award_global_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    insert into epmms_award_period(award_period_period,award_period_memberinfo_id
-    ,award_period_type_id,award_period_currency,award_period_sum_type)
-    select award_period,p.membermap_id,award_type,award.global_month_perf()*currency/sum(currency) over(),award_sum_type
-    from epmms_membermap as p,award.award_config_global_fenhong as cfg
-    where p.membermap_level=cfg.upgrade_level;
-END;
+    AS $$
+
+BEGIN
+
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id
+
+    ,award_period_type_id,award_period_currency,award_period_sum_type)
+
+    select award_period,p.membermap_id,award_type,award.global_month_perf()*currency/sum(currency) over(),award_sum_type
+
+    from epmms_membermap as p,award.award_config_global_fenhong as cfg
+
+    where p.membermap_level=cfg.upgrade_level;
+
+END;
+
 $$;
 
 
@@ -2758,34 +2981,62 @@ ALTER FUNCTION award.award_level_second(member_id integer, award_period integer,
 
 CREATE FUNCTION award.award_lt_bonus(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-  if award_sum_type=1 then
-      insert into epmms_award_period(award_period_period,award_period_memberinfo_id
-      ,award_period_type_id,award_period_currency,award_period_sum_type)
-      select award_period,p.membermap_id,award_type,(cfg.award_config_currency*my.membermap_money)/2,award_sum_type
-      from epmms_membermap as p,epmms_membermap as my,public.epmms_award_config_bonus as cfg,epmms_memberinfo as pm,epmms_memberinfo as mm
-      where my.membermap_path like p.membermap_path || '/%'
-          and my.membermap_layer-p.membermap_layer<@cfg.award_config_recommend_layer
-          and p.membermap_recommend_number<@cfg.award_config_recommend_count
-          and my.membermap_id=mm.memberinfo_id
-          and mm.memberinfo_is_enable=1
-          and p.membermap_id=pm.memberinfo_id
-          and pm.memberinfo_is_enable=1;
-  else
-      insert into epmms_award_period(award_period_period,award_period_memberinfo_id
-      ,award_period_type_id,award_period_currency,award_period_sum_type)
-      select award_period,p.membermap_id,award_type,(cfg.award_config_currency*my.membermap_money)/2,3
-      from epmms_membermap as p,epmms_membermap as my,public.epmms_award_config_bonus as cfg,epmms_memberinfo as pm,epmms_memberinfo as mm
-      where my.membermap_path like p.membermap_path || '/%'
-          and my.membermap_layer-p.membermap_layer<@cfg.award_config_recommend_layer
-          and p.membermap_recommend_number<@cfg.award_config_recommend_count
-          and my.membermap_id=mm.memberinfo_id
-          and mm.memberinfo_is_enable=1
-          and p.membermap_id=pm.memberinfo_id
-          and pm.memberinfo_is_enable=1;
-  end if;
-END;
+    AS $$
+
+BEGIN
+
+  if award_sum_type=1 then
+
+      insert into epmms_award_period(award_period_period,award_period_memberinfo_id
+
+      ,award_period_type_id,award_period_currency,award_period_sum_type)
+
+      select award_period,p.membermap_id,award_type,(cfg.award_config_currency*my.membermap_money)/2,award_sum_type
+
+      from epmms_membermap as p,epmms_membermap as my,public.epmms_award_config_bonus as cfg,epmms_memberinfo as pm,epmms_memberinfo as mm
+
+      where my.membermap_path like p.membermap_path || '/%'
+
+          and my.membermap_layer-p.membermap_layer<@cfg.award_config_recommend_layer
+
+          and p.membermap_recommend_number<@cfg.award_config_recommend_count
+
+          and my.membermap_id=mm.memberinfo_id
+
+          and mm.memberinfo_is_enable=1
+
+          and p.membermap_id=pm.memberinfo_id
+
+          and pm.memberinfo_is_enable=1;
+
+  else
+
+      insert into epmms_award_period(award_period_period,award_period_memberinfo_id
+
+      ,award_period_type_id,award_period_currency,award_period_sum_type)
+
+      select award_period,p.membermap_id,award_type,(cfg.award_config_currency*my.membermap_money)/2,3
+
+      from epmms_membermap as p,epmms_membermap as my,public.epmms_award_config_bonus as cfg,epmms_memberinfo as pm,epmms_memberinfo as mm
+
+      where my.membermap_path like p.membermap_path || '/%'
+
+          and my.membermap_layer-p.membermap_layer<@cfg.award_config_recommend_layer
+
+          and p.membermap_recommend_number<@cfg.award_config_recommend_count
+
+          and my.membermap_id=mm.memberinfo_id
+
+          and mm.memberinfo_is_enable=1
+
+          and p.membermap_id=pm.memberinfo_id
+
+          and pm.memberinfo_is_enable=1;
+
+  end if;
+
+END;
+
 $$;
 
 
@@ -2797,39 +3048,72 @@ ALTER FUNCTION award.award_lt_bonus(member_id integer, award_period integer, awa
 
 CREATE FUNCTION award.award_lt_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-      if award_sum_type=1 then
-          insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-          select award_period,my.membermap_id,award_type,iif(my.membermap_recommend_number<9,iif(f.finance_award<my.membermap_recommend_number*10,f.finance_award/2,my.membermap_recommend_number*10/2),iif(f.finance_award<100,f.finance_award/2,50)),award_sum_type
-          from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
-          where finance_memberinfo_id=my.membermap_id
-          and my.membermap_recommend_number>0
-          and finance_type=3
-          and mm.memberinfo_id=my.membermap_id
-          and my.membermap_is_verify=1
-          and mm.memberinfo_is_enable=1;
-      else
-          insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-          select award_period,my.membermap_id,award_type,iif(my.membermap_recommend_number<9,iif(f.finance_award<my.membermap_recommend_number*10,f.finance_award/2,my.membermap_recommend_number*10/2),iif(f.finance_award<100,f.finance_award/2,50)),3
-          from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
-          where finance_memberinfo_id=my.membermap_id
-          and my.membermap_recommend_number>0
-          and finance_type=3
-          and mm.memberinfo_id=my.membermap_id
-          and my.membermap_is_verify=1
-          and mm.memberinfo_is_enable=1;
-      end if;
-      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-      select award_period,my.membermap_id,617,iif(my.membermap_recommend_number<9,iif(f.finance_award<my.membermap_recommend_number*10,-(f.finance_award/2),-(my.membermap_recommend_number*10/2)),iif(f.finance_award<100,-(f.finance_award/2),-50)),2
-      from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
-      where finance_memberinfo_id=my.membermap_id
-      and my.membermap_recommend_number>0
-      and finance_type=3
-      and mm.memberinfo_id=my.membermap_id
-      and my.membermap_is_verify=1
-      and mm.memberinfo_is_enable=1;
-END;
+    AS $$
+
+BEGIN
+
+      if award_sum_type=1 then
+
+          insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+          select award_period,my.membermap_id,award_type,iif(my.membermap_recommend_number<9,iif(f.finance_award<my.membermap_recommend_number*10,f.finance_award/2,my.membermap_recommend_number*10/2),iif(f.finance_award<100,f.finance_award/2,50)),award_sum_type
+
+          from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
+
+          where finance_memberinfo_id=my.membermap_id
+
+          and my.membermap_recommend_number>0
+
+          and finance_type=3
+
+          and mm.memberinfo_id=my.membermap_id
+
+          and my.membermap_is_verify=1
+
+          and mm.memberinfo_is_enable=1;
+
+      else
+
+          insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+          select award_period,my.membermap_id,award_type,iif(my.membermap_recommend_number<9,iif(f.finance_award<my.membermap_recommend_number*10,f.finance_award/2,my.membermap_recommend_number*10/2),iif(f.finance_award<100,f.finance_award/2,50)),3
+
+          from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
+
+          where finance_memberinfo_id=my.membermap_id
+
+          and my.membermap_recommend_number>0
+
+          and finance_type=3
+
+          and mm.memberinfo_id=my.membermap_id
+
+          and my.membermap_is_verify=1
+
+          and mm.memberinfo_is_enable=1;
+
+      end if;
+
+      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+      select award_period,my.membermap_id,617,iif(my.membermap_recommend_number<9,iif(f.finance_award<my.membermap_recommend_number*10,-(f.finance_award/2),-(my.membermap_recommend_number*10/2)),iif(f.finance_award<100,-(f.finance_award/2),-50)),2
+
+      from epmms_membermap as my,epmms_finance as f,epmms_memberinfo as mm
+
+      where finance_memberinfo_id=my.membermap_id
+
+      and my.membermap_recommend_number>0
+
+      and finance_type=3
+
+      and mm.memberinfo_id=my.membermap_id
+
+      and my.membermap_is_verify=1
+
+      and mm.memberinfo_is_enable=1;
+
+END;
+
 $$;
 
 
@@ -2925,24 +3209,42 @@ COMMENT ON FUNCTION award.award_month_fenhong(member_id integer, award_period in
 
 CREATE FUNCTION award.award_month_fenhong_181111(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-declare
-    day_money numeric(16,4);
-BEGIN
-	insert into epmms_award_period(award_period_period
-    ,award_period_memberinfo_id,award_period_type_id
-    ,award_period_currency,award_period_sum_type)
-	select award_period
-	,p.membermap_id
-	,award_type
-	,award_config_currency
-    ,award_sum_type
-	from epmms_membermap as p,award.award_config_fenhong_level as cfg
-	where p.membermap_is_verify=1
-    and p.membermap_level=cfg.award_config_level
-    and public.get_l_under_product_count_date2(p.membermap_id)>=cfg.award_config_month_money;
-    update epmms_memberstatus set left_product_count3=0,right_product_count3=0,count3_date=current_date;
-END;
+    AS $$
+
+declare
+
+    day_money numeric(16,4);
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period
+
+    ,award_period_memberinfo_id,award_period_type_id
+
+    ,award_period_currency,award_period_sum_type)
+
+	select award_period
+
+	,p.membermap_id
+
+	,award_type
+
+	,award_config_currency
+
+    ,award_sum_type
+
+	from epmms_membermap as p,award.award_config_fenhong_level as cfg
+
+	where p.membermap_is_verify=1
+
+    and p.membermap_level=cfg.award_config_level
+
+    and public.get_l_under_product_count_date2(p.membermap_id)>=cfg.award_config_month_money;
+
+    update epmms_memberstatus set left_product_count3=0,right_product_count3=0,count3_date=current_date;
+
+END;
+
 $$;
 
 
@@ -3478,27 +3780,48 @@ ALTER FUNCTION award.award_pair_layer_status_recommend(member_id integer, award_
 
 CREATE FUNCTION award.award_pair_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    insert into epmms_award_period(award_period_period
-    ,award_period_memberinfo_id,award_period_type_id
-    ,award_period_currency,award_period_sum_type)
-    select award_period,x.parent_relation_upper_id,award_type,
-    (s.little_product_count-s.status_pair)*c.award_config_currency*pv()
-    ,award_sum_type
-    from epmms_parent_relation as x,epmms_memberstatus as s,award.epmms_award_config_pair_member as c,epmms_membermap as xm
-    where x.parent_relation_member_id=member_id
-    and x.parent_relation_upper_id=s.status_id
-    and xm.membermap_id=x.parent_relation_upper_id
-    and xm.membermap_membertype_level=c.award_config_membertype
-    and s.little_product_count>s.status_pair;
-    --更新碰数
-    update epmms_memberstatus as s set status_pair=s.little_product_count
-    from epmms_parent_relation as x
-    where x.parent_relation_member_id=member_id
-    and x.parent_relation_upper_id=s.status_id
-    and s.little_product_count>s.status_pair;
-END;
+    AS $$
+
+BEGIN
+
+    insert into epmms_award_period(award_period_period
+
+    ,award_period_memberinfo_id,award_period_type_id
+
+    ,award_period_currency,award_period_sum_type)
+
+    select award_period,x.parent_relation_upper_id,award_type,
+
+    (s.little_product_count-s.status_pair)*c.award_config_currency*pv()
+
+    ,award_sum_type
+
+    from epmms_parent_relation as x,epmms_memberstatus as s,award.epmms_award_config_pair_member as c,epmms_membermap as xm
+
+    where x.parent_relation_member_id=member_id
+
+    and x.parent_relation_upper_id=s.status_id
+
+    and xm.membermap_id=x.parent_relation_upper_id
+
+    and xm.membermap_membertype_level=c.award_config_membertype
+
+    and s.little_product_count>s.status_pair;
+
+    --更新碰数
+
+    update epmms_memberstatus as s set status_pair=s.little_product_count
+
+    from epmms_parent_relation as x
+
+    where x.parent_relation_member_id=member_id
+
+    and x.parent_relation_upper_id=s.status_id
+
+    and s.little_product_count>s.status_pair;
+
+END;
+
 $$;
 
 
@@ -3967,16 +4290,26 @@ ALTER FUNCTION award.award_recommend_level(member_id integer, award_period integ
 
 CREATE FUNCTION award.award_recommend_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,cfg.award_config_award*iif(cfg.award_config_award>1,1,my.membermap_money)*pv(),award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,award.award_recommend_matrix as cfg
-	where my.membermap_id=member_id and p.membermap_id=my.membermap_recommend_id
-    and p.membermap_membertype_level=cfg.award_config_award_membertype
-    and my.membermap_membertype_level=cfg.award_config_new_membertype
-    and p.membermap_is_active=1;
-END;
+    AS $$
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,cfg.award_config_award*iif(cfg.award_config_award>1,1,my.membermap_money)*pv(),award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,award.award_recommend_matrix as cfg
+
+	where my.membermap_id=member_id and p.membermap_id=my.membermap_recommend_id
+
+    and p.membermap_membertype_level=cfg.award_config_award_membertype
+
+    and my.membermap_membertype_level=cfg.award_config_new_membertype
+
+    and p.membermap_is_active=1;
+
+END;
+
 $$;
 
 
@@ -3988,18 +4321,30 @@ ALTER FUNCTION award.award_recommend_matrix(member_id integer, award_period inte
 
 CREATE FUNCTION award.award_recommend_matrix_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
-	select award_period,p.membermap_id,award_type,cfg.award_config_award*iif(cfg.award_config_award>1,1,my.membermap_money)*pv(),award_sum_type
-	from epmms_membermap as my,epmms_membermap as p,award.award_recommend_matrix as cfg
-	where my.membermap_id=member_id and p.membermap_id=my.membermap_recommend_id
-    and p.membermap_membertype_level=cfg.award_config_award_membertype
-    and my.membermap_membertype_level=cfg.award_config_new_membertype
-    and my.membermap_membertype_level_old=1
-    and my.membermap_membertype_level>1
-    and p.membermap_is_active=1;
-END;
+    AS $$
+
+BEGIN
+
+	insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+
+	select award_period,p.membermap_id,award_type,cfg.award_config_award*iif(cfg.award_config_award>1,1,my.membermap_money)*pv(),award_sum_type
+
+	from epmms_membermap as my,epmms_membermap as p,award.award_recommend_matrix as cfg
+
+	where my.membermap_id=member_id and p.membermap_id=my.membermap_recommend_id
+
+    and p.membermap_membertype_level=cfg.award_config_award_membertype
+
+    and my.membermap_membertype_level=cfg.award_config_new_membertype
+
+    and my.membermap_membertype_level_old=1
+
+    and my.membermap_membertype_level>1
+
+    and p.membermap_is_active=1;
+
+END;
+
 $$;
 
 
@@ -4422,18 +4767,30 @@ ALTER FUNCTION award.award_static_fenhong_recommend(member_id integer, award_per
 
 CREATE FUNCTION award.award_team(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
- DECLARE
-   my_team INTEGER;
-BEGIN
-    select sum(award_period_currency) as total into my_team
-	from epmms_award_period 
-	where award_period_period=award_period
-    and award_period_memberinfo_id=member_id
-    and award_period_type_id=award_type
-		and award_period_sum_type=award_sum_type;
-		RETURN my_team;
-END;
+    AS $$
+
+ DECLARE
+
+   my_team INTEGER;
+
+BEGIN
+
+    select sum(award_period_currency) as total into my_team
+
+	from epmms_award_period 
+
+	where award_period_period=award_period
+
+    and award_period_memberinfo_id=member_id
+
+    and award_period_type_id=award_type
+
+		and award_period_sum_type=award_sum_type;
+
+		RETURN my_team;
+
+END;
+
 $$;
 
 
@@ -4753,23 +5110,40 @@ ALTER FUNCTION award.get_layer_money(member_id integer, member_layer integer) OW
 
 CREATE FUNCTION award.get_level_count(member_id integer, member_order integer, member_level integer) RETURNS integer
     LANGUAGE plpgsql STABLE
-    AS $$
- DECLARE
-	cnt INTEGER;
-BEGIN
-	SELECT COUNT
-		( * ) INTO cnt 
-	FROM
-		epmms_membermap AS my,
-		epmms_membermap AS C 
-	WHERE
-		my.membermap_parent_id = member_id 
-		AND my.membermap_order = member_order 
-		AND C.membermap_path LIKE my.membermap_path || '%' 
-		AND C.membermap_level >= member_level;
-	RETURN cnt;
-	
-END;
+    AS $$
+
+ DECLARE
+
+	cnt INTEGER;
+
+BEGIN
+
+	SELECT COUNT
+
+		( * ) INTO cnt 
+
+	FROM
+
+		epmms_membermap AS my,
+
+		epmms_membermap AS C 
+
+	WHERE
+
+		my.membermap_parent_id = member_id 
+
+		AND my.membermap_order = member_order 
+
+		AND C.membermap_path LIKE my.membermap_path || '%' 
+
+		AND C.membermap_level >= member_level;
+
+	RETURN cnt;
+
+	
+
+END;
+
 $$;
 
 
@@ -5233,57 +5607,108 @@ ALTER FUNCTION award.get_money_number(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.get_month_perf(city character varying, atype integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-	agent_root integer;
-    mperf integer;
-BEGIN
-	if atype=1 then
-    	select membermap_id into agent_root from epmms_agent,epmms_membermap
-        where agent_type=1
-        and agent_province=city
-        and agent_memberinfo_id=membermap_id
-        order by membermap_recommend_layer desc
-        limit 1;
-        if agent_root is not null then
-			select count(1) into mperf from epmms_membermap as my,epmms_membermap as child
-            where my.membermap_id=agent_root
-            and child.membermap_recommend_path like my.membermap_recommend_path || '/%'
-            and date_trunc('month',child.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month');
-            return COALESCE(mperf,0);
-        end if;
-    end if;
-	if atype=2 then
-    	select membermap_id into agent_root from epmms_agent,epmms_membermap
-        where agent_type=2
-        and agent_area=city
-        and agent_memberinfo_id=membermap_id
-        order by membermap_recommend_layer desc
-        limit 1;
-        if agent_root is not null then
-			select count(1) into mperf from epmms_membermap as my,epmms_membermap as child
-            where my.membermap_id=agent_root
-            and child.membermap_recommend_path like my.membermap_recommend_path || '/%'
-            and date_trunc('month',child.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month');
-            return COALESCE(mperf,0);
-        end if;
-    end if;
-	if atype=3 then
-    	select membermap_id into agent_root from epmms_agent,epmms_membermap
-        where agent_type=3
-        and agent_county=city
-        and agent_memberinfo_id=membermap_id
-        order by membermap_recommend_layer desc
-        limit 1;
-        if agent_root is not null then
-			select count(1) into mperf from epmms_membermap as my,epmms_membermap as child
-            where my.membermap_id=agent_root
-            and child.membermap_recommend_path like my.membermap_recommend_path || '/%'
-            and date_trunc('month',child.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month');
-            return COALESCE(mperf,0);
-        end if;
-    end if;
-END;
+    AS $$
+
+DECLARE
+
+	agent_root integer;
+
+    mperf integer;
+
+BEGIN
+
+	if atype=1 then
+
+    	select membermap_id into agent_root from epmms_agent,epmms_membermap
+
+        where agent_type=1
+
+        and agent_province=city
+
+        and agent_memberinfo_id=membermap_id
+
+        order by membermap_recommend_layer desc
+
+        limit 1;
+
+        if agent_root is not null then
+
+			select count(1) into mperf from epmms_membermap as my,epmms_membermap as child
+
+            where my.membermap_id=agent_root
+
+            and child.membermap_recommend_path like my.membermap_recommend_path || '/%'
+
+            and date_trunc('month',child.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month');
+
+            return COALESCE(mperf,0);
+
+        end if;
+
+    end if;
+
+	if atype=2 then
+
+    	select membermap_id into agent_root from epmms_agent,epmms_membermap
+
+        where agent_type=2
+
+        and agent_area=city
+
+        and agent_memberinfo_id=membermap_id
+
+        order by membermap_recommend_layer desc
+
+        limit 1;
+
+        if agent_root is not null then
+
+			select count(1) into mperf from epmms_membermap as my,epmms_membermap as child
+
+            where my.membermap_id=agent_root
+
+            and child.membermap_recommend_path like my.membermap_recommend_path || '/%'
+
+            and date_trunc('month',child.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month');
+
+            return COALESCE(mperf,0);
+
+        end if;
+
+    end if;
+
+	if atype=3 then
+
+    	select membermap_id into agent_root from epmms_agent,epmms_membermap
+
+        where agent_type=3
+
+        and agent_county=city
+
+        and agent_memberinfo_id=membermap_id
+
+        order by membermap_recommend_layer desc
+
+        limit 1;
+
+        if agent_root is not null then
+
+			select count(1) into mperf from epmms_membermap as my,epmms_membermap as child
+
+            where my.membermap_id=agent_root
+
+            and child.membermap_recommend_path like my.membermap_recommend_path || '/%'
+
+            and date_trunc('month',child.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month');
+
+            return COALESCE(mperf,0);
+
+        end if;
+
+    end if;
+
+END;
+
 $$;
 
 
@@ -5313,15 +5738,24 @@ ALTER FUNCTION award.get_product_count_layer(member_id integer, my_id integer, m
 
 CREATE FUNCTION award.global_month_perf() RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-	mperf integer;
-BEGIN
-    select count(1) into mperf from epmms_membermap as my
-    where date_trunc('month',my.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month')
-    and membermap_membertype_level>1;
-    return mperf;
-END;
+    AS $$
+
+DECLARE
+
+	mperf integer;
+
+BEGIN
+
+    select count(1) into mperf from epmms_membermap as my
+
+    where date_trunc('month',my.membermap_buy_date)=date_trunc('month',CURRENT_DATE-CURRENT_DATE-interval '1 month')
+
+    and membermap_membertype_level>1;
+
+    return mperf;
+
+END;
+
 $$;
 
 
@@ -5637,14 +6071,22 @@ ALTER FUNCTION award.static_fenhong(member_id integer, award_period integer, awa
 
 CREATE FUNCTION award.team(member_id integer) RETURNS boolean
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    select p.*
-	from epmms_membermap as p,epmms_membermap as my
-	where my.membermap_id=1
-    and p.membermap_recommend_path like my.membermap_recommend_path || '/%'
-    and p.membermap_recommend_id=member_id;
-END;
+    AS $$
+
+BEGIN
+
+    select p.*
+
+	from epmms_membermap as p,epmms_membermap as my
+
+	where my.membermap_id=1
+
+    and p.membermap_recommend_path like my.membermap_recommend_path || '/%'
+
+    and p.membermap_recommend_id=member_id;
+
+END;
+
 $$;
 
 
@@ -6173,46 +6615,86 @@ ALTER FUNCTION award.upgrade_level_180501(member_id integer, award_period intege
 
 CREATE FUNCTION award.upgrade_level_180929(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    
-    update epmms_membermap as p set membermap_level=1
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_id=p.membermap_id
-	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=18
-    and coalesce(p.membermap_level,0)<1;
-    
-    update epmms_membermap as p set membermap_level=2
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_id=p.membermap_id
-	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=38
-    and coalesce(p.membermap_level,0)<2;
-    
-    update epmms_membermap as p set membermap_level=3
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_id=p.membermap_id
-	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=88
-    and coalesce(p.membermap_level,0)<3;
-    
-    
-    update epmms_membermap as p set membermap_level=4
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_id=p.membermap_id
-	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=220
-    and coalesce(p.membermap_level,0)<4;
-    
-    
-    update epmms_membermap as p set membermap_level=5
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_id=p.membermap_id
-	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=550
-    and coalesce(p.membermap_level,0)<5;
-END;
+    AS $$
+
+BEGIN
+
+    
+
+    update epmms_membermap as p set membermap_level=1
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_id=p.membermap_id
+
+	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=18
+
+    and coalesce(p.membermap_level,0)<1;
+
+    
+
+    update epmms_membermap as p set membermap_level=2
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_id=p.membermap_id
+
+	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=38
+
+    and coalesce(p.membermap_level,0)<2;
+
+    
+
+    update epmms_membermap as p set membermap_level=3
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_id=p.membermap_id
+
+	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=88
+
+    and coalesce(p.membermap_level,0)<3;
+
+    
+
+    
+
+    update epmms_membermap as p set membermap_level=4
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_id=p.membermap_id
+
+	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=220
+
+    and coalesce(p.membermap_level,0)<4;
+
+    
+
+    
+
+    update epmms_membermap as p set membermap_level=5
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_id=p.membermap_id
+
+	and (select count(1) from epmms_orders where orders_member_id=my.membermap_recommend_id and orders_is_verify=1)>=550
+
+    and coalesce(p.membermap_level,0)<5;
+
+END;
+
 $$;
 
 
@@ -6224,70 +6706,134 @@ ALTER FUNCTION award.upgrade_level_180929(member_id integer, award_period intege
 
 CREATE FUNCTION award.upgrade_level_181111(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    update epmms_membermap as p set membermap_level=1
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_path like p.membermap_path || '/%'
-    and p.membermap_membertype_level>1
-    and public.get_l_under_product_count_date(p.membermap_id)>=100000
-    and coalesce(p.membermap_level,0)<1;
-    
-    update epmms_membermap as p set membermap_level=2
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_path like p.membermap_path || '/%'
-    and p.membermap_membertype_level>1
-    and award.get_level_count(p.membermap_id,1,1)>=2
-	and award.get_level_count(p.membermap_id,2,1)>=2
-    and coalesce(p.membermap_level,0)<2;
-    
-    update epmms_membermap as p set membermap_level=3
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_membertype_level>1
-    and my.membermap_path like p.membermap_path || '/%'
-    and award.get_level_count(p.membermap_id,1,2)>=2
-	and award.get_level_count(p.membermap_id,2,2)>=2
-    and coalesce(p.membermap_level,0)<3;
-    
-    update epmms_membermap as p set membermap_level=4
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_membertype_level>1
-    and my.membermap_path like p.membermap_path || '/%'
-    and award.get_level_count(p.membermap_id,1,3)>=2
-	and award.get_level_count(p.membermap_id,2,3)>=2
-    and coalesce(p.membermap_level,0)<4;
-    
-    update epmms_membermap as p set membermap_level=5
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_membertype_level>1
-    and my.membermap_path like p.membermap_path || '/%'
-    and award.get_level_count(p.membermap_id,1,4)>=2
-	and award.get_level_count(p.membermap_id,2,4)>=2
-    and coalesce(p.membermap_level,0)<5;
-
-    update epmms_membermap as p set membermap_level=6
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_membertype_level>1
-    and my.membermap_path like p.membermap_path || '/%'
-    and award.get_level_count(p.membermap_id,1,5)>=2
-	and award.get_level_count(p.membermap_id,2,5)>=2
-    and coalesce(p.membermap_level,0)<6;
-	
-    update epmms_membermap as p set membermap_level=7
-    from epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_membertype_level>1
-    and my.membermap_path like p.membermap_path || '/%'
-    and award.get_level_count(p.membermap_id,1,6)>=2
-	and award.get_level_count(p.membermap_id,2,6)>=2
-    and coalesce(p.membermap_level,0)<7;
-END;
+    AS $$
+
+BEGIN
+
+    update epmms_membermap as p set membermap_level=1
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and p.membermap_membertype_level>1
+
+    and public.get_l_under_product_count_date(p.membermap_id)>=100000
+
+    and coalesce(p.membermap_level,0)<1;
+
+    
+
+    update epmms_membermap as p set membermap_level=2
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and p.membermap_membertype_level>1
+
+    and award.get_level_count(p.membermap_id,1,1)>=2
+
+	and award.get_level_count(p.membermap_id,2,1)>=2
+
+    and coalesce(p.membermap_level,0)<2;
+
+    
+
+    update epmms_membermap as p set membermap_level=3
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_membertype_level>1
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and award.get_level_count(p.membermap_id,1,2)>=2
+
+	and award.get_level_count(p.membermap_id,2,2)>=2
+
+    and coalesce(p.membermap_level,0)<3;
+
+    
+
+    update epmms_membermap as p set membermap_level=4
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_membertype_level>1
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and award.get_level_count(p.membermap_id,1,3)>=2
+
+	and award.get_level_count(p.membermap_id,2,3)>=2
+
+    and coalesce(p.membermap_level,0)<4;
+
+    
+
+    update epmms_membermap as p set membermap_level=5
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_membertype_level>1
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and award.get_level_count(p.membermap_id,1,4)>=2
+
+	and award.get_level_count(p.membermap_id,2,4)>=2
+
+    and coalesce(p.membermap_level,0)<5;
+
+
+
+    update epmms_membermap as p set membermap_level=6
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_membertype_level>1
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and award.get_level_count(p.membermap_id,1,5)>=2
+
+	and award.get_level_count(p.membermap_id,2,5)>=2
+
+    and coalesce(p.membermap_level,0)<6;
+
+	
+
+    update epmms_membermap as p set membermap_level=7
+
+    from epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_membertype_level>1
+
+    and my.membermap_path like p.membermap_path || '/%'
+
+    and award.get_level_count(p.membermap_id,1,6)>=2
+
+	and award.get_level_count(p.membermap_id,2,6)>=2
+
+    and coalesce(p.membermap_level,0)<7;
+
+END;
+
 $$;
 
 
@@ -6299,29 +6845,52 @@ ALTER FUNCTION award.upgrade_level_181111(member_id integer, award_period intege
 
 CREATE FUNCTION award.upper_area(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_area integer;
-  upper_provience integer;
-BEGIN
-	select p.membermap_id into my_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=3
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_area is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_provience from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_area
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_provience;
-END;
+    AS $$
+
+DECLARE
+
+  my_area integer;
+
+  upper_provience integer;
+
+BEGIN
+
+	select p.membermap_id into my_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=3
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_area is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_provience from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_area
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_provience;
+
+END;
+
 $$;
 
 
@@ -6333,46 +6902,86 @@ ALTER FUNCTION award.upper_area(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_area_area(member_id integer, layer integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_area integer;
-  upper_area integer;
-  upper_area2 integer;
-BEGIN
-	select p.membermap_id into my_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_area is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_area
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if layer=1 then
-    	return upper_area;
-    end if;
-    
-    if upper_area is null then
-    	return null;
-    end if;
-    
-	select p.membermap_id into upper_area2 from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=upper_area
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    
-    return upper_area2;
-END;
+    AS $$
+
+DECLARE
+
+  my_area integer;
+
+  upper_area integer;
+
+  upper_area2 integer;
+
+BEGIN
+
+	select p.membermap_id into my_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_area is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_area
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if layer=1 then
+
+    	return upper_area;
+
+    end if;
+
+    
+
+    if upper_area is null then
+
+    	return null;
+
+    end if;
+
+    
+
+	select p.membermap_id into upper_area2 from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=upper_area
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    
+
+    return upper_area2;
+
+END;
+
 $$;
 
 
@@ -6384,29 +6993,52 @@ ALTER FUNCTION award.upper_area_area(member_id integer, layer integer) OWNER TO 
 
 CREATE FUNCTION award.upper_area_city(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_city integer;
-  upper_area integer;
-BEGIN
-	select p.membermap_id into my_city from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_city is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_provience
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_area;
-END;
+    AS $$
+
+DECLARE
+
+  my_city integer;
+
+  upper_area integer;
+
+BEGIN
+
+	select p.membermap_id into my_city from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_city is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_provience
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_area;
+
+END;
+
 $$;
 
 
@@ -6418,29 +7050,52 @@ ALTER FUNCTION award.upper_area_city(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_area_provience(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_provience integer;
-  upper_area integer;
-BEGIN
-	select p.membermap_id into my_provience from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_provience is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_provience
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_area;
-END;
+    AS $$
+
+DECLARE
+
+  my_provience integer;
+
+  upper_area integer;
+
+BEGIN
+
+	select p.membermap_id into my_provience from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_provience is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_provience
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_area;
+
+END;
+
 $$;
 
 
@@ -6452,29 +7107,52 @@ ALTER FUNCTION award.upper_area_provience(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_area_silver(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_silver integer;
-  upper_area integer;
-BEGIN
-	select p.membermap_id into my_silver from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_membertype_level=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_silver is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_silver
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=3
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_area;
-END;
+    AS $$
+
+DECLARE
+
+  my_silver integer;
+
+  upper_area integer;
+
+BEGIN
+
+	select p.membermap_id into my_silver from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_membertype_level=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_silver is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_silver
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=3
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_area;
+
+END;
+
 $$;
 
 
@@ -6486,29 +7164,52 @@ ALTER FUNCTION award.upper_area_silver(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_city(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_city integer;
-  upper_provience integer;
-BEGIN
-	select p.membermap_id into my_city from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_city is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_provience from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_city
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_provience;
-END;
+    AS $$
+
+DECLARE
+
+  my_city integer;
+
+  upper_provience integer;
+
+BEGIN
+
+	select p.membermap_id into my_city from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_city is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_provience from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_city
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_provience;
+
+END;
+
 $$;
 
 
@@ -6520,29 +7221,52 @@ ALTER FUNCTION award.upper_city(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_city_area(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_area integer;
-  upper_city integer;
-BEGIN
-	select p.membermap_id into my_area from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=3
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_area is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_city from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_area
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_city;
-END;
+    AS $$
+
+DECLARE
+
+  my_area integer;
+
+  upper_city integer;
+
+BEGIN
+
+	select p.membermap_id into my_area from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=3
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_area is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_city from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_area
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_city;
+
+END;
+
 $$;
 
 
@@ -6554,46 +7278,86 @@ ALTER FUNCTION award.upper_city_area(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_city_city(member_id integer, layer integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_city integer;
-  upper_city integer;
-  upper_city2 integer;
-BEGIN
-	select p.membermap_id into my_city from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_city is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_city from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_city
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if layer=1 then
-    	return upper_city;
-    end if;
-    
-    if upper_city is null then
-    	return null;
-    end if;
-    
-	select p.membermap_id into upper_city2 from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=upper_city
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    
-    return upper_city2;
-END;
+    AS $$
+
+DECLARE
+
+  my_city integer;
+
+  upper_city integer;
+
+  upper_city2 integer;
+
+BEGIN
+
+	select p.membermap_id into my_city from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_city is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_city from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_city
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if layer=1 then
+
+    	return upper_city;
+
+    end if;
+
+    
+
+    if upper_city is null then
+
+    	return null;
+
+    end if;
+
+    
+
+	select p.membermap_id into upper_city2 from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=upper_city
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    
+
+    return upper_city2;
+
+END;
+
 $$;
 
 
@@ -6605,29 +7369,52 @@ ALTER FUNCTION award.upper_city_city(member_id integer, layer integer) OWNER TO 
 
 CREATE FUNCTION award.upper_city_provience(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_provience integer;
-  upper_city integer;
-BEGIN
-	select p.membermap_id into my_provience from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_provience is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_city from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_provience
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=2
-    order by p.membermap_recommend_layer desc
-    limit 1;
-	return upper_city;
-END;
+    AS $$
+
+DECLARE
+
+  my_provience integer;
+
+  upper_city integer;
+
+BEGIN
+
+	select p.membermap_id into my_provience from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_provience is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_city from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_provience
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=2
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+	return upper_city;
+
+END;
+
 $$;
 
 
@@ -6639,46 +7426,86 @@ ALTER FUNCTION award.upper_city_provience(member_id integer) OWNER TO postgres;
 
 CREATE FUNCTION award.upper_provience(member_id integer, layer integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  my_provience integer;
-  upper_provience integer;
-  upper_provience2 integer;
-BEGIN
-	select p.membermap_id into my_provience from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=member_id
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if my_provience is null then
-    	return null;
-    end if;
-	select p.membermap_id into upper_provience from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=my_provience
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    if layer=1 then
-    	return upper_provience;
-    end if;
-    
-    if upper_provience is null then
-    	return null;
-    end if;
-    
-	select p.membermap_id into upper_provience2 from epmms_membermap as p,epmms_membermap as my
-    where my.membermap_id=upper_provience
-    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
-    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
-    and p.membermap_agent_type=1
-    order by p.membermap_recommend_layer desc
-    limit 1;
-    
-    return upper_provience2;
-END;
+    AS $$
+
+DECLARE
+
+  my_provience integer;
+
+  upper_provience integer;
+
+  upper_provience2 integer;
+
+BEGIN
+
+	select p.membermap_id into my_provience from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=member_id
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if my_provience is null then
+
+    	return null;
+
+    end if;
+
+	select p.membermap_id into upper_provience from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=my_provience
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    if layer=1 then
+
+    	return upper_provience;
+
+    end if;
+
+    
+
+    if upper_provience is null then
+
+    	return null;
+
+    end if;
+
+    
+
+	select p.membermap_id into upper_provience2 from epmms_membermap as p,epmms_membermap as my
+
+    where my.membermap_id=upper_provience
+
+    and my.membermap_recommend_path like p.membermap_recommend_path || '/%'
+
+    and my.membermap_recommend_layer-p.membermap_recommend_layer=1
+
+    and p.membermap_agent_type=1
+
+    order by p.membermap_recommend_layer desc
+
+    limit 1;
+
+    
+
+    return upper_provience2;
+
+END;
+
 $$;
 
 
@@ -11253,28 +12080,50 @@ ALTER FUNCTION public.epmms_award_total_award_sum_total_after_tr() OWNER TO post
 
 CREATE FUNCTION public.epmms_award_total_sum_award_after_tr() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-	award_currency numeric(16,2);
-	award_finance_type bigint default 1;
-BEGIN
-  --总奖金汇总总计
-  if TG_OP='UPDATE' then
-  	award_currency:=new.award_total_sum_currency-OLD.award_total_sum_currency;
-  else
-  	award_currency:=new.award_total_sum_currency;
-  end if;
-  select sum_finance_type_id into award_finance_type from epmms_sum_type 
-  where sum_type_id=new.award_total_sum_type;
-  insert into epmms_finance(finance_memberinfo_id,finance_award
-  ,finance_type) values (
-  new.award_total_sum_memberinfo_id,award_currency
-  ,award_finance_type);
-  if award_currency>0 then
-  	update epmms_system_status set system_status_expenses=system_status_expenses+award_currency;
-  end if;
-  return null;
-END;
+    AS $$
+
+DECLARE
+
+	award_currency numeric(16,2);
+
+	award_finance_type bigint default 1;
+
+BEGIN
+
+  --总奖金汇总总计
+
+  if TG_OP='UPDATE' then
+
+  	award_currency:=new.award_total_sum_currency-OLD.award_total_sum_currency;
+
+  else
+
+  	award_currency:=new.award_total_sum_currency;
+
+  end if;
+
+  select sum_finance_type_id into award_finance_type from epmms_sum_type 
+
+  where sum_type_id=new.award_total_sum_type;
+
+  insert into epmms_finance(finance_memberinfo_id,finance_award
+
+  ,finance_type) values (
+
+  new.award_total_sum_memberinfo_id,award_currency
+
+  ,award_finance_type);
+
+  if award_currency>0 then
+
+  	update epmms_system_status set system_status_expenses=system_status_expenses+award_currency;
+
+  end if;
+
+  return null;
+
+END;
+
 $$;
 
 
@@ -11815,184 +12664,362 @@ COMMENT ON FUNCTION public.epmms_clean_cap() IS '清除封顶';
 
 CREATE FUNCTION public.epmms_clean_data(include_member integer DEFAULT 0, is_debug integer DEFAULT 0) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-
-  truncate table epmms_star;
-  alter sequence epmms_star_star_id_seq restart;
-  --清空财务数据
-  truncate table epmms_supplement;
-  alter sequence epmms_supplement_supplement_id_seq restart;
-  truncate table epmms_prize;
-  alter sequence epmms_prize_prize_id_seq restart;
-  truncate table epmms_award_total_sum;
-  alter SEQUENCE epmms_award_total_sum_award_total_sum_id_seq restart;
-  truncate table epmms_award_total;
-  alter SEQUENCE epmms_award_total_award_total_id_seq restart;
-
-  truncate table epmms_award_year_sum;
-  alter SEQUENCE epmms_award_month_year_sum_award_year_sum_id_seq restart;
-  truncate table epmms_award_year;
-  alter SEQUENCE epmms_award_year_award_year_id_seq restart;
-
-  truncate table epmms_award_month_sum;
-  alter SEQUENCE epmms_award_month_sum_award_month_sum_id_seq restart;
-  truncate table epmms_award_month;
-  alter SEQUENCE epmms_award_month_award_month_id_seq restart;
-  truncate table epmms_award_week_sum;
-  alter SEQUENCE epmms_award_week_sum_award_week_sum_id_seq restart;
-  truncate table epmms_award_week;
-  alter SEQUENCE epmms_award_week_award_week_id_seq restart;
-  truncate table epmms_award_day_sum;
-  alter SEQUENCE epmms_award_day_sum_award_day_sum_id_seq restart;
-  truncate table epmms_award_day_sum_all;
-  alter sequence epmms_award_day_sum_all_award_day_sum_id_seq restart;
-  truncate table epmms_award_week_sum_all;
-  alter sequence epmms_award_week_sum_all_award_week_sum_id_seq restart;
-  truncate table epmms_award_month_sum_all;
-  alter sequence epmms_award_month_sum_all_award_month_sum_id_seq restart;
-  truncate table epmms_award_day;
-  alter SEQUENCE epmms_award_day_award_day_id_seq restart;
-  truncate table epmms_award_period_sum;
-  alter SEQUENCE epmms_award_period_sum_award_period_sum_id_seq restart;
-  truncate table epmms_award_period;
-  alter SEQUENCE epmms_award_period_award_period_id_seq restart;
-  alter SEQUENCE award_period restart;
-  truncate table epmms_withdrawals;
-  alter SEQUENCE epmms_withdrawals_withdrawals_id_seq restart;
-  truncate table epmms_transfer;
-  alter SEQUENCE epmms_transfer_transfer_id_seq restart;
-  truncate table epmms_charge;
-  alter SEQUENCE epmms_charge_charge_id_seq restart;
-  
-  alter SEQUENCE gen_member restart;
-  alter SEQUENCE group_seq restart;
-  
-  truncate epmms_futou;
-  alter sequence epmms_futou_futou_id_seq restart;
-
-  truncate epmms_foundation;
-  alter sequence epmms_foundation_foundation_id_seq restart;
-  
-  truncate epmms_parent_relation;
-  truncate epmms_recommend_relation;
-  
-  truncate epmms_layer;
-  alter sequence epmms_layer_layer_id_seq restart;
-  --清空分组
-  delete from epmms_groupmap ;
-  delete from epmms_group where group_id<>1;
-  update epmms_group set group_count=0;
-  alter SEQUENCE epmms_group_group_id_seq  restart with 2;
-  alter SEQUENCE epmms_groupmap_groupmap_id_seq  restart;
-  truncate table epmms_map_edit;
-  alter sequence epmms_map_edit_map_edit_id_seq restart;
-  update epmms_groupmap set groupmap_is_award=0,groupmap_verify_date=now(),groupmap_award_date=now();
-  alter SEQUENCE group_seq restart with 2;
-  --清空日志
-  truncate table epmms_log;
-  alter SEQUENCE epmms_log_log_id_seq restart;
-  truncate table epmms_memberstatus;
-  insert into epmms_memberstatus(status_id) values (1);
-  truncate table epmms_stock_trend;
-  alter sequence epmms_stock_trend_stock_trend_id_seq restart;
-  --清空订单
-  truncate table epmms_orders,epmms_orders_product;
-  alter sequence epmms_orders_orders_id_seq restart;
-  alter sequence epmms_orders_product_orders_product_id_seq restart;
-  --清空代理中心
-  delete from epmms_agent where agent_id<>1;
-  alter SEQUENCE epmms_agent_agent_id_seq restart with 2;
-  update epmms_membermap set 
-  membermap_recommend_number=0,
-  membermap_recommend_product_count=0,
-  membermap_recommend_under_number=0, 
-  membermap_recommend_under_product_count=0,   
-  membermap_sub_number=0,
-  membermap_child_number=0,  
-  membermap_sub_product_count=0,  
-  membermap_under_number=0,
-  membermap_under_product_count=0,
-  membermap_agent_number=0,
-  membermap_agent_product_count=0,
-  membermap_level=null,
-  membermap_is_active=1,
-  membermap_is_delete=0,
-  membermap_buyall=0
-   where membermap_id=1;
-  
-  truncate table epmms_finance;
-  alter SEQUENCE epmms_finance_finance_id_seq restart;
-  truncate table epmms_ratio;
-  alter SEQUENCE epmms_ratio_ratio_id_seq restart;
-  truncate table epmms_member_upgrade;
-  alter sequence epmms_member_upgrade_member_upgrade_id_seq restart;
-  truncate table epmms_appropriate;
-  alter SEQUENCE epmms_appropriate_appropriate_id_seq restart;
-  truncate table epmms_signing;
-  alter SEQUENCE epmms_signing_signing_id_seq restart;
-
-  --清空会员
-  if include_member=0 then
-    update epmms_membermap set membermap_is_verify=0,
-      membermap_path=null,
-      membermap_recommend_path=null,
-      membermap_verify_seq=NULL,
-      membermap_recommend_number=0,
-      membermap_recommend_product_count=0,
-      membermap_recommend_under_number=0, 
-      membermap_recommend_under_product_count=0,   
-      membermap_sub_number=0,
-      membermap_child_number=0,  
-      membermap_sub_product_count=0,
-      membermap_under_number=0,
-      membermap_under_product_count=0,
-      membermap_agent_number=0,
-	  membermap_agent_product_count=0,
-      membermap_is_active=1,
-      membermap_is_delete=0,
-      membermap_level=1,
-      membermap_layer_order=null,
-      membermap_buyall=0
-      where membermap_id!=1;
-    update epmms_memberinfo set memberinfo_is_verify=0 where memberinfo_id !=1;
-    update epmms_membermap2 set membermap_layer_order=null,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_under_number=0,membermap_is_verify=0,membermap_recommend_number=0;
-    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0,membermap_is_verify=0;
-    update epmms_membermap2 set membermap_is_verify=1 where membermap_id=1;
-    update epmms_membermap4 set membermap_is_verify=1 where membermap_id=1;
-  else
-    delete from epmms_membermap2 where membermap_id not in (1);
-    alter sequence epmms_membermap2_membermap_id_seq restart with 2;
-    truncate table epmms_membermap4;
-    alter sequence epmms_membermap4_membermap_id_seq restart;
-    truncate table epmms_membermap3;
-    alter sequence epmms_membermap3_membermap_id_seq restart;
-    
-    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=1,membermap_under_bill_count=1,membermap_sub_bill_count=1,membermap_recommend_number=1,membermap_under_number=1,membermap_bond_id=null,membermap_verify_date=now() where membermap_id =1;
-    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_recommend_number=0,membermap_under_number=0,membermap_bond_id=null,membermap_is_verify=1,membermap_path='/1/1',membermap_recommend_path='/1/1',membermap_layer=2,membermap_recommend_layer=2,membermap_parent_id=1,membermap_order=1,membermap_recommend_id=1,membermap_verify_date=now() where membermap_id=2;
-    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0 where membermap_id=1;
-  	truncate table epmms_messages;
-    alter sequence epmms_messages_messages_id_seq restart;
-  	delete from epmms_membermap where membermap_id!=1;
-    delete from epmms_memberinfo where memberinfo_id not in (1);
-    alter sequence epmms_memberinfo_memberinfo_id_seq restart with 2;
-    alter SEQUENCE membermap_add restart with 2;
-    update epmms_membermap set membermap_verify_date=now(),membermap_add_date=now() where membermap_id=1;
-    update epmms_membermap set membermap_parent_id=null,membermap_order=1,membermap_layer=1,membermap_recommend_id=null,
-    membermap_recommend_layer=1,membermap_path='/1',membermap_recommend_path='/1',membermap_is_active=1,
-    membermap_layer_order=1 where membermap_id=1;
-  end if;
-
-  update epmms_membermap as m set membermap_product_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype_level=t.membertype_level;
-  update epmms_membermap2 as m set membermap_bill_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype=t.membertype_level;
-  ALTER SEQUENCE membermap_verify restart with 2;
-  ALTER SEQUENCE award_period restart;
-
-  --重置系统状态
-  update epmms_system_status set system_status_expenses=0,system_status_income=0,system_status_withdrawals=0,system_status_start_date=now(),system_status_verify_seq=1,system_status_verify_seq2=0,system_status_groupmap_seq=1,system_status_foundation=0,system_status_award_period=0;
-  insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=2,100000000,0),finance_type_id,1 from epmms_finance_type;
-	 insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=3,100000000,0),finance_type_id,1 from epmms_finance_type;
-END;
+    AS $$
+
+BEGIN
+
+
+
+  truncate table epmms_star;
+
+  alter sequence epmms_star_star_id_seq restart;
+
+  --清空财务数据
+
+  truncate table epmms_supplement;
+
+  alter sequence epmms_supplement_supplement_id_seq restart;
+
+  truncate table epmms_prize;
+
+  alter sequence epmms_prize_prize_id_seq restart;
+
+  truncate table epmms_award_total_sum;
+
+  alter SEQUENCE epmms_award_total_sum_award_total_sum_id_seq restart;
+
+  truncate table epmms_award_total;
+
+  alter SEQUENCE epmms_award_total_award_total_id_seq restart;
+
+
+
+  truncate table epmms_award_year_sum;
+
+  alter SEQUENCE epmms_award_month_year_sum_award_year_sum_id_seq restart;
+
+  truncate table epmms_award_year;
+
+  alter SEQUENCE epmms_award_year_award_year_id_seq restart;
+
+
+
+  truncate table epmms_award_month_sum;
+
+  alter SEQUENCE epmms_award_month_sum_award_month_sum_id_seq restart;
+
+  truncate table epmms_award_month;
+
+  alter SEQUENCE epmms_award_month_award_month_id_seq restart;
+
+  truncate table epmms_award_week_sum;
+
+  alter SEQUENCE epmms_award_week_sum_award_week_sum_id_seq restart;
+
+  truncate table epmms_award_week;
+
+  alter SEQUENCE epmms_award_week_award_week_id_seq restart;
+
+  truncate table epmms_award_day_sum;
+
+  alter SEQUENCE epmms_award_day_sum_award_day_sum_id_seq restart;
+
+  truncate table epmms_award_day_sum_all;
+
+  alter sequence epmms_award_day_sum_all_award_day_sum_id_seq restart;
+
+  truncate table epmms_award_week_sum_all;
+
+  alter sequence epmms_award_week_sum_all_award_week_sum_id_seq restart;
+
+  truncate table epmms_award_month_sum_all;
+
+  alter sequence epmms_award_month_sum_all_award_month_sum_id_seq restart;
+
+  truncate table epmms_award_day;
+
+  alter SEQUENCE epmms_award_day_award_day_id_seq restart;
+
+  truncate table epmms_award_period_sum;
+
+  alter SEQUENCE epmms_award_period_sum_award_period_sum_id_seq restart;
+
+  truncate table epmms_award_period;
+
+  alter SEQUENCE epmms_award_period_award_period_id_seq restart;
+
+  alter SEQUENCE award_period restart;
+
+  truncate table epmms_withdrawals;
+
+  alter SEQUENCE epmms_withdrawals_withdrawals_id_seq restart;
+
+  truncate table epmms_transfer;
+
+  alter SEQUENCE epmms_transfer_transfer_id_seq restart;
+
+  truncate table epmms_charge;
+
+  alter SEQUENCE epmms_charge_charge_id_seq restart;
+
+  
+
+  alter SEQUENCE gen_member restart;
+
+  alter SEQUENCE group_seq restart;
+
+  
+
+  truncate epmms_futou;
+
+  alter sequence epmms_futou_futou_id_seq restart;
+
+
+
+  truncate epmms_foundation;
+
+  alter sequence epmms_foundation_foundation_id_seq restart;
+
+  
+
+  truncate epmms_parent_relation;
+
+  truncate epmms_recommend_relation;
+
+  
+
+  truncate epmms_layer;
+
+  alter sequence epmms_layer_layer_id_seq restart;
+
+  --清空分组
+
+  delete from epmms_groupmap ;
+
+  delete from epmms_group where group_id<>1;
+
+  update epmms_group set group_count=0;
+
+  alter SEQUENCE epmms_group_group_id_seq  restart with 2;
+
+  alter SEQUENCE epmms_groupmap_groupmap_id_seq  restart;
+
+  truncate table epmms_map_edit;
+
+  alter sequence epmms_map_edit_map_edit_id_seq restart;
+
+  update epmms_groupmap set groupmap_is_award=0,groupmap_verify_date=now(),groupmap_award_date=now();
+
+  alter SEQUENCE group_seq restart with 2;
+
+  --清空日志
+
+  truncate table epmms_log;
+
+  alter SEQUENCE epmms_log_log_id_seq restart;
+
+  truncate table epmms_memberstatus;
+
+  insert into epmms_memberstatus(status_id) values (1);
+
+  truncate table epmms_stock_trend;
+
+  alter sequence epmms_stock_trend_stock_trend_id_seq restart;
+
+  --清空订单
+
+  truncate table epmms_orders,epmms_orders_product;
+
+  alter sequence epmms_orders_orders_id_seq restart;
+
+  alter sequence epmms_orders_product_orders_product_id_seq restart;
+
+  --清空代理中心
+
+  delete from epmms_agent where agent_id<>1;
+
+  alter SEQUENCE epmms_agent_agent_id_seq restart with 2;
+
+  update epmms_membermap set 
+
+  membermap_recommend_number=0,
+
+  membermap_recommend_product_count=0,
+
+  membermap_recommend_under_number=0, 
+
+  membermap_recommend_under_product_count=0,   
+
+  membermap_sub_number=0,
+
+  membermap_child_number=0,  
+
+  membermap_sub_product_count=0,  
+
+  membermap_under_number=0,
+
+  membermap_under_product_count=0,
+
+  membermap_agent_number=0,
+
+  membermap_agent_product_count=0,
+
+  membermap_level=null,
+
+  membermap_is_active=1,
+
+  membermap_is_delete=0,
+
+  membermap_buyall=0
+
+   where membermap_id=1;
+
+  
+
+  truncate table epmms_finance;
+
+  alter SEQUENCE epmms_finance_finance_id_seq restart;
+
+  truncate table epmms_ratio;
+
+  alter SEQUENCE epmms_ratio_ratio_id_seq restart;
+
+  truncate table epmms_member_upgrade;
+
+  alter sequence epmms_member_upgrade_member_upgrade_id_seq restart;
+
+  truncate table epmms_appropriate;
+
+  alter SEQUENCE epmms_appropriate_appropriate_id_seq restart;
+
+  truncate table epmms_signing;
+
+  alter SEQUENCE epmms_signing_signing_id_seq restart;
+
+
+
+  --清空会员
+
+  if include_member=0 then
+
+    update epmms_membermap set membermap_is_verify=0,
+
+      membermap_path=null,
+
+      membermap_recommend_path=null,
+
+      membermap_verify_seq=NULL,
+
+      membermap_recommend_number=0,
+
+      membermap_recommend_product_count=0,
+
+      membermap_recommend_under_number=0, 
+
+      membermap_recommend_under_product_count=0,   
+
+      membermap_sub_number=0,
+
+      membermap_child_number=0,  
+
+      membermap_sub_product_count=0,
+
+      membermap_under_number=0,
+
+      membermap_under_product_count=0,
+
+      membermap_agent_number=0,
+
+	  membermap_agent_product_count=0,
+
+      membermap_is_active=1,
+
+      membermap_is_delete=0,
+
+      membermap_level=1,
+
+      membermap_layer_order=null,
+
+      membermap_buyall=0
+
+      where membermap_id!=1;
+
+    update epmms_memberinfo set memberinfo_is_verify=0 where memberinfo_id !=1;
+
+    update epmms_membermap2 set membermap_layer_order=null,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_under_number=0,membermap_is_verify=0,membermap_recommend_number=0;
+
+    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0,membermap_is_verify=0;
+
+    update epmms_membermap2 set membermap_is_verify=1 where membermap_id=1;
+
+    update epmms_membermap4 set membermap_is_verify=1 where membermap_id=1;
+
+  else
+
+    delete from epmms_membermap2 where membermap_id not in (1);
+
+    alter sequence epmms_membermap2_membermap_id_seq restart with 2;
+
+    truncate table epmms_membermap4;
+
+    alter sequence epmms_membermap4_membermap_id_seq restart;
+
+    truncate table epmms_membermap3;
+
+    alter sequence epmms_membermap3_membermap_id_seq restart;
+
+    
+
+    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=1,membermap_under_bill_count=1,membermap_sub_bill_count=1,membermap_recommend_number=1,membermap_under_number=1,membermap_bond_id=null,membermap_verify_date=now() where membermap_id =1;
+
+    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_recommend_number=0,membermap_under_number=0,membermap_bond_id=null,membermap_is_verify=1,membermap_path='/1/1',membermap_recommend_path='/1/1',membermap_layer=2,membermap_recommend_layer=2,membermap_parent_id=1,membermap_order=1,membermap_recommend_id=1,membermap_verify_date=now() where membermap_id=2;
+
+    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0 where membermap_id=1;
+
+  	truncate table epmms_messages;
+
+    alter sequence epmms_messages_messages_id_seq restart;
+
+  	delete from epmms_membermap where membermap_id!=1;
+
+    delete from epmms_memberinfo where memberinfo_id not in (1);
+
+    alter sequence epmms_memberinfo_memberinfo_id_seq restart with 2;
+
+    alter SEQUENCE membermap_add restart with 2;
+
+    update epmms_membermap set membermap_verify_date=now(),membermap_add_date=now() where membermap_id=1;
+
+    update epmms_membermap set membermap_parent_id=null,membermap_order=1,membermap_layer=1,membermap_recommend_id=null,
+
+    membermap_recommend_layer=1,membermap_path='/1',membermap_recommend_path='/1',membermap_is_active=1,
+
+    membermap_layer_order=1 where membermap_id=1;
+
+  end if;
+
+
+
+  update epmms_membermap as m set membermap_product_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype_level=t.membertype_level;
+
+  update epmms_membermap2 as m set membermap_bill_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype=t.membertype_level;
+
+  ALTER SEQUENCE membermap_verify restart with 2;
+
+  ALTER SEQUENCE award_period restart;
+
+
+
+  --重置系统状态
+
+  update epmms_system_status set system_status_expenses=0,system_status_income=0,system_status_withdrawals=0,system_status_start_date=now(),system_status_verify_seq=1,system_status_verify_seq2=0,system_status_groupmap_seq=1,system_status_foundation=0,system_status_award_period=0;
+
+  insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=2,100000000,0),finance_type_id,1 from epmms_finance_type;
+
+	 insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=3,100000000,0),finance_type_id,1 from epmms_finance_type;
+
+END;
+
 $$;
 
 
@@ -12479,22 +13506,38 @@ ALTER FUNCTION public.epmms_verify_award_order(member_id integer, award_period b
 
 CREATE FUNCTION public.gen_finance_log() RETURNS void
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-    award_period integer;
-BEGIN
-    select system_status_award_period into award_period from epmms_system_status;
-    update epmms_system_status set system_status_award_period=currval('award_period');
-    insert into epmms_log(log_category,log_source,log_operate,log_target,log_value,log_user,log_status)
-    select 'finance','奖金','结算',min(award_info.memberinfo_account),sum(s.award_period_sum_currency),min(award_info.memberinfo_account),0
-    from epmms_award_period_sum as s,epmms_memberinfo as award_info
-    where s.award_period_sum_period>award_period and award_info.memberinfo_id=s.award_period_sum_memberinfo_id
-    group by s.award_period_sum_memberinfo_id,s.award_period_sum_type;
-    
-    EXCEPTION
-    WHEN object_not_in_prerequisite_state THEN
-      NULL;
-END;
+    AS $$
+
+DECLARE
+
+    award_period integer;
+
+BEGIN
+
+    select system_status_award_period into award_period from epmms_system_status;
+
+    update epmms_system_status set system_status_award_period=currval('award_period');
+
+    insert into epmms_log(log_category,log_source,log_operate,log_target,log_value,log_user,log_status)
+
+    select 'finance','奖金','结算',min(award_info.memberinfo_account),sum(s.award_period_sum_currency),min(award_info.memberinfo_account),0
+
+    from epmms_award_period_sum as s,epmms_memberinfo as award_info
+
+    where s.award_period_sum_period>award_period and award_info.memberinfo_id=s.award_period_sum_memberinfo_id
+
+    group by s.award_period_sum_memberinfo_id,s.award_period_sum_type;
+
+    
+
+    EXCEPTION
+
+    WHEN object_not_in_prerequisite_state THEN
+
+      NULL;
+
+END;
+
 $$;
 
 
@@ -12548,17 +13591,28 @@ ALTER FUNCTION public.gen_recommend_relation(my_id integer, parent_id integer) O
 
 CREATE FUNCTION public.gen_sum_config() RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    truncate table epmms_sum_config;
-    alter SEQUENCE epmms_sum_config_sum_config_id_seq restart;
-    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'period' from epmms_sum_type;
-    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'day' from epmms_sum_type;
-    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'week' from epmms_sum_type;
-    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'month' from epmms_sum_type;
-    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'year' from epmms_sum_type;
-    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'total' from epmms_sum_type;
-END;
+    AS $$
+
+BEGIN
+
+    truncate table epmms_sum_config;
+
+    alter SEQUENCE epmms_sum_config_sum_config_id_seq restart;
+
+    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'period' from epmms_sum_type;
+
+    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'day' from epmms_sum_type;
+
+    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'week' from epmms_sum_type;
+
+    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'month' from epmms_sum_type;
+
+    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'year' from epmms_sum_type;
+
+    insert into epmms_sum_config(sum_type_id,sum_config_date) select sum_type_id,'total' from epmms_sum_type;
+
+END;
+
 $$;
 
 
@@ -12689,10 +13743,14 @@ ALTER FUNCTION public.get_config_award(award_type integer, member_money numeric)
 
 CREATE FUNCTION public.get_date_period(date1 date, date2 date, days integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-	return (date2-date1)/days;
-END;
+    AS $$
+
+BEGIN
+
+	return (date2-date1)/days;
+
+END;
+
 $$;
 
 
@@ -12903,18 +13961,30 @@ ALTER FUNCTION public.get_l_under_product_count2(member_id integer) OWNER TO pos
 
 CREATE FUNCTION public.get_l_under_product_count90(member_id integer, member_order integer, pair2 integer DEFAULT 1) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  ret_count integer:=0;
-BEGIN
-  if member_order=1 then
-     select left_product_count into ret_count from epmms_memberstatus where status_id=member_id;
-  end if;
-  if member_order=2 then
-     select right_product_count into ret_count from epmms_memberstatus where status_id=member_id;
-  end if;
-  return ret_count/pair2;
-END;
+    AS $$
+
+DECLARE
+
+  ret_count integer:=0;
+
+BEGIN
+
+  if member_order=1 then
+
+     select left_product_count into ret_count from epmms_memberstatus where status_id=member_id;
+
+  end if;
+
+  if member_order=2 then
+
+     select right_product_count into ret_count from epmms_memberstatus where status_id=member_id;
+
+  end if;
+
+  return ret_count/pair2;
+
+END;
+
 $$;
 
 
@@ -12953,15 +14023,24 @@ ALTER FUNCTION public.get_l_under_product_count_charge(member_id integer) OWNER 
 
 CREATE FUNCTION public.get_l_under_product_count_date(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  left_product_count integer;
-  right_product_count integer;
-BEGIN
-  perform reset_product_count(member_id);
-  select left_product_count2,right_product_count2 into left_product_count,right_product_count from epmms_memberstatus where status_id=member_id;
-  return least(COALESCE(left_product_count,0),COALESCE(right_product_count,0));
-END;
+    AS $$
+
+DECLARE
+
+  left_product_count integer;
+
+  right_product_count integer;
+
+BEGIN
+
+  perform reset_product_count(member_id);
+
+  select left_product_count2,right_product_count2 into left_product_count,right_product_count from epmms_memberstatus where status_id=member_id;
+
+  return least(COALESCE(left_product_count,0),COALESCE(right_product_count,0));
+
+END;
+
 $$;
 
 
@@ -12973,14 +14052,22 @@ ALTER FUNCTION public.get_l_under_product_count_date(member_id integer) OWNER TO
 
 CREATE FUNCTION public.get_l_under_product_count_date2(member_id integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  left_product_count integer;
-  right_product_count integer;
-BEGIN
-  select left_product_count3,right_product_count3 into left_product_count,right_product_count from epmms_memberstatus where status_id=member_id;
-  return least(COALESCE(left_product_count,0),COALESCE(right_product_count,0));
-END;
+    AS $$
+
+DECLARE
+
+  left_product_count integer;
+
+  right_product_count integer;
+
+BEGIN
+
+  select left_product_count3,right_product_count3 into left_product_count,right_product_count from epmms_memberstatus where status_id=member_id;
+
+  return least(COALESCE(left_product_count,0),COALESCE(right_product_count,0));
+
+END;
+
 $$;
 
 
@@ -13234,21 +14321,36 @@ ALTER FUNCTION public.get_order_under_product_count3(member_id integer, member_o
 
 CREATE FUNCTION public.get_order_under_product_count_date(member_id integer, member_order integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  left_product_count integer;
-  right_product_count integer;
-BEGIN
-  perform reset_product_count(member_id);
- 
-  select left_product_count2,right_product_count2 into left_product_count,right_product_count from epmms_memberstatus where status_id=member_id;
-  
-  if member_order=1 then
-  	return left_product_count;
-  else
-  	return right_product_count;
-  end if;
-END;
+    AS $$
+
+DECLARE
+
+  left_product_count integer;
+
+  right_product_count integer;
+
+BEGIN
+
+  perform reset_product_count(member_id);
+
+ 
+
+  select left_product_count2,right_product_count2 into left_product_count,right_product_count from epmms_memberstatus where status_id=member_id;
+
+  
+
+  if member_order=1 then
+
+  	return left_product_count;
+
+  else
+
+  	return right_product_count;
+
+  end if;
+
+END;
+
 $$;
 
 
@@ -13260,19 +14362,32 @@ ALTER FUNCTION public.get_order_under_product_count_date(member_id integer, memb
 
 CREATE FUNCTION public.get_order_under_product_count_date2(member_id integer, member_order integer) RETURNS integer
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-  left_product_count integer;
-  right_product_count integer;
-BEGIN
-  select left_product_count3,right_product_count3 into left_product_count,right_product_count from epmms_memberstatus ;
-  
-  if member_order=1 then
-  	return left_product_count;
-  else
-  	return right_product_count;
-  end if;
-END;
+    AS $$
+
+DECLARE
+
+  left_product_count integer;
+
+  right_product_count integer;
+
+BEGIN
+
+  select left_product_count3,right_product_count3 into left_product_count,right_product_count from epmms_memberstatus ;
+
+  
+
+  if member_order=1 then
+
+  	return left_product_count;
+
+  else
+
+  	return right_product_count;
+
+  end if;
+
+END;
+
 $$;
 
 
@@ -13997,21 +15112,36 @@ ALTER FUNCTION public.reg7200(award_type integer, award_period integer) OWNER TO
 
 CREATE FUNCTION public.reset_product_count(member_id integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-	my_date date;
-    member_date date;
-BEGIN
-	select count2_date into my_date from epmms_memberstatus where status_id=member_id;
-    if my_date is null then
-    	return;
-    end if;
-    select membermap_verify_date into member_date from epmms_membermap where membermap_id=member_id;
-	if get_date_period(member_date,my_date,get_config_award(612)::integer)<>get_date_period(member_date,current_date,get_config_award(612)::integer) then
-    	update epmms_memberstatus set left_product_count2=0,right_product_count2=0,count2_date=current_date where status_id=member_id;
-    end if;
-    return;
-END;
+    AS $$
+
+DECLARE
+
+	my_date date;
+
+    member_date date;
+
+BEGIN
+
+	select count2_date into my_date from epmms_memberstatus where status_id=member_id;
+
+    if my_date is null then
+
+    	return;
+
+    end if;
+
+    select membermap_verify_date into member_date from epmms_membermap where membermap_id=member_id;
+
+	if get_date_period(member_date,my_date,get_config_award(612)::integer)<>get_date_period(member_date,current_date,get_config_award(612)::integer) then
+
+    	update epmms_memberstatus set left_product_count2=0,right_product_count2=0,count2_date=current_date where status_id=member_id;
+
+    end if;
+
+    return;
+
+END;
+
 $$;
 
 
@@ -14377,16 +15507,26 @@ ALTER FUNCTION public.update_left_right_product_count(member_id integer, my_path
 
 CREATE FUNCTION public.update_left_right_product_count2(member_id integer, my_path text, product_count integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-  perform reset_product_count(member_id);
-  update  epmms_memberstatus  set left_product_count2=left_product_count2+iif(get_loc(my_path,p.membermap_path)=1,product_count,0)
-  ,right_product_count2=right_product_count2+iif(get_loc(my_path,p.membermap_path)=2,product_count,0)
-  from epmms_parent_relation as pr,epmms_membermap as p
-  where pr.parent_relation_member_id=member_id
-  and status_id=pr.parent_relation_upper_id
-  and p.membermap_id=pr.parent_relation_upper_id;
-END;
+    AS $$
+
+BEGIN
+
+  perform reset_product_count(member_id);
+
+  update  epmms_memberstatus  set left_product_count2=left_product_count2+iif(get_loc(my_path,p.membermap_path)=1,product_count,0)
+
+  ,right_product_count2=right_product_count2+iif(get_loc(my_path,p.membermap_path)=2,product_count,0)
+
+  from epmms_parent_relation as pr,epmms_membermap as p
+
+  where pr.parent_relation_member_id=member_id
+
+  and status_id=pr.parent_relation_upper_id
+
+  and p.membermap_id=pr.parent_relation_upper_id;
+
+END;
+
 $$;
 
 
@@ -14398,15 +15538,24 @@ ALTER FUNCTION public.update_left_right_product_count2(member_id integer, my_pat
 
 CREATE FUNCTION public.update_left_right_product_count3(member_id integer, my_path text, product_count integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-  update  epmms_memberstatus  set left_product_count3=left_product_count3+iif(get_loc(my_path,p.membermap_path)=1,product_count,0)
-  ,right_product_count3=right_product_count3+iif(get_loc(my_path,p.membermap_path)=2,product_count,0)
-  from epmms_parent_relation as pr,epmms_membermap as p
-  where pr.parent_relation_member_id=member_id
-  and status_id=pr.parent_relation_upper_id
-  and p.membermap_id=pr.parent_relation_upper_id;
-END;
+    AS $$
+
+BEGIN
+
+  update  epmms_memberstatus  set left_product_count3=left_product_count3+iif(get_loc(my_path,p.membermap_path)=1,product_count,0)
+
+  ,right_product_count3=right_product_count3+iif(get_loc(my_path,p.membermap_path)=2,product_count,0)
+
+  from epmms_parent_relation as pr,epmms_membermap as p
+
+  where pr.parent_relation_member_id=member_id
+
+  and status_id=pr.parent_relation_upper_id
+
+  and p.membermap_id=pr.parent_relation_upper_id;
+
+END;
+
 $$;
 
 

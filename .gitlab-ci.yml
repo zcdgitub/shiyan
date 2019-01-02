@@ -123,7 +123,7 @@ deploy_db_server:
     refs:
       - master
     changes:
-      - db/*.bak
+      - db/*.sql
   script:
     - set -x 
     - dbexist=$(ssh root@$CI_DEPLOY_SERVER "psql -U postgres -l -A -t|grep CI_DEPLOY_DBNAME|cut -f 1 -d '|'")
@@ -135,7 +135,7 @@ deploy_db_server:
      && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "export PGPASSWORD=${dbpasswd} \
      && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
-     && pg_restore -h localhost -U $CI_DEPLOY_DBNAME  -O -e -1 --disable-triggers -d $CI_DEPLOY_DBNAME $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.bak \
+     && psql -h localhost -U $CI_DEPLOY_DBNAME -d $CI_DEPLOY_DBNAME -f $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.sql \
      && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" /etc/postgresql/10/main/pg_hba.conf" \
      && echo "${dbpasswd}">dbpasswd.txt \
      ; echo "create and import database"
@@ -149,7 +149,7 @@ deploy_db_test:
     refs:
       - dev
     changes:
-      - db/*.bak
+      - db/*.sql
   script:
     - set -x 
     - dbexist=$(ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -u postgres pgsql psql -l -A -t|grep CI_DEPLOY_DBNAME|cut -f 1 -d '|'")
@@ -160,7 +160,7 @@ deploy_db_test:
      && echo -e "dbuser:$CI_DEPLOY_DBNAME\r\ndbpassword:${dbpasswd}\r\ndbname:$CI_DEPLOY_DBNAME"> "${CI_DEPLOY_DBNAME}-db.txt" \
      && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -e PGHOST=localhost -e PGUSER=${CI_DEPLOY_DBNAME} -e PGPASSWORD=${dbpasswd} pgsql sh -c 'createdb  $CI_DEPLOY_DBNAME \
-     && pg_restore -O -e -1 --disable-triggers -d $CI_DEPLOY_DBNAME $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.bak \
+     && psql -d $CI_DEPLOY_DBNAME -f $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.sql \
      && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
      && echo "${dbpasswd}">dbpasswd.txt \
      ; echo "create and import database"
