@@ -1,0 +1,441 @@
+@CHARSET "UTF-8";
+.lang_select
+{
+	float:right;
+	z-index:10;
+	position:absolute;
+	right:0px;
+}
+html,body
+{
+	height:100%;
+}
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial,Helvetica,sans-serif,宋体;
+	background: white;
+	font-size:14px;
+}
+.items a,.items a:visited{
+    color: #06c;
+    text-decoration: none;
+}
+.items a:hover{
+    color: #f00;
+    text-decoration: none;
+}
+.items li span{
+    height: 30px;
+    line-height: 26px;
+    border-bottom: 1px solid #ccc;
+}
+.items tr th{
+    height: 36px;
+    
+}
+.items .odd td{
+    height:36px;
+    text-align: center;
+
+}
+.items .even td{
+    height:36px;
+    text-align: center;
+
+}
+/*底部边框 */
+.form .row.bottom{
+    border-bottom: 1px solid #ccc;
+}
+.form{
+    font-size: 14px;
+}
+#page
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: white;
+	border: 1px solid #C9E0ED;
+}
+
+#header
+{
+	margin: 0;
+	padding: 0;
+	border-top: 3px solid #C9E0ED;
+}
+
+#content 
+{
+	/* 注意这个红色的高度：页脚内容总高度(字体大小,行距,padding等) 避免覆盖#content的文字*/
+	margin:0 auto;
+	width:85%;
+	float:left;
+	padding: 10px;
+}
+.config-form
+{
+	/* 注意这个红色的高度：页脚内容总高度(字体大小,行距,padding等) 避免覆盖#content的文字*/
+	margin:0 auto;
+	float:left;
+	padding: 20px;
+    width:85%;
+}
+#sidebar
+{
+	padding: 10px 10px 10px 0;
+	float:left;
+	width:10%;
+}
+h1
+{
+	text-align:center;
+}
+#footer {
+	background-color: #ccc;
+	width: 100%;
+	height:50px;
+	margin:0;
+	padding:3px 0px 0px 0px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+}
+#logo
+{
+	padding: 10px 20px;
+	font-size: 24px;
+    color:#fff;
+}
+
+#mainmenu
+{
+	background:url(bg.gif) repeat-x left top;
+}
+
+#mainmenu ul
+{
+	padding:6px 20px 5px 20px;
+	margin:0px;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+}
+
+#mainmenu ul li a
+{
+	color:#ffffff;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	color: #6399cd;
+	background-color:#EFF4FA;
+	text-decoration:none;
+}
+
+div.flash-error, div.flash-notice, div.flash-success
+{
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+}
+
+div.flash-error
+{
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+}
+
+div.flash-notice
+{
+	background:#FFF6BF;
+	color:#514721;
+	border-color:#FFD324;
+}
+
+div.flash-success
+{
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+
+div.flash-error a
+{
+	color:#8a1f11;
+}
+
+div.flash-notice a
+{
+	color:#514721;
+}
+
+div.flash-success a
+{
+	color:#264409;
+}
+
+div.form .rememberMe label
+{
+	display: inline;
+}
+
+div.breadcrumbs
+{
+	font-size: 0.9em;
+	padding: 5px 20px;
+	text-align:left;
+}
+
+div.breadcrumbs span
+{
+	font-weight: bold;
+}
+
+div.search-form
+{
+	padding: 10px;
+	margin: 10px 0;
+	background: #eee;
+    text-align:left;
+}
+
+.portlet
+{
+
+}
+
+.portlet-decoration
+{
+	padding: 3px 8px;
+	background: #B7D6E7;
+	border-left: 5px solid #6FACCF;
+}
+
+.portlet-title
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	color: #298dcd;
+}
+
+.portlet-content
+{
+	font-size:0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	background:#EFFDFF;
+}
+
+.portlet-content ul
+{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet-content li
+{
+	padding: 2px 0 4px 0px;
+}
+
+.operations
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.operations li
+{
+	padding-bottom: 2px;
+}
+
+.operations li a
+{
+	font: bold 12px Arial;
+	color: #0066A4;
+	display: block;
+	padding: 2px 0 2px 8px;
+	line-height: 15px;
+	text-decoration: none;
+}
+
+.operations li a:visited
+{
+	color: #0066A4;
+}
+
+.operations li a:hover
+{
+	background: #80CFFF;
+}
+.container, .ep-container
+{
+	min-height:100%;
+	height: 100% !important;
+	position: relative;
+	margin-left:0px;
+}
+.ep-container
+{
+	width:100%;
+}
+
+div.form
+{
+	text-align:center;
+}
+table.form
+{
+	margin:0 auto;
+	width:100%;
+    border-collapse:collapse;
+}
+table.form.tr td.over {
+    background: none repeat scroll 0 0 #FFF7D6;
+}
+table.form .row .title
+{
+	text-align:right;
+	width:30%;
+	font-size:14px;
+	border:1px solid #ccc;
+}
+table.form .row .value
+{
+	text-align:left;
+	width:30%;
+	height:45px;
+	border:1px solid #ccc;
+	padding-left:4px;
+}
+table.form .row .value input{ width:200px; }
+table.config .row .value input {
+    width:auto;
+}
+table.form .row .error,table.form .row .hint
+{
+	text-align:left;
+	border:1px solid #ccc;
+	padding-left:4px;
+	/*width:335px;*/
+}
+table.form tr.row:hover {
+    background: none repeat scroll 0 0 #ECFBD4;
+}
+div.epview
+{
+	margin: 0px auto;
+	width:100%;
+	background:#E5F1F4;
+	border: 1px dotted #CCCCCC;
+}
+div.helpview
+{
+    margin: 0px auto;
+    width:100%;
+    border: 1px dotted #CCCCCC;
+    word-break:break-all;
+}
+div.view
+{
+	margin: 10px 10px;
+	/*float:left;*/
+	border-top: 1px dotted #CCCCCC;
+}
+.viewtable
+{
+	margin:0px 0px;
+}
+.viewtable .title
+{
+	text-align:right;
+	border-right:1px solid white;
+}
+.viewtable .value
+{
+	text-align:left;
+	border-left:1px solid white;
+}
+table.viewtable tr.odd 
+{
+    background: none repeat scroll 0 0 #E5F1F4;
+}
+table.viewtable tr.even 
+{
+    background: none repeat scroll 0 0 #F8F8F8;
+}
+
+/*修复jquery datagrid问题*/
+.datagrid table{margin:0;width:auto;}
+#orders-form .value,#orders-form .title
+{
+    text-align:center
+}
+.ui-spinner
+{
+    margin:auto auto;
+}
+#orders-form table tr th,#orders-form table tr td
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.detail-view .odd{
+    height: 26px;
+}
+.detail-view .even{
+    height: 26px;
+}
+/*搜索表单样式*/
+.filters input{ width: 100px;}
+table.map
+{
+    border-collapse:collapse;
+    border-spacing:0px;
+    height:10px;
+    width:100%;
+    margin:0px;
+}
+table.map tr th,table.map tr td
+{
+    border-width: 1px;
+    border-style: solid;
+    margin:0 px;
+    border-color:#808080;
+    text-align: center;
+}
+a.orgmap_reg_link
+{
+    font-size:20px;;
+    height: 3em;
+    line-height:3em;
+    overflow: hidden;
+}
+.grid-view table.items thead tr th
+{
+    background: url("../images/bg.gif") repeat-x scroll left top white !important;
+    height: 50px;
+    white-space:nowrap;
+}
+

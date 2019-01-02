@@ -1,0 +1,179 @@
+cache:
+  paths:
+    - builds
+    - dbpasswd.txt
+stages:
+  - db
+  - build
+  - deploy
+  - web
+build_php:
+  stage: build
+  script:
+    - set -x 
+    - dbpasswd=$(cat dbpasswd.txt)
+    - [ -f dbpasswd.txt ] && sed -i "s/^.*password.*$/\t'password' => '${dbpasswd}',/" webroot/protected/config/db.php ; echo "skip rewrite db password" \
+    - [ -f dbpasswd.txt ] && sed -i "s/^.*username.*$/\t'username' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "skip rewrite db username" \
+    - [ -f dbpasswd.txt ] && sed -i "s/^.*database.*$/\t'database' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "skip rewrite db name" \
+    - [ -f dbpasswd.txt ] && sed -i "s/^.*connectionString.*$/\t'connectionString' => 'pgsql:host=localhost;port=5432;dbname=${CI_DEPLOY_DBNAME};application_name=ep_web',/" webroot/protected/config/db.php ; echo "skip rewrite db name" \
+    - mkdir -p ${CI_BEAST_DST}
+    - git diff --name-only HEAD~ >build-files.lst
+    - cat build-files.lst
+    - php encode_file.php --olddir $CI_BEAST_SRC --newdir $CI_BEAST_DST --expire $CI_BEAST_EXPIRE --encrypt $CI_BEAST_ENCRYPT_TYPE
+  variables:
+    CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
+deploy_php:
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    - set -x 
+    - cd builds && tar -czf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
+    - ssh root@$CI_DEPLOY_SERVER "mkdir -p $CI_DEPLOY_PATH"
+    - scp -qB $CI_PROJECT_PATH_SLUG.tar.gz root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/
+    - |
+     ssh root@$CI_DEPLOY_SERVER " \
+     cd $CI_DEPLOY_PATH \
+     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && \rm $CI_PROJECT_PATH_SLUG.tar.gz" \
+     && \rm -rf ${CI_BEAST_DST}
+  variables:
+    CI_DEPLOY_PATH: /var/www
+    CI_DEPLOY_SERVER: 123.254.105.104
+  environment:
+    name: product
+    url: web.youtuoweb.com
+deploy_apache:
+  stage: web
+  only:
+    changes:
+      - .gitlab-ci.yml
+    refs:
+      - master
+  script:
+    - set -x 
+    - |
+     ssh root@$CI_DEPLOY_SERVER " \
+     cd /etc/apache2/sites-available \
+     && [ ! -e ${CI_PROJECT_PATH_SLUG}.conf ] \
+     && sed 's/epmms-template/${CI_PROJECT_PATH_SLUG}/g'  epmms-template.conf>${CI_PROJECT_PATH_SLUG}.conf \
+     && sed -i 's/^\s*ServerName\s\+.*$/\tServerName $CI_ENVIRONMENT_URL/' ${CI_PROJECT_PATH_SLUG}.conf \
+     && cd ../sites-enabled \
+     && ln -sf ../sites-available/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
+     && apachectl graceful"
+  variables:
+    CI_DEPLOY_PATH: /var/www
+    CI_DEPLOY_SERVER: 123.254.105.104
+  environment:
+    name: product
+    url: web.youtuoweb.com
+test_php:
+  stage: deploy
+  only:
+    refs:
+      - dev
+  script:
+    - set -x 
+    - cd builds && tar -czf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
+    - ssh root@$CI_DEPLOY_SERVER "mkdir -p $CI_DEPLOY_PATH"
+    - scp -qB $CI_PROJECT_PATH_SLUG.tar.gz root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/
+    - |
+     ssh root@$CI_DEPLOY_SERVER " \
+     cd $CI_DEPLOY_PATH \
+     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && \rm $CI_PROJECT_PATH_SLUG.tar.gz"
+  variables:
+    CI_DEPLOY_PATH: /opt/web/data/web/www
+    CI_DEPLOY_SERVER: web.youtuoweb.com
+    CI_WEB_PORT: 1000
+  environment:
+    name: test
+    url: web.youtuoweb.com
+deploy_nginx:
+  stage: web
+  only:
+    changes:
+      - .gitlab-ci.yml
+    refs:
+      - dev
+  script:
+    - set -x 
+    - |
+     ssh root@$CI_DEPLOY_SERVER " \
+     cd /opt/web/data/web/nginx/sites-available \
+     && [ ! -e ${CI_PROJECT_PATH_SLUG}.conf ] \
+     && sed 's/epmms-template/${CI_PROJECT_PATH_SLUG}/g'  epmms-template.conf>${CI_PROJECT_PATH_SLUG}.conf \
+     && sed -i 's/^\s*server_name\s\+.*$/\tserver_name $CI_ENVIRONMENT_URL/' ${CI_PROJECT_PATH_SLUG}.conf \
+     && sed -i 's/^\s*root\s\+.*$/\troot ${CI_PROJECT_PATH_SLUG}/' ${CI_PROJECT_PATH_SLUG}.conf \
+     && cd ../sites-enabled \
+     && ln -sf ../sites-avaialble/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
+     && cd /opt/web/ \
+     && docker-compose exec web nginx -s reload"
+  variables:
+    CI_DEPLOY_PATH: /opt/web/data/web/www
+    CI_DEPLOY_SERVER: web.youtuoweb.com
+  environment:
+    name: test
+    url: web.youtuoweb.com
+.init_db:
+  stage: db
+  only:
+    changes:
+      - db/*.bak
+  script:
+    - set -x 
+    - dbexist=$(ssh root@$CI_DEPLOY_SERVER "psql -U postgres -l -A -t|grep CI_DEPLOY_DBNAME|cut -f 1 -d '|'")
+    - |
+     [ -f "db/${CI_DEPLOY_DBNAME}.bak" -a -z "$dbexist" ] \
+     && dbpasswd=$(openssl rand -base64 18) \
+     && ssh root@$CI_DEPLOY_SERVER "psql -U postgres -c \"create user $CI_DEPLOY_DBNAME with CREATEDB LOGIN password '${dbpasswd}';\"" \
+     && echo -e "dbuser:$CI_PROJECT_PATH_SLUG\r\ndbpassword:${dbpasswd}\r\ndbname:$CI_DEPLOY_DBNAME"> "${CI_DEPLOY_DBNAME}-db.txt" \
+     && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
+     && ssh root@$CI_DEPLOY_SERVER "export PGPASSWORD=${dbpasswd} \
+     && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
+     && pg_restore -h localhost -U $CI_DEPLOY_DBNAME  -O -e -1 --disable-triggers -Fc -d $CI_DEPLOY_DBNAME $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.bak \
+     && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" /etc/postgresql/10/main/pg_hba.conf" \
+     && echo "${dbpasswd}">dbpasswd.txt
+  variables:
+    CI_DEPLOY_PATH: /opt/web/data/web/www
+    CI_DEPLOY_SERVER: web.youtuoweb.com
+    CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
+deploy_db_server:
+  extends: .init_db
+  only:
+    refs:
+      - master
+  variables:
+    CI_DEPLOY_PATH: /var/www
+    CI_DEPLOY_SERVER: 123.254.105.104
+deploy_db_test:
+  extends: .init_db
+  only:
+    refs:
+      - dev
+  script:
+    - set -x 
+    - dbexist=$(ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -u postgres pgsql psql -l -A -t|grep CI_DEPLOY_DBNAME|cut -f 1 -d '|'")
+    - |
+     [ -f "db/${CI_DEPLOY_DBNAME}.bak" -a -z "$dbexist" ] \
+     && dbpasswd=$(openssl rand -base64 18) \
+     && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -u postgres pgsql psql -c \"create user $CI_DEPLOY_DBNAME with CREATEDB LOGIN password '${dbpasswd}';\"" \
+     && echo -e "dbuser:$CI_DEPLOY_DBNAME\r\ndbpassword:${dbpasswd}\r\ndbname:$CI_DEPLOY_DBNAME"> "${CI_DEPLOY_DBNAME}-db.txt" \
+     && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
+     && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -e PGHOST=localhost -e PGUSER=${CI_DEPLOY_DBNAME} -e PGPASSWORD=${dbpasswd} pgsql sh -c 'createdb  $CI_DEPLOY_DBNAME \
+     && pg_restore -O -e -1 --disable-triggers -Fc -d $CI_DEPLOY_DBNAME $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.bak \
+     && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
+     && echo "${dbpasswd}">dbpasswd.txt
+  variables:
+    CI_DOCKER_PATH: /opt/web
+    CI_DEPLOY_PATH: /opt/web/data/pgsql/bak
+    CI_PG_BAK_PATH: /var/lib/postgresql/bak
+    CI_DEPLOY_SERVER: web.youtuoweb.com
+    CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
+variables:
+  CI_BEAST_ENCRYPT_TYPE: AES
+  CI_BEAST_EXPIRE: 0
+  CI_BEAST_SRC: .
+  CI_BEAST_DST: ./builds/$CI_PROJECT_PATH_SLUG
+  CI_DEPLOY_PATH: /var/www

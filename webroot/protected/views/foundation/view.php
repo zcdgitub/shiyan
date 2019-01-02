@@ -1,0 +1,35 @@
+<?php
+/* @var $this FoundationController */
+/* @var $model Foundation */
+
+$this->breadcrumbs=array(
+	t('epmms',$model->modelName)=>array('index'),
+	$model->showName,
+);
+
+$this->menu=array(
+	array('label'=>t('epmms','浏览') . t('epmms',$model->modelName), 'url'=>array('list')),
+	array('label'=>t('epmms','添加') . t('epmms',$model->modelName), 'url'=>array('create')),
+	array('label'=>t('epmms','修改') . t('epmms',$model->modelName), 'url'=>array('update', 'id'=>$model->foundation_id)),
+	array('label'=>t('epmms','删除') . t('epmms',$model->modelName), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->foundation_id),'confirm'=>t('epmms','你确定要删除吗?'))),
+	array('label'=>t('epmms','管理') . t('epmms',$model->modelName), 'url'=>array('index')),
+);
+?>
+
+<h1><?php echo t('epmms','查看') . t('epmms',$model->modelName) . ' #' . $model->showName; ?></h1>
+<div class="epview">
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'nullDisplay'=>'',	
+	'attributes'=>array(
+		array('class'=>'RelationDataColumn','name'=>'foundationMember.memberinfo_account'),
+		'foundation_currency',
+		'foundation_tax',
+		'foundation_real_currency',
+		'foundation_reamrk',
+		array('name'=>'foundation_is_verify','type'=>'verify'),
+		'foundation_add_date',
+		'foundation_verify_date',
+	),
+)); ?>
+</div>
