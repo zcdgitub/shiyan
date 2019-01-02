@@ -118,10 +118,9 @@ deploy_nginx:
      cd /opt/web/data/web/nginx/sites-available \
      && [ ! -e ${CI_PROJECT_PATH_SLUG}.conf ] \
      && sed 's/epmms-template/${CI_PROJECT_PATH_SLUG}/g'  epmms-template.conf>${CI_PROJECT_PATH_SLUG}.conf \
-     && sed -i 's/^\s*server_name\s\+.*$/\tserver_name $CI_ENVIRONMENT_URL/' ${CI_PROJECT_PATH_SLUG}.conf \
-     && sed -i 's/^\s*root\s\+.*$/\troot ${CI_PROJECT_PATH_SLUG}/' ${CI_PROJECT_PATH_SLUG}.conf \
+     && sed -i 's/^\s*server_name\s\+.*$/\tserver_name $CI_ENVIRONMENT_URL;/' ${CI_PROJECT_PATH_SLUG}.conf \
      && cd ../sites-enabled \
-     && ln -sf ../sites-avaialble/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
+     && ln -sf ../sites-available/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
      && cd /opt/web/ \
      && docker-compose exec web nginx -s reload"
   variables:

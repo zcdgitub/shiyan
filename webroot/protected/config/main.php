@@ -172,10 +172,12 @@ return array(
 		'sessionCache' => array(
 			'class' => 'CRedisCache',
 			'keyPrefix'=>'session_',
+            'hostname'=>'redis',
 			'database'=>1,
 		),
 		'cache' => array(
 			'class' => 'CRedisCache',
+			'hostname'=>'redis',
 			'database'=>0,
 			//'keyPrefix'=>'cache'
 		),
