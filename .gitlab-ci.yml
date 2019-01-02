@@ -12,10 +12,11 @@ build_php:
   script:
     - set -x 
     - dbpasswd=$(cat dbpasswd.txt)
-    - [ -f dbpasswd.txt ] && sed -i "s/^.*password.*$/\t'password' => '${dbpasswd}',/" webroot/protected/config/db.php ; echo "skip rewrite db password" \
-    - [ -f dbpasswd.txt ] && sed -i "s/^.*username.*$/\t'username' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "skip rewrite db username" \
-    - [ -f dbpasswd.txt ] && sed -i "s/^.*database.*$/\t'database' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "skip rewrite db name" \
-    - [ -f dbpasswd.txt ] && sed -i "s/^.*connectionString.*$/\t'connectionString' => 'pgsql:host=localhost;port=5432;dbname=${CI_DEPLOY_DBNAME};application_name=ep_web',/" webroot/protected/config/db.php ; echo "skip rewrite db name" \
+    - |
+     [ -f dbpasswd.txt ] && sed -i "s/^.*password.*$/\t'password' => '${dbpasswd}',/" webroot/protected/config/db.php ; echo "rewrite db password"
+     [ -f dbpasswd.txt ] && sed -i "s/^.*username.*$/\t'username' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "rewrite db username"
+     [ -f dbpasswd.txt ] && sed -i "s/^.*database.*$/\t'database' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "skip rewrite db name"
+     [ -f dbpasswd.txt ] && sed -i "s/^.*connectionString.*$/\t'connectionString' => 'pgsql:host=localhost;port=5432;dbname=${CI_DEPLOY_DBNAME};application_name=ep_web',/" webroot/protected/config/db.php ; echo "rewrite db name"
     - mkdir -p ${CI_BEAST_DST}
     - git diff --name-only HEAD~ >build-files.lst
     - cat build-files.lst
