@@ -99,6 +99,7 @@ test_php:
      ssh root@$CI_DEPLOY_SERVER " \
      cd $CI_DEPLOY_PATH \
      && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
      && \rm $CI_PROJECT_PATH_SLUG.tar.gz"
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
