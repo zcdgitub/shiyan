@@ -143,6 +143,7 @@ deploy_db_server:
     CI_DEPLOY_SERVER: 123.254.105.104
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
 deploy_db_test:
+  stage: db
   only:
     refs:
       - dev
