@@ -143,6 +143,9 @@ deploy_db_server:
     CI_DEPLOY_PATH: /var/www
     CI_DEPLOY_SERVER: 123.254.105.104
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
+  artifacts:
+    paths:
+      - dbpasswd.txt
 deploy_db_test:
   stage: db
   only:
@@ -170,6 +173,9 @@ deploy_db_test:
     CI_PG_BAK_PATH: /var/lib/postgresql/bak
     CI_DEPLOY_SERVER: web.youtuoweb.com
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
+  artifacts:
+    paths:
+      - dbpasswd.txt
 variables:
   CI_BEAST_ENCRYPT_TYPE: AES
   CI_BEAST_EXPIRE: 0
