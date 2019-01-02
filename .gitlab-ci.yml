@@ -4,11 +4,15 @@ cache:
     - dbpasswd.txt
 stages:
   - db
+  - dbpasswd
   - build
   - deploy
   - web
-build_php:
-  stage: build
+dbpasswd_php:
+  stage: dbpasswd
+  only:
+    changes:
+      - webroot/protected/config/db.php
   script:
     - set -x 
     - dbpasswd=$(cat dbpasswd.txt)
@@ -17,9 +21,19 @@ build_php:
      [ -f dbpasswd.txt ] && sed -i "s/^.*username.*$/\t'username' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "rewrite db username"
      [ -f dbpasswd.txt ] && sed -i "s/^.*database.*$/\t'database' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php  ; echo "skip rewrite db name"
      [ -f dbpasswd.txt ] && sed -i "s/^.*connectionString.*$/\t'connectionString' => 'pgsql:host=localhost;port=5432;dbname=${CI_DEPLOY_DBNAME};application_name=ep_web',/" webroot/protected/config/db.php ; echo "rewrite db name"
+  variables:
+    CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
+  artifacts:
+    paths:
+      - webroot/protected/config/db.php
+build_php:
+  stage: build
+  script:
+    - set -x 
     - mkdir -p ${CI_BEAST_DST}
     - git diff --name-only HEAD~ >build-files.lst
     - cat build-files.lst
+    - tree
     - encode_file.php --olddir $CI_BEAST_SRC --newdir $CI_BEAST_DST --expire $CI_BEAST_EXPIRE --encrypt $CI_BEAST_ENCRYPT_TYPE
   variables:
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
