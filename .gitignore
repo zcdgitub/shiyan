@@ -2,7 +2,6 @@
 *.bak
 *.txt
 *.psd
-db/**
 todo/**
 db_backup/**
 webroot/assets/**
