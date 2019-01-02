@@ -32,10 +32,7 @@ build_php:
     - set -x 
     - mkdir -p ${CI_BEAST_DST}
     - |
-     $CI_BUILD_ALL && git ls-files>build-files.lst || git diff --name-only HEAD~ >build-files.lst
-    - cat build-files.lst
-    - ls webroot
-    - ls builds
+     [ $CI_BUILD_ALL ] && git ls-files>build-files.lst || git diff --name-only HEAD~ >build-files.lst
     - encode_file.php --olddir $CI_BEAST_SRC --newdir $CI_BEAST_DST --expire $CI_BEAST_EXPIRE --encrypt $CI_BEAST_ENCRYPT_TYPE
   variables:
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
