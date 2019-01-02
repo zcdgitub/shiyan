@@ -51,6 +51,7 @@ deploy_php:
      ssh root@$CI_DEPLOY_SERVER " \
      cd $CI_DEPLOY_PATH \
      && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && chown -R www-data:www-data $CI_PROJECT_PATH_SLUG \
      && \rm $CI_PROJECT_PATH_SLUG.tar.gz" \
      && \rm -rf ${CI_BEAST_DST}
   variables:
@@ -123,7 +124,8 @@ deploy_nginx:
      && cd ../sites-enabled \
      && ln -sf ../sites-available/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
      && cd /opt/web/ \
-     && docker-compose exec web nginx -s reload"
+     && docker-compose exec web nginx -s reload \
+     || echo 'skip deploy nginx'"
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
@@ -176,7 +178,7 @@ deploy_db_test:
      && psql -d $CI_DEPLOY_DBNAME -f $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.sql \
      && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
      && echo "${dbpasswd}">dbpasswd.txt \
-     ; echo "create and import database"
+     || echo "skip create and import database"
   variables:
     CI_DOCKER_PATH: /opt/web
     CI_DEPLOY_PATH: /opt/web/data/pgsql/bak
