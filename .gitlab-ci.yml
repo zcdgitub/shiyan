@@ -128,11 +128,11 @@ deploy_db_server:
     - set -x 
     - dbexist=$(ssh root@$CI_DEPLOY_SERVER "psql -U postgres -l -A -t|grep CI_DEPLOY_DBNAME|cut -f 1 -d '|'")
     - |
-     [ -f "db/${CI_DEPLOY_DBNAME}.bak" -a -z "$dbexist" ] \
+     [ -f "db/${CI_DEPLOY_DBNAME}.sql" -a -z "$dbexist" ] \
      && dbpasswd=$(openssl rand -base64 18) \
      && ssh root@$CI_DEPLOY_SERVER "psql -U postgres -c \"create user $CI_DEPLOY_DBNAME with CREATEDB LOGIN password '${dbpasswd}';\"" \
      && echo -e "dbuser:$CI_PROJECT_PATH_SLUG\r\ndbpassword:${dbpasswd}\r\ndbname:$CI_DEPLOY_DBNAME"> "${CI_DEPLOY_DBNAME}-db.txt" \
-     && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
+     && scp -qB db/${CI_DEPLOY_DBNAME}.sql root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "export PGPASSWORD=${dbpasswd} \
      && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
      && psql -h localhost -U $CI_DEPLOY_DBNAME -d $CI_DEPLOY_DBNAME -f $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.sql \
@@ -143,9 +143,6 @@ deploy_db_server:
     CI_DEPLOY_PATH: /var/www
     CI_DEPLOY_SERVER: 123.254.105.104
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
-  artifacts:
-    paths:
-      - dbpasswd.txt
 deploy_db_test:
   stage: db
   only:
@@ -157,11 +154,11 @@ deploy_db_test:
     - set -x 
     - dbexist=$(ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -u postgres pgsql psql -l -A -t|grep CI_DEPLOY_DBNAME|cut -f 1 -d '|'")
     - |
-     [ -f "db/${CI_DEPLOY_DBNAME}.bak" -a -z "$dbexist" ] \
+     [ -f "db/${CI_DEPLOY_DBNAME}.sql" -a -z "$dbexist" ] \
      && dbpasswd=$(openssl rand -base64 18) \
      && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -u postgres pgsql psql -c \"create user $CI_DEPLOY_DBNAME with CREATEDB LOGIN password '${dbpasswd}';\"" \
      && echo -e "dbuser:$CI_DEPLOY_DBNAME\r\ndbpassword:${dbpasswd}\r\ndbname:$CI_DEPLOY_DBNAME"> "${CI_DEPLOY_DBNAME}-db.txt" \
-     && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
+     && scp -qB db/${CI_DEPLOY_DBNAME}.sql root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -e PGHOST=localhost -e PGUSER=${CI_DEPLOY_DBNAME} -e PGPASSWORD=${dbpasswd} pgsql sh -c 'createdb  $CI_DEPLOY_DBNAME \
      && psql -d $CI_DEPLOY_DBNAME -f $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.sql \
      && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
@@ -173,9 +170,6 @@ deploy_db_test:
     CI_PG_BAK_PATH: /var/lib/postgresql/bak
     CI_DEPLOY_SERVER: web.youtuoweb.com
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
-  artifacts:
-    paths:
-      - dbpasswd.txt
 variables:
   CI_BEAST_ENCRYPT_TYPE: AES
   CI_BEAST_EXPIRE: 0
