@@ -1,5 +1,5 @@
 <?php
-//test9
+//test10
 ini_set('date.timezone','Asia/Shanghai');
 mb_internal_encoding("UTF-8");
 // remove the following lines when in production mode
