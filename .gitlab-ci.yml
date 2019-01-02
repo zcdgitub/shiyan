@@ -135,7 +135,7 @@ deploy_db_server:
      && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "export PGPASSWORD=${dbpasswd} \
      && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
-     && pg_restore -h localhost -U $CI_DEPLOY_DBNAME  -O -e -1 --disable-triggers -Fc -d $CI_DEPLOY_DBNAME $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.bak \
+     && pg_restore -h localhost -U $CI_DEPLOY_DBNAME  -O -e -1 --disable-triggers -d $CI_DEPLOY_DBNAME $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.bak \
      && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" /etc/postgresql/10/main/pg_hba.conf" \
      && echo "${dbpasswd}">dbpasswd.txt
   variables:
@@ -159,7 +159,7 @@ deploy_db_test:
      && echo -e "dbuser:$CI_DEPLOY_DBNAME\r\ndbpassword:${dbpasswd}\r\ndbname:$CI_DEPLOY_DBNAME"> "${CI_DEPLOY_DBNAME}-db.txt" \
      && scp -qB db/${CI_DEPLOY_DBNAME}.bak root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -e PGHOST=localhost -e PGUSER=${CI_DEPLOY_DBNAME} -e PGPASSWORD=${dbpasswd} pgsql sh -c 'createdb  $CI_DEPLOY_DBNAME \
-     && pg_restore -O -e -1 --disable-triggers -Fc -d $CI_DEPLOY_DBNAME $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.bak \
+     && pg_restore -O -e -1 --disable-triggers -d $CI_DEPLOY_DBNAME $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.bak \
      && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
      && echo "${dbpasswd}">dbpasswd.txt
   variables:
