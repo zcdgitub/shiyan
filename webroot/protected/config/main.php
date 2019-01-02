@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__) . DIRECTORY_SEPARATOR .'..'  ,
 	'name'=>'易软市场管理系统',
-	'id'=>'181127',
+	'id'=>'181225',
 	'language'=>'zh_cn',
 	'sourceLanguage'=>'zh_cn',
 	'theme'=>'classic',

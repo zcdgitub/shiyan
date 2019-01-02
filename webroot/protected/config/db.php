@@ -7,12 +7,12 @@
  * To change this template use File | Settings | File Templates.
  */
 return array(
-	'database'=>'yii27',
-	'host'=>'127.0.0.1',
+	'database'=>'epmms_181225',
+	'host'=>'pgsql',
 	'port'=>5432,
 	'dump_cmd'=>'pg_dump',
 	'restore_cmd'=>'pg_restore',
-	'connectionString' => 'pgsql:host=127.0.0.1;port=5432;dbname=yii27',
+	'connectionString' => 'pgsql:host=pgsql;port=5432;dbname=epmms_181225',
 	'emulatePrepare' => true,
 	'username' => 'postgres',
 	'password' => 'root',
