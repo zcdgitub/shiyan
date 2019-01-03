@@ -15,7 +15,7 @@ return array(
 	'connectionString' => 'pgsql:host=pgsql;port=5432;dbname=epmms_181225;application_name=ep_web',
 	'emulatePrepare' => true,
 	'username' => 'epmms_181225',
-	'password' => 'yn9DR+i0lBQNrYMX70DSbVxj',
+	'password' => 'yi8jt1uBx4Wfb1HBeDe8Ph3j',
 	'charset' => 'utf8',
 	'tablePrefix'=>'epmms_',
 	'pdoClass' => 'NestedPDO',
