@@ -32,6 +32,7 @@ build_php:
   script:
     - set -x 
     - mkdir -p ${CI_BEAST_DST}
+    - rm -rf ${CI_BEAST_DST}/*
     - |
      [ $CI_BUILD_ALL ] && git ls-files>build-files.lst || git diff --name-only HEAD~ >build-files.lst
      cat build-files.lst
