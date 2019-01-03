@@ -40,5 +40,6 @@ Thumbs.db
 db_backup/*
 webroot/assets/*
 webroot/protected/runtime/*
+.idea/*
 !.gitignore
 !.gitkeep
