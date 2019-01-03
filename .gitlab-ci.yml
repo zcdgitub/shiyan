@@ -105,7 +105,6 @@ test_php:
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
-    CI_WEB_PORT: 8001
   environment:
     name: test
     url: web.youtuoweb.com
@@ -123,6 +122,7 @@ deploy_nginx:
      cd /opt/web/data/web/nginx/sites-available \
      && [ ! -e ${CI_PROJECT_PATH_SLUG}.conf ] \
      && sed 's/epmms-template/${CI_PROJECT_PATH_SLUG}/g'  epmms-template.conf>${CI_PROJECT_PATH_SLUG}.conf \
+     && sed -i 's/^\s*listen\s\+.*$/\tlisten $CI_WEB_PORT;/' ${CI_PROJECT_PATH_SLUG}.conf \
      && sed -i 's/^\s*server_name\s\+.*$/\tserver_name $CI_ENVIRONMENT_URL;/' ${CI_PROJECT_PATH_SLUG}.conf \
      && cd ../sites-enabled \
      && ln -sf ../sites-available/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
@@ -132,6 +132,7 @@ deploy_nginx:
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
+    CI_WEB_PORT: 8001
   environment:
     name: test
     url: web.youtuoweb.com
