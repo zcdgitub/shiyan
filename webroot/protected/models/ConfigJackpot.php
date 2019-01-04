@@ -38,9 +38,9 @@ class ConfigJackpot extends Model
 		// will receive user inputs.
 		return array(
 			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'filter','filter'=>array($this,'empty2null')),
-			array('config_jackpot_fund, config_jackpot_start_time, config_jackpot_end_time ,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'required'),
+			array('config_jackpot_fund, config_jackpot_start_time,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'required'),
 //			array('config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'numerical', 'integerOnly'=>true),
-        
+
 			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund ,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'ext.validators.Decimal','precision'=>16,'scale'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
