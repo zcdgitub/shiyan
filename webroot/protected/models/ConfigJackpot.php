@@ -39,6 +39,7 @@ class ConfigJackpot extends Model
 		return array(
 			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'filter','filter'=>array($this,'empty2null')),
 			array('config_jackpot_fund, config_jackpot_start_time,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'required'),
+
 //			array('config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'numerical', 'integerOnly'=>true),
 
 			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund ,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'ext.validators.Decimal','precision'=>16,'scale'=>4),
