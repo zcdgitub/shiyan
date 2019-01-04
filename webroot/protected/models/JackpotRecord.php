@@ -55,7 +55,7 @@ class JackpotRecord extends Model
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'jackpot' => array(Model::BELONGS_TO, 'Memberinfo', 'jackpot_member_id1'),
+            'jackpot' => array(Model::BELONGS_TO, 'Memberinfo', 'jackpot_member_id'),
         );
     }
 
