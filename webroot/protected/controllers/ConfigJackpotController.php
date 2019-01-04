@@ -80,12 +80,11 @@ class ConfigJackpotController extends Controller
 		// 如果需要AJAX验证反注释下面一行
 		// $this->performAjaxValidation($model);
         $model->config_jackpot_start_time = date('Y-m-d H:i:s',$model->config_jackpot_start_time);
-        $model->config_jackpot_end_time   = $model->config_jackpot_start_time + 86400;
 		if(isset($_POST['ConfigJackpot']))
 		{
 			$model->attributes=$_POST['ConfigJackpot'];
 			$model->config_jackpot_start_time = strtotime($_POST['ConfigJackpot']['config_jackpot_start_time']);
-			$model->config_jackpot_end_time   = strtotime($_POST['ConfigJackpot']['config_jackpot_end_time']);
+			$model->config_jackpot_end_time   = $model->config_jackpot_start_time +86400;
 			$this->log['target']=$model->config_jackpot_id;
 			if($model->save(true,array('config_jackpot_start_balance','config_jackpot_lucky_balance','config_jackpot_end_balance','config_jackpot_fund','config_jackpot_start_order_ratio','config_jackpot_lucky_order_ratio','config_jackpot_end_order_ratio','config_jackpot_start_time','config_jackpot_end_time')))
 			{

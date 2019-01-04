@@ -55,6 +55,7 @@ class JackpotCommand extends CConsoleCommand
             ]);
 //           var_dump($data);exit;
 //            $data = array('12312','1313',13123,2222,1,2,3,5,4,10,121,11);
+            $data =  array('1321');
             if(!empty($data)){
                 switch (count($data)){
                     case 1:  // 尾单奖池
