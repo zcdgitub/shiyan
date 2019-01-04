@@ -58,7 +58,6 @@ class JackpotRecord extends Model
             'jackpot' => array(Model::BELONGS_TO, 'Memberinfo', 'jackpot_member_id'),
         );
     }
-
     /**
      * @return array customized attribute labels (name=>label)
      */
