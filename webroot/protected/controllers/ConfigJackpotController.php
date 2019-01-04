@@ -75,8 +75,9 @@ class ConfigJackpotController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+        var_dump(131);exit;
 		$model=$this->loadModel($id);
-		var_dump(131);exit;
+
 		$model->scenario='update';
 		// 如果需要AJAX验证反注释下面一行
 		// $this->performAjaxValidation($model);
