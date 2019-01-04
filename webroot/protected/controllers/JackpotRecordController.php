@@ -162,7 +162,6 @@ class JackpotRecordController extends Controller
                 $model->jackpot->attributes=$_GET['JackpotRecord']['jackpot'];
 
         }
-
         $this->render('index',array(
             'model'=>$model,
             'selTab'=>(int)$selTab

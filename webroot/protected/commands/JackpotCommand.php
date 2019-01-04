@@ -60,7 +60,8 @@ class JackpotCommand extends CConsoleCommand
                 switch (count($data)){
                     case 1:  // 尾单奖池
                         // 获奖人增加奖金
-                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,2);
+//                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,2);
+                        $this->addEndJackpot(1,$model->config_jackpot_end_balance,$startTime,$endTime,3,2);
                         // 奖池奖金为10000 * 比例 + 上期首单+幸运奖池 余额比例
                         $sumMoney =  $model->config_jackpot_start_balance + $model->config_jackpot_lucky_balance;
                         break;
@@ -161,6 +162,7 @@ class JackpotCommand extends CConsoleCommand
      */
     public function addJackpotRecord($uid,$money,$type,$startTime,$endTime){
         $jackpot = new JackpotRecord();
+        $jackpot->jackpot_id = 2;
         $jackpot->jackpot_member_id  = $uid;
         $jackpot->jackpot_money      = $money;
         $jackpot->jackpot_type       = $type;
@@ -174,6 +176,7 @@ class JackpotCommand extends CConsoleCommand
      * 添加尾单获奖记录并增加获奖者余额
      */
     public function addEndJackpot($uid,$money,$startTime,$endTime,$type,$group){
+        $uid = 1;
         $transaction=webapp()->db->beginTransaction();
         try{
             // 增加奖池获奖者记录
