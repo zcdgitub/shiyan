@@ -75,7 +75,6 @@ class ConfigJackpotController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-        var_dump(131);exit;
 		$model=$this->loadModel($id);
 
 		$model->scenario='update';
