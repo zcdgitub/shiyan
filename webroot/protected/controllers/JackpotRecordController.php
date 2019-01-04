@@ -146,6 +146,7 @@ class JackpotRecordController extends Controller
 	 */
 	public function actionIndex($selTab=0)
 	{
+	    var_dump(123123);exit;
 		$model=new JackpotRecord('search');
 		$model->unsetAttributes();  // clear any default values
 		$model->jackpot=new Memberinfo('search');
