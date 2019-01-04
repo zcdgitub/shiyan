@@ -82,6 +82,7 @@ class ConfigJackpotController extends Controller
         $model->config_jackpot_start_time = date('Y-m-d H:i:s',$model->config_jackpot_start_time);
 		if(isset($_POST['ConfigJackpot']))
 		{
+		    
 			$model->attributes=$_POST['ConfigJackpot'];
 			$model->config_jackpot_start_time = strtotime($_POST['ConfigJackpot']['config_jackpot_start_time']);
 			$model->config_jackpot_end_time   = $model->config_jackpot_start_time +86400;
