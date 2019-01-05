@@ -151,6 +151,7 @@ class ConfigJackpotController extends Controller
 	{
         header('Content-Type: application/json');
         $model = $this->loadModel(1);
+        $model->config_jackpot_start_time = time();
         echo CJSON::encode($model);
 
         webapp()->end();
