@@ -22,6 +22,7 @@ class Agent extends Model
 {
 	public $modelName='报单中心';
 	public $nameColumn='agentTitle';
+	public $password2;
 	protected $_agentTitle;
 	/**
 	 * Returns the static model of the specified AR class.
@@ -71,6 +72,8 @@ class Agent extends Model
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('agent_id, agent_memberinfo_id, agent_memo, agent_is_verify, agent_add_date, agent_verify_date', 'safe', 'on'=>'search'),
+			array('password2', 'ext.validators.Password'),
+            array('password2', 'ext.validators.TradePassword', 'allowEmpty'=>true),
 		);
 	}
 

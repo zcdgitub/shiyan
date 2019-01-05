@@ -175,7 +175,7 @@ class MemberinfoController extends Controller
                             //太阳线，自动分配位置
                             $parents = Membermap::model()->findByPk($model->membermap->membermap_recommend_id);
                       
-                            $parent=Membermap::model()->find(['order'=>' membermap_verify_seq asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);     
+                            $parent=Membermap::model()->find(['order'=>'membermap_layer,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);     
                             $model->membermap->membermap_parent_id=$parent->membermap_id;                           
                         }
                      

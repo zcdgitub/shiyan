@@ -110,51 +110,61 @@ class AgentController extends Controller
 		
 		if(isset($_POST['Agent']))
 		{
-			echo 3;
-			
-			/*echo"<Pre>";
-			var_dump($_POST['Agent']);
-			die;*/
+
 			$model->attributes=$_POST['Agent'];
 			$model->agent_memberinfo_id=user()->id;
-			$this->log['target']=user()->name;
-			if($model->agent_type==1)
-			{
-				$model->agent_area=null;
-				$model->agent_county=null;
-			}
-			else if($model->agent_type==2)
-			{
-				$model->agent_county=null;
-			}
+			if($model->validate()){
+				$this->log['target']=user()->name;
+				if($model->agent_type==1)
+				{
+					$model->agent_area=null;
+					$model->agent_county=null;
+				}
+				else if($model->agent_type==2)
+				{
+					$model->agent_county=null;
+				}
 
-			if($model->save(false,array('agent_memberinfo_id','agent_memo','agent_is_verify','agent_add_date','agent_verify_date','agent_type','agent_province','agent_area','agent_county','agent_account')))
-			{
-				$this->log['status']=LogFilter::SUCCESS;
-				$this->log();
-                if (webapp()->request->isAjaxRequest)
-                {
-                    header('Content-Type: application/json');
-                    $data['success'] = true;
-                    $data['agent'] = $model->toArray();
-                    echo CJSON::encode($data);
-                    webapp()->end();
-                }
-				$this->redirect(array('register'));
-			}
-			else
-			{
+				if($model->save(false,array('agent_memberinfo_id','agent_memo','agent_is_verify','agent_add_date','agent_verify_date','agent_type','agent_province','agent_area','agent_county','agent_account')))
+				{
+					$this->log['status']=LogFilter::SUCCESS;
+					$this->log();
+	                if (webapp()->request->isAjaxRequest)
+	                {
+	                    header('Content-Type: application/json');
+	                    $data['success'] = true;
+	                    $data['agent'] = $model->toArray();
+	                    echo CJSON::encode($data);
+	                    webapp()->end();
+	                }
+					$this->redirect(array('register'));
+				}
+				else
+				{
+					$this->log['status']=LogFilter::FAILED;
+					$this->log();
+	                if (webapp()->request->isAjaxRequest)
+	                {
+	                    header('Content-Type: application/json');
+	                    if ($model->getErrors())
+	                        $data = $model->getErrors();
+	                    $data['success']=false;
+	                    echo CJSON::encode($data);
+	                    webapp()->end();
+	                }
+				}
+			}else{
 				$this->log['status']=LogFilter::FAILED;
-				$this->log();
-                if (webapp()->request->isAjaxRequest)
+				user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
+                if(webapp()->request->isAjaxRequest)
                 {
                     header('Content-Type: application/json');
-                    if ($model->getErrors())
-                        $data = $model->getErrors();
+                    $data['msg']=$model->getErrors();
                     $data['success']=false;
                     echo CJSON::encode($data);
-                    webapp()->end();
+                    return;
                 }
+		 	
 			}
 		}
 
