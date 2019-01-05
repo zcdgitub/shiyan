@@ -150,7 +150,6 @@ class JackpotCommand extends CConsoleCommand
         }
         $transaction->commit();
     }
-
     /**添加 奖池获奖记录
      * @param $uid
      * @param $money
