@@ -152,7 +152,7 @@ class ConfigJackpotController extends Controller
         header('Content-Type: application/json');
         $model = $this->loadModel(1);
         echo CJSON::encode($model);
-        
+
         webapp()->end();
         if(webapp()->request->isAjaxRequest){
             header('Content-Type: application/json');

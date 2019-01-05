@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1><?php echo t('epmms','修改') . t('epmms',$model->modelName) . ' #' . $model->showName; ?></h1>
+<h1><?php echo  t('epmms',$model->modelName)?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
