@@ -153,8 +153,9 @@ class JackpotRecordController extends Controller
         if(isset($_GET['JackpotRecord']))
         {
             $model->attributes=$_GET['JackpotRecord'];
-            $model->startTime = ltrim($_GET['JackpotRecord']['jackpot_start_time'],'>');
-            $model->endTime = ltrim($_GET['JackpotRecord']['jackpot_end_time'],'>');
+
+            $model->startTime = ltrim($model->jackpot_start_time,'>');
+            $model->endTime = ltrim($model->jackpot_end_time,'>');
             $model->jackpot_start_time = ">=".strtotime($model->startTime);
             $model->jackpot_end_time   = ">=".strtotime($model->endTime);
 

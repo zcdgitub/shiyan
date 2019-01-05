@@ -41,26 +41,6 @@ $form=$this->beginWidget('ActiveForm', array(
 		<td class="hint"></td>
 	</tr>
 
-	<tr class="row">
-		<td class="title">
-			<?php echo $form->label($model,'jackpot_start_time'); ?>
-		</td>
-		<td class="value">
-			<?php echo $form->textField($model,'jackpot_start_time'); ?>
-		</td>
-		<td class="hint"></td>
-	</tr>
-
-	<tr class="row">
-		<td class="title">
-			<?php echo $form->label($model,'jackpot_end_time'); ?>
-		</td>
-		<td class="value">
-			<?php echo $form->textField($model,'jackpot_end_time'); ?>
-		</td>
-		<td class="hint"></td>
-	</tr>
-
 </table>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton(t('epmms','搜索')); ?>
