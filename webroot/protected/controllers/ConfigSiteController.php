@@ -30,7 +30,7 @@ class ConfigSiteController extends Controller
 	{
 
 		$model=ConfigSite::model()->find();
-
+    
 		$model->scenario='update';
 		// 如果需要AJAX验证反注释下面一行
 		// $this->performAjaxValidation($model);
@@ -40,6 +40,7 @@ class ConfigSiteController extends Controller
 			
 			webapp()->cache->set('updateConfig',webapp()->cache->get('updateConfig')+1);
 			$model->attributes=$_POST['ConfigSite'];
+		
 			$model->save();
 			if((int)$model->config_site_deny_robots===0)
 			{
