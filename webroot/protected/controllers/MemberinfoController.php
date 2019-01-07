@@ -178,10 +178,19 @@ class MemberinfoController extends Controller
                         {  
 
                             //太阳线，自动分配位置
-                            $parents = Membermap::model()->findByPk($model->membermap->membermap_recommend_id);
-                      
-                            $parent=Membermap::model()->find(['order'=>'membermap_layer,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);     
-                            $model->membermap->membermap_parent_id=$parent->membermap_id;                           
+                            $res=Membermap::model()->find('membermap_order='.$_POST['Membermap']['membermap_order'].'and membermap_parent_id='.$parents->membermap_id); 
+                            if($res){        
+                                if($_POST['Membermap']['membermap_order']==1){
+                                    $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);    
+                                }else{
+                               
+                                    $parent=Membermap::model()->find(['order'=>'membermap_path desc','condition'=>"membermap_child_number<2   and membermap_path like '$parents->membermap_path%'"]);     
+                                }
+                                    $model->membermap->membermap_parent_id=$parent->membermap_id;                           
+                            } else{
+
+                                    $model->membermap->membermap_parent_id=$parents->membermap_id;
+                            }                      
                         }
                      
                     }
@@ -1216,8 +1225,13 @@ public function actionUpdateName($id=null){
 	 */
 	public function actionVerify($id)
 	{
-
+        
 		$model=$this->loadModel($id);
+        if(isset($_POST['Membermap'])){
+          
+            $model->membermap->membermap_membertype_level=$_POST['Membermap']['membermap_membertype_level'];
+            $model->membermap->save(true,'membermap_membertype_level');
+        }
 
        /* echo"<Pre>";
         var_dump($model);
