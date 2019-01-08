@@ -1241,6 +1241,10 @@ public function actionUpdateName($id=null){
 		if(($status=$model->verify())===EError::SUCCESS)
 		{
 			$this->log['status']=LogFilter::SUCCESS;
+             if($model->membermap->membermap_membertype_level==2){
+                 $jackpotModel = new ConfigJackpot();
+                 $jackpotModel->updateJackpot();
+            }
 			user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
 		}
 		elseif($status===EError::DUPLICATE)
