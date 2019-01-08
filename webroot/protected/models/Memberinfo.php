@@ -442,7 +442,7 @@ class Memberinfo extends Model
 	{
 
 
-        var_dump(1111);exit;
+
 		if($this->memberinfo_is_verify==0 || $verifyType==8)
 		{
 			if($verifyType==1 && webapp()->id!='150608')
