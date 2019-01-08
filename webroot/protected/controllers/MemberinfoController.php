@@ -178,6 +178,7 @@ class MemberinfoController extends Controller
                         {  
 
                             //太阳线，自动分配位置
+                            $parents = Membermap::model()->findByPk($model->membermap->membermap_recommend_id);
                             $res=Membermap::model()->find('membermap_order='.$_POST['Membermap']['membermap_order'].'and membermap_parent_id='.$parents->membermap_id); 
                             if($res){        
                                 if($_POST['Membermap']['membermap_order']==1){

@@ -117,7 +117,7 @@ class Membermap extends Model
 				'allowEmpty'=>false,'except'=>'root'),
 			array('membermap_parent_id', 'ext.validators.Exist', 'className'=>'Membermap','attributeName'=>'membermap_id',
 				'allowEmpty'=>true,'criteria'=>['condition'=>'membermap_is_verify=1'],'except'=>'root'),
-			array('membermap_order','ext.validators.ExistArea','except'=>'root'),
+			//array('membermap_order','ext.validators.ExistArea','except'=>'root'),
 			array('membermap_agent_id', 'ext.validators.Exist', 'className'=>'Membermap',
 				'attributeName'=>'membermap_id','allowEmpty'=>true,
 				'criteria'=>['condition'=>'membermap_is_verify=1 and membermap_is_agent=1'],'except'=>'root'),

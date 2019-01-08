@@ -39,13 +39,9 @@ class ExistArea extends CValidator
 	 */
 	protected function validateAttribute($object,$attribute)
 	{
-
-	
 		$value=$object->$attribute;
-		
 		if($this->isEmpty($value))
 			return;
-		
 		$member_id=$object->membermap_parent_id;
 		$message=t('epmms','未正确填写接点人');
 		// if(is_null($member_id))
@@ -92,24 +88,17 @@ class ExistArea extends CValidator
 			}
 			return;
 		}
-		// $member=Membermap::model()->findByPk($member_id);
-		// // if(is_null($member))
-		// // {
-		// // 	$this->addError($object,$attribute,$message);
-		// // 	return;
-		// // }
-		// $parents = Membermap::model()->findByPk($object->membermap_recommend_id);
-	
-		
-              
-  //       $parent=Membermap::model()->find(['order'=>'membermap_verify_seq asc ','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);
-
-		// if(Membermap::model()->exists('membermap_order=:order and membermap_parent_id=:id',[':order'=>$value,'id'=>$parent->membermap_id]))
-		// {
-
-		// 	$message=t('epmms','该位置已有人，请选择其它位置或接点人。');
-		// 	$this->addError($object,$attribute,$message);
-		// 	return;
-		// }
+		$member=Membermap::model()->findByPk($member_id);
+		if(is_null($member))
+		{
+			$this->addError($object,$attribute,$message);
+			return;
+		}
+		if(Membermap::model()->exists('membermap_order=:order and membermap_parent_id=:id',[':order'=>$value,'id'=>$member_id]))
+		{
+			$message=t('epmms','该位置已有人，请选择其它位置或接点人。');
+			$this->addError($object,$attribute,$message);
+			return;
+		}
 	}
 }
