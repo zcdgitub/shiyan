@@ -91,7 +91,8 @@ class JackpotRecord extends Model
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $sort=new Sort('JackpotRecord');
-        $sort->defaultOrder=array('jackpot_id'=>Sort::SORT_ASC);
+//        $sort->defaultOrder=array('jackpot_id'=>Sort::SORT_ASC);
+        $sort->defaultOrder=array('jackpot_end_time'=>Sort::SORT_DESC);
         $criteria=new CDbCriteria;
 
         $criteria->compare('jackpot_id',$this->jackpot_id);
