@@ -40,7 +40,7 @@ class JackpotCommand extends CConsoleCommand
         $model  = (new ConfigJackpot())->findByPk(1);
         $startTime = $model->config_jackpot_start_time;
         $endTime   = $model->config_jackpot_end_time;
-        if($endTime <= time()){
+        if($endTime-1 <= time()){
 //        if(true){
             $fundMoney = 10000;   // 扣除发展基金
             $model->config_jackpot_fund      -= $fundMoney;
