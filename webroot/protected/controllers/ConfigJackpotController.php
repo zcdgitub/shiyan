@@ -84,7 +84,7 @@ class ConfigJackpotController extends Controller
 		{
 			$model->attributes=$_POST['ConfigJackpot'];
 			$model->config_jackpot_start_time = strtotime($_POST['ConfigJackpot']['config_jackpot_start_time']);
-			$model->config_jackpot_end_time   = $model->config_jackpot_start_time +86400;
+			$model->config_jackpot_end_time   = $model->config_jackpot_start_time +180;
 			$this->log['target']=$model->config_jackpot_id;
 			if($model->save(true,array('config_jackpot_start_balance','config_jackpot_lucky_balance','config_jackpot_end_balance','config_jackpot_fund','config_jackpot_start_order_ratio','config_jackpot_lucky_order_ratio','config_jackpot_end_order_ratio','config_jackpot_start_time','config_jackpot_end_time')))
 			{
