@@ -53,7 +53,7 @@ class JackpotCommand extends CConsoleCommand
                 'condition' => "member_upgrade_type = 2 and member_upgrade_add_date >='".date('Y-m-d H:i:s',$startTime)."' and member_upgrade_add_date <='".date('Y-m-d H:i:s',$endTime)."' and member_upgrade_is_verify = 1",
                 'order' => 'member_upgrade_add_date asc',
             ]);
-//            $data  = array(1);
+            $data  = array(1);
 //            $data = array('12312','1313',13123,2222,1,2,3,5,4,10,121,11);
             if(!empty($data)){
                 switch (count($data)){
