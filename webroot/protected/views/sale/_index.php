@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 
 <h1><?php echo t('epmms','管理') . t('epmms',$model->modelName)?></h1>
 
-<p>
+<p style="display:none;">
 <?php echo t('epmms','你可以输入一个比较运算符 ');?>(<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 <?php echo t('epmms','或者');?> <b>=</b>) <?php echo t('epmms','在每个搜索值的前面来指定怎么匹配搜索结果。');?>
 </p>
@@ -41,14 +41,19 @@ array('class'=>'DataColumn','value'=>'$row+1','header'=>t('epmms','序号'),'htm
 	array('class'=>'RelationDataColumn','name'=>'saleMember.memberinfo_account'),
 	'sale_currency',
 	'sale_date',
-	'sale_money',
+	//'sale_money',
 	'sale_remain_currency',
 	['name'=>'sale_status','type'=>'saleStatus'],
+    ['name'=>'sale_type','type'=>'tradeType'],
 	//'sale_verify_date',
 	array(
 	'class'=>'ButtonColumn',
 	'template'=>'{view}',
 	),
+    'update'=>array(
+        'class'=>'ButtonColumn',
+        'template'=>'{update}',
+    ),
 	'del'=>array(
 	'class'=>'ButtonColumn',
 	'template'=>'{delete}',
@@ -64,7 +69,8 @@ switch($selTab)
 		break;
 	//处理每种标签的特殊情况
 	case 1:
-		unset($columns['del']);
+	    unset($columns['del']);
+        unset($columns['update']);
 		break;
 }
 $this->widget('GridView', array(

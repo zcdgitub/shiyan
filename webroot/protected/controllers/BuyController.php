@@ -14,9 +14,9 @@ class BuyController extends Controller
 	public function filters()
 	{
 		return array(
+            'cors',
 			'rights', // rights rbac filter
 			'postOnly + delete', // 只能通过POST请求删除
-			'cors',
 			//'authentic + update,create,delete',//需要二级密码
 		);
 	}
@@ -38,66 +38,90 @@ class BuyController extends Controller
 	 */
 	public function actionCreate()
 	{
+		if(isset($_POST['Buy']))
+		{
+            $old_Sale=$_POST['Buy'];
+			if(user()->isAdmin())
+			{
+				$_POST['Buy']['buy_member_id']=Memberinfo::name2id(@$_POST['Buy']['buy_member_id']);
+			}
+			else
+			{
+				$_POST['Buy']['buy_member_id']=user()->id;
+			}
+		}
 		$model=new Buy('create');
 		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Buy']))
-		{
-			$model->attributes=$_POST['Buy'];
-			$model->buy_member_id=user()->id;
-			$model->buy_date=new CDbExpression("now()");
-			$model->buy_money=$model->buy_currency*getAwardConfig(351);
-			$model->buy_tax=$model->buy_currency*getAwardConfig(359)/100.0;
-			$model->buy_real_currency=$model->buy_tax+$model->buy_currency;
-			$model->buy_status=0;
-			$this->log['target']=$model->buy_id;
-			if($model->validate()){
-				$transaction=webapp()->db->beginTransaction();
-				if($model->save(true,array('buy_member_id','buy_currency','buy_date','buy_money','buy_status','buy_tax','buy_real_currency')) && $model->verify())
-				{
-					$this->log['status']=LogFilter::SUCCESS;
-					$this->log();
-					$transaction->commit();
-					user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
-					if (webapp()->request->isAjaxRequest)
-		                {
-		                    header('Content-Type: application/json');
-		                    $data['success'] = true;
-		                    $data['buy'] = $model->toArray();
-		                    echo CJSON::encode($data);
-		                    webapp()->end();
-		                }
-					$this->redirect(array('deal/index'));
-				}
-				else
-				{
-					$transaction->rollback();
-					$this->log['status']=LogFilter::FAILED;
-					$this->log();
-					user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
-					if (webapp()->request->isAjaxRequest)
-		                {
-		                    header('Content-Type: application/json');
-		                     $data['msg']=$model->getErrors();
-	                        $data['success']=false;
-		                    echo CJSON::encode($data);
-		                    webapp()->end();
-		                }
-				}
-			}else{
-		 	  $this->log['status']=LogFilter::FAILED;
-				user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
-                if(webapp()->request->isAjaxRequest)
+        {
+            $model->attributes = $_POST['Buy'];
+            $model->buy_date = new CDbExpression("now()");
+            $model->buy_money = $model->buy_currency;
+            $model->buy_real_currency = $model->buy_currency;
+            $model->buy_remain_currency=$model->buy_currency;
+            $model->buy_status = 0;
+            $this->log['target'] = $model->buy_id;
+            $transaction = webapp()->db->beginTransaction();
+            try
+            {
+                if ($model->validate() && $model->save(true, array('buy_member_id', 'buy_currency', 'buy_date', 'buy_money', 'buy_status', 'buy_tax', 'buy_real_currency', 'buy_type','buy_remain_currency')) && $model->verify())
+                {
+                    $this->log['status'] = LogFilter::SUCCESS;
+                    $this->log();
+                    $transaction->commit();
+                    user()->setFlash('success', "{$this->actionName}" . t('epmms', "成功"));
+                    if (webapp()->request->isAjaxRequest)
+                    {
+                        header('Content-Type: application/json');
+                        if (user()->hasFlash('success'))
+                        {
+                            $data['success'] = user()->getFlash('success', '成功', true);
+                            $data['buy'] = $model->toArray();
+                        }
+                        echo CJSON::encode($data);
+                        webapp()->end();
+                    }
+                    if (user()->isAdmin())
+                        $this->redirect(array('buy/index'));
+                    $this->redirect(array('deal/index'));
+                } else
+                {
+                    $transaction->rollback();
+                    $this->log['status'] = LogFilter::FAILED;
+                    $this->log();
+                    user()->setFlash('error', "{$this->actionName}" . t('epmms', "失败"));
+                    if (webapp()->request->isAjaxRequest)
+                    {
+                        header('Content-Type: application/json');
+                        if ($model->getErrors())
+                            $data = $model->getErrors();
+                        elseif (user()->hasFlash('error'))
+                        {
+                            $data['error'] = user()->getFlash('error', '失败', true);
+                        }
+                        echo CJSON::encode($data);
+                        webapp()->end();
+                    }
+                }
+            } catch (Exception $e)
+            {
+                if (webapp()->request->isAjaxRequest)
                 {
                     header('Content-Type: application/json');
-                    $data['msg']=$model->getErrors();
-                    $data['success']=false;
+                    $data['error'] = user()->getFlash('error', $e->getMessage(), true);
                     echo CJSON::encode($data);
-                    return;
+                    webapp()->end();
+                } else
+                {
+                    user()->setFlash('error', $e->getMessage());
                 }
-		 	}
-		}
-
+            }
+        }
+        if(isset($old_Sale))
+        {
+            //$model->attributes = $old_Sale;
+        }
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -118,7 +142,7 @@ class BuyController extends Controller
 		{
 			$model->attributes=$_POST['Buy'];
 			$this->log['target']=$model->buy_id;
-			if($model->save(true,array('buy_member_id','buy_currency','buy_date','buy_money','buy_status','buy_tax','buy_real_currency')))
+			if($model->save(true,array('buy_date')))
 			{
 				$this->log['status']=LogFilter::SUCCESS;
 				$this->log();
@@ -145,7 +169,14 @@ class BuyController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$model=$this->loadModel($id);
+        $model=$this->loadModel($id);
+	    if(!user()->isAdmin())
+        {
+            if($model->buy_member_id!=user()->id)
+            {
+                throw new HttpException('页面不存在',404);
+            }
+        }
 		$this->log['target']=$model->showName;
 		if($model->delete())
 		{
@@ -159,7 +190,16 @@ class BuyController extends Controller
 			$this->log();
 			user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
 		}
-
+        if(webapp()->request->isAjaxRequest)
+        {
+            header('Content-Type: application/json');
+            if(user()->hasFlash('success'))
+                $data['success']=true;
+            if(user()->hasFlash('error'))
+                $data['success']=false;
+            echo CJSON::encode($data);
+            return;
+        }
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
@@ -179,7 +219,7 @@ class BuyController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionIndex($selTab=0)
+	public function actionIndex($selTab=0,$all=0)
 	{
 		$model=new Buy('search');
 		$model->unsetAttributes();  // clear any default values
@@ -190,9 +230,27 @@ class BuyController extends Controller
 			$model->attributes=$_GET['Buy'];
 			if(isset($_GET['Buy']['buyMember']))
 				$model->buyMember->attributes=$_GET['Buy']['buyMember'];
-			
 		}
-
+		if($all==0 && !user()->isAdmin())
+		{
+			$model->buy_member_id=user()->id;
+		}
+        if($selTab==0)
+        {
+            $model->buy_status="<=1";
+        }
+        elseif($selTab==1)
+        {
+            $model->buy_status=2;
+        }
+        if(webapp()->request->isAjaxRequest)
+        {
+            header('Content-Type: application/json');
+            $data['buy']=$model->search()->getArrayData();
+            echo CJSON::encode($data);
+            webapp()->end();
+        }
+		$model->buy_status=$selTab;
 		$this->render('index',array(
 			'model'=>$model,
 			'selTab'=>(int)$selTab

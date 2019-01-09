@@ -1,6 +1,6 @@
 <?php
-/* @var $this BuyController */
-/* @var $model Buy */
+/* @var $this DealController */
+/* @var $model Deal */
 /* @var $form CActiveForm */
 ?>
 
@@ -8,7 +8,7 @@
 
 <?php
 $form=$this->beginWidget('ActiveForm', array(
-	'id'=>'buy-form',
+	'id'=>'deal-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -25,56 +25,58 @@ $form=$this->beginWidget('ActiveForm', array(
 
 	<?php echo $form->errorSummary($model); ?>
 <table class="form">
-    <?php if($this->action->id=='create'):?>
 	<tr class="row">
 		<td class="title">
-			<?php echo $form->labelEx($model,'buy_member_id'); ?>
+			<?php echo $form->labelEx($model,'deal_sale_id'); ?>
 		</td>
 		<td class="value">
-			<?php echo $form->textField($model,'buy_member_id',['size'=>20]); ?>
+			<?php echo $form->dropDownList($model,'deal_sale_id',Sale::model()->listData,array('prompt'=>t('epmms','请选择') . $model->getAttributeLabel('deal_sale_id' ))); ?>
 		</td>
 		<td class="hint"></td>
 		<td class="error">
-			<?php echo $form->error($model,'buy_member_id',array(),true); ?>
+			<?php echo $form->error($model,'deal_sale_id',array(),true); ?>
 		</td>
 	</tr>
+
 	<tr class="row">
 		<td class="title">
-			<?php echo $form->labelEx($model,'buy_type'); ?>
+			<?php echo $form->labelEx($model,'deal_buy_id'); ?>
 		</td>
 		<td class="value">
-			<?php echo $form->dropDownList($model,'buy_type',[0=>'本息钱包',1=>'管理钱包']); ?>
+			<?php echo $form->dropDownList($model,'deal_buy_id',Buy::model()->listData,array('prompt'=>t('epmms','请选择') . $model->getAttributeLabel('deal_buy_id' ))); ?>
 		</td>
 		<td class="hint"></td>
 		<td class="error">
-			<?php echo $form->error($model,'buy_type',array(),true); ?>
+			<?php echo $form->error($model,'deal_buy_id',array(),false); ?>
 		</td>
 	</tr>
+
 	<tr class="row">
 		<td class="title">
-			<?php echo $form->labelEx($model,'buy_currency'); ?>
+			<?php echo $form->labelEx($model,'deal_currency'); ?>
 		</td>
 		<td class="value">
-			<?php echo $form->textField($model,'buy_currency',array('size'=>20,'maxlength'=>16)); ?>
+			<?php echo $form->textField($model,'deal_currency',array('size'=>20,'maxlength'=>16)); ?>
 		</td>
 		<td class="hint"></td>
 		<td class="error">
-			<?php echo $form->error($model,'buy_currency',array(),false); ?>
+			<?php echo $form->error($model,'deal_currency',array(),false); ?>
 		</td>
 	</tr>
-    <?php endif;?>
-    <tr class="row">
-        <td class="title">
-            <?php echo $form->labelEx($model,'buy_date'); ?>
-        </td>
-        <td class="value">
-            <?php echo $form->datetime($model,'buy_date',array('size'=>20,'maxlength'=>16)); ?>
-        </td>
-        <td class="hint"></td>
-        <td class="error">
-            <?php echo $form->error($model,'buy_date',array(),false); ?>
-        </td>
-    </tr>
+
+	<tr class="row">
+		<td class="title">
+			<?php echo $form->labelEx($model,'deal_date'); ?>
+		</td>
+		<td class="value">
+			<?php echo $form->textField($model,'deal_date',array('size'=>20,'maxlength'=>0)); ?>
+		</td>
+		<td class="hint"></td>
+		<td class="error">
+			<?php echo $form->error($model,'deal_date',array(),false); ?>
+		</td>
+	</tr>
+
 </table>
 	<div class="row buttons">
 		<?php echo CHtml::imageButton($model->isNewRecord ? themeBaseUrl() . '/images/button/add.gif' : themeBaseUrl() . '/images/button/save.gif'); ?>

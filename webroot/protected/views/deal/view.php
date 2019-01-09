@@ -1,6 +1,6 @@
 <?php
-/* @var $this BuyController */
-/* @var $model Buy */
+/* @var $this DealController */
+/* @var $model Deal */
 
 $this->breadcrumbs=array(
 	t('epmms',$model->modelName)=>array('index'),
@@ -10,8 +10,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>t('epmms','浏览') . t('epmms',$model->modelName), 'url'=>array('list')),
 	array('label'=>t('epmms','添加') . t('epmms',$model->modelName), 'url'=>array('create')),
-	array('label'=>t('epmms','修改') . t('epmms',$model->modelName), 'url'=>array('update', 'id'=>$model->buy_id)),
-	array('label'=>t('epmms','删除') . t('epmms',$model->modelName), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->buy_id),'confirm'=>t('epmms','你确定要删除吗?'))),
+	array('label'=>t('epmms','修改') . t('epmms',$model->modelName), 'url'=>array('update', 'id'=>$model->deal_id)),
+	array('label'=>t('epmms','删除') . t('epmms',$model->modelName), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->deal_id),'confirm'=>t('epmms','你确定要删除吗?'))),
 	array('label'=>t('epmms','管理') . t('epmms',$model->modelName), 'url'=>array('index')),
 );
 ?>
@@ -22,14 +22,11 @@ $this->menu=array(
 	'data'=>$model,
 	'nullDisplay'=>'',	
 	'attributes'=>array(
-		array('name'=>'buyMember.memberinfo_account','label'=>$model->getAttributeLabel('buy_member_id')),
-		'buy_currency',
-		'buy_date',
-		'buy_money',
-		'buy_status',
-		'buy_tax',
-		'buy_real_currency',
-		'buy_type'
+		array('name'=>'dealSale.sale_id','label'=>$model->getAttributeLabel('deal_sale_id')),
+		array('name'=>'dealBuy.buy_id','label'=>$model->getAttributeLabel('deal_buy_id')),
+		'deal_currency',
+		['name'=>'deal_image','type'=>'imageUrl'],
+		'deal_date',
 	),
 )); ?>
 </div>

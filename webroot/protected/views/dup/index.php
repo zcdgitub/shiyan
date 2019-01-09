@@ -1,13 +1,13 @@
 <?php
-/* @var $this BuyController */
-/* @var $model Buy */
+/* @var $this DupController */
+/* @var $model Dup */
 
 $this->breadcrumbs=array(
 	t('epmms',$model->modelName),
 );
 ?>
 <?php
-$tabType=[0=>'未匹配',1=>'已匹配'];
+$tabType=[0=>'未审核',1=>'已审核'];
 $tabParameters=[];
 foreach($tabType as $tab=>$title)
 {

@@ -1,6 +1,6 @@
 <?php
-/* @var $this SaleController */
-/* @var $model Sale */
+/* @var $this DealController */
+/* @var $model Deal */
 
 $this->menu=array(
 	array('label'=>t('epmms','浏览') . t('epmms',$model->modelName), 'url'=>array('list')),
@@ -13,7 +13,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('sale-grid', {
+	$.fn.yiiGridView.update('deal-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -35,22 +35,22 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php
-$this->widget('ext.Flashes.Dialog',array('keys'=>array('error'),'target'=>'#sale-grid'));
+$this->widget('ext.Flashes.Dialog',array('keys'=>array('error'),'target'=>'#deal-grid'));
 $columns=array(
 array('class'=>'DataColumn','value'=>'$row+1','header'=>t('epmms','序号'),'htmlOptions' => array('style'=>'width:40px')),
-	array('class'=>'RelationDataColumn','name'=>'saleMember.memberinfo_account'),
-	'sale_currency',
-	'sale_date',
-	'sale_money',
-	'sale_remain_currency',
-	'sale_tax',
-	'sale_dup',
-	'sale_aixin',
-	['name'=>'sale_status','type'=>'saleStatus'],
-	//'sale_verify_date',
+	array('class'=>'DataColumn','name'=>'dealSale.saleMember.memberinfo_account','header'=>'买入者'),
+	array('class'=>'DataColumn','name'=>'dealBuy.buyMember.memberinfo_account','header'=>'卖出者'),
+	'deal_currency',
+	'deal_date',
+	['name'=>'deal_status','type'=>'dealStatus'],
+    ['name'=>'deal_type','type'=>'tradeType'],
 	array(
 	'class'=>'ButtonColumn',
 	'template'=>'{view}',
+	),
+	array(
+	'class'=>'ButtonColumn',
+	'template'=>'{update}',
 	),
 	'del'=>array(
 	'class'=>'ButtonColumn',
@@ -61,14 +61,21 @@ switch($selTab)
 {
 	case 0:
 	//处理每种标签的特殊情况
+	break;
+    case 1:
+        $columns['verify']=	array(
+            'class'=>'ButtonColumn',
+            'template'=>'{verify}',
+            'buttons'=>array('verify'=>array()),
+        );
+        //unset($columns['del']);
+        break;
+    case 2:
         unset($columns['del']);
-		break;
-	case 1:
-		unset($columns['del']);
-		break;
+        break;
 }
 $this->widget('GridView', array(
-	'id'=>'sale-grid',
+	'id'=>'deal-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'ajaxUpdate'=>false,

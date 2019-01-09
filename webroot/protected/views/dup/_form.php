@@ -1,6 +1,6 @@
 <?php
-/* @var $this SaleController */
-/* @var $model Sale */
+/* @var $this DupController */
+/* @var $model Dup */
 /* @var $form CActiveForm */
 ?>
 
@@ -8,7 +8,7 @@
 
 <?php
 $form=$this->beginWidget('ActiveForm', array(
-	'id'=>'sale-form',
+	'id'=>'dup-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -25,53 +25,58 @@ $form=$this->beginWidget('ActiveForm', array(
 
 	<?php echo $form->errorSummary($model); ?>
 <table class="form">
-    <?php if($this->action->id=='create'):?>
 	<tr class="row">
 		<td class="title">
-			<?php echo $form->labelEx($model,'sale_member_id'); ?>
+			<?php echo $form->labelEx($model,'dup_member_id'); ?>
 		</td>
 		<td class="value">
-			<?php echo $form->textField($model,'sale_member_id',array()); ?>
+			<?php echo $form->dropDownList($model,'dup_member_id',Memberinfo::model()->listData,array('prompt'=>t('epmms','请选择') . $model->getAttributeLabel('dup_member_id' ))); ?>
 		</td>
 		<td class="hint"></td>
 		<td class="error">
-			<?php echo $form->error($model,'sale_member_id',array(),true); ?>
+			<?php echo $form->error($model,'dup_member_id',array(),true); ?>
 		</td>
 	</tr>
-	<?php
-	$al=MemberType::model()->getListData(['condition'=>'membertype_level>1','order'=>'membertype_level asc']);
-	$al2=[];
-	foreach($al as $a=>$l)
-	{
-		$al2[$l]=$l;
-	}
-	?>
+
 	<tr class="row">
 		<td class="title">
-			<?php echo $form->labelEx($model,'sale_currency'); ?>
+			<?php echo $form->labelEx($model,'dup_money'); ?>
 		</td>
 		<td class="value">
-			<?php echo $form->dropDownList($model,'sale_currency',$al2); ?>
+			<?php echo $form->textField($model,'dup_money',array('size'=>20,'maxlength'=>16)); ?>
 		</td>
 		<td class="hint"></td>
 		<td class="error">
-			<?php echo $form->error($model,'sale_currency',array(),false); ?>
+			<?php echo $form->error($model,'dup_money',array(),false); ?>
 		</td>
 	</tr>
-    <?php else:?>
-    <tr class="row">
-        <td class="title">
-            <?php echo $form->labelEx($model,'sale_date'); ?>
-        </td>
-        <td class="value">
-            <?php echo $form->datetime($model,'sale_date'); ?>
-        </td>
-        <td class="hint"></td>
-        <td class="error">
-            <?php echo $form->error($model,'sale_date',array(),false); ?>
-        </td>
-    </tr>
-    <?php endif;?>
+
+	<tr class="row">
+		<td class="title">
+			<?php echo $form->labelEx($model,'dup_is_verify'); ?>
+		</td>
+		<td class="value">
+			<?php echo $form->verify($model,'dup_is_verify'); ?>
+		</td>
+		<td class="hint"></td>
+		<td class="error">
+			<?php echo $form->error($model,'dup_is_verify',array(),false); ?>
+		</td>
+	</tr>
+
+	<tr class="row">
+		<td class="title">
+			<?php echo $form->labelEx($model,'dup_verify_date'); ?>
+		</td>
+		<td class="value">
+			<?php echo $form->textField($model,'dup_verify_date',array('size'=>20,'maxlength'=>0)); ?>
+		</td>
+		<td class="hint"></td>
+		<td class="error">
+			<?php echo $form->error($model,'dup_verify_date',array(),false); ?>
+		</td>
+	</tr>
+
 </table>
 	<div class="row buttons">
 		<?php echo CHtml::imageButton($model->isNewRecord ? themeBaseUrl() . '/images/button/add.gif' : themeBaseUrl() . '/images/button/save.gif'); ?>

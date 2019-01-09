@@ -14,6 +14,7 @@ class SaleController extends Controller
 	public function filters()
 	{
 		return array(
+            'cors',
 			'rights', // rights rbac filter
 			'postOnly + delete', // 只能通过POST请求删除
 			//'authentic + update,create,delete',//需要二级密码
@@ -38,45 +39,119 @@ class SaleController extends Controller
 	public function actionCreate()
 	{
 		$model=new Sale('create');
-
+		if(isset($_POST['Sale']))
+		{
+            $old_Sale=$_POST['Sale'];
+			if(user()->isAdmin())
+			{
+				$_POST['Sale']['sale_member_id']=Memberinfo::name2id(@$_POST['Sale']['sale_member_id']);
+			}
+			else
+			{
+				$_POST['Sale']['sale_member_id']=user()->id;
+			}
+		}
 		$this->performAjaxValidation($model);
-
 
 		if(isset($_POST['Sale']))
 		{
 			$model->attributes=$_POST['Sale'];
-			$model->sale_member_id=user()->id;
-			$model->sale_money=getAwardConfig(351)*$model->sale_currency;
-			$model->sale_tax=$model->sale_currency*getAwardConfig(361)/100.0;
-			$model->sale_dup=-abs($model->sale_currency*getAwardConfig(355)/100.0);
-			$model->sale_aixin=-abs($model->sale_currency*getAwardConfig(356)/100.0);
+			$model->sale_money=$model->sale_currency;
+			//$model->sale_type=Membermap::model()->findByPk($model->sale_member_id)->membermap_type;
+			$model->sale_tax=0;
 
-			$model->sale_remain_currency=$model->sale_currency+$model->sale_tax+$model->sale_dup+$model->sale_aixin;
+			$model->sale_remain_currency=$model->sale_currency;
 			$model->sale_status=0;
 			$this->log['target']=$model->sale_id;
 			$t=webapp()->db->beginTransaction();
-			if($model->save(true,array('sale_member_id','sale_currency','sale_money','sale_remain_currency','sale_status','sale_tax','sale_dup','sale_aixin')) && $model->verify())
-			{
-				$dup=new Dup('create');
-				$dup->dup_member_id=$model->sale_member_id;
-				$dup->dup_is_verify=0;
-				$dup->dup_money=$model->sale_dup;
-				$dup->save();
-				$this->log['status']=LogFilter::SUCCESS;
-				$t->commit();
-				$this->log();
-				user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
-				$this->redirect(array('deal/index'));
-			}
-			else
-			{
-				$t->rollback();
-				$this->log['status']=LogFilter::FAILED;
-				$this->log();
-				user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
-			}
-		}
+			try
+            {
+                if ($model->validate() && $model->save(true, array('sale_member_id', 'sale_currency', 'sale_money', 'sale_remain_currency', 'sale_status', 'sale_tax','sale_type')) && $model->verify())
+                {
+                    if(isset($_POST['Sale']['buy_id']))
+                    {
+                        $buy_id=$_POST['Sale']['buy_id'];
+                        $model->refresh();
+                        $ret=Deal::match($buy_id,$model->sale_id);
+                        $this->log['status'] = LogFilter::SUCCESS;
+                        //echo "t1;";
 
+                        $this->log();
+                        user()->setFlash('success', "{$this->actionName}" . t('epmms', "成功"));
+                        if($ret['success']==true)
+                        {
+                            $t->commit();
+                            $model->refresh();
+                            header('Content-Type: application/json');
+                            $data['success'] = '成功';
+                            $data['sale'] = $model->toArray();
+                            echo CJSON::encode($data);
+                            webapp()->end();
+                        }
+                        else
+                        {
+                            //echo "t2;";
+                            $t->rollback();
+                            header('Content-Type: application/json');
+                            $data['error'] = $ret['msg'];
+                            $data['debug']=$ret['error'];
+                            echo CJSON::encode($data);
+                            webapp()->end();
+                        }
+                    }
+                    else
+                    {
+                        //echo "t3;";
+                        $t->rollback();
+                        header('Content-Type: application/json');
+                        $data['error'] = '没有提供对方订单ID';
+                        echo CJSON::encode($data);
+                        webapp()->end();
+                    }
+                    if (user()->isAdmin())
+                        $this->redirect(array('sale/index'));
+                    $this->redirect(array('deal/index'));
+                } else
+                {
+                    //echo "t4;";
+                    $t->rollback();
+                    $this->log['status'] = LogFilter::FAILED;
+                    $this->log();
+                    user()->setFlash('error', "{$this->actionName}“{$model->showName}”" . t('epmms', "失败"));
+                    if (webapp()->request->isAjaxRequest)
+                    {
+                        header('Content-Type: application/json');
+                        if ($model->getErrors())
+                            $data = $model->getErrors();
+                        elseif (user()->hasFlash('error'))
+                        {
+                            $data['error'] = user()->getFlash('error', '失败', true);
+                        }
+                        echo CJSON::encode($data);
+                        webapp()->end();
+                    }
+                }
+            }catch(Exception $e)
+            {
+                //$t->rollback();
+                if (webapp()->request->isAjaxRequest)
+                {
+                    header('Content-Type: application/json');
+                    $data['error'] = user()->getFlash('error', $e->getMessage(), true);
+                    echo CJSON::encode($data);
+                    webapp()->end();
+                }
+                else
+                {
+                    user()->setFlash('error',  $e->getMessage());
+                    client_redirect('/deal/index',$e->getMessage());
+                }
+            }
+		}
+        if(isset($old_Sale))
+        {
+            $model->attributes = $old_Sale;
+        }
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -176,17 +251,27 @@ class SaleController extends Controller
 			$model->attributes=$_GET['Sale'];
 			if(isset($_GET['Sale']['saleMember']))
 				$model->saleMember->attributes=$_GET['Sale']['saleMember'];
-			
 		}
 		if($selTab==0)
 		{
-			$model->sale_status=0;
+			$model->sale_status="<=1";
 		}
 		elseif($selTab==1)
 		{
-			$model->sale_status=">=1";
+			$model->sale_status=2;
 		}
 
+		if(!user()->isAdmin())
+		{
+			$model->sale_member_id=user()->id;
+		}
+        if(webapp()->request->isAjaxRequest)
+        {
+            header('Content-Type: application/json');
+            $data['sale']=$model->search()->getArrayData();
+            echo CJSON::encode($data);
+            webapp()->end();
+        }
 		$this->render('index',array(
 			'model'=>$model,
 			'selTab'=>(int)$selTab
