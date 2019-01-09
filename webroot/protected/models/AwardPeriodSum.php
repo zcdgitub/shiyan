@@ -134,7 +134,7 @@ class awardPeriodSum extends Model
         $criteria->compare('"awardPeriodSumMemberinfo".memberinfo_account',@$this->awardPeriodSumMemberinfo->memberinfo_account);
         $criteria->compare('"awardPeriodSumMemberinfo".memberinfo_nickname',@$this->awardPeriodSumMemberinfo->memberinfo_nickname);
         $criteria->compare('"awardPeriodSumSrcMemberinfo".memberinfo_account',@$this->awardPeriodSumSrcMemberinfo->memberinfo_account);
-        $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
+//        $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
         $criteria->with=array('awardPeriodSumMemberinfo','awardPeriodSumSrcMemberinfo','awardPeriodSumType');
 
 
