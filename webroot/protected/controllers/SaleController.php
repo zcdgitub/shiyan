@@ -16,6 +16,7 @@ class SaleController extends Controller
 		return array(
             'cors',
 			'rights', // rights rbac filter
+			'closeSite',
 			'postOnly + delete', // 只能通过POST请求删除
 			//'authentic + update,create,delete',//需要二级密码
 		);

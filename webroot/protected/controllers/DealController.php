@@ -16,6 +16,7 @@ class DealController extends Controller
 		return array(
             'cors',
 			'rights', // rights rbac filter
+			'closeSite',
 			'postOnly + delete', // 只能通过POST请求删除
 			//'authentic + verify',//需要二级密码
 		);
