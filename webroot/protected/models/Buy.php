@@ -218,7 +218,8 @@ class Buy extends Model
 	public function delete()
 	{
 		$member=$this->buyMember;
-		$finance=$member->getFinance($this->buy_type==0?2:2);
+		//$finance=$member->getFinance($this->buy_type==0?2:2);
+		$finance=$member->getFinance(3);
 		$finance->add($this->buy_currency);
 		return parent::delete();
 	}

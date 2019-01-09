@@ -40,6 +40,7 @@ class SaleController extends Controller
 	public function actionCreate()
 	{
 		$model=new Sale('create');
+
 		if(isset($_POST['Sale']))
 		{
             $old_Sale=$_POST['Sale'];
@@ -64,6 +65,7 @@ class SaleController extends Controller
 			$model->sale_remain_currency=$model->sale_currency;
 			$model->sale_status=0;
 			$this->log['target']=$model->sale_id;
+				
 			$t=webapp()->db->beginTransaction();
 			try
             {

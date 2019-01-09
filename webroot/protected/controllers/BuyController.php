@@ -95,12 +95,14 @@ class BuyController extends Controller
                     if (webapp()->request->isAjaxRequest)
                     {
                         header('Content-Type: application/json');
-                        if ($model->getErrors())
-                            $data = $model->getErrors();
-                        elseif (user()->hasFlash('error'))
-                        {
-                            $data['error'] = user()->getFlash('error', '失败', true);
-                        }
+                        // if ($model->getErrors())
+                        //     $data = $model->getErrors();
+                        // elseif (user()->hasFlash('error'))
+                        // {
+                        //     $data['error'] = user()->getFlash('error', '失败', true);
+                        // }
+                         $data['msg']=$model->getErrors();
+                    	 $data['success']=false;
                         echo CJSON::encode($data);
                         webapp()->end();
                     }
@@ -110,7 +112,8 @@ class BuyController extends Controller
                 if (webapp()->request->isAjaxRequest)
                 {
                     header('Content-Type: application/json');
-                    $data['error'] = user()->getFlash('error', $e->getMessage(), true);
+                    $data['msg']=user()->getFlash('error', $e->getMessage(), true);
+                    $data['success']=false;
                     echo CJSON::encode($data);
                     webapp()->end();
                 } else
