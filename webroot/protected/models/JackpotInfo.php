@@ -92,8 +92,8 @@ class JackpotInfo extends Model
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('info_id',$this->info_id);
-		$criteria->compare('info_start_time',$this->info_start_time,true);
-		$criteria->compare('info_end_time',$this->info_end_time,true);
+		$criteria->compare('info_start_time',$this->info_start_time,false);
+		$criteria->compare('info_end_time',$this->info_end_time,false);
 		$criteria->compare('info_start_balance',$this->info_start_balance,true);
 		$criteria->compare('info_lucky_balance',$this->info_lucky_balance,true);
 		$criteria->compare('info_end_balance',$this->info_end_balance,true);
