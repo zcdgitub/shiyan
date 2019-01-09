@@ -139,7 +139,9 @@ class MemberUpgrade extends Model
 			return false;
 
 		$status=$this->memberUpgradeMember->upgrade($this->member_upgrade_type);
-
+var_dump($this->memberUpgradeMember->member_upgrade_member_id);
+echo '<br>';
+var_dump(new CDbExpression('now()'));exit;
 
 		if($status===EError::SUCCESS)
 		{
