@@ -29,8 +29,8 @@ class JackpotCommand extends CConsoleCommand
         $model  = (new ConfigJackpot())->findByPk(1);
         $startTime = $model->config_jackpot_start_time;
         $endTime   = $model->config_jackpot_end_time;
-//        if($endTime-1 <= time()){
-        if(true){
+        if($endTime-1 <= time()){
+//        if(true){
             $this->addJackpotInfo($model);
             $fundMoney = 10000;   // 扣除发展基金
             $model->config_jackpot_fund      -= $fundMoney;
@@ -43,14 +43,14 @@ class JackpotCommand extends CConsoleCommand
                 'condition' => "member_upgrade_type = 2 and member_upgrade_add_date >='".date('Y-m-d H:i:s',$startTime)."' and member_upgrade_add_date <='".date('Y-m-d H:i:s',$endTime)."' and member_upgrade_is_verify = 1",
                 'order' => 'member_upgrade_add_date asc',
             ]);
-            $data  = array(1);
+//            $data  = array(1);
 //            $data = array('12312','1313',13123,2222,1,2,3,5,4,10,121,11);
             if(!empty($data)){
                 switch (count($data)){
                     case 1:  // 尾单奖池
                         // 获奖人增加奖金
-//                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
-                        $this->addEndJackpot(1,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
+                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
+//                        $this->addEndJackpot(1,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
                         // 奖池奖金为10000 * 比例 + 上期首单+幸运奖池 余额比例
                         $sumMoney =  $model->config_jackpot_start_balance + $model->config_jackpot_lucky_balance;
                         break;
