@@ -146,10 +146,10 @@ class awardPeriodSum extends Model
                 $page=$_GET['page']-1;
             if(isset($_GET['limit']))
                 $pageSize=$_GET['limit'];
-//            if($this->awardPeriodSumType->sum_type_id == 5){
-////                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
-//                $criteria->compare('"awardPeriodSumType".sum_type_id',array(3,4,5),true,'OR');
-//            }
+            if($this->awardPeriodSumType->sum_type_id == 6){
+//                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
+                $criteria->compare('"awardPeriodSumType".sum_type_id',array(3,4,5));
+            }
             return new JSonActiveDataProvider($this, array(
                 'criteria'=>$criteria,
                 'sort'=>$sort,
