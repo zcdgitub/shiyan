@@ -1,6 +1,6 @@
 <?php
 
-class ConfigJackpotController extends Controller
+class JackpotInfoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -14,7 +14,6 @@ class ConfigJackpotController extends Controller
 	public function filters()
 	{
 		return array(
-		    'cors',
 			'rights', // rights rbac filter
 			'postOnly + delete', // 只能通过POST请求删除
 			//'authentic + update,create,delete',//需要二级密码
@@ -38,22 +37,22 @@ class ConfigJackpotController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new ConfigJackpot('create');
+		$model=new JackpotInfo('create');
 
 		// 如果需要AJAX验证反注释下面一行
 		// $this->performAjaxValidation($model);
 
 
-		if(isset($_POST['ConfigJackpot']))
+		if(isset($_POST['JackpotInfo']))
 		{
-			$model->attributes=$_POST['ConfigJackpot'];
-			$this->log['target']=$model->config_jackpot_id;
-			if($model->save(true,array('config_jackpot_start_balance','config_jackpot_lucky_balance','config_jackpot_end_balance','config_jackpot_fund','config_jackpot_start_order_ratio','config_jackpot_lucky_order_ratio','config_jackpot_end_order_ratio','config_jackpot_start_time','config_jackpot_end_time')))
+			$model->attributes=$_POST['JackpotInfo'];
+			$this->log['target']=$model->info_id;
+			if($model->save(true,array('info_start_time','info_end_time','info_start_balance','info_lucky_balance','info_end_balance','info_number')))
 			{
 				$this->log['status']=LogFilter::SUCCESS;
 				$this->log();
 				user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
-				$this->redirect(array('view','id'=>$model->config_jackpot_id));
+				$this->redirect(array('view','id'=>$model->info_id));
 			}
 			else
 			{
@@ -79,20 +78,17 @@ class ConfigJackpotController extends Controller
 		$model->scenario='update';
 		// 如果需要AJAX验证反注释下面一行
 		// $this->performAjaxValidation($model);
-        $model->config_jackpot_start_time = date('Y-m-d H:i:s',$model->config_jackpot_start_time);
-		if(isset($_POST['ConfigJackpot']))
+
+		if(isset($_POST['JackpotInfo']))
 		{
-			$model->attributes=$_POST['ConfigJackpot'];
-			$model->config_jackpot_start_time = strtotime($_POST['ConfigJackpot']['config_jackpot_start_time']);
-			$model->config_jackpot_end_time   = $model->config_jackpot_start_time +180;
-			$this->log['target']=$model->config_jackpot_id;
-//			if($model->save(true,array('config_jackpot_start_balance','config_jackpot_lucky_balance','config_jackpot_end_balance','config_jackpot_fund','config_jackpot_start_order_ratio','config_jackpot_lucky_order_ratio','config_jackpot_end_order_ratio','config_jackpot_start_time','config_jackpot_end_time')))
-            if($model->save(true,array('config_jackpot_fund','config_jackpot_start_order_ratio','config_jackpot_lucky_order_ratio','config_jackpot_end_order_ratio','config_jackpot_start_time','config_jackpot_end_time')))
+			$model->attributes=$_POST['JackpotInfo'];
+			$this->log['target']=$model->info_id;
+			if($model->save(true,array('info_start_time','info_end_time','info_start_balance','info_lucky_balance','info_end_balance','info_number')))
 			{
 				$this->log['status']=LogFilter::SUCCESS;
 				$this->log();
 				user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
-				$this->redirect(array('update','id'=>$model->config_jackpot_id));
+				$this->redirect(array('view','id'=>$model->info_id));
 			}
 			else
 			{
@@ -139,7 +135,7 @@ class ConfigJackpotController extends Controller
 	 */
 	public function actionList()
 	{
-		$dataProvider=new CActiveDataProvider('ConfigJackpot');
+		$dataProvider=new CActiveDataProvider('JackpotInfo');
 		$this->render('list',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -150,23 +146,12 @@ class ConfigJackpotController extends Controller
 	 */
 	public function actionIndex($selTab=0)
 	{
-        header('Content-Type: application/json');
-        $model = $this->loadModel(1);
-        $model->config_jackpot_start_time = time();
-        echo CJSON::encode($model);
-
-        webapp()->end();
-        if(webapp()->request->isAjaxRequest){
-            header('Content-Type: application/json');
-            echo CJSON::encode($this->loadModel(1));
-            webapp()->end();
-        }
-		$model=new ConfigJackpot('search');
+		$model=new JackpotInfo('search');
 		$model->unsetAttributes();  // clear any default values
 		
-		if(isset($_GET['ConfigJackpot']))
+		if(isset($_GET['JackpotInfo']))
 		{
-			$model->attributes=$_GET['ConfigJackpot'];
+			$model->attributes=$_GET['JackpotInfo'];
 			
 		}
 
@@ -183,7 +168,7 @@ class ConfigJackpotController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=ConfigJackpot::model()->findByPk($id);
+		$model=JackpotInfo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,t('epmms','请求的页面不存在。'));
 		return $model;
@@ -195,7 +180,7 @@ class ConfigJackpotController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='config-jackpot-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='jackpot-info-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
