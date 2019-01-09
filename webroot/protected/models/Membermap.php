@@ -845,6 +845,7 @@ class Membermap extends Model
 				$mysystem=new Upgrade($this);
                 $mysystem->run(1,0,0);
 				$upgrade=MemberUpgrade::model()->findByAttributes(['member_upgrade_member_id'=>$this->membermap_id]);
+				var_dump($upgrade);exit;
 				//$upgrade->member_upgrade_period=$mysystem->period;
 				$upgrade->save();
 
