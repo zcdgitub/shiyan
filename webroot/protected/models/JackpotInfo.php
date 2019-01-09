@@ -88,7 +88,7 @@ class JackpotInfo extends Model
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$sort=new Sort('JackpotInfo');
-		$sort->defaultOrder=array('info_id'=>Sort::SORT_ASC);
+		$sort->defaultOrder=array('info_number'=>Sort::SORT_DESC);
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('info_id',$this->info_id);
