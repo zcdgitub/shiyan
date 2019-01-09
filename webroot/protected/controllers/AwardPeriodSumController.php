@@ -83,7 +83,9 @@ class AwardPeriodSumController extends Controller
                 //$model->awardPeriodSumType->sum_type_id=$sum->sum_type_id;
                 //$data['sumtype'][$key]['awardPeriodSum']=$model->search()->getArrayData();
             }
-           
+            unset($data['sumtype'][3]);
+            unset($data['sumtype'][4]);
+            $data['sumtype'][5] = '奖池奖金';
             $model->awardPeriodSumType->sum_type_id=$curSumType;
             $data['periodsum']=$model->search()->getArrayData();
          
