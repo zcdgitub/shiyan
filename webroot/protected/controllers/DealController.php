@@ -175,10 +175,7 @@ class DealController extends Controller
                 $model->dealBuy->attributes = $_GET['Deal']['dealBuy'];
             }
 		}
-		  $model->dealSale->sale_member_id=user()->id;
-            $model->dealBuy->buy_member_id=user()->id;
-            $model->deal_status="<2";
-            $data['deal']=$model->search()->getArrayData();
+		  
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
