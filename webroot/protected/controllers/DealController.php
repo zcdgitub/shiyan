@@ -179,9 +179,6 @@ class DealController extends Controller
             $model->dealBuy->buy_member_id=user()->id;
             $model->deal_status="<2";
             $data['deal']=$model->search()->getArrayData();
-            echo "<pre>";
-            var_dump($data['deal']);
-            die;
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
