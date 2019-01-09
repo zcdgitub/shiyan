@@ -225,6 +225,7 @@ class BuyController extends Controller
 	 */
 	public function actionIndex($selTab=0,$all=0)
 	{
+	
 		$model=new Buy('search');
 		$model->unsetAttributes();  // clear any default values
 		$model->buyMember=new Memberinfo('search');

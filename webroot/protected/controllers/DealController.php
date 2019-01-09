@@ -155,6 +155,7 @@ class DealController extends Controller
 	 */
 	public function actionIndex($selTab=0)
 	{
+
 		$model=new Deal('search');
 		$model->unsetAttributes();  // clear any default values
 		$model->dealSale=new Sale('search');
@@ -174,6 +175,13 @@ class DealController extends Controller
                 $model->dealBuy->attributes = $_GET['Deal']['dealBuy'];
             }
 		}
+		  $model->dealSale->sale_member_id=user()->id;
+            $model->dealBuy->buy_member_id=user()->id;
+            $model->deal_status="<2";
+            $data['deal']=$model->search()->getArrayData();
+            echo "<pre>";
+            var_dump($data['deal']);
+            die;
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
