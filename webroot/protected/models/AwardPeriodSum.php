@@ -148,7 +148,9 @@ class awardPeriodSum extends Model
                 $pageSize=$_GET['limit'];
             if($this->awardPeriodSumType->sum_type_id == 6){
 //                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
-                $criteria->compare('"awardPeriodSumType".sum_type_id',array(3,4,5));
+                $criteria->addInCondition('"awardPeriodSumType".sum_type_id',array(3,4,5));
+            }else{
+                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
             }
             return new JSonActiveDataProvider($this, array(
                 'criteria'=>$criteria,
