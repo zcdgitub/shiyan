@@ -23,6 +23,7 @@ $this->menu=array(
 	'nullDisplay'=>'',	
 	'attributes'=>array(
 		array('name'=>'jackpot.memberinfo_account','label'=>$model->getAttributeLabel('jackpot_member_id')),
+		'jackpot_number',
 		'jackpot_money',
 		'jackpot_type'=>[
 		    'name'=>'jackpot_type',

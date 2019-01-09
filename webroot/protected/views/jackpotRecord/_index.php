@@ -40,6 +40,7 @@ $this->widget('ext.Flashes.Dialog',array('keys'=>array('error'),'target'=>'#jack
 $columns=array(
 array('class'=>'DataColumn','value'=>'$row+1','header'=>t('epmms','序号'),'htmlOptions' => array('style'=>'width:40px')),
 	array('class'=>'RelationDataColumn','name'=>'jackpot.memberinfo_account'),
+	'jackpot_number',
 	'jackpot_money',
 	'jackpot_type'=>[
 	    'name' =>'jackpot_type',

@@ -10,6 +10,8 @@
  * @property integer $jackpot_type
  * @property integer $jackpot_start_time
  * @property integer $jackpot_end_time
+ * @property integer $jackpot_number
+ *
  *
  * The followings are the available model relations:
  * @property  */
@@ -39,11 +41,11 @@ class JackpotRecord extends Model
         return array(
             array('jackpot_money, jackpot_type, jackpot_start_time, jackpot_end_time', 'filter','filter'=>array($this,'empty2null')),
             array('jackpot_member_id', 'required'),
-            array('jackpot_member_id, jackpot_type, jackpot_start_time, jackpot_end_time', 'numerical', 'integerOnly'=>true),
+            array('jackpot_member_id, jackpot_type, jackpot_start_time, jackpot_end_time , jackpot_number', 'numerical', 'integerOnly'=>true),
             array('jackpot_money', 'ext.validators.Decimal','precision'=>16,'scale'=>4),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('jackpot_id, jackpot_member_id, jackpot_money, jackpot_type, jackpot_start_time, jackpot_end_time', 'safe', 'on'=>'search'),
+            array('jackpot_id, jackpot_member_id, jackpot_money, jackpot_type, jackpot_start_time, jackpot_end_time, jackpot_number', 'safe', 'on'=>'search'),
         );
     }
 
@@ -71,6 +73,7 @@ class JackpotRecord extends Model
 //            'jackpot_type' => t('epmms','类型 1 首单奖 2 幸运奖 3 尾单奖'),
             'jackpot_start_time' => t('epmms','开始时间'),
             'jackpot_end_time' => t('epmms','结束时间'),
+            'jackpot_number'   => t('epmms','期数'),
         );
     }
 
@@ -101,6 +104,7 @@ class JackpotRecord extends Model
         $criteria->compare('jackpot_type',$this->jackpot_type);
         $criteria->compare('jackpot_start_time',$this->jackpot_start_time);
         $criteria->compare('jackpot_end_time',$this->jackpot_end_time);
+        $criteria->compare('jackpot_number',$this->jackpot_number);
         $criteria->compare('"jackpot".memberinfo_account',@$this->jackpot->memberinfo_account);
         $criteria->with=array('jackpot');
         $this->jackpot_start_time = $this->startTime? ">".$this->startTime :'';

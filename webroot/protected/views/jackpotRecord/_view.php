@@ -6,6 +6,11 @@ $type = [1=>'首单奖',2=>'幸运奖',3=>'尾单奖'];
 
 <div class="view">
 <table class="viewtable">
+    <tr class="even">
+        <td class="title"><b><?php echo CHtml::encode($data->getAttributeLabel('jackpot_number')); ?></b></td>
+        <td class="value"><?php echo CHtml::encode($data->jackpot_number); ?></td>
+    </tr>
+
 	<tr class="odd">
 	<td class="title"><b><?php echo CHtml::encode($data->getAttributeLabel('jackpot_id')); ?></b></td>
 	<td class="value"><?php echo CHtml::link(CHtml::encode($data->jackpot_id), array('view', 'id'=>$data->jackpot_id)); ?></td>
