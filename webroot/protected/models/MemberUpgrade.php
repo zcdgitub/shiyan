@@ -137,7 +137,7 @@ class MemberUpgrade extends Model
 	{
 		if($this->member_upgrade_is_verify==1)
 			return false;
-	
+
 		$status=$this->memberUpgradeMember->upgrade($this->member_upgrade_type);
 
 
@@ -148,6 +148,9 @@ class MemberUpgrade extends Model
 			$this->member_upgrade_is_verify=1;
 			$this->member_upgrade_verify_date=new CDbExpression('now()');
 			$this->save();
+            $activationModel = new ActivationRecord();
+            $activationModel->saveAttributes(['activation_member_id'=>$this->memberUpgradeMember->member_upgrade_member_id,'activation_add_time'=>date('Y-m-d H:i:s',time())]);
+            var_dump($activationModel->getErrors());exit;
 			// 为竞买奖池添加结束时间
 			$jackpotModel = new ConfigJackpot();
             $jackpotModel->updateJackpot();
