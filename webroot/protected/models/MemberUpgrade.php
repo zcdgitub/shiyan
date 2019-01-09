@@ -137,10 +137,8 @@ class MemberUpgrade extends Model
 	{
 		if($this->member_upgrade_is_verify==1)
 			return false;
-	
+
 		$status=$this->memberUpgradeMember->upgrade($this->member_upgrade_type);
-
-
 		if($status===EError::SUCCESS)
 		{
 

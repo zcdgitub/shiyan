@@ -38,10 +38,15 @@ class JackpotCommand extends CConsoleCommand
             $model->config_jackpot_end_time   = time()+180;
             // 数据库取数据：大于开始时间 小于当前时间
 //            $data = array('12312',2321,55,56,57,4,1,1,4,5,10,3);
-            $data = MemberUpgrade::model()->findAll([
-                'select'=>'member_upgrade_member_id',
-                'condition' => "member_upgrade_type = 2 and member_upgrade_add_date >='".date('Y-m-d H:i:s',$startTime)."' and member_upgrade_add_date <='".date('Y-m-d H:i:s',$endTime)."' and member_upgrade_is_verify = 1",
-                'order' => 'member_upgrade_add_date asc',
+//            $data = MemberUpgrade::model()->findAll([
+//                'select'=>'member_upgrade_member_id',
+//                'condition' => "member_upgrade_type = 2 and member_upgrade_add_date >='".date('Y-m-d H:i:s',$startTime)."' and member_upgrade_add_date <='".date('Y-m-d H:i:s',$endTime)."' and member_upgrade_is_verify = 1",
+//                'order' => 'member_upgrade_add_date asc',
+//            ]);
+            $data = ActivationRecord::model()->findAll([
+                'select'=>'activation_member_id',
+                'condition' => "activation_add_time >='".date('Y-m-d H:i:s',$startTime)."' and activation_add_time <='".date('Y-m-d H:i:s',$endTime)."'",
+                'order' => 'activation_add_time asc',
             ]);
 //            $data  = array(1);
 //            $data = array('12312','1313',13123,2222,1,2,3,5,4,10,121,11);
@@ -49,7 +54,7 @@ class JackpotCommand extends CConsoleCommand
                 switch (count($data)){
                     case 1:  // 尾单奖池
                         // 获奖人增加奖金
-                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
+                        $this->addEndJackpot($data[count($data)-1]->activation_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
 //                        $this->addEndJackpot(1,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
                         // 奖池奖金为10000 * 比例 + 上期首单+幸运奖池 余额比例
                         $sumMoney =  $model->config_jackpot_start_balance + $model->config_jackpot_lucky_balance;
@@ -59,21 +64,21 @@ class JackpotCommand extends CConsoleCommand
                         $sumMoney = $model->config_jackpot_lucky_balance; // 幸运奖池金额
                         // 获奖人增加奖金
                         //  尾单
-                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
+                        $this->addEndJackpot($data[count($data)-1]->activation_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
                         //   首单
-                        $this->addEndJackpot($data[0]->member_upgrade_member_id,$model->config_jackpot_start_balance,$startTime,$endTime,1,4,$model->config_jackpot_number);
+                        $this->addEndJackpot($data[0]->activation_member_id,$model->config_jackpot_start_balance,$startTime,$endTime,1,4,$model->config_jackpot_number);
 
                         break;
                     default: // 幸运奖池
                         $sumMoney = $model->config_jackpot_lucky_balance;
                         //  尾单
-                        $this->addEndJackpot($data[count($data)-1]->member_upgrade_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
+                        $this->addEndJackpot($data[count($data)-1]->activation_member_id,$model->config_jackpot_end_balance,$startTime,$endTime,3,6,$model->config_jackpot_number);
                         //   首单
-                        $this->addEndJackpot($data[0]->member_upgrade_member_id,$model->config_jackpot_start_balance,$startTime,$endTime,1,4,$model->config_jackpot_number);
+                        $this->addEndJackpot($data[0]->activation_member_id,$model->config_jackpot_start_balance,$startTime,$endTime,1,4,$model->config_jackpot_number);
                         $count = count($data)>=12 ? 11:(count($data)-1);
                         for ($i=1;$i<$count;$i++){
                             if(isset($data[$i]) && !empty($data[$i])){
-                                $this->addEndJackpot($data[$i]->member_upgrade_member_id,$model->config_jackpot_lucky_balance/10,$startTime,$endTime,2,5,$model->config_jackpot_number);
+                                $this->addEndJackpot($data[$i]->activation_member_id,$model->config_jackpot_lucky_balance/10,$startTime,$endTime,2,5,$model->config_jackpot_number);
                                 // 幸运奖池金额减少
                                 $sumMoney -= $model->config_jackpot_lucky_balance/10;
                             }
