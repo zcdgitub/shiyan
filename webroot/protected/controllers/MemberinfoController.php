@@ -1245,7 +1245,7 @@ public function actionUpdateName($id=null){
                  $jackpotModel = new ConfigJackpot();
                  $jackpotModel->updateJackpot();
                  $activationModel = new ActivationRecord();
-                 $activationModel->activation_member_id = user()->id;
+                 $activationModel->activation_member_id = $model->membermap->membermap_id;
                  $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
                  $activationModel->save();
             }
