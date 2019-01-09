@@ -74,7 +74,10 @@ class MemberUpgradeController extends Controller
                             'member_upgrade_add_date', 'member_upgrade_old_type',
                             'member_upgrade_money')) && ($status = $model->verify()) == EError::SUCCESS)
                 {
-
+                    $activationModel = new ActivationRecord();
+                    $activationModel->activation_member_id = user()->id;
+                    $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
+                    $activationModel->save();
                     $transaction->commit();
                     $this->log['status'] = LogFilter::SUCCESS;
                     $this->log();
