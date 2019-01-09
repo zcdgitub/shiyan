@@ -85,7 +85,7 @@ class AwardPeriodSumController extends Controller
             }
             unset($data['sumtype'][3]);
             unset($data['sumtype'][4]);
-//            $data['sumtype'][5]['sum_type_name'] = '奖池奖金';
+            $data['sumtype'][5]['sum_type_name'] = '奖池奖金';
             var_dump($data['sumtype']);exit;
 
 //            $data['sumtype'][5]->sum_type_name = '奖池奖金';
