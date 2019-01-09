@@ -150,7 +150,6 @@ class awardPeriodSum extends Model
 //                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
                 $criteria->compare('"awardPeriodSumType".sum_type_id',array(4));
 //                var_dump($criteria);exit;
-
             }else{
                 $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
             }
