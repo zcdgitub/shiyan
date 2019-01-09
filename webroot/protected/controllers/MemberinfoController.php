@@ -1244,6 +1244,10 @@ public function actionUpdateName($id=null){
              if($model->membermap->membermap_membertype_level==2){
                  $jackpotModel = new ConfigJackpot();
                  $jackpotModel->updateJackpot();
+                 $activationModel = new ActivationRecord();
+                 $activationModel->activation_member_id = user()->id;
+                 $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
+                 $activationModel->save();
             }
 			user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
 		}
