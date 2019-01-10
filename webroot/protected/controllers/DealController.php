@@ -179,12 +179,16 @@ class DealController extends Controller
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
+
+           
             $model->dealSale->sale_member_id=user()->id;
             $model->dealBuy->buy_member_id=user()->id;
             $model->deal_status="<2";
             $data['deal']=$model->search()->getArrayData();
+          
             foreach($data['deal']['data'] as $key=>$deal)
             {
+            	
                 $saleMember=$deal['dealSale']['saleMember'];
                 $saleBank=Mybank::model()->find(['condition'=>'mybank_memberinfo_id=:id','order'=>'mybank_is_default desc,mybank_id asc','params'=>[':id'=>$saleMember['memberinfo_id']]]);
                 if($saleBank)
