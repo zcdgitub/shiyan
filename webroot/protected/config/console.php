@@ -52,7 +52,13 @@ return array(
 				array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
-				)
+				),
+                [
+                    'class'=>'CFileLogRoute',
+                    'levels'=>'error,trace,info,warning',
+                    'categories'=>'system.db.*',
+                    'logFile'=>'sql.log',
+                ]
 			),
 		),
 		'format'=>array(

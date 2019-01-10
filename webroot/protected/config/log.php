@@ -32,12 +32,12 @@ return array(
 		'isEvalEnabled' => false,
 		*/
 	],
-
 	[
 		'class'=>'CFileLogRoute',
-		//'levels'=>'error,trace,info,warning',
+		'levels'=>'error,trace,info,warning',
 		'categories'=>'system.db.*',
 		'logFile'=>'sql.log',
+        'enabled' => false,
 	]
 	],
 )

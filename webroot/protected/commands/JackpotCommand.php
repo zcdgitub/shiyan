@@ -49,7 +49,6 @@ class JackpotCommand extends CConsoleCommand
                 'order' => 'activation_add_time asc',
             ]);
 //            $data  = array(1);
-//            $data = array('12312','1313',13123,2222,1,2,3,5,4,10,121,11);
             if(!empty($data)){
                 switch (count($data)){
                     case 1:  // 尾单奖池

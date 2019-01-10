@@ -126,9 +126,9 @@ class Memberinfo extends Model
 				array('memberinfo_account','unique','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Userinfo','attributeName'=>'userinfo_account','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Agent','attributeName'=>'agent_account','on'=>'create,update,updateMy'),
-		        //array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
-		        array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'昵称必须为汉字'),
-		    	array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
+		        array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
+		        //array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'昵称必须为汉字'),
+		    	//array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
 				array('memberinfo_bank_id', 'exist', 'className'=>'Bank','attributeName'=>'bank_id'),
 				array('memberinfo_sex', 'ext.validators.Sex'),
 				array('memberinfo_is_enable', 'ext.validators.Enable'),
@@ -494,7 +494,6 @@ class Memberinfo extends Model
                }
                 $this->membermap->saveAttributes(['membermap_order']);
 				$status=$membermap->verify($verifyType);//去membermap模型里面验证
-
 				if($status!=EError::SUCCESS)
 				{
 					$transaction->rollback();
@@ -618,25 +617,19 @@ class Memberinfo extends Model
 			catch(EError $e)
 			{
 				$transaction->rollback();
-				// print_r($e->getMessage());
-				// exit();
 				 throw $e;
 				return $e;
 			}
 			catch(CDbException $e)
 			{
 				$transaction->rollback();
-				// print_r($e);
-				// exit;
 				 throw $e;
 				return $e;
 			}
 			catch(Exception $e)
 			{
 				$transaction->rollback();
-
 				throw $e;
-				// exit();
 				return EError::ERROR;
 			}
 			$transaction->commit();
@@ -827,12 +820,12 @@ class Memberinfo extends Model
 	}
 	public static function genUsername()
 	{
-		$lower=left("100000000000000000",params('accountLength'));
-		$upper=left("99999999999999999",params('accountLength'));
+		$lower=left("1000000000",params('accountLength'));
+		$upper=left("9999999999",params('accountLength'));
 		$model=Memberinfo::model();
 		do
 		{
-			$username=(string)rand($lower,$upper);
+			$username=(string)rand((int)$lower,(int)$upper);
 		}while(strpos($username,'4')!==false || $model->exists('memberinfo_account=:username',[':username'=>$username]));
 		return 'yy' . $username;
 	}
