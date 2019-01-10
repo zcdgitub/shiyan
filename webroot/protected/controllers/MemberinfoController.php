@@ -103,9 +103,7 @@ class MemberinfoController extends Controller
 		}
 		if(isset($_POST['Membermap']))
 		{
-// echo "<pre>";
-//            var_dump($_POST['Membermap']);
-// die;
+
 			$_POST['Membermap']['membermap_parent_id']=Memberinfo::name2id(@$_POST['Membermap']['membermap_parent_id']);
 			$_POST['Membermap']['membermap_recommend_id']=Memberinfo::name2id(@$_POST['Membermap']['membermap_recommend_id']);
 			if(params('regAgent'))
