@@ -73,7 +73,7 @@ class ConfigJackpotController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate($id=1)
 	{
 		$model=$this->loadModel($id);
 		$model->scenario='update';
