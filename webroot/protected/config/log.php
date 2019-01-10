@@ -37,7 +37,7 @@ return array(
 		'levels'=>'error,trace,info,warning',
 		'categories'=>'system.db.*',
 		'logFile'=>'sql.log',
-        'isEnabled' => false,
+        'enabled' => false,
 	]
 	],
 )
