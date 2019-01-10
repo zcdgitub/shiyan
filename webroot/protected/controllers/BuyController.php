@@ -57,11 +57,13 @@ class BuyController extends Controller
 		if(isset($_POST['Buy']))
         {
             $model->attributes = $_POST['Buy'];
+          
             $model->buy_date = new CDbExpression("now()");
             $model->buy_money = $model->buy_currency;
             $model->buy_real_currency = $model->buy_currency;
             $model->buy_remain_currency=$model->buy_currency;
             $model->buy_status = 0;
+            
             $this->log['target'] = $model->buy_id;
             $transaction = webapp()->db->beginTransaction();
             try
