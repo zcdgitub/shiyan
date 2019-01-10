@@ -14,6 +14,7 @@
  * @property integer $config_jackpot_end_order_ratio
  * @property integer $config_jackpot_start_time
  * @property integer $config_jackpot_end_time
+ * @property integer $config_jackpot_number
  */
 class ConfigJackpot extends Model
 {
@@ -76,6 +77,7 @@ class ConfigJackpot extends Model
 			'config_jackpot_end_order_ratio' => t('epmms','尾单比例'),
 			'config_jackpot_start_time' => t('epmms','开始时间'),
 			'config_jackpot_end_time' => t('epmms','结束时间'),
+			'config_jackpot_jackpot' => t('epmms','期数'),
 		);
 	}
 

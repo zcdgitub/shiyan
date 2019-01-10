@@ -73,6 +73,7 @@ class MemberinfoController extends Controller
 	 */
 	public function actionCreate()
 	{
+
        
 		$model=new Memberinfo('create');
 
@@ -149,11 +150,15 @@ class MemberinfoController extends Controller
   
             $transaction=webapp()->db->beginTransaction();
             $model->attributes=$_POST['Memberinfo'];
-            $model->memberinfo_init_password=$_POST['Memberinfo']['memberinfo_password'];
-            $model->memberinfo_init_password2=$_POST['Memberinfo']['memberinfo_password2'];
+            $res=Memberinfo::model()->find('memberinfo_nickname='."'".$_POST['Memberinfo']['memberinfo_nickname']."'");
+            if($res){
+                 $model->memberinfo_type='会员号';
+            }else{
+                 $model->memberinfo_type='会员工资号';
+            }
             $model->memberinfo_name=$_POST['Memberinfo']['memberinfo_nickname'];
 
-            if($model->save(true,array('memberinfo_account','memberinfo_password','memberinfo_password2','memberinfo_name','memberinfo_nickname','memberinfo_email','memberinfo_mobi','memberinfo_phone','memberinfo_qq','memberinfo_msn','memberinfo_sex','memberinfo_idcard_type','memberinfo_idcard','memberinfo_zipcode','memberinfo_birthday','memberinfo_address_provience','memberinfo_address_area','memberinfo_address_county','memberinfo_address_detail','memberinfo_bank_id','memberinfo_bank_name','memberinfo_bank_account','memberinfo_bank_provience','memberinfo_bank_area','memberinfo_bank_branch','memberinfo_question','memberinfo_answer','memberinfo_memo','memberinfo_is_enable','memberinfo_register_ip','memberinfo_last_ip','memberinfo_last_date','memberinfo_add_date','memberinfo_init_password','memberinfo_init_password2')))
+            if($model->save(true,array('memberinfo_account','memberinfo_password','memberinfo_type','memberinfo_password2','memberinfo_name','memberinfo_nickname','memberinfo_email','memberinfo_mobi','memberinfo_phone','memberinfo_qq','memberinfo_msn','memberinfo_sex','memberinfo_idcard_type','memberinfo_idcard','memberinfo_zipcode','memberinfo_birthday','memberinfo_address_provience','memberinfo_address_area','memberinfo_address_county','memberinfo_address_detail','memberinfo_bank_id','memberinfo_bank_name','memberinfo_bank_account','memberinfo_bank_provience','memberinfo_bank_area','memberinfo_bank_branch','memberinfo_question','memberinfo_answer','memberinfo_memo','memberinfo_is_enable','memberinfo_register_ip','memberinfo_last_ip','memberinfo_last_date','memberinfo_add_date','memberinfo_init_password','memberinfo_init_password2')))
             {
                 if(isset($_POST['Membermap']))
                 {
@@ -174,9 +179,19 @@ class MemberinfoController extends Controller
 
                             //太阳线，自动分配位置
                             $parents = Membermap::model()->findByPk($model->membermap->membermap_recommend_id);
-                      
-                            $parent=Membermap::model()->find(['order'=>'membermap_layer,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);     
-                            $model->membermap->membermap_parent_id=$parent->membermap_id;                           
+                            $res=Membermap::model()->find('membermap_order='.$_POST['Membermap']['membermap_order'].'and membermap_parent_id='.$parents->membermap_id); 
+                            if($res){        
+                                if($_POST['Membermap']['membermap_order']==1){
+                                    $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);    
+                                }else{
+                               
+                                    $parent=Membermap::model()->find(['order'=>'membermap_path desc','condition'=>"membermap_child_number<2   and membermap_path like '$parents->membermap_path%'"]);     
+                                }
+                                    $model->membermap->membermap_parent_id=$parent->membermap_id;                           
+                            } else{
+
+                                    $model->membermap->membermap_parent_id=$parents->membermap_id;
+                            }                      
                         }
                      
                     }
@@ -1211,8 +1226,13 @@ public function actionUpdateName($id=null){
 	 */
 	public function actionVerify($id)
 	{
-
+        
 		$model=$this->loadModel($id);
+        if(isset($_POST['Membermap'])){
+          
+            $model->membermap->membermap_membertype_level=$_POST['Membermap']['membermap_membertype_level'];
+            $model->membermap->save(true,'membermap_membertype_level');
+        }
 
        /* echo"<Pre>";
         var_dump($model);
@@ -1221,6 +1241,14 @@ public function actionUpdateName($id=null){
 		if(($status=$model->verify())===EError::SUCCESS)
 		{
 			$this->log['status']=LogFilter::SUCCESS;
+             if($model->membermap->membermap_membertype_level==2){
+                 $jackpotModel = new ConfigJackpot();
+                 $jackpotModel->updateJackpot();
+                 $activationModel = new ActivationRecord();
+                 $activationModel->activation_member_id = $model->membermap->membermap_id;
+                 $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
+                 $activationModel->save();
+            }
 			user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
 		}
 		elseif($status===EError::DUPLICATE)

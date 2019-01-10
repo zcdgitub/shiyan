@@ -209,6 +209,7 @@ return array(
 						'info'=>DIRECTORY_SEPARATOR .  'upload'  . DIRECTORY_SEPARATOR .  'product' . DIRECTORY_SEPARATOR . 'info' . DIRECTORY_SEPARATOR,
 						'info2'=> 'upload'  . DIRECTORY_SEPARATOR .  'product' . DIRECTORY_SEPARATOR . 'info' . DIRECTORY_SEPARATOR),
 		'upload_tmp'=>'upload' . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR,
+		'trade_upload'=>DIRECTORY_SEPARATOR . 'upload'  . DIRECTORY_SEPARATOR .  'trade' . DIRECTORY_SEPARATOR,
 		'os_charset'=>'UTF-8',
 		'web_charset'=>'UTF-8',
 		'db_backup'=> '..' . DIRECTORY_SEPARATOR . 'db_backup' . DIRECTORY_SEPARATOR,

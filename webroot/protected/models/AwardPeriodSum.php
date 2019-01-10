@@ -134,7 +134,7 @@ class awardPeriodSum extends Model
         $criteria->compare('"awardPeriodSumMemberinfo".memberinfo_account',@$this->awardPeriodSumMemberinfo->memberinfo_account);
         $criteria->compare('"awardPeriodSumMemberinfo".memberinfo_nickname',@$this->awardPeriodSumMemberinfo->memberinfo_nickname);
         $criteria->compare('"awardPeriodSumSrcMemberinfo".memberinfo_account',@$this->awardPeriodSumSrcMemberinfo->memberinfo_account);
-        $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
+//        $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
         $criteria->with=array('awardPeriodSumMemberinfo','awardPeriodSumSrcMemberinfo','awardPeriodSumType');
 
 
@@ -146,6 +146,13 @@ class awardPeriodSum extends Model
                 $page=$_GET['page']-1;
             if(isset($_GET['limit']))
                 $pageSize=$_GET['limit'];
+            if($this->awardPeriodSumType->sum_type_id == 6){
+//                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
+                $criteria->compare('"awardPeriodSumType".sum_type_id',array(4,5,6));
+//                var_dump($criteria);exit;
+            }else{
+                $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
+            }
             return new JSonActiveDataProvider($this, array(
                 'criteria'=>$criteria,
                 'sort'=>$sort,
@@ -158,6 +165,7 @@ class awardPeriodSum extends Model
             ));
         } else
         {
+            $criteria->compare('"awardPeriodSumType".sum_type_id',@$this->awardPeriodSumType->sum_type_id);
             return new CActiveDataProvider($this, array(
                 'criteria' => $criteria,
                 'sort' => $sort,
