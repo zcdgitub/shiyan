@@ -68,6 +68,33 @@ class AwardDaySumController extends Controller
 			$gridColumn[]=['name'=>'_award_' . $award->award_type_id,'header'=>t('epmms',$award->award_type_name),'filter'=>false,'type'=>'money'];
 		}
 		$sumTypes=SumType::model()->findAll(['with'=>['sumConfigs'],'condition'=>"sum_config_date='day'",'order'=>'t.sum_type_id asc']);
+
+        if(webapp()->request->isAjaxRequest){
+            header('Content-Type: application/json');
+            $data=[];
+            foreach($sumTypes as $key=>$sum)
+            {
+                $data['sumtype'][$key]=$sum->toArray();
+                //$model->awardPeriodSumType->sum_type_id=$sum->sum_type_id;
+                //$data['sumtype'][$key]['awardPeriodSum']=$model->search()->getArrayData();
+            }
+            unset($data['sumtype'][3]);
+            unset($data['sumtype'][4]);
+            $data['sumtype'][5]['sum_type_name'] = '奖池奖金';
+//            $model->awardPeriodSumType->sum_type_id=$curSumType;
+            $data['periodsum']=$model->search()->getArrayData();
+            foreach($data['periodsum']['data'] as $key=>$sum)
+            {
+                $dayModel=new AwardDay('search');
+                $dayModel->unsetAttributes();
+                $dayModel->award_day_sum_type=$sum['award_day_sum_type'];
+                $dayModel->award_day_memberinfo_id=$sum['award_day_sum_memberinfo_id'];
+                $data['periodsum']['data'][$key]['awardPeriod']=$dayModel->search()->getArrayData();
+            }
+            echo CJSON::encode($data);
+            webapp()->end();
+        }
+
 		$this->render('index',array(
 			'model'=>$model,
 			'gridColumn'=>$gridColumn,

@@ -96,11 +96,22 @@ class AwardDay extends Model
 		$criteria->compare('award_day_currency',$this->award_day_currency,true);
 		$criteria->compare('award_day_type_id',$this->award_day_type_id,true);
 		$criteria->compare('award_day_add_date',$this->award_day_add_date,true);
-		$criteria->compare('awardDayMemberinfo.memberinfo_account',@$this->awardDayMemberinfo->memberinfo_account);
 		$criteria->with=array('awardDayMemberinfo');
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-			'sort'=>$sort
-		));
+       if(webapp()->request->isAjaxRequest){
+           return new JSonActiveDataProvider($this, array(
+               'criteria'=>$criteria,
+               'sort'=>$sort,
+               'pagination'=>array(
+                   'pageSize'=>20,
+               ),
+           ));
+       }else{
+           $criteria->compare('awardDayMemberinfo.memberinfo_account',@$this->awardDayMemberinfo->memberinfo_account);
+           return new CActiveDataProvider($this, array(
+               'criteria'=>$criteria,
+               'sort'=>$sort
+           ));
+       }
+
 	}
 }
