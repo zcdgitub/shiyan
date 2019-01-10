@@ -14,6 +14,7 @@ class AwardDaySumController extends Controller
 	public function filters()
 	{
 		return array(
+            'cors',
 			'closeSite',
 			'rights', // rights rbac filter
 			'postOnly + delete', // 只能通过POST请求删除
