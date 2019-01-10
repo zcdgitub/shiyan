@@ -26,6 +26,7 @@
  * @property integer $membermap_is_agent
  * @property string $membermap_verify_date
  * @property string $membermap_verify_seq
+ * @property string $membermap_verify_seq2
  * @property string $membermap_verify_member_id
  * @property string $membermap_add_date
  * @property string $membermap_money
@@ -92,8 +93,8 @@ class Membermap extends Model
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('membermap_parent_id, membermap_recommend_id,membermap_is_goods, membermap_membertype_level, membermap_layer, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count,  membermap_product_count, membermap_agent_id, membermap_is_verify, membermap_is_agent, membermap_verify_date,membermap_verify_seq, membermap_verify_member_id, membermap_add_date,membermap_is_empty', 'filter','filter'=>array($this,'empty2null'),'on'=>'create,update'),
-			array('membermap_membertype_level, membermap_is_goods,membermap_layer, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_is_verify, membermap_is_agent, membermap_verify_date,membermap_verify_seq, membermap_verify_member_id, membermap_add_date,membermap_percent1,membermap_percent2', 'filter','filter'=>array($this,'empty2null'),'on'=>'root'),
+			array('membermap_parent_id, membermap_recommend_id,membermap_is_goods, membermap_membertype_level, membermap_layer, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count,  membermap_product_count, membermap_agent_id, membermap_is_verify, membermap_is_agent, membermap_verify_date,membermap_verify_seq,membermap_verify_seq2, membermap_verify_member_id, membermap_add_date,membermap_is_empty', 'filter','filter'=>array($this,'empty2null'),'on'=>'create,update'),
+			array('membermap_membertype_level, membermap_is_goods,membermap_layer, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_is_verify, membermap_is_agent, membermap_verify_date,membermap_verify_seq,membermap_verify_seq2, membermap_verify_member_id, membermap_add_date,membermap_percent1,membermap_percent2', 'filter','filter'=>array($this,'empty2null'),'on'=>'root'),
 			array('membermap_recommend_id,membermap_membertype_level' . $new_required_field_rule, 'required','on'=>'update,create'),
 			array('membermap_membertype_level, membermap_is_goods,membermap_layer,membermap_order, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_is_verify, membermap_is_agent,membermap_percent1,membermap_percent2', 'numerical', 'integerOnly'=>true,'on'=>'create,update'),
 			array('membermap_membertype_level, membermap_is_goods,membermap_layer, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_is_verify, membermap_is_agent', 'numerical', 'integerOnly'=>true,'on'=>'root'),
@@ -117,7 +118,7 @@ class Membermap extends Model
 				'allowEmpty'=>false,'except'=>'root'),
 			array('membermap_parent_id', 'ext.validators.Exist', 'className'=>'Membermap','attributeName'=>'membermap_id',
 				'allowEmpty'=>true,'criteria'=>['condition'=>'membermap_is_verify=1'],'except'=>'root'),
-			array('membermap_order','ext.validators.ExistArea','except'=>'root'),
+			//array('membermap_order','ext.validators.ExistArea','except'=>'root'),
 			array('membermap_agent_id', 'ext.validators.Exist', 'className'=>'Membermap',
 				'attributeName'=>'membermap_id','allowEmpty'=>true,
 				'criteria'=>['condition'=>'membermap_is_verify=1 and membermap_is_agent=1'],'except'=>'root'),
@@ -212,7 +213,8 @@ class Membermap extends Model
 			'showName'=>t('epmms','登录账号'),
 			'membermap_level'=>t('epmms','会员等级'),
 			'membermap_is_delete'=>t('epmms','图谱删除'),
-			'membermap_buyall'=>'购买累计'
+			'membermap_buyall'=>'购买累计',
+            'membermap_verify_seq2'=>'金卡审核顺序'
 		);
 		return array_merge($labels,$new_labels);
 	}
@@ -314,6 +316,10 @@ class Membermap extends Model
 				{
 					if($this->membermap_is_empty!=1)
 					{
+					    if($this->membermap_membertype_level==2)
+                        {
+                            $this->membermap_verify_seq2=new CDbExpression("nextverify2()");
+                        }
 						if(webapp()->id=='170621')
 						{
 							$agentFinance1 = $agent->memberinfo->getFinance(2);
@@ -341,6 +347,10 @@ class Membermap extends Model
 						}
 					}
 				}
+				else if($verifyType==3)
+                {
+                    //自动复消
+                }
 				$this->membermap_money=$money;//扣除电子币的钱等于
 				if(webapp()->id=='180501')
                 {
