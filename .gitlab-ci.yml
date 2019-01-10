@@ -47,13 +47,13 @@ deploy_php:
       - master
   script:
     - set -x 
-    - cd builds && tar -czf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
+    - cd builds && tar -czvf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
     - ssh root@$CI_DEPLOY_SERVER "mkdir -p $CI_DEPLOY_PATH"
     - scp -qB $CI_PROJECT_PATH_SLUG.tar.gz root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/
     - |
      ssh root@$CI_DEPLOY_SERVER " \
      cd $CI_DEPLOY_PATH \
-     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && tar --overwrite -zxvf $CI_PROJECT_PATH_SLUG.tar.gz \
      && chown -R www-data:www-data $CI_PROJECT_PATH_SLUG \
      && \rm $CI_PROJECT_PATH_SLUG.tar.gz" \
      && \rm -rf ${CI_BEAST_DST}
@@ -94,13 +94,13 @@ test_php:
       - dev
   script:
     - set -x 
-    - cd builds && tar -czf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
+    - cd builds && tar -czvf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
     - ssh root@$CI_DEPLOY_SERVER "mkdir -p $CI_DEPLOY_PATH"
     - scp -qB $CI_PROJECT_PATH_SLUG.tar.gz root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/
     - |
      ssh root@$CI_DEPLOY_SERVER " \
      cd $CI_DEPLOY_PATH \
-     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && tar --overwrite -zxvf $CI_PROJECT_PATH_SLUG.tar.gz \
      && chown -R www-data:www-data $CI_PROJECT_PATH_SLUG \
      && \rm $CI_PROJECT_PATH_SLUG.tar.gz"
   variables:
