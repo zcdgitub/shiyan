@@ -103,10 +103,10 @@ class AwardDaySumController extends Controller
                 $info['data'][$val['award_day_date']]['time'] = $val['award_day_date'];
             }
 
-            foreach ($info['data'][$val['award_day_date']]['data'][$key] as $key=>$val){
+            foreach ($info['data'][$val['award_day_date']]['data'] as $key=>$val){
                 $info['data'][$val['award_day_date']]['data'][$key]['award_day_sum_type']=$data['sumtype'][$val['award_day_sum_type']]['sum_type_name'];
             }
-            
+
             echo CJSON::encode($info);
             webapp()->end();
         }
