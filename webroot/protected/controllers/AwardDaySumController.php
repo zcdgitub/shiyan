@@ -79,9 +79,9 @@ class AwardDaySumController extends Controller
                 //$model->awardPeriodSumType->sum_type_id=$sum->sum_type_id;
                 //$data['sumtype'][$key]['awardPeriodSum']=$model->search()->getArrayData();
             }
-            unset($data['sumtype'][3]);
-            unset($data['sumtype'][4]);
-            $data['sumtype'][5]['sum_type_name'] = '奖池奖金';
+//            unset($data['sumtype'][3]);
+//            unset($data['sumtype'][4]);
+//            $data['sumtype'][5]['sum_type_name'] = '奖池奖金';
 //            $model->awardPeriodSumType->sum_type_id=$curSumType;
             $data['periodsum']=$model->search()->getArrayData();
             foreach($data['periodsum']['data'] as $key=>$sum)
@@ -90,9 +90,13 @@ class AwardDaySumController extends Controller
                 $dayModel->unsetAttributes();
                 $dayModel->award_day_sum_type=$sum['award_day_sum_type'];
                 $dayModel->award_day_memberinfo_id=$sum['award_day_sum_memberinfo_id'];
-                $data['periodsum']['data'][$key]['awardPeriod']=$dayModel->search()->getArrayData();
+                $data['periodsum']['data'][$key]=$dayModel->search()->getArrayData();
             }
-            echo CJSON::encode($data);
+            foreach ($data['periodsum']['data'][0] as $key=>$val){
+                $val['award_day_sum_type'] = $data['sumtype'][$val['award_day_sum_type']]['sum_type_name'];
+                $info['data'][$val['award_day_date']][] = $val;
+            }
+            echo CJSON::encode($info);
             webapp()->end();
         }
 

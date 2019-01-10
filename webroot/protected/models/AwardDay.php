@@ -98,6 +98,7 @@ class AwardDay extends Model
 		$criteria->compare('award_day_add_date',$this->award_day_add_date,true);
 		$criteria->with=array('awardDayMemberinfo');
        if(webapp()->request->isAjaxRequest){
+           $criteria->compare('award_day_memberinfo_id',$this->award_day_memberinfo_id);
            return new JSonActiveDataProvider($this, array(
                'criteria'=>$criteria,
                'sort'=>$sort,
