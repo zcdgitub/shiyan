@@ -92,9 +92,15 @@ class AwardDaySumController extends Controller
                 $dayModel->award_day_memberinfo_id=$sum['award_day_sum_memberinfo_id'];
                 $data['periodsum']['data'][$key]=$dayModel->search()->getArrayData();
             }
+
             foreach ($data['periodsum']['data'][0] as $key=>$val){
                 $val['award_day_sum_type'] = $data['sumtype'][$val['award_day_sum_type']]['sum_type_name'];
-                $info['data'][$val['award_day_date']][] = $val;
+                $info['data'][$val['award_day_date']]['data'][] = $val;
+                if(!isset($info['data'][$val['award_day_date']]['sumMoney'])){
+                    $info['data'][$val['award_day_date']]['sumMoney'] = 0;
+                }
+                $info['data'][$val['award_day_date']]['sumMoney'] += $val['award_day_currency'];
+                $info['data'][$val['award_day_date']]['time'] = $val['award_day_date'];
             }
             echo CJSON::encode($info);
             webapp()->end();
