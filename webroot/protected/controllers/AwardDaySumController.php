@@ -97,6 +97,7 @@ class AwardDaySumController extends Controller
 //                $val['award_day_sum_type'] = $data['sumtype'][$val['award_day_sum_type']]['sum_type_name'];
                 $info['data'][$val['award_day_date']]['data'][$key] = $val;
                 $info['data'][$val['award_day_date']]['data'][$key]['award_day_sum_type'] = 1;
+                
                 if(!isset($info['data'][$val['award_day_date']]['sumMoney'])){
                     $info['data'][$val['award_day_date']]['sumMoney'] = 0;
                 }
