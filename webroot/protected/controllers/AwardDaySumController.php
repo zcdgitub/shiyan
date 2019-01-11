@@ -85,21 +85,26 @@ class AwardDaySumController extends Controller
 //            $data['sumtype'][5]['sum_type_name'] = '奖池奖金';
 //            $model->awardPeriodSumType->sum_type_id=$curSumType;
             $data['periodsum']=$model->search()->getArrayData();
-            foreach($data['periodsum']['data'] as $key=>$sum)
-            {
-                $dayModel=new AwardDay('search');
-                $dayModel->unsetAttributes();
-                $dayModel->award_day_sum_type=$sum['award_day_sum_type'];
-                $dayModel->award_day_memberinfo_id=$sum['award_day_sum_memberinfo_id'];
-                $data['periodsum']['data'][$key]=$dayModel->search()->getArrayData();
-            }
-            foreach ($data['periodsum']['data'][0] as $key=>$val){
-                $info['data'][$val['award_day_date']]['data'][$key] = $val;
-                if(!isset($info['data'][$val['award_day_date']]['sumMoney'])){
-                    $info['data'][$val['award_day_date']]['sumMoney'] = 0;
+
+            if(isset($data['periodsum']['data']) && !empty($data['periodsum']['data'])){
+                foreach($data['periodsum']['data'] as $key=>$sum)
+                {
+                    $dayModel=new AwardDay('search');
+                    $dayModel->unsetAttributes();
+                    $dayModel->award_day_sum_type=$sum['award_day_sum_type'];
+                    $dayModel->award_day_memberinfo_id=$sum['award_day_sum_memberinfo_id'];
+                    $data['periodsum']['data'][$key]=$dayModel->search()->getArrayData();
                 }
-                $info['data'][$val['award_day_date']]['sumMoney'] += $val['award_day_currency'];
-                $info['data'][$val['award_day_date']]['time'] = $val['award_day_date'];
+                foreach ($data['periodsum']['data'][0] as $key=>$val){
+                    $info['data'][$val['award_day_date']]['data'][$key] = $val;
+                    if(!isset($info['data'][$val['award_day_date']]['sumMoney'])){
+                        $info['data'][$val['award_day_date']]['sumMoney'] = 0;
+                    }
+                    $info['data'][$val['award_day_date']]['sumMoney'] += $val['award_day_currency'];
+                    $info['data'][$val['award_day_date']]['time'] = $val['award_day_date'];
+                }
+            }else{
+                $info['data'] = '';
             }
             $info['sumtype']=$data['sumtype'];
             echo CJSON::encode($info);

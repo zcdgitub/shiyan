@@ -285,7 +285,6 @@ class Membermap extends Model
 	 */
 	public function verify($verifyType)
 	{
-	
 
 		if($this->membermap_is_verify==0 || $verifyType==8)
 		{
@@ -295,6 +294,7 @@ class Membermap extends Model
 				if(webapp()->id=='141203'&& $this->exists('membermap_is_verify=1 and membermap_parent_id=:parent and membermap_order=:order',array(':parent'=>$this->membermap_parent_id,':order'=>$this->membermap_order)))
 					throw new Error('位置已有人，请选择其它位置。',102);
 				$parent=$this->membermapParent;
+
 				$recommend=$this->membermapRecommend;
 				$money=$money=$this->membermap_is_empty==1?0:$this->membertype->membertype_money;
 
@@ -439,11 +439,13 @@ class Membermap extends Model
 				}
 
 				//接点关系计算
+			
+				if ($items->itemVisible('membermap_parent_id') == false)
+				{
 
-				// if ($items->itemVisible('membermap_parent_id') == true)
-				// {
 					if (is_null($parent))
 					{
+
 						$this->membermap_layer = 1;
 						$this->membermap_path = '/1';
 						$this->saveAttributes(['membermap_layer', 'membermap_path']);
@@ -459,11 +461,13 @@ class Membermap extends Model
 						$parent->membermap_sub_number = $parent->membermap_child_number;
 						$parent->membermap_sub_product_count = $parent->membermap_sub_product_count + $this->membermap_product_count;
 
-						if (MemberinfoItem::model()->itemVisible('membermap_parent_id') == true && MemberinfoItem::model()->itemVisible('membermap_order') == false)
+						// if (MemberinfoItem::model()->itemVisible('membermap_parent_id') == true && MemberinfoItem::model()->itemVisible('membermap_order') == false)
+						// {
+						if (MemberinfoItem::model()->itemVisible('membermap_parent_id') == false && MemberinfoItem::model()->itemVisible('membermap_order') == true)
 						{
 							//太阳线，自动分配位置
-							$this->membermap_order = $parent->membermap_child_number;
-							$this->saveAttributes(['membermap_order']);
+							// $this->membermap_order = $parent->membermap_child_number;
+							//$this->saveAttributes(['membermap_order']);
 						}
 						$parent->saveAttributes(array('membermap_child_number', 'membermap_sub_number', 'membermap_sub_product_count'));
 						$this->membermap_layer = $parent->membermap_layer + 1;
@@ -507,7 +511,7 @@ class Membermap extends Model
 						$cmd=webapp()->db->createCommand($updateUnderProductCount_sql);
 						$cmd->execute([':id'=>$this->membermap_id,':count'=>$this->membermap_product_count]);
 					}
-				// }
+				}
 
 				if(!$this->save(false))
 				{

@@ -259,7 +259,7 @@ class Memberinfo extends Model
         $criteria->compare('memberinfo_email',$this->memberinfo_email);
         $criteria->compare('memberinfo_mobi',$this->memberinfo_mobi);
         $criteria->compare('memberinfo_phone',$this->memberinfo_phone);
-        $criteria->compare('memberinfo_init_password',$this->memberinfo_init_password);
+        
         $criteria->compare('memberinfo_qq',$this->memberinfo_qq);
         $criteria->compare('memberinfo_msn',$this->memberinfo_msn);
         $criteria->compare('memberinfo_sex',$this->memberinfo_sex);
@@ -475,7 +475,24 @@ class Memberinfo extends Model
 					throw new Error('无效的会员');
 				$this->memberinfo_is_verify=1;
 				$this->saveAttributes(['memberinfo_is_verify']);
-			
+
+			    $parents = Membermap::model()->findByPk($membermap->membermap_recommend_id);
+              
+                $res=Membermap::model()->find('membermap_order='.$membermap->membermap_order.'and membermap_parent_id='.$parents->membermap_id); 
+          
+                if($res){        
+                    if($membermap->membermap_order==1){
+                      
+                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$res->membermap_path%'"]);   
+                    }else{                    
+                        $parent=Membermap::model()->find(['order'=>'membermap_path desc','condition'=>"membermap_child_number<2 and membermap_path like '$res->membermap_path%'"]);     
+                    }
+                        $membermap->membermap_parent_id=$parent->membermap_id;                           
+                }else{
+
+                       $membermap->membermap_parent_id=$parents->membermap_id;
+               }
+                $this->membermap->saveAttributes(['membermap_order']);
 				$status=$membermap->verify($verifyType);//去membermap模型里面验证
 				if($status!=EError::SUCCESS)
 				{
