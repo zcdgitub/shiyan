@@ -485,7 +485,7 @@ class Memberinfo extends Model
                       
                         $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$res->membermap_path%'"]);   
                     }else{                    
-                        $parent=Membermap::model()->find(['order'=>'membermap_path desc','condition'=>"membermap_child_number<2 and membermap_path like '$res->membermap_path%'"]);     
+                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path desc','condition'=>"membermap_child_number<2 and membermap_path like '$res->membermap_path%'"]);     
                     }
                         $membermap->membermap_parent_id=$parent->membermap_id;                           
                 }else{

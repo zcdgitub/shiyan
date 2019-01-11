@@ -1034,7 +1034,8 @@ public function actionUpdateName($id=null){
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
-            $data['memberinfo']=$model->search()->getArrayData();
+            $model->membermap->membermap_is_verify='';
+            $data['memberinfo']=$model->search()->getArrayData();                             
             $memberType=new MemberType('search');
             $memberType->unsetAttributes();
             $data['memberType']=$memberType->search()->getArrayData();
