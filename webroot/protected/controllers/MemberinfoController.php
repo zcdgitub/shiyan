@@ -1233,7 +1233,6 @@ public function actionUpdateName($id=null){
             $model->membermap->membermap_membertype_level=$_POST['Membermap']['membermap_membertype_level'];
             $model->membermap->save(true,'membermap_membertype_level');
         }
-
        /* echo"<Pre>";
         var_dump($model);
         die;*/
@@ -1241,7 +1240,7 @@ public function actionUpdateName($id=null){
 		if(($status=$model->verify())===EError::SUCCESS)
 		{
 			$this->log['status']=LogFilter::SUCCESS;
-             if($model->membermap->membermap_membertype_level==2){
+             if(($model->membermap->membermap_membertype_level==2) && empty($model->membermap->membermap_bond_id)){
                  $jackpotModel = new ConfigJackpot();
                  $jackpotModel->updateJackpot();
                  $activationModel = new ActivationRecord();
