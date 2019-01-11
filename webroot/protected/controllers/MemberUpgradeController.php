@@ -74,15 +74,15 @@ class MemberUpgradeController extends Controller
                             'member_upgrade_add_date', 'member_upgrade_old_type',
                             'member_upgrade_money')) && ($status = $model->verify()) == EError::SUCCESS)
                 {
-                    if(empty(user()->map->membermap_bond_id)){
-                        $activationModel = new ActivationRecord();
-                        $activationModel->activation_member_id = user()->id;
-                        $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
-                        $activationModel->save();
-                        // 为竞买奖池添加结束时间
-                        $jackpotModel = new ConfigJackpot();
-                        $jackpotModel->updateJackpot();
-                    }
+//                    if(empty(user()->map->membermap_bond_id)){
+//                        $activationModel = new ActivationRecord();
+//                        $activationModel->activation_member_id = user()->id;
+//                        $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
+//                        $activationModel->save();
+//                        // 为竞买奖池添加结束时间
+//                        $jackpotModel = new ConfigJackpot();
+//                        $jackpotModel->updateJackpot();
+//                    }
                     $transaction->commit();
                     $this->log['status'] = LogFilter::SUCCESS;
                     $this->log();
