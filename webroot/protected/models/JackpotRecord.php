@@ -28,7 +28,7 @@ class JackpotRecord extends Model
      */
     public function tableName()
     {
-        return '{{jackpot_record}}';
+        return '{{jackpot_win_record}}';
     }
 
     /**
