@@ -126,7 +126,7 @@ class Memberinfo extends Model
 				array('memberinfo_account','unique','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Userinfo','attributeName'=>'userinfo_account','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Agent','attributeName'=>'agent_account','on'=>'create,update,updateMy'),
-		        array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
+		        //array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
 		        //array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'昵称必须为汉字'),
 		    	//array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
 				array('memberinfo_bank_id', 'exist', 'className'=>'Bank','attributeName'=>'bank_id'),

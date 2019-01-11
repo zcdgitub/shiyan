@@ -95,8 +95,6 @@ class MySystem_calc extends \AwardSystem
 
             if(!$map->save())
             {
-                print_r($map->attributes);
-                print_r($map->getErrors());
                 $transaction->rollback();
                 return false;
             }
