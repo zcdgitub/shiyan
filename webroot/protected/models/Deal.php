@@ -121,10 +121,10 @@ class Deal extends Model
 //        $member = $sale->saleMember;
 //        $member->membermap->membermap_membertype_level = $mtype->membertype_level;
 //        $member->membermap->saveAttributes(['membermap_membertype_level']);
-        $finance = $sale->saleMember->getFinance(1);
-        $finance->add($this->deal_currency * 0.2);
-        $finance = $sale->saleMember->getFinance(2);
-        $finance->add($this->deal_currency * 0.8);
+        $finance = $sale->saleMember->getFinance(3);
+        $finance->add($this->deal_currency);
+        // $finance = $sale->saleMember->getFinance(2);
+        // $finance->add($this->deal_currency * 0.8);
 /*        $dbPeriod = new DbEvaluate("nextval('award_period')");
         $sumProc = new DbCall('epmms_verify_award_group', array($sale->sale_member_id, $dbPeriod->run(), 1, 0, $this->deal_id));
         $sumProc->run();
@@ -359,7 +359,7 @@ class Deal extends Model
         {
             throw new EError('已完成交易不能删除');
         }
-        $finance=Finance::getMemberFinance($this->deal_buy_member_id,2);
+        $finance=Finance::getMemberFinance($this->deal_buy_member_id,3);
         if($finance->add($this->deal_currency))
         {
             if(parent::delete())
