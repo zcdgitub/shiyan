@@ -31,10 +31,12 @@ dbpasswd_php:
 build_php:
   stage: build
   script:
-    - set -x 
+    - set -x
+    - env
     - mkdir -p ${CI_BEAST_DST}
     - rm -rf ${CI_BEAST_DST}/*
     - |
+     [ "${CI_COMMIT_BEFORE_SHA:0:8}" = "00000000" ] && export CI_BUILD_ALL=true
      [ $CI_BUILD_ALL ] && git ls-files>build-files.lst || git diff --name-only $CI_COMMIT_BEFORE_SHA HEAD >build-files.lst
      cat build-files.lst
     - encode_file.php --olddir $CI_BEAST_SRC --newdir $CI_BEAST_DST --expire $CI_BEAST_EXPIRE --encrypt $CI_BEAST_ENCRYPT_TYPE
