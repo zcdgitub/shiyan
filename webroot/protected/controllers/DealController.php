@@ -160,7 +160,7 @@ class DealController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		$model->dealSale=new Sale('search');
 		$model->dealBuy=new Buy('search');
-		
+
 		if(isset($_GET['Deal']))
 		{
 			$model->attributes=$_GET['Deal'];
@@ -179,8 +179,6 @@ class DealController extends Controller
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
-
-           
             $model->dealSale->sale_member_id=user()->id;
             $model->dealBuy->buy_member_id=user()->id;
             $model->deal_status="<2";
@@ -205,6 +203,7 @@ class DealController extends Controller
             echo CJSON::encode($data);
             webapp()->end();
         }
+
 		$sale=new Sale('search');
         $sale->unsetAttributes();
 		$buy=new buy('search');
@@ -245,6 +244,7 @@ class DealController extends Controller
             $model->deal_status=2;
         }
         $model->deal_status=$selTab;
+   
 		$this->render('index',array(
 			'model'=>$model,
 			'buys'=>$buys,
