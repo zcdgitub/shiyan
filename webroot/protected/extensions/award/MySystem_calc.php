@@ -87,6 +87,7 @@ class MySystem_calc extends \AwardSystem
             $map->membermap_membertype_level=$root_map->membermap_membertype_level;
             $map->membermap_is_verify=0;
             $map->membermap_agent_id=$root_map->membermap_agent_id;
+            $map->membermap_bond_id=$root_map->membermap_id;
             if(is_null($map->membermap_agent_id))
                 $map->membermap_agent_id=1;
             //自动排网

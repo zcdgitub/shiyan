@@ -350,6 +350,11 @@ class Membermap extends Model
 				else if($verifyType==3)
                 {
                     //自动复消
+                    $bondFinance=Finance::getMemberFinance($this->membermap_bond_id,5);
+                    if(!$bondFinance->deduct($money))
+                    {
+                        return EError::NOMONEY;//复消币不足
+                    }
                 }
 				$this->membermap_money=$money;//扣除电子币的钱等于
 				if(webapp()->id=='180501')
