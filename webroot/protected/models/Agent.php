@@ -54,8 +54,8 @@ class Agent extends Model
 			array('agent_memberinfo_id', 'required','message'=>t('epmms','会员输入错误或不存在')),
            /* array('agent_type', 'required','message'=>t('epmms','代理中心类型必选')),
             array('agent_province', 'required','message'=>t('epmms','省份必选')),*/
-            array('agent_area', 'ext.validators.AbleAgentArea'),
-            array('agent_county', 'ext.validators.AbleAgentCounty'),
+           // array('agent_area', 'ext.validators.AbleAgentArea'),
+           // array('agent_county', 'ext.validators.AbleAgentCounty'),
 			array('agent_is_verify', 'numerical', 'integerOnly'=>true),
 			array('agent_memberinfo_id,agent_account', 'length', 'max'=>50),
 			array('agent_memo', 'length', 'max'=>200),
@@ -132,11 +132,32 @@ class Agent extends Model
 		$criteria->compare('agent_area',$this->agent_area);
 		$criteria->compare('agent_county',$this->agent_county);
 		$criteria->compare('"agentMemberinfo".memberinfo_account',@$this->agentMemberinfo->memberinfo_account);
-		$criteria->with=array('agentMemberinfo');
-		return new CActiveDataProvider($this, array(
+		$criteria->compare('"agentMembermap".membermap_agent_id',@$this->agentMembermap->membermap_agent_id);
+		$criteria->with=['agentMembermap','agentMemberinfo','agenttype'];
+		if (webapp()->request->isAjaxRequest){
+			$page = 0;
+            $pageSize = 20;
+            if (isset($_GET['page']))
+                $page = $_GET['page'] - 1;
+            if (isset($_GET['limit']))
+                $pageSize = $_GET['limit'];
+            return new JSonActiveDataProvider($this, array(
+                'criteria'=>$criteria,
+                'sort'=>$sort,
+                'pagination'=>array(
+                    'currentPage'=>$page,
+                    'pageSize'=>$pageSize,
+                ),
+                'relations'=>['agentMembermap','agentMemberinfo','agenttype'],
+                'includeDataProviderInformation'=>true,
+            ));
+        }else{
+        	return new JSonActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 			'sort'=>$sort
-		));
+			));
+        }
+		
 	}
 	public function getAgentTitle()
 	{
@@ -157,7 +178,8 @@ class Agent extends Model
 
 		if($this->agent_is_verify==0)
 		{
-
+  // var_dump($this->agent_is_verify);
+  // die;
 			$this->agent_is_verify=1;
 
 			$this->agent_verify_date=new CDbExpression('now()');

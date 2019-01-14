@@ -45,7 +45,7 @@ class TradePassword extends CValidator
 	{
 	    if(user()->isAdmin())
 	        return true;
-	    if(!isset($_SERVER['HTTP_ORIGIN']) || $_SERVER['HTTP_ORIGIN']=='http://zhang.youtuoapp.com')
+	    if(!isset($_SERVER['HTTP_ORIGIN']) || $_SERVER['HTTP_ORIGIN']=='http://192.168.31.107:3200')
 	        return true;
 		$value=$object->$attribute;
 		if(empty($value))

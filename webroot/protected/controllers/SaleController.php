@@ -73,6 +73,7 @@ class SaleController extends Controller
                 {
                     if(isset($_POST['Sale']['buy_id']))
                     {
+                    	
                         $buy_id=$_POST['Sale']['buy_id'];
                         $model->refresh();
                         $ret=Deal::match($buy_id,$model->sale_id);

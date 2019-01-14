@@ -223,6 +223,7 @@ class AgentController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+
 		$this->log['target']=$this->loadModel($id)->agentTitle;
 		$model=$this->loadModel($id);
 		$memberinfo=Memberinfo::model()->find('memberinfo_id=:id',[':id'=> $model->agent_memberinfo_id]);
@@ -239,13 +240,25 @@ class AgentController extends Controller
 		{
 			$this->log['status']=LogFilter::SUCCESS;
 			$this->log();
+			user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
 		}
 		else
 		{
 			$this->log['status']=LogFilter::FAILED;
 			$this->log();
-		}
+			user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
 
+		}
+		 if(webapp()->request->isAjaxRequest)
+        {
+            header('Content-Type: application/json');
+            if(user()->hasFlash('success'))
+                $data['success']=true;
+            if(user()->hasFlash('error'))
+                $data['error']=user()->getFlash('success','',true);
+            echo CJSON::encode($data);
+            return;
+        }
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
@@ -274,6 +287,9 @@ class AgentController extends Controller
 		var_dump($data);
 	*/
 		$model->agentMemberinfo=new Memberinfo('search');
+		$model->agentMembermap=new Membermap('search');
+		$model->agenttype=new AgentType('search');
+
 
 		$model->unsetAttributes();  // clear any default values
 		if($selTab==0)
@@ -292,7 +308,16 @@ class AgentController extends Controller
 				$model->agentMemberinfo->attributes=$_GET['Agent']['agentMemberinfo'];
 			}
 		}
-
+		   if(webapp()->request->isAjaxRequest)
+        {
+            header('Content-Type: application/json');
+            $model->agent_is_verify="";
+            $model->agentMembermap->membermap_agent_id=user()->id;
+            $data['agent']=$model->search()->getArrayData();
+            echo CJSON::encode($data);
+            webapp()->end();
+        }
+      
 		$this->render('index',array(
 			'model'=>$model,
 			'selTab'=>(int)$selTab
@@ -312,18 +337,50 @@ class AgentController extends Controller
 		    $t->commit();
 			$this->log['status']=LogFilter::SUCCESS;
 			user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
+                if (webapp()->request->isAjaxRequest)
+                {
+                    header('Content-Type: application/json');
+                    if (user()->hasFlash('success'))
+                    {
+                        $data['success'] = true;
+                        $data['msg'] = '成功';
+                    }
+
+                    echo CJSON::encode($data);
+                    return;
+                }
 		}
 		elseif($status===EError::DUPLICATE)
 		{
 		    $t->rollback();
 			$this->log['status']=LogFilter::FAILED;
 			user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败,请不要重复审核"));
+                if (webapp()->request->isAjaxRequest){
+                    header('Content-Type: application/json');
+                    if (user()->hasFlash('error')){
+                        $data['success'] = false;
+                        $data['msg'] = '请不要重复审核';
+                    }
+
+                    echo CJSON::encode($data);
+                    return;
+                }
 		}
 		else
 		{
 		    $t->rollback();
 			$this->log['status']=LogFilter::FAILED;
 			user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"失败"));
+			 if (webapp()->request->isAjaxRequest){
+                    header('Content-Type: application/json');
+                    if (user()->hasFlash('error'))
+                    {
+                        $data['success'] = false;
+                        $data['msg'] = '失败';
+                    }
+                    echo CJSON::encode($data);
+                    return;
+                }
 		}
 		$this->log();
 		$this->actionIndex();
@@ -335,13 +392,17 @@ class AgentController extends Controller
 	 */
 	public function loadModel($id)
 	{
+
 		$model=Agent::model()->findByPk($id,array('with'=>array('agentMemberinfo','agentMemberinfo.membermap')));
+
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
-		if(!user()->isAdmin() && user()->id!=$model->agent_memberinfo_id)
-		{
-			throw new CHttpException(403,t('epmms','没有权限。'));
-		}
+		// if(!user()->isAdmin() && user()->id!=$model->agent_memberinfo_id)
+		// {
+			
+		// 	throw new CHttpException(403,t('epmms','没有权限。'));
+		// }
+	
 		return $model;
 	}
 
