@@ -68,6 +68,7 @@ return array(
 		'cache' => array(
 			'class' => 'CRedisCache',
 			'database'=>0,
+            'hostname'=>'redis',
 			//'keyPrefix'=>'cache'
 		),
 	),
