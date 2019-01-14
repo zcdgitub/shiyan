@@ -146,9 +146,7 @@ class MemberUpgrade extends Model
 			$this->member_upgrade_is_verify=1;
 			$this->member_upgrade_verify_date=new CDbExpression('now()');
 			$this->save();
-			// 为竞买奖池添加结束时间
-			$jackpotModel = new ConfigJackpot();
-            $jackpotModel->updateJackpot();
+
 
 			$bak=new Backup();
 			if(!$bak->autoBackup('升级'.$this->memberUpgradeMember->showName . '到' . $this->memberUpgradeType->showName ,'审核时间：'.webapp()->format->formatdatetime(time())))
