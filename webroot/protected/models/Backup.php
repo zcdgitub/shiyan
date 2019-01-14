@@ -249,7 +249,7 @@ class Backup extends Model
 			$out=null;
 			$error=null;
 			$cmd_file=$this->backup_file;
-			$cmd_bak=webapp()->db->restore_cmd . " -e -1 --disable-triggers -c -Fc -d " . '"' . webapp()->db->database . '" ' . realpath( $cmd_file);
+			$cmd_bak=webapp()->db->restore_cmd . " -e -1 --disable-triggers -c -Fc -n public -n award -d " . '"' . webapp()->db->database . '" ' . realpath( $cmd_file);
 			exec($cmd_bak,$out,$error);
 
 			if($error===0)
@@ -257,7 +257,7 @@ class Backup extends Model
 				$out=null;
 				$error=null;
 				//恢复backup表
-				$cmd_bak=webapp()->db->restore_cmd . " -e -1 --disable-triggers -c -Fc -n public -a award -d " . webapp()->db->database . ' ' . realpath(params('db_backup') . 'backup' . $this->backup_id.'.bak');
+				$cmd_bak=webapp()->db->restore_cmd . " -e -1 --disable-triggers -c -Fc -n public -n award -d " . webapp()->db->database . ' ' . realpath(params('db_backup') . 'backup' . $this->backup_id.'.bak');
 				exec($cmd_bak,$out,$error);
 				unlink(params('db_backup') . 'backup' . $this->backup_id.'.bak');
 				if($error===0)
