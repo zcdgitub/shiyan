@@ -255,7 +255,7 @@ class AgentController extends Controller
             if(user()->hasFlash('success'))
                 $data['success']=true;
             if(user()->hasFlash('error'))
-                $data['error']=user()->getFlash('success','',true);
+                $data['success']=false;
             echo CJSON::encode($data);
             return;
         }

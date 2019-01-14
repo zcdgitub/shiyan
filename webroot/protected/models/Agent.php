@@ -141,6 +141,7 @@ class Agent extends Model
                 $page = $_GET['page'] - 1;
             if (isset($_GET['limit']))
                 $pageSize = $_GET['limit'];
+           //$criteria->addCondition('"agentMembermap".membermap_agent_id='.user()->id);
             return new JSonActiveDataProvider($this, array(
                 'criteria'=>$criteria,
                 'sort'=>$sort,
@@ -178,8 +179,7 @@ class Agent extends Model
 
 		if($this->agent_is_verify==0)
 		{
-  // var_dump($this->agent_is_verify);
-  // die;
+  
 			$this->agent_is_verify=1;
 
 			$this->agent_verify_date=new CDbExpression('now()');
@@ -214,8 +214,7 @@ class Agent extends Model
                         break;
                 }*/
 			}
-		/*	var_dump($this->agent_type);
-			die;*/
+		
 	
 			if($this->save(false) && $membermap->saveAttributes(array('membermap_is_agent','membermap_agent_type','membermap_membertype_level','membermap_money')) && $memberinfo->saveAttributes(array('memberinfo_is_agent')))
             {
