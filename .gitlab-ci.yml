@@ -89,7 +89,7 @@ deploy_apache:
     CI_DEPLOY_SERVER: 123.254.105.104
   environment:
     name: product
-    url: web.youtuoweb.com
+    url: admin.youtuoapp.com
 test_php:
   stage: deploy
   only:
