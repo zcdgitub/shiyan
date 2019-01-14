@@ -300,7 +300,6 @@ class Memberinfo extends Model
         $criteria->compare('"membermap".membermap_is_active',@$this->membermap->membermap_is_active);
         $criteria->compare('"membermap".membermap_verify_date',@$this->membermap->membermap_verify_date);
         $criteria->compare('"membermap".membermap_recommend_layer',@$this->membermap->membermap_recommend_layer);
-        PC::debug($this->membermap->membermap_bond_id);
         $criteria->compare('"membermap".membermap_bond_id',@$_GET['bond_id']);
         if(!empty($this->membermap->membermap_recommend_path))
         {
