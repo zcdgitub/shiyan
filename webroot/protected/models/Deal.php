@@ -81,6 +81,7 @@ class Deal extends Model
 
     public function verify()
     {
+
         $sale = $this->dealSale;
         if (is_null($sale))
         {
@@ -123,6 +124,7 @@ class Deal extends Model
 //        $member->membermap->saveAttributes(['membermap_membertype_level']);
         $finance = $sale->saleMember->getFinance(3);
         $finance->add($this->deal_currency);
+     
         // $finance = $sale->saleMember->getFinance(2);
         // $finance->add($this->deal_currency * 0.8);
 /*        $dbPeriod = new DbEvaluate("nextval('award_period')");

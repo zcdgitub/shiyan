@@ -116,6 +116,9 @@ class Membermap extends Model
 			array('membermap_recommend_id', 'ext.validators.Exist', 'className'=>'Membermap',
 				'attributeName'=>'membermap_id','criteria'=>['condition'=>"membermap_is_verify=1"],
 				'allowEmpty'=>false,'except'=>'root'),
+
+			//array('membermap_recommend_id', 'exist', 'className'=>'Membermap','attributeName'=>'membermap_id','message'=>'推荐人不存在'),
+			
 			array('membermap_parent_id', 'ext.validators.Exist', 'className'=>'Membermap','attributeName'=>'membermap_id',
 				'allowEmpty'=>true,'criteria'=>['condition'=>'membermap_is_verify=1'],'except'=>'root'),
 			//array('membermap_order','ext.validators.ExistArea','except'=>'root'),

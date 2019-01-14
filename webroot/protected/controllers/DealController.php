@@ -185,7 +185,6 @@ class DealController extends Controller
             $model->dealBuy->buy_member_id=user()->id;
             $model->deal_status="<2";
             $data['deal']=$model->search()->getArrayData();
-          
             foreach($data['deal']['data'] as $key=>$deal)
             {
             	

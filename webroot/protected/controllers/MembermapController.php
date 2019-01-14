@@ -43,6 +43,7 @@ class MembermapController extends Controller
 		{
 			webapp()->end();
 		}
+
 		if($type=='jit')
 			$user_tree=Membermap::getTree($node,$levels-1,$dataType,true,config('map','branch'));
 		else
@@ -56,6 +57,7 @@ class MembermapController extends Controller
 	 */
 	public function actionOrgMap($dataType='parent')
 	{
+
 
 		if($dataType=='parent')
 		{
@@ -74,7 +76,6 @@ class MembermapController extends Controller
 			}
 		}
 		$levels=config('map','levels');
-
 		$orientation=config('map','orientation');
 		$model=new Membermap('search');
 		$model->unsetAttributes();  // clear any default values
@@ -107,10 +108,13 @@ class MembermapController extends Controller
 
 		if(user()->isAdmin())
 		{
+
 			$top_model=Membermap::model()->findByAttributes(['membermap_layer'=>1]);
 		}
+
 		if(is_null($model->memberinfo->memberinfo_account))
 		{
+
 			if(user()->isAdmin())
 				$model->membermap_id=$top_model->membermap_id;
 			else
@@ -131,8 +135,6 @@ class MembermapController extends Controller
 		{
 			$name=@$_GET['Membermap']['memberinfo']['memberinfo_account'];
 			$search_id=Memberinfo::name2id($name);
-
-
 		}
 		else
 		{
@@ -143,6 +145,7 @@ class MembermapController extends Controller
 		}
 		if($dataType=='parent')
 		{
+
 			if(Membermap::model()->exists(['join'=>',epmms_membermap as r','condition'=>"t.membermap_id=:my_id and r.membermap_id=:search_id and r.membermap_path like t.membermap_path || '%'",'params'=>[':my_id'=>$my_id,':search_id'=>$search_id]]))
 			{
 				$node=$model->findByPk($search_id);
@@ -164,28 +167,13 @@ class MembermapController extends Controller
 	              echo CJSON::encode(['success'=>false,'msg'=>'搜索的帐号不存在']);
 	              return;                       
             }
-
 		}
-
-
 		$json_tree=is_null($node)?null:Membermap::getTree($node,$levels-1,$dataType,false,config('map','branch'));
 
 			if(webapp()->request->isAjaxRequest){
 	            header('Content-Type: application/json');
 	            
-	        /*   $lay=Membermap::model()->findByAttributes(['membermap_id'=>$search_id]);
-
-             $data=yii::app()->db->createCommand()->select('max("membermap_layer"),min("membermap_layer")')->from('epmms_membermap')->where("membermap_path like '$lay->membermap_path%'")->queryAll();
-
-			foreach ($data as $key => $value) {
-				$layer=$value;
-			}
-			
-
-			for ($i=$layer['min'];$i<=$layer['max'];$i++) { 
-			           $tre[]=yii::app()->db->createCommand()->select('*')->from('epmms_membermap')->leftjoin('epmms_memberinfo','epmms_membermap.membermap_id=epmms_memberinfo.memberinfo_id')->where("membermap_layer=".$i." and membermap_path like '$lay->membermap_path%'")->queryAll();
-			}*/
-		         $data=$json_tree;
+		        $data=$json_tree;
 	          
 	            echo CJSON::encode( $data);
 	            return;
@@ -276,6 +264,7 @@ class MembermapController extends Controller
 			user()->setFlash('error',t('epmms',"搜索的帐号不存在"));
 		}
 		$json_tree=is_null($node)?null:Membermap::getTree2($node,$levels-1,$dataType,false);
+
 		$this->render('tree',['model'=>is_null($node)?$model:$node,'json_tree'=>$json_tree,'dataType'=>$dataType]);
 	}
 	/**

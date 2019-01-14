@@ -206,6 +206,7 @@ function config($category,$name)
 	$cname='config_' . $category . '_' . $name;
 	if(($value=webapp()->cache->get($cname))===false)
 	{
+		
 		if (!isset($model[$category]))
 		{
 			$cmd = webapp()->db->createCommand("select * from epmms_config_$category");

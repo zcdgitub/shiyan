@@ -160,6 +160,7 @@ class MemberinfoController extends Controller
             {
                 if(isset($_POST['Membermap']))
                 {
+
                     $model->membermap->attributes=$_POST['Membermap'];
 
                     $model->membermap->membermap_membertype_level_old=$model->membermap->membermap_membertype_level;
@@ -176,21 +177,7 @@ class MemberinfoController extends Controller
                         {  
 
                             //太阳线，自动分配位置
-                            // $parents = Membermap::model()->findByPk($model->membermap->membermap_recommend_id);
-                            // $res=Membermap::model()->find('membermap_order='.$_POST['Membermap']['membermap_order'].'and membermap_parent_id='.$parents->membermap_id); 
-                            // if($res){        
-                            //     if($_POST['Membermap']['membermap_order']==1){
-                            //         $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);   
-
-                            //     }else{
-                               
-                            //         $parent=Membermap::model()->find(['order'=>'membermap_path desc','condition'=>"membermap_child_number<2   and membermap_path like '$parents->membermap_path%'"]);     
-                            //     }
-                            //         $model->membermap->membermap_parent_id=$parent->membermap_id;                           
-                            // } else{
-
-                            //         $model->membermap->membermap_parent_id=$parents->membermap_id;
-                            // }                      
+                                      
                         }
                      
                     }

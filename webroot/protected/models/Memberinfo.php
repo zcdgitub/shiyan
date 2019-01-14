@@ -127,7 +127,7 @@ class Memberinfo extends Model
 				array('memberinfo_account','unique','className'=>'Userinfo','attributeName'=>'userinfo_account','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Agent','attributeName'=>'agent_account','on'=>'create,update,updateMy'),
 		        //array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
-		        //array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'昵称必须为汉字'),
+		        array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'昵称必须为汉字'),
 		    	//array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
 				array('memberinfo_bank_id', 'exist', 'className'=>'Bank','attributeName'=>'bank_id'),
 				array('memberinfo_sex', 'ext.validators.Sex'),
@@ -772,7 +772,7 @@ class Memberinfo extends Model
 		$info->attributes=$root_info->attributes;
 		$info->unsetAttributes(['memberinfo_id','memberinfo_is_verify','memberinfo_last_date','memberinfo_last_ip','memberinfo_nickname']);
 		$info->memberinfo_account='auto_' . Memberinfo::genUsername();
-		$info->memberinfo_nickname=$root_info->memberinfo_nickname;;
+		$info->memberinfo_nickname=$root_info->memberinfo_nickname;
 		$info->memberinfo_password_repeat=$info->memberinfo_password;
 		$info->memberinfo_password_repeat2=$info->memberinfo_password2;
 		$info->memberinfo_add_date=new CDbExpression('now()');
