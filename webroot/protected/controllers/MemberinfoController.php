@@ -148,7 +148,7 @@ class MemberinfoController extends Controller
   
             $transaction=webapp()->db->beginTransaction();
             $model->attributes=$_POST['Memberinfo'];
-            $res=Memberinfo::model()->find('memberinfo_nickname='."'".$_POST['Memberinfo']['memberinfo_nickname']."'");
+            $res=Memberinfo::model()->find('memberinfo_name='."'".$_POST['Memberinfo']['memberinfo_name']."'");
             if($res){
                  $model->memberinfo_type='会员号';
             }else{
