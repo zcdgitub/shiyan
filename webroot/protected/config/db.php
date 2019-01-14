@@ -6,6 +6,7 @@
  * Time: 11:46
  * To change this template use File | Settings | File Templates.
  */
+
 return array(
 	'database' => 'epmms_181225',
 	'host'=>'pgsql',
@@ -24,3 +25,5 @@ return array(
 	'class'=>'DbConnection'
 );
 ?>
+
+
