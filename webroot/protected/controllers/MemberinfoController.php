@@ -154,7 +154,7 @@ class MemberinfoController extends Controller
             }else{
                  $model->memberinfo_type='会员工资号';
             }
-            $model->memberinfo_name=$_POST['Memberinfo']['memberinfo_nickname'];
+           // $model->memberinfo_name=$_POST['Memberinfo']['memberinfo_nickname'];
 
             if($model->save(true,array('memberinfo_account','memberinfo_password','memberinfo_type','memberinfo_password2','memberinfo_name','memberinfo_nickname','memberinfo_email','memberinfo_mobi','memberinfo_phone','memberinfo_qq','memberinfo_msn','memberinfo_sex','memberinfo_idcard_type','memberinfo_idcard','memberinfo_zipcode','memberinfo_birthday','memberinfo_address_provience','memberinfo_address_area','memberinfo_address_county','memberinfo_address_detail','memberinfo_bank_id','memberinfo_bank_name','memberinfo_bank_account','memberinfo_bank_provience','memberinfo_bank_area','memberinfo_bank_branch','memberinfo_question','memberinfo_answer','memberinfo_memo','memberinfo_is_enable','memberinfo_register_ip','memberinfo_last_ip','memberinfo_last_date','memberinfo_add_date','memberinfo_init_password','memberinfo_init_password2')))
             {
