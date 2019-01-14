@@ -86,7 +86,7 @@ class MySystem_calc extends \AwardSystem
             $map->membermap_recommend_id=$root_map->membermap_id;
             $map->membermap_membertype_level=$root_map->membermap_membertype_level;
             $map->membermap_is_verify=0;
-            $map->membermap_agent_id=$root_map->membermap_agent_id;
+            $map->membermap_agent_id=$pid;
             $map->membermap_bond_id=$root_map->membermap_id;
             if(is_null($map->membermap_agent_id))
                 $map->membermap_agent_id=1;
@@ -110,7 +110,6 @@ class MySystem_calc extends \AwardSystem
                 throw new Error('生成会员时审核失败或电子币不足');
             }
         }
-        print_r($info->getErrors());
         $transaction->rollback();
         return false;
     }
