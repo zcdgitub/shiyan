@@ -15,6 +15,7 @@
  * @property integer $config_jackpot_start_time
  * @property integer $config_jackpot_end_time
  * @property integer $config_jackpot_number
+ * @property integer $config_jackpot_addmember_money
  */
 class ConfigJackpot extends Model
 {
@@ -39,14 +40,14 @@ class ConfigJackpot extends Model
 		// will receive user inputs.
 		return array(
 			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'filter','filter'=>array($this,'empty2null')),
-			array('config_jackpot_fund, config_jackpot_start_time,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'required'),
+			array('config_jackpot_fund, config_jackpot_start_time,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio,config_jackpot_addmember_money', 'required'),
 
 //			array('config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'numerical', 'integerOnly'=>true),
 
-			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund ,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio', 'ext.validators.Decimal','precision'=>16,'scale'=>4),
+			array('config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund ,config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio,config_jackpot_addmember_money', 'ext.validators.Decimal','precision'=>16,'scale'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('config_jackpot_id, config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund, config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio, config_jackpot_start_time, config_jackpot_end_time', 'safe', 'on'=>'search'),
+			array('config_jackpot_id, config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund, config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio, config_jackpot_start_time, config_jackpot_end_time,config_jackpot_addmember_money', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,13 +72,14 @@ class ConfigJackpot extends Model
 			'config_jackpot_start_balance' => t('epmms','首单奖池金额'),
 			'config_jackpot_lucky_balance' => t('epmms','幸运奖池金额'),
 			'config_jackpot_end_balance' => t('epmms','尾单奖池金额'),
-			'config_jackpot_fund' => t('epmms','发展基金'),
+			'config_jackpot_fund' => t('epmms','每轮开始拨款金额'),
 			'config_jackpot_start_order_ratio' => t('epmms','首单比例'),
 			'config_jackpot_lucky_order_ratio' => t('epmms','幸运比例'),
 			'config_jackpot_end_order_ratio' => t('epmms','尾单比例'),
 			'config_jackpot_start_time' => t('epmms','开始时间'),
 			'config_jackpot_end_time' => t('epmms','结束时间'),
 			'config_jackpot_jackpot' => t('epmms','期数'),
+			'config_jackpot_addmember_money' => t('epmms','激活金卡拨款金钱'),
 		);
 	}
 
@@ -135,8 +137,8 @@ class ConfigJackpot extends Model
 	public function updateJackpot(){
         // 更改配置文件
         $model     = (new ConfigJackpot())->findByPk(1);
-        $fundMoney =  2997*20/100;
-        $model->config_jackpot_fund     -= $fundMoney;  // 更改发展基金
+        $fundMoney =  $model->config_jackpot_addmember_money;
+//        $model->config_jackpot_fund     -= $fundMoney;  // 更改发展基金
         $model->config_jackpot_end_time += 60;          // 结束时间推迟一分钟
         $model->config_jackpot_start_balance += $fundMoney *  $model->config_jackpot_start_order_ratio/100;  // 首单奖池
         $model->config_jackpot_end_balance   += $fundMoney * $model->config_jackpot_end_order_ratio/100;     // 尾单奖池
