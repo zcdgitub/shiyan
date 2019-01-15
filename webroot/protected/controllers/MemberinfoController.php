@@ -1859,6 +1859,7 @@ public function actionUpdateName($id=null){
         }
     }
     public function actionTeam(){
+
        if(isset($_POST['Memberinfo']['account'])){
             $parent=Memberinfo::model()->find("memberinfo_account=:account",[':account'=>$_POST['Memberinfo']['account']]);
             $parents = Membermap::model()->findByPk($parent->memberinfo_id);
@@ -1867,14 +1868,20 @@ public function actionUpdateName($id=null){
         }
          $dat['a']=Membermap::model()->count("membermap_order=1 and membermap_path like '$parents->membermap_path/%'");
          $dat['b']=Membermap::model()->count("membermap_order=2 and membermap_path like '$parents->membermap_path/%'");
+<<<<<<< HEAD
           if($dat){
+=======
+        if($dat){
+>>>>>>> 89a4a832f3906685997ab91476a75586e6cfc40a
                 if(webapp()->request->isAjaxRequest){
-                header('Content-Type: application/json');
+                    header('Content-Type: application/json');
                     $data['success']=true;
                     $data['team']=$dat;
                     echo CJSON::encode($data);
                     return;
                 }
-            }   
+        }     
     }
+        
+     
 }
