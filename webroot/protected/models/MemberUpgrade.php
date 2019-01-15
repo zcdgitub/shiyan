@@ -137,10 +137,8 @@ class MemberUpgrade extends Model
 	{
 		if($this->member_upgrade_is_verify==1)
 			return false;
-	
+
 		$status=$this->memberUpgradeMember->upgrade($this->member_upgrade_type);
-
-
 		if($status===EError::SUCCESS)
 		{
 
@@ -148,6 +146,8 @@ class MemberUpgrade extends Model
 			$this->member_upgrade_is_verify=1;
 			$this->member_upgrade_verify_date=new CDbExpression('now()');
 			$this->save();
+
+
 			$bak=new Backup();
 			if(!$bak->autoBackup('升级'.$this->memberUpgradeMember->showName . '到' . $this->memberUpgradeType->showName ,'审核时间：'.webapp()->format->formatdatetime(time())))
 			{

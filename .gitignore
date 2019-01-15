@@ -1,6 +1,7 @@
 *.txt
 *.psd
 *.bak
+*.dmp
 # Compiled source #
 ###################
 *.com
@@ -40,5 +41,7 @@ Thumbs.db
 db_backup/*
 webroot/assets/*
 webroot/protected/runtime/*
+.idea/*
+webroot/upload/tmp/*
 !.gitignore
 !.gitkeep

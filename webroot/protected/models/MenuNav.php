@@ -146,9 +146,9 @@ class MenuNav extends Model
 					if ($child_menu_item->menu_url == 'membermap4/orgMap' && !user()->isAdmin() && user()->map->membermap_membertype_level != 4)
 						continue;
 				}
-				if ($child_menu_item->menu_url == 'membermap/orgMap' && !MemberinfoItem::model()->itemVisible('membermap_parent_id'))
+				if ($child_menu_item->menu_url == 'membermap/orgMap' && !MemberinfoItem::model()->getViewItem('membermap_parent_id'))
 					continue;
-				if ($child_menu_item->menu_url == 'membermap/orgMapRecommend' && !MemberinfoItem::model()->itemVisible('membermap_recommend_id'))
+				if ($child_menu_item->menu_url == 'membermap/orgMapRecommend' && !MemberinfoItem::model()->getViewItem('membermap_recommend_id'))
 					continue;
 
 				if(strcasecmp($child_menu_item->menu_url,'membermap/orgMap')==0)

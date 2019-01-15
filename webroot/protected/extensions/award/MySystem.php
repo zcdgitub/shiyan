@@ -36,10 +36,10 @@ class MySystem extends \AwardSystem
 		//拿600的见点奖送点位
 		$connection=Yii::app()->db;
 		$transaction=webapp()->db->beginTransaction();
-		$sql="select membermap_id as id from epmms_award_total,epmms_membermap where membermap_id=award_total_memberinfo_id and award_total_type_id=409 and award_total_currency>=10000";
+		$sql="select membermap_id as id from epmms_finance,epmms_membermap where membermap_id=finance_memberinfo_id and finance_type=6 and current_date-coalesce(membermap_futou_date,current_date-30)=30 and finance_award>=iif(membermap_membertype_level=1,3000,9000);";
 
 		$command=$connection->createCommand($sql);
-		$datareader=$command->query([':id'=>$this->map->membermap_id]);
+		$datareader=$command->query();
 		foreach($datareader as $row)
 		{
 			if($mymember=Membermap::model()->findByPk($row['id']))
@@ -85,11 +85,14 @@ class MySystem extends \AwardSystem
 		{
 			$map=new Membermap('create');
 			$map->membermap_id=$info->memberinfo_id;
-			$sql_child="select award.get_little_loc(:id)";
-			$cmd_child=webapp()->db->createCommand($sql_child);
-			$pid=$cmd_child->queryScalar([':id'=>$root_map->membermap_id]);
+			$parent=Membermap::model()->find(["condition"=>"membermap_path like :path","order"=>'membermap_verify_seq desc']);
+			if(is_null($parent))
+            {
+                throw new EError('没有找到接点人');
+            }
+			$pid=$parent->membermap_id;
 			$map->membermap_recommend_id=$root_map->membermap_id;
-			$map->membermap_membertype_level=1;
+			$map->membermap_membertype_level=$root_map->membermap_membertype_level;
 			$map->membermap_is_verify=0;
 			$map->membermap_agent_id=$root_map->membermap_agent_id;
 			if(is_null($map->membermap_agent_id))

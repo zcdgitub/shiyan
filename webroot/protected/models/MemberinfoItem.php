@@ -140,8 +140,7 @@ class MemberinfoItem extends Model
 	
 		$items=[
 			'memberinfo_account' => array('type'=>params('accountType')==0?'text':'autoaccount','visible'=>true),
-			'memberinfo_init_password' => array('type'=>'text','visible'=>false),
-			'memberinfo_init_password2' => array('type'=>'text','visible'=>false),
+			'memberinfo_type' => array('type'=>'text','visible'=>false),
 			'memberinfo_password' => array('type'=>'password','autocomplete'=>'off','visible'=>true),
 			'memberinfo_password_repeat' => array('type'=>'password','autocomplete'=>'off','visible'=>true),
 			'memberinfo_password2' => array('type'=>'password','autocomplete'=>'off','visible'=>true),

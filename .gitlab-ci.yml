@@ -1,4 +1,5 @@
 cache:
+  key: "$CI_COMMIT_REF_SLUG"
   paths:
     - builds
     - dbpasswd.txt
@@ -21,6 +22,7 @@ dbpasswd_php:
      [ -f dbpasswd.txt ] && sed -i "s/^.*password.*$/\t'password' => '${dbpasswd}',/" webroot/protected/config/db.php || echo "skip rewrite db password"
      [ -f dbpasswd.txt ] && sed -i "s/^.*username.*$/\t'username' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php || echo "skip rewrite db username"
      [ -f dbpasswd.txt ] && sed -i "s/^.*database.*$/\t'database' => '${CI_DEPLOY_DBNAME}',/" webroot/protected/config/db.php ||  echo "skip rewrite db name"
+     [ -f dbpasswd.txt ] && sed -i "s/^.*'host'\s*=>.*$/\t'host' => '${dbhost}',/" webroot/protected/config/db.php ||  echo "skip rewrite host name"
      [ -f dbpasswd.txt ] && sed -i "s/^.*connectionString.*$/\t'connectionString' => 'pgsql:host=$dbhost;port=5432;dbname=${CI_DEPLOY_DBNAME};application_name=ep_web',/" webroot/protected/config/db.php || echo "skip rewrite db name"
   variables:
     CI_DEPLOY_DBNAME: ${CI_PROJECT_NAMESPACE}_${CI_PROJECT_NAME}
@@ -30,10 +32,13 @@ dbpasswd_php:
 build_php:
   stage: build
   script:
-    - set -x 
+    - set -x
+    - env
     - mkdir -p ${CI_BEAST_DST}
+    - rm -rf ${CI_BEAST_DST}/*
     - |
-     [ $CI_BUILD_ALL ] && git ls-files>build-files.lst || git diff --name-only HEAD~ >build-files.lst
+     [ "${CI_COMMIT_BEFORE_SHA:0:8}" = "00000000" ] && export CI_BUILD_ALL=true
+     [ $CI_BUILD_ALL ] && git ls-files>build-files.lst || git diff --name-only $CI_COMMIT_BEFORE_SHA HEAD >build-files.lst
      cat build-files.lst
     - encode_file.php --olddir $CI_BEAST_SRC --newdir $CI_BEAST_DST --expire $CI_BEAST_EXPIRE --encrypt $CI_BEAST_ENCRYPT_TYPE
   variables:
@@ -45,13 +50,13 @@ deploy_php:
       - master
   script:
     - set -x 
-    - cd builds && tar -czf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
+    - cd builds && tar -czvf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
     - ssh root@$CI_DEPLOY_SERVER "mkdir -p $CI_DEPLOY_PATH"
     - scp -qB $CI_PROJECT_PATH_SLUG.tar.gz root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/
     - |
      ssh root@$CI_DEPLOY_SERVER " \
      cd $CI_DEPLOY_PATH \
-     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && tar --overwrite -zxvf $CI_PROJECT_PATH_SLUG.tar.gz \
      && chown -R www-data:www-data $CI_PROJECT_PATH_SLUG \
      && \rm $CI_PROJECT_PATH_SLUG.tar.gz" \
      && \rm -rf ${CI_BEAST_DST}
@@ -60,7 +65,7 @@ deploy_php:
     CI_DEPLOY_SERVER: 123.254.105.104
   environment:
     name: product
-    url: web.youtuoweb.com
+    url: admin.youtuoapp.com
 deploy_apache:
   stage: web
   only:
@@ -84,7 +89,7 @@ deploy_apache:
     CI_DEPLOY_SERVER: 123.254.105.104
   environment:
     name: product
-    url: web.youtuoweb.com
+    url: admin.youtuoapp.com
 test_php:
   stage: deploy
   only:
@@ -92,19 +97,18 @@ test_php:
       - dev
   script:
     - set -x 
-    - cd builds && tar -czf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
+    - cd builds && tar -czvf $CI_PROJECT_PATH_SLUG.tar.gz $CI_PROJECT_PATH_SLUG
     - ssh root@$CI_DEPLOY_SERVER "mkdir -p $CI_DEPLOY_PATH"
     - scp -qB $CI_PROJECT_PATH_SLUG.tar.gz root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/
     - |
      ssh root@$CI_DEPLOY_SERVER " \
      cd $CI_DEPLOY_PATH \
-     && tar --overwrite -zxf $CI_PROJECT_PATH_SLUG.tar.gz \
+     && tar --overwrite -zxvf $CI_PROJECT_PATH_SLUG.tar.gz \
      && chown -R www-data:www-data $CI_PROJECT_PATH_SLUG \
      && \rm $CI_PROJECT_PATH_SLUG.tar.gz"
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
-    CI_WEB_PORT: 8001
   environment:
     name: test
     url: web.youtuoweb.com
@@ -122,6 +126,7 @@ deploy_nginx:
      cd /opt/web/data/web/nginx/sites-available \
      && [ ! -e ${CI_PROJECT_PATH_SLUG}.conf ] \
      && sed 's/epmms-template/${CI_PROJECT_PATH_SLUG}/g'  epmms-template.conf>${CI_PROJECT_PATH_SLUG}.conf \
+     && sed -i 's/^\s*listen\s\+.*$/\tlisten $CI_WEB_PORT;/' ${CI_PROJECT_PATH_SLUG}.conf \
      && sed -i 's/^\s*server_name\s\+.*$/\tserver_name $CI_ENVIRONMENT_URL;/' ${CI_PROJECT_PATH_SLUG}.conf \
      && cd ../sites-enabled \
      && ln -sf ../sites-available/${CI_PROJECT_PATH_SLUG}.conf ${CI_PROJECT_PATH_SLUG}.conf \
@@ -131,6 +136,7 @@ deploy_nginx:
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
+    CI_WEB_PORT: 8001
   environment:
     name: test
     url: web.youtuoweb.com
@@ -153,7 +159,8 @@ deploy_db_server:
      && ssh root@$CI_DEPLOY_SERVER "export PGPASSWORD=${dbpasswd} \
      && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
      && psql -h localhost -U $CI_DEPLOY_DBNAME -d $CI_DEPLOY_DBNAME -f $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.sql \
-     && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" /etc/postgresql/10/main/pg_hba.conf" \
+     && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" >> /etc/postgresql/10/main/pg_hba.conf \
+     && systemctl reload postgresql" \
      && echo "${dbpasswd}">dbpasswd.txt \
      ; echo "create and import database"
   variables:
@@ -178,7 +185,8 @@ deploy_db_test:
      && scp -qB db/${CI_DEPLOY_DBNAME}.sql root@$CI_DEPLOY_SERVER:$CI_DEPLOY_PATH/ \
      && ssh root@$CI_DEPLOY_SERVER "cd $CI_DOCKER_PATH && docker-compose exec -T -e PGHOST=localhost -e PGUSER=${CI_DEPLOY_DBNAME} -e PGPASSWORD=${dbpasswd} pgsql sh -c 'createdb  $CI_DEPLOY_DBNAME \
      && psql -d $CI_DEPLOY_DBNAME -f $CI_PG_BAK_PATH/${CI_DEPLOY_DBNAME}.sql \
-     && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" /etc/postgresql/10/main/pg_hba.conf'" \
+     && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" >> /var/lib/postgresql/data/pgdata/pg_hba.conf' \
+     && docker-compose kill -s SIGHUP pgsql" \
      && echo "${dbpasswd}">dbpasswd.txt \
      || echo "skip create and import database"
   variables:

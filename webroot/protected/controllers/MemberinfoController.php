@@ -73,6 +73,7 @@ class MemberinfoController extends Controller
 	 */
 	public function actionCreate()
 	{
+
        
 		$model=new Memberinfo('create');
 
@@ -102,9 +103,7 @@ class MemberinfoController extends Controller
 		}
 		if(isset($_POST['Membermap']))
 		{
-// echo "<pre>";
-//            var_dump($_POST['Membermap']);
-// die;
+
 			$_POST['Membermap']['membermap_parent_id']=Memberinfo::name2id(@$_POST['Membermap']['membermap_parent_id']);
 			$_POST['Membermap']['membermap_recommend_id']=Memberinfo::name2id(@$_POST['Membermap']['membermap_recommend_id']);
 			if(params('regAgent'))
@@ -149,14 +148,18 @@ class MemberinfoController extends Controller
   
             $transaction=webapp()->db->beginTransaction();
             $model->attributes=$_POST['Memberinfo'];
-            $model->memberinfo_init_password=$_POST['Memberinfo']['memberinfo_password'];
-            $model->memberinfo_init_password2=$_POST['Memberinfo']['memberinfo_password2'];
-            $model->memberinfo_name=$_POST['Memberinfo']['memberinfo_nickname'];
-
-            if($model->save(true,array('memberinfo_account','memberinfo_password','memberinfo_password2','memberinfo_name','memberinfo_nickname','memberinfo_email','memberinfo_mobi','memberinfo_phone','memberinfo_qq','memberinfo_msn','memberinfo_sex','memberinfo_idcard_type','memberinfo_idcard','memberinfo_zipcode','memberinfo_birthday','memberinfo_address_provience','memberinfo_address_area','memberinfo_address_county','memberinfo_address_detail','memberinfo_bank_id','memberinfo_bank_name','memberinfo_bank_account','memberinfo_bank_provience','memberinfo_bank_area','memberinfo_bank_branch','memberinfo_question','memberinfo_answer','memberinfo_memo','memberinfo_is_enable','memberinfo_register_ip','memberinfo_last_ip','memberinfo_last_date','memberinfo_add_date','memberinfo_init_password','memberinfo_init_password2')))
+            $res=Memberinfo::model()->find('memberinfo_name='."'".$_POST['Memberinfo']['memberinfo_name']."'");
+            if($res){
+                 $model->memberinfo_type='会员号';
+            }else{
+                 $model->memberinfo_type='会员工资号';
+            }
+            $model->memberinfo_nickname=$_POST['Memberinfo']['memberinfo_account'];
+            if($model->save(true,array('memberinfo_account','memberinfo_password','memberinfo_type','memberinfo_password2','memberinfo_name','memberinfo_nickname','memberinfo_email','memberinfo_mobi','memberinfo_phone','memberinfo_qq','memberinfo_msn','memberinfo_sex','memberinfo_idcard_type','memberinfo_idcard','memberinfo_zipcode','memberinfo_birthday','memberinfo_address_provience','memberinfo_address_area','memberinfo_address_county','memberinfo_address_detail','memberinfo_bank_id','memberinfo_bank_name','memberinfo_bank_account','memberinfo_bank_provience','memberinfo_bank_area','memberinfo_bank_branch','memberinfo_question','memberinfo_answer','memberinfo_memo','memberinfo_is_enable','memberinfo_register_ip','memberinfo_last_ip','memberinfo_last_date','memberinfo_add_date','memberinfo_init_password','memberinfo_init_password2')))
             {
                 if(isset($_POST['Membermap']))
                 {
+
                     $model->membermap->attributes=$_POST['Membermap'];
 
                     $model->membermap->membermap_membertype_level_old=$model->membermap->membermap_membertype_level;
@@ -169,14 +172,11 @@ class MemberinfoController extends Controller
                     else
                     {
                        
-                        if (MemberinfoItem::model()->getAdminItem('membermap_parent_id') == true && MemberinfoItem::model()->getAdminItem('membermap_order') == true)
+                        if (MemberinfoItem::model()->getAdminItem('membermap_parent_id') == true && MemberinfoItem::model()->getAdminItem('membermap_order') == true)//false
                         {  
 
                             //太阳线，自动分配位置
-                            $parents = Membermap::model()->findByPk($model->membermap->membermap_recommend_id);
-                      
-                            $parent=Membermap::model()->find(['order'=>' membermap_verify_seq asc','condition'=>"membermap_child_number<2  and membermap_path like '$parents->membermap_path%'"]);     
-                            $model->membermap->membermap_parent_id=$parent->membermap_id;                           
+                                      
                         }
                      
                     }
@@ -851,6 +851,14 @@ public function actionUpdateName($id=null){
 			$this->log['target']=$model->showName;
 			$this->log['info']='该会员是根会员，不能删除';
 			user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"该会员是根会员，不能删除"));
+             if(webapp()->request->isAjaxRequest)
+                {
+                    header('Content-Type: application/json');
+                    $data['success']=false;
+                    $data['msg']='该会员是根会员，不能删除';
+                    echo CJSON::encode($data);
+                    webapp()->end();
+                }
 		}
 		elseif($model->membermap->membermap_is_verify==1)
 		{
@@ -858,6 +866,14 @@ public function actionUpdateName($id=null){
 			$this->log['target']=$model->showName;
 			$this->log['info']='该会员已审核，不能删除';
 			user()->setFlash('error',"{$this->actionName}“{$model->showName}”" . t('epmms',"该会员已审核，不能删除"));
+             if(webapp()->request->isAjaxRequest)
+                {
+                    header('Content-Type: application/json');
+                    $data['success']=false;
+                    $data['msg']='该会员已审核，不能删除';
+                    echo CJSON::encode($data);
+                    webapp()->end();
+                }
 		}
 		else
 		{
@@ -879,7 +895,8 @@ public function actionUpdateName($id=null){
                 if(webapp()->request->isAjaxRequest)
                 {
                     header('Content-Type: application/json');
-                    $data['error']=user()->getFlash('error','修改成功',true);
+                    $data['success']=true;
+                    $data['msg']=user()->getFlash('error','删除成功',true);
                     echo CJSON::encode($data);
                     webapp()->end();
                 }
@@ -894,7 +911,8 @@ public function actionUpdateName($id=null){
                 if(webapp()->request->isAjaxRequest)
                 {
                     header('Content-Type: application/json');
-                    $data['error']=user()->getFlash('error',$e->getMessage(),true);
+                    $data['success']=false;
+                    $data['msg']=user()->getFlash('error',$e->getMessage(),true);
                     echo CJSON::encode($data);
                     webapp()->end();
                 }
@@ -1020,7 +1038,8 @@ public function actionUpdateName($id=null){
         if(webapp()->request->isAjaxRequest)
         {
             header('Content-Type: application/json');
-            $data['memberinfo']=$model->search()->getArrayData();
+            $model->membermap->membermap_is_verify='';
+            $data['memberinfo']=$model->search()->getArrayData();                             
             $memberType=new MemberType('search');
             $memberType->unsetAttributes();
             $data['memberType']=$memberType->search()->getArrayData();
@@ -1211,9 +1230,13 @@ public function actionUpdateName($id=null){
 	 */
 	public function actionVerify($id)
 	{
-
+        
 		$model=$this->loadModel($id);
-
+        if(isset($_POST['Membermap'])){
+          
+            $model->membermap->membermap_membertype_level=$_POST['Membermap']['membermap_membertype_level'];
+            $model->membermap->save(true,'membermap_membertype_level');
+        }
        /* echo"<Pre>";
         var_dump($model);
         die;*/
@@ -1221,6 +1244,14 @@ public function actionUpdateName($id=null){
 		if(($status=$model->verify())===EError::SUCCESS)
 		{
 			$this->log['status']=LogFilter::SUCCESS;
+             if(($model->membermap->membermap_membertype_level==2) && empty($model->membermap->membermap_bond_id)){
+                 $jackpotModel = new ConfigJackpot();
+                 $jackpotModel->updateJackpot();
+                 $activationModel = new ActivationRecord();
+                 $activationModel->activation_member_id = $model->membermap->membermap_id;
+                 $activationModel->activation_add_time  = date('Y-m-d H:i:s',time());
+                 $activationModel->save();
+            }
 			user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
 		}
 		elseif($status===EError::DUPLICATE)

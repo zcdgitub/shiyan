@@ -2,10 +2,11 @@
 /**
  * Created by JetBrains PhpStorm.
  * User: hetao
- * Date: 19-1-3
- * Time: 3:19
+ * Date: 19-1-4
+ * Time: 11:46
  * To change this template use File | Settings | File Templates.
  */
+
 return array(
 	'database' => 'epmms_181225',
 	'host'=>'pgsql',
@@ -15,7 +16,7 @@ return array(
 	'connectionString' => 'pgsql:host=pgsql;port=5432;dbname=epmms_181225;application_name=ep_web',
 	'emulatePrepare' => true,
 	'username' => 'epmms_181225',
-	'password' => 'yn9DR+i0lBQNrYMX70DSbVxj',
+	'password' => 'yi8jt1uBx4Wfb1HBeDe8Ph3j',
 	'charset' => 'utf8',
 	'tablePrefix'=>'epmms_',
 	'pdoClass' => 'NestedPDO',
@@ -24,3 +25,5 @@ return array(
 	'class'=>'DbConnection'
 );
 ?>
+
+

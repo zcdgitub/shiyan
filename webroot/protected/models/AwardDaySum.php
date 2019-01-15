@@ -157,9 +157,28 @@ class AwardDaySum extends Model
 		$criteria->compare('"awardDaySumMemberinfo".memberinfo_nickname',@$this->awardDaySumMemberinfo->memberinfo_nickname);
 		$criteria->compare('"awardDaySumType".sum_type_id',@$this->awardDaySumType->sum_type_id);
 		$criteria->with=array('awardDaySumMemberinfo','awardDaySumType');
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-			'sort'=>$sort
-		));
+        if(webapp()->request->isAjaxRequest){
+            $page=0;
+            $pageSize=20;
+            if(isset($_GET['page']))
+                $page=$_GET['page']-1;
+            if(isset($_GET['limit']))
+                $pageSize=$_GET['limit'];
+            return new JSonActiveDataProvider($this, array(
+                'criteria'=>$criteria,
+                'sort'=>$sort,
+                'includeDataProviderInformation'=>true,
+                'pagination'=>array(
+                    'currentPage'=>$page,
+                    'pageSize'=>$pageSize,
+                ),
+            ));
+        }else{
+            return new CActiveDataProvider($this, array(
+                'criteria'=>$criteria,
+                'sort'=>$sort
+            ));
+        }
+
 	}
 }

@@ -45,7 +45,7 @@ class PayController extends Controller
                /*   if(Orders::model()->findByAttributes())*/
                      
                    
-                     $member_finace=Finance::getMemberFinance($order->orders_member_id,2);
+                     $member_finace=Finance::getMemberFinance($order->orders_member_id,4);
                 
                     
            

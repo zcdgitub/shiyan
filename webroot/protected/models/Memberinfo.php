@@ -127,8 +127,8 @@ class Memberinfo extends Model
 				array('memberinfo_account','unique','className'=>'Userinfo','attributeName'=>'userinfo_account','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Agent','attributeName'=>'agent_account','on'=>'create,update,updateMy'),
 		        //array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
-		        array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'昵称必须为汉字'),
-		    	array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
+		        array('memberinfo_name','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'姓名必须为汉字'),
+		    	//array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
 				array('memberinfo_bank_id', 'exist', 'className'=>'Bank','attributeName'=>'bank_id'),
 				array('memberinfo_sex', 'ext.validators.Sex'),
 				array('memberinfo_is_enable', 'ext.validators.Enable'),
@@ -196,8 +196,7 @@ class Memberinfo extends Model
 			'memberinfo_account' => t('epmms','登录帐号'),
 			'memberinfo_password' => t('epmms','一级密码'),
 			'memberinfo_password2' => t('epmms','二级密码'),
-			'memberinfo_init_password' => t('epmms','一级密码(明)'),
-			'memberinfo_init_password2' => t('epmms','二级密码(明)'),
+			'memberinfo_type' => t('epmms','类型'),
 			'memberinfo_name' => t('epmms','姓名'),
 			'memberinfo_nickname' => t('epmms','昵称'),
 			'memberinfo_email' => 'Email',
@@ -260,7 +259,7 @@ class Memberinfo extends Model
         $criteria->compare('memberinfo_email',$this->memberinfo_email);
         $criteria->compare('memberinfo_mobi',$this->memberinfo_mobi);
         $criteria->compare('memberinfo_phone',$this->memberinfo_phone);
-        $criteria->compare('memberinfo_init_password',$this->memberinfo_init_password);
+        
         $criteria->compare('memberinfo_qq',$this->memberinfo_qq);
         $criteria->compare('memberinfo_msn',$this->memberinfo_msn);
         $criteria->compare('memberinfo_sex',$this->memberinfo_sex);
@@ -301,6 +300,7 @@ class Memberinfo extends Model
         $criteria->compare('"membermap".membermap_is_active',@$this->membermap->membermap_is_active);
         $criteria->compare('"membermap".membermap_verify_date',@$this->membermap->membermap_verify_date);
         $criteria->compare('"membermap".membermap_recommend_layer',@$this->membermap->membermap_recommend_layer);
+        $criteria->compare('"membermap".membermap_bond_id',@$_GET['bond_id']);
         if(!empty($this->membermap->membermap_recommend_path))
         {
             $criteria->addCondition('"membermap".membermap_recommend_path like ' . $this->membermap->membermap_recommend_path);
@@ -441,9 +441,6 @@ class Memberinfo extends Model
 	 */
 	public function verify($isAll=false,$verifyType=1)
 	{
-
-
-
 		if($this->memberinfo_is_verify==0 || $verifyType==8)
 		{
 			if($verifyType==1 && webapp()->id!='150608')
@@ -476,9 +473,25 @@ class Memberinfo extends Model
 					throw new Error('无效的会员');
 				$this->memberinfo_is_verify=1;
 				$this->saveAttributes(['memberinfo_is_verify']);
-			
-				$status=$membermap->verify($verifyType);//去membermap模型里面验证
 
+			    $parents = Membermap::model()->findByPk($membermap->membermap_recommend_id);
+              
+                $res=Membermap::model()->find('membermap_order='.$membermap->membermap_order.'and membermap_parent_id='.$parents->membermap_id); 
+          
+                if($res){        
+                    if($membermap->membermap_order==1){
+                      
+                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$res->membermap_path%'"]);   
+                    }else{                    
+                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path desc','condition'=>"membermap_child_number<2 and membermap_path like '$res->membermap_path%'"]);     
+                    }
+                        $membermap->membermap_parent_id=$parent->membermap_id;                           
+                }else{
+
+                       $membermap->membermap_parent_id=$parents->membermap_id;
+               }
+                $this->membermap->saveAttributes(['membermap_order']);
+				$status=$membermap->verify($verifyType);//去membermap模型里面验证
 				if($status!=EError::SUCCESS)
 				{
 					$transaction->rollback();
@@ -602,25 +615,19 @@ class Memberinfo extends Model
 			catch(EError $e)
 			{
 				$transaction->rollback();
-				// print_r($e->getMessage());
-				// exit();
 				 throw $e;
 				return $e;
 			}
 			catch(CDbException $e)
 			{
 				$transaction->rollback();
-				// print_r($e);
-				// exit;
 				 throw $e;
 				return $e;
 			}
 			catch(Exception $e)
 			{
 				$transaction->rollback();
-
 				throw $e;
-				// exit();
 				return EError::ERROR;
 			}
 			$transaction->commit();
@@ -762,7 +769,7 @@ class Memberinfo extends Model
 		$info->attributes=$root_info->attributes;
 		$info->unsetAttributes(['memberinfo_id','memberinfo_is_verify','memberinfo_last_date','memberinfo_last_ip','memberinfo_nickname']);
 		$info->memberinfo_account='auto_' . Memberinfo::genUsername();
-		$info->memberinfo_nickname=$root_info->memberinfo_nickname;;
+		$info->memberinfo_nickname=$root_info->memberinfo_nickname;
 		$info->memberinfo_password_repeat=$info->memberinfo_password;
 		$info->memberinfo_password_repeat2=$info->memberinfo_password2;
 		$info->memberinfo_add_date=new CDbExpression('now()');
@@ -811,12 +818,12 @@ class Memberinfo extends Model
 	}
 	public static function genUsername()
 	{
-		$lower=left("100000000000000000",params('accountLength'));
-		$upper=left("99999999999999999",params('accountLength'));
+		$lower=left("1000000000",params('accountLength'));
+		$upper=left("9999999999",params('accountLength'));
 		$model=Memberinfo::model();
 		do
 		{
-			$username=(string)rand($lower,$upper);
+			$username=(string)rand((int)$lower,(int)$upper);
 		}while(strpos($username,'4')!==false || $model->exists('memberinfo_account=:username',[':username'=>$username]));
 		return 'yy' . $username;
 	}

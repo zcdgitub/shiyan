@@ -23,7 +23,7 @@ class Transfer extends Model
 {
 	public $modelName='转帐申请';
 	public $nameColumn='transfer_sn';
-	 public $password2;
+	public $password2;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

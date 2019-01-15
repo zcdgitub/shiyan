@@ -70,11 +70,17 @@ class Exist extends CValidator
 	protected function validateAttribute($object,$attribute)
 	{
 		$value=$object->$attribute;
-
-
+		
+	 //  if(is_null($object->membermap_recommend_id))
+		// {
+		// 	$message=t('epmms','推荐人不存在');
+		// 	$this->addError($object,$attribute,$message);
+		// 	return;
+		// }
+        
 		if($this->allowEmpty && $this->isEmpty($value))
+			
 			return;
-
 
 		if(is_array($value))
 		{
@@ -83,7 +89,7 @@ class Exist extends CValidator
 			$this->addError($object,$attribute,Yii::t('yii','{attribute} 不存在或未审核。'));
 			return;
 		}
-	
+	  
 		
 		$className=$this->className===null?get_class($object):Yii::import($this->className);
 		$attributeName=$this->attributeName===null?$attribute:$this->attributeName;

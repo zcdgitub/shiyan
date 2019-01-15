@@ -351,7 +351,10 @@ class OrdersController extends Controller
 	public function actionIndex($selTab=0)
 	{
 		$model=new Orders('search');
+		// $con=pg_connect("host=pgsql port=5432 user=epmms_181225 password=yi8jt1uBx4Wfb1HBeDe8Ph3j dbname=epmms_181225");
 		
+		// var_dump($con);
+		// die;
 		
 		$model->unsetAttributes();  // clear any default values
 		$model->ordersMember=new Memberinfo('search');

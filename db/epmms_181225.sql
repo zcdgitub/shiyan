@@ -1,9 +1,8 @@
--- test d14
 --
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.6
+-- Dumped from database version 10.6 (Debian 10.6-1.pgdg90+1)
 -- Dumped by pg_dump version 10.6
 
 SET statement_timeout = 0;
@@ -17,30 +16,14 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: award; Type: SCHEMA; Schema: -; Owner: postgres
+-- Name: award; Type: SCHEMA; Schema: -; Owner: -
 --
 
 CREATE SCHEMA award;
 
 
-ALTER SCHEMA award OWNER TO postgres;
-
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
---
--- Name: orientation; Type: TYPE; Schema: public; Owner: postgres
+-- Name: orientation; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.orientation AS ENUM (
@@ -51,10 +34,8 @@ CREATE TYPE public.orientation AS ENUM (
 );
 
 
-ALTER TYPE public.orientation OWNER TO postgres;
-
 --
--- Name: add_group(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: add_group(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.add_group(member_id integer) RETURNS integer
@@ -76,10 +57,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.add_group(member_id integer) OWNER TO postgres;
-
 --
--- Name: award_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -94,10 +73,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -113,10 +90,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -139,10 +114,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_global_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_global_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_global_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -198,10 +171,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_global_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_leader(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_leader(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -457,10 +428,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_month(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_month(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_month(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -475,10 +444,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_month(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_rank(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_rank(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_rank(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer DEFAULT NULL::integer) RETURNS void
@@ -499,10 +466,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_rank(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_agent_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -526,10 +491,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_up_down(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_agent_up_down(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_agent_up_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer DEFAULT NULL::integer) RETURNS void
@@ -564,10 +527,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_agent_up_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_budian(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_budian(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_budian(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -590,10 +551,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_budian(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_butie(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_butie(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_butie(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -679,10 +638,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_butie(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_caifu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_caifu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_caifu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -704,10 +661,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_caifu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_car_b(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_car_b(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_car_b(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -723,10 +678,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_car_b(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_car_c(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_car_c(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_car_c(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -753,10 +706,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_car_c(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_day_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_day_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -781,17 +732,65 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: postgres
+-- Name: FUNCTION award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON FUNCTION award.award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '公司上周业绩周分红';
 
 
 --
--- Name: award_day_push_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_day_futou(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
+--
+
+CREATE FUNCTION award.award_day_futou(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	insert into epmms_award_period(award_period_period
+    ,award_period_memberinfo_id,award_period_type_id
+    ,award_period_currency,award_period_sum_type)
+	select award_period
+	,p.membermap_id
+	,award_type
+	,cfg.award_config_money
+    ,award_sum_type
+	from epmms_membermap as p,award.award_config_day_futou as cfg
+	where p.membermap_is_verify=1
+    and p.membermap_day_level=cfg.award_config_level;
+    
+	insert into epmms_award_period(award_period_period
+    ,award_period_memberinfo_id,award_period_type_id
+    ,award_period_currency,award_period_sum_type)
+	select award_period
+	,p.membermap_id
+	,624
+	,-cfg.award_config_money*cfg.award_config_percnet_finance
+    ,award_sum_type
+	from epmms_membermap as p,award.award_config_day_futou as cfg
+	where p.membermap_is_verify=1
+    and p.membermap_day_level=cfg.award_config_level;
+    
+    update epmms_membermap set membermap_day_count=membermap_day_count+1 where membermap_day_level>0;
+    
+    update epmms_membermap set membermap_day_count=0,membermap_day_level=iif(membermap_level-membermap_day_level>=2,0,iif(membermap_level<=8,membermap_day_level-1,8))
+    from award.award_config_day_futou as cfg
+    where membermap_day_level=cfg.award_config_level
+    and membermap_day_count>=cfg.award_config_days;
+    
+END;
+$$;
+
+
+--
+-- Name: FUNCTION award_day_futou(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: -
+--
+
+COMMENT ON FUNCTION award.award_day_futou(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '公司上周业绩周分红';
+
+
+--
+-- Name: award_day_push_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_day_push_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -815,10 +814,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_day_push_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_diff(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_diff(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_diff(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -863,10 +860,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_diff(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_diff(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: postgres
+-- Name: FUNCTION award_diff(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON FUNCTION award.award_diff(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '升级各级的条件和各级奖金
@@ -880,7 +875,7 @@ COMMENT ON FUNCTION award.award_diff(member_id integer, award_period integer, aw
 
 
 --
--- Name: award_diff_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_diff_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_diff_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -922,10 +917,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_diff_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_diff_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: postgres
+-- Name: FUNCTION award_diff_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON FUNCTION award.award_diff_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '升级各级的条件和各级奖金
@@ -939,7 +932,7 @@ COMMENT ON FUNCTION award.award_diff_180402(member_id integer, award_period inte
 
 
 --
--- Name: award_diff_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_diff_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_diff_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -956,10 +949,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_diff_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_diff_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: postgres
+-- Name: FUNCTION award_diff_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON FUNCTION award.award_diff_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '升级各级的条件和各级奖金
@@ -973,7 +964,7 @@ COMMENT ON FUNCTION award.award_diff_fenhong(member_id integer, award_period int
 
 
 --
--- Name: award_dixin(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dixin(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dixin(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -990,10 +981,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dixin(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1013,10 +1002,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1050,10 +1037,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1075,10 +1060,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1098,10 +1081,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_160601(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_160601(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_160601(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1136,10 +1117,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_160601(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_big(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_big(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_big(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1161,10 +1140,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_big(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_big2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_big2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_big2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1184,10 +1161,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_big2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_big3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_big3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_big3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1217,10 +1192,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_big3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_little(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_little(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_little(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1242,10 +1215,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_little(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_little3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_little3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_little3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1276,10 +1247,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_little3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_xingyun(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_xingyun(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_xingyun(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1316,10 +1285,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_xingyun(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_xingyun2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_layer_xingyun2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_layer_xingyun2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1367,10 +1334,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_layer_xingyun2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1389,10 +1354,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_matrix(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_matrix(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1411,10 +1374,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_matrix_left(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_matrix_left(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_matrix_left(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1446,10 +1407,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_matrix_left(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_matrix_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_matrix_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_matrix_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1468,10 +1427,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_matrix_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_matrix_recommend2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_matrix_recommend2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_matrix_recommend2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1490,10 +1447,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_matrix_recommend2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_month(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_month(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_month(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1512,10 +1467,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_month(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_month_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_month_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_month_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1533,10 +1486,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_month_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1557,10 +1508,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_recommend_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_recommend_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_recommend_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1582,10 +1531,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_recommend_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_recommend_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dot_recommend_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dot_recommend_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1606,10 +1553,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dot_recommend_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_down_up_recommand(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_down_up_recommand(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_down_up_recommand(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1632,10 +1577,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_down_up_recommand(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_down_up_recommand_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_down_up_recommand_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_down_up_recommand_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1657,51 +1600,31 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_down_up_recommand_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
-CREATE FUNCTION award.award_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer DEFAULT NULL::integer) RETURNS void
+CREATE FUNCTION award.award_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-
-BEGIN
-
-	insert into epmms_award_period(award_period_period
-
-    ,award_period_memberinfo_id,award_period_type_id
-
-    ,award_period_currency,award_period_sum_type)
-
-	select award_period,period.award_period_memberinfo_id,award_type
-
-    ,get_config_award(award_type,sum(period.award_period_currency)),award_sum_type
-
-	from epmms_award_period as period
-
-    where period.award_period_period=award_period
-
-    and period.award_period_sum_type=award_sum_type
-
-    and period.award_period_currency>0
-
-    and period.award_period_type_id in(614,615,616)
-
-	group by period.award_period_memberinfo_id
-
-    having sum(period.award_period_currency)>0;
-
-END;
-
+    AS $$
+BEGIN
+	insert into epmms_award_period(award_period_period
+    ,award_period_memberinfo_id,award_period_type_id
+    ,award_period_currency,award_period_sum_type)
+	select award_period,period.award_period_memberinfo_id,award_type
+    ,get_config_award(award_type,sum(period.award_period_currency)),award_sum_type
+	from epmms_award_period as period
+    where period.award_period_period=award_period
+    and period.award_period_sum_type=award_sum_type
+    and period.award_period_currency>0
+	group by period.award_period_memberinfo_id
+    having sum(period.award_period_currency)>0;
+END;
 $$;
 
 
-ALTER FUNCTION award.award_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_dup_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1723,10 +1646,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1749,10 +1670,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_160601(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_160601(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_160601(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1775,10 +1694,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_160601(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_170224(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_170224(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_170224(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer DEFAULT NULL::integer) RETURNS void
@@ -1799,10 +1716,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_170224(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_dup_aixin(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_aixin(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_aixin(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1825,10 +1740,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_aixin(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_no(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_no(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_no(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer DEFAULT NULL::integer) RETURNS void
@@ -1851,44 +1764,39 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_no(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_dup_sum_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_sum_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_sum_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-  insert into epmms_award_period(award_period_period
-  ,award_period_memberinfo_id,award_period_type_id
-  ,award_period_currency,award_period_sum_type)
-  select award_period,period.award_period_memberinfo_id,award_type
-  ,get_config_award(award_type,sum(period.award_period_currency)),award_sum_type
-  from epmms_award_period as period
-  where period.award_period_period=award_period and period.award_period_currency>0
-  and award_sum_type=period.award_period_sum_type
-  group by period.award_period_memberinfo_id;
-
-  insert into epmms_award_period(award_period_period
-  ,award_period_memberinfo_id,award_period_type_id
-  ,award_period_currency,award_period_sum_type)
-  select award_period
-  ,period.award_period_memberinfo_id,580
-  ,abs(get_config_award(award_type,sum(period.award_period_currency))),2
-  from epmms_award_period as period
-  where period.award_period_period=award_period and period.award_period_currency>0
-  and award_sum_type=period.award_period_sum_type
-  group by period.award_period_memberinfo_id;
-END;
+    AS $$
+BEGIN
+  insert into epmms_award_period(award_period_period
+  ,award_period_memberinfo_id,award_period_type_id
+  ,award_period_currency,award_period_sum_type)
+  select award_period,period.award_period_memberinfo_id,award_type
+  ,get_config_award(award_type,sum(period.award_period_currency)),award_sum_type
+  from epmms_award_period as period
+  where period.award_period_period=award_period and period.award_period_currency>0
+  and award_sum_type=period.award_period_sum_type
+  group by period.award_period_memberinfo_id;
+
+  insert into epmms_dup(dup_member_id
+  ,dup_money,dup_is_verify,dup_add_date)
+  select period.award_period_memberinfo_id
+  ,abs(get_config_award(award_type,sum(period.award_period_currency))),
+  0,now()
+  from epmms_award_period as period
+  where period.award_period_period=award_period and period.award_period_currency>0
+  and award_sum_type=period.award_period_sum_type
+  group by period.award_period_memberinfo_id;
+END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_sum_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_sum_type2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_sum_type2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_sum_type2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1919,10 +1827,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_sum_type2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_sum_type_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_sum_type_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_sum_type_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1957,10 +1863,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_sum_type_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_sum_type_160228(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_sum_type_160228(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_sum_type_160228(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -1997,10 +1901,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_sum_type_160228(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_sum_type_no(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_dup_sum_type_no(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_dup_sum_type_no(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2033,10 +1935,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_dup_sum_type_no(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fanben(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_fanben(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_fanben(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2054,10 +1954,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_fanben(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fanben_1004(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_fanben_1004(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_fanben_1004(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2074,10 +1972,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_fanben_1004(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fanli(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_fanli(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_fanli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2147,10 +2043,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_fanli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_global(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_global(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_global(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2167,10 +2061,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_global(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_global_160228(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_global_160228(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_global_160228(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2187,10 +2079,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_global_160228(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_global_180330(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_global_180330(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_global_180330(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2209,10 +2099,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_global_180330(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_global_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_global_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_global_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2233,10 +2121,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_global_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_global_month_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_global_month_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_global_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2260,10 +2146,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_global_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_gongpai_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_gongpai_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_gongpai_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2292,10 +2176,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_gongpai_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_gongshifenhong_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_gongshifenhong_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_gongshifenhong_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2316,10 +2198,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_gongshifenhong_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_guli_151214(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_guli_151214(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_guli_151214(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2336,10 +2216,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_guli_151214(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_huiben_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_huiben_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_huiben_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2375,10 +2253,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_huiben_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_huiben_layer2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_huiben_layer2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_huiben_layer2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2414,10 +2290,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_huiben_layer2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_huzhu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_huzhu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_huzhu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2443,10 +2317,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_huzhu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_huzhu_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_huzhu_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_huzhu_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2473,10 +2345,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_huzhu_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_huzhu_180330(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_huzhu_180330(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_huzhu_180330(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2508,10 +2378,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_huzhu_180330(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_in10out1(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_in10out1(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_in10out1(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2556,10 +2424,24 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_in10out1(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
+--
+-- Name: award_jackpot_fanxian(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
+--
+
+CREATE FUNCTION award.award_jackpot_fanxian(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+      insert into epmms_award_period(award_period_period,award_period_memberinfo_id,award_period_type_id,award_period_currency,award_period_sum_type)
+		  select award_period,jackpot_member_id,award_type,jackpot_money,award_sum_type
+        from epmms_jackpot_win_record
+        where jackpot_id = award_calc_type;
+END;
+$$;
+
 
 --
--- Name: award_layer1_0920(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_layer1_0920(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_layer1_0920(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2575,10 +2457,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_layer1_0920(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer_full_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_layer_full_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_layer_full_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2598,10 +2478,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_layer_full_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer_full_layer_141120(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_layer_full_layer_141120(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_layer_full_layer_141120(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2631,10 +2509,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_layer_full_layer_141120(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer_pair_status(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_layer_pair_status(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_layer_pair_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2666,10 +2542,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_layer_pair_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer_pair_status_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_layer_pair_status_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_layer_pair_status_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2701,10 +2575,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_layer_pair_status_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2724,10 +2596,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_1004(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_1004(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_1004(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2759,10 +2629,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_1004(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_141203(member_id integer, award_period integer, my_award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2782,10 +2650,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_141203(member_id integer, award_period integer, my_award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_141203_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_141203_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_141203_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2804,10 +2670,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_141203_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2825,10 +2689,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_little(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_little(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_little(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2850,10 +2712,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_little(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2877,10 +2737,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_recommend2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_recommend2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_recommend2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2903,10 +2761,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_recommend2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_recommend_160106(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_leader_recommend_160106(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_leader_recommend_160106(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2929,10 +2785,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_leader_recommend_160106(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_level_first(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_level_first(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_level_first(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2951,10 +2805,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_level_first(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_level_second(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_level_second(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_level_second(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -2973,10 +2825,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_level_second(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_lt_bonus(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_lt_bonus(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_lt_bonus(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3040,10 +2890,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_lt_bonus(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_lt_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_lt_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_lt_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3117,10 +2965,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_lt_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_manage(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_manage(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_manage(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3142,10 +2988,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_manage(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_market(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_market(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_market(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3165,10 +3009,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_market(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_month_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_month_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3194,17 +3036,15 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: postgres
+-- Name: FUNCTION award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON FUNCTION award.award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '公司上周业绩周分红';
 
 
 --
--- Name: award_month_fenhong_181111(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_month_fenhong_181111(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_month_fenhong_181111(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3248,10 +3088,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_month_fenhong_181111(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_order(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) RETURNS void
@@ -3270,10 +3108,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_order_2(integer, integer, integer, integer, integer, numeric); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order_2(integer, integer, integer, integer, integer, numeric); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_money numeric) RETURNS void
@@ -3293,10 +3129,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_money numeric) OWNER TO postgres;
-
 --
--- Name: award_order_3(integer, integer, integer, integer, integer, numeric); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order_3(integer, integer, integer, integer, integer, numeric); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order_3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_money numeric) RETURNS void
@@ -3312,10 +3146,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order_3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_money numeric) OWNER TO postgres;
-
 --
--- Name: award_order_anxin(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order_anxin(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order_anxin(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) RETURNS void
@@ -3336,10 +3168,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order_anxin(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_order_anxin_jc(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order_anxin_jc(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order_anxin_jc(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) RETURNS void
@@ -3367,10 +3197,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order_anxin_jc(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_order_buy(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order_buy(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order_buy(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) RETURNS void
@@ -3387,10 +3215,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order_buy(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_order_fanli(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_order_fanli(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_order_fanli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) RETURNS void
@@ -3408,10 +3234,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_order_fanli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: award_pair(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3444,10 +3268,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_150210(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_150210(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_150210(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3479,10 +3301,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_150210(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_170224(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_170224(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_170224(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3496,10 +3316,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_170224(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3531,10 +3349,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3561,10 +3377,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_layer_150210(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_layer_150210(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_layer_150210(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3597,10 +3411,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_layer_150210(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_layer_status(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_layer_status(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_layer_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3645,10 +3457,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_layer_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_layer_status_160601(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_layer_status_160601(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_layer_status_160601(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3692,10 +3502,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_layer_status_160601(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_layer_status_dup(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_layer_status_dup(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_layer_status_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3724,10 +3532,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_layer_status_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_layer_status_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_layer_status_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_layer_status_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3772,10 +3578,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_layer_status_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3825,10 +3629,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status11(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status11(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status11(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3865,10 +3667,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status11(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status22(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status22(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status22(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3905,10 +3705,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status22(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status22_171128(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status22_171128(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status22_171128(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3945,10 +3743,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status22_171128(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status33(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status33(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status33(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -3985,10 +3781,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status33(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status_150805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4021,10 +3815,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status_150805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status_limit_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status_limit_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status_limit_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4056,10 +3848,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status_limit_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_status_with_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_pair_status_with_layer(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_pair_status_with_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4100,10 +3890,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_pair_status_with_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_parent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_parent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_parent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4119,10 +3907,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_parent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_prize(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_prize(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_prize(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4140,10 +3926,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_prize(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4160,10 +3944,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4180,10 +3962,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_0920(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_0920(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_0920(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4199,10 +3979,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_0920(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_3070(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_3070(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_3070(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4221,10 +3999,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_3070(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_b(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_b(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_b(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4240,10 +4016,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_b(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_l2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_l2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_l2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4262,10 +4036,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_l2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4282,10 +4054,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_matrix(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4313,10 +4083,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_matrix_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_matrix_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4348,10 +4116,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_matrix_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_membertype(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_membertype(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_membertype(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4368,10 +4134,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_membertype(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_membertype2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_membertype2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_membertype2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4388,10 +4152,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_membertype2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_membertype3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_membertype3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_membertype3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4408,10 +4170,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_membertype3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_membertype_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_membertype_141203(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_membertype_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4429,10 +4189,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_membertype_141203(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_parent_period(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_parent_period(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_parent_period(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4450,10 +4208,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_parent_period(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_week(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_week(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_week(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4469,10 +4225,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_week(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_zhengka(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_recommend_zhengka(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_recommend_zhengka(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4490,10 +4244,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_recommend_zhengka(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_rich(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_rich(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_rich(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4510,10 +4262,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_rich(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_rich_dot(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_rich_dot(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_rich_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4530,10 +4280,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_rich_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_self_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_self_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_self_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4549,10 +4297,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_self_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_signing(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_signing(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_signing(member_id integer, award_period integer, my_award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4588,10 +4334,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_signing(member_id integer, award_period integer, my_award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4612,10 +4356,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong_425(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong_425(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong_425(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4638,10 +4380,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong_425(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong_617(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong_617(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong_617(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4662,10 +4402,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong_617(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong_624(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong_624(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong_624(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4684,10 +4422,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong_624(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong_day(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong_day(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong_day(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4710,10 +4446,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong_day(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong_day2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong_day2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong_day2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4736,10 +4470,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong_day2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_static_fenhong_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_static_fenhong_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4759,10 +4491,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_static_fenhong_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_team(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_team(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_team(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS integer
@@ -4794,10 +4524,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_team(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_tuiguang(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_tuiguang(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_tuiguang(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4831,10 +4559,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_tuiguang(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_up_down_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_up_down_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_up_down_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4858,10 +4584,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_up_down_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_up_down_recommend_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_up_down_recommend_150919(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_up_down_recommend_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4885,10 +4609,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_up_down_recommend_150919(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_up_down_recommend_160425(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_up_down_recommend_160425(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_up_down_recommend_160425(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4912,10 +4634,29 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_up_down_recommend_160425(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
+--
+-- Name: award_xingyun_dianbu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
+--
+
+CREATE FUNCTION award.award_xingyun_dianbu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+    insert into epmms_award_period(award_period_period,award_period_memberinfo_id
+    ,award_period_type_id,award_period_currency,award_period_sum_type)
+    select award_period,p.membermap_id,award_type,cfg.award_config_money,award_sum_type
+    from epmms_membermap as p,epmms_membermap as my,award.award_config_xingyu_futou as cfg
+    where my.membermap_id=member_id
+    and (my.membermap_verify_seq2-p.membermap_verify_seq2)%10=ANY(cfg.award_config_seqs)
+    and my.membermap_verify_seq2-p.membermap_verify_seq2>0
+    and award.get_recommend_jin_number(p.membermap_id)<@cfg.award_config_recommend_jin_number
+    and p.membermap_is_active=1;
+END;
+$$;
+
 
 --
--- Name: award_xingyunfenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_xingyunfenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_xingyunfenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4938,10 +4679,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_xingyunfenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_zz_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: award_zz_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.award_zz_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -4958,10 +4697,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.award_zz_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: day_calc(); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: day_calc(); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.day_calc() RETURNS void
@@ -4974,10 +4711,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.day_calc() OWNER TO postgres;
-
 --
--- Name: dynamic_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: dynamic_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.dynamic_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -5001,10 +4736,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.dynamic_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: get50(numeric, numeric, numeric); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get50(numeric, numeric, numeric); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get50(my_money numeric, r_money numeric, all_r_money numeric) RETURNS numeric
@@ -5022,10 +4755,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get50(my_money numeric, r_money numeric, all_r_money numeric) OWNER TO postgres;
-
 --
--- Name: get_cap_number(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_cap_number(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_cap_number(member_id integer) RETURNS integer
@@ -5040,10 +4771,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_cap_number(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count_150210(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_l_under_product_count_150210(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_l_under_product_count_150210(member_id integer) RETURNS integer
@@ -5068,10 +4797,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_l_under_product_count_150210(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_layer_money(integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_layer_money(integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_layer_money(member_id integer, member_layer integer) RETURNS numeric
@@ -5102,10 +4829,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_layer_money(member_id integer, member_layer integer) OWNER TO postgres;
-
 --
--- Name: get_level_count(integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_level_count(integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_level_count(member_id integer, member_order integer, member_level integer) RETURNS integer
@@ -5147,14 +4872,12 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_level_count(member_id integer, member_order integer, member_level integer) OWNER TO postgres;
-
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: epmms_membermap; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_membermap; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_membermap (
@@ -5203,294 +4926,325 @@ CREATE TABLE public.epmms_membermap (
     membermap_no character varying(20),
     membermap_buyall numeric(16,2) DEFAULT 0 NOT NULL,
     membermap_buy_date timestamp(0) without time zone,
-    membermap_is_goods smallint
+    membermap_is_goods smallint,
+    membermap_day_count integer DEFAULT 0,
+    membermap_day_level integer DEFAULT 0,
+    membermap_futou_date date,
+    membermap_verify_seq2 integer,
+    membermap_jifen numeric(16,2)
 );
 
 
-ALTER TABLE public.epmms_membermap OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_membermap.membermap_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_seq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_seq IS '会员注册的序列';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_parent_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_parent_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_parent_id IS '父节点人id';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_id IS '推荐会员id';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_membertype_level; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_membertype_level; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_membertype_level IS '会员类型';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_layer IS '网络图上的层数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_order IS '网络图上的位置次序';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_path; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_path; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_path IS '网络图路径';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_path; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_path; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_path IS '推荐关系路径';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_number IS '直推人数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_under_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_under_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_under_number IS '推荐树下的点数，包括直接推荐的';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_child_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_child_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_child_number IS '子节点个数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_sub_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_sub_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_sub_number IS '节点树下的人数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_sub_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_sub_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_sub_product_count IS '本分支下包括本人购买单数总计';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_under_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_under_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_under_product_count IS '推荐树下单数总计，包括本人购买的';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_product_count IS '购买单数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_agent_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_agent_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_agent_id IS '代理中心id';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_is_verify IS '是否已审核';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_verify_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_verify_seq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_verify_seq IS '审核顺序';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_is_agent; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_is_agent; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_is_agent IS '是否为代理中心';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_verify_date IS '审核时间';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_verify_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_verify_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_verify_member_id IS '审核会员id，null表示公司审核';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_is_empty; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_is_empty; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_is_empty IS '是否空单';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_money IS '加盟金额';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_bond_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_bond_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_bond_id IS '绑定的会员';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_level; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_level; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_level IS '会员级别';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_layer IS '推荐代数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_period IS '结算期次';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_membertype_level_old; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_membertype_level_old; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_membertype_level_old IS '注册时的类型';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_is_active; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_is_active; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_is_active IS '会员活动状态';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_is_delete; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_is_delete; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_is_delete IS '网络图是否已删除';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_under_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_under_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_under_product_count IS '接点人下单数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_under_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_under_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_under_number IS '接点下人数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_agent_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_agent_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_agent_number IS '报单人数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_agent_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_agent_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_agent_product_count IS '报单单数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_recommend_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_recommend_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_recommend_product_count IS '推荐单数';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_agent_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_agent_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_agent_type IS '代理中心类型';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_reg_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_reg_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_reg_member_id IS '注册者';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_no; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_no; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_no IS '网络图编号';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_buy_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_buy_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_buy_date IS '购物时间';
 
 
 --
--- Name: COLUMN epmms_membermap.membermap_is_goods; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_is_goods; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap.membermap_is_goods IS '提货方式,0自己提货,1报单中心提货';
 
 
 --
--- Name: get_level_leaf(); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_membermap.membermap_day_count; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_membermap.membermap_day_count IS '日薪天数';
+
+
+--
+-- Name: COLUMN epmms_membermap.membermap_day_level; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_membermap.membermap_day_level IS '日薪级别';
+
+
+--
+-- Name: COLUMN epmms_membermap.membermap_futou_date; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_membermap.membermap_futou_date IS '最后复投日期';
+
+
+--
+-- Name: COLUMN epmms_membermap.membermap_verify_seq2; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_membermap.membermap_verify_seq2 IS '金卡审核顺序';
+
+
+--
+-- Name: get_level_leaf(); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_level_leaf() RETURNS SETOF public.epmms_membermap
@@ -5505,10 +5259,24 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_level_leaf() OWNER TO postgres;
+--
+-- Name: get_little_count(integer); Type: FUNCTION; Schema: award; Owner: -
+--
+
+CREATE FUNCTION award.get_little_count(member_id integer) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+    little_count integer;
+BEGIN
+     select least(left_count,right_count) into little_count from epmms_memberstatus where status_id=member_id;
+     return coalesce(little_count,0);
+END;
+$$;
+
 
 --
--- Name: get_little_loc(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_little_loc(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_little_loc(member_id integer) RETURNS integer
@@ -5545,10 +5313,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_little_loc(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_little_product_count(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_little_product_count(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_little_product_count(member_id integer) RETURNS integer
@@ -5563,10 +5329,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_little_product_count(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_little_product_count_170621(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_little_product_count_170621(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_little_product_count_170621(member_id integer) RETURNS integer
@@ -5581,10 +5345,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_little_product_count_170621(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_money_number(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_money_number(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_money_number(member_id integer) RETURNS integer
@@ -5599,10 +5361,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_money_number(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_month_perf(character varying, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_month_perf(character varying, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_month_perf(city character varying, atype integer) RETURNS integer
@@ -5712,10 +5472,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_month_perf(city character varying, atype integer) OWNER TO postgres;
-
 --
--- Name: get_product_count_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: get_product_count_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.get_product_count_layer(member_id integer, my_id integer, member_layer integer, product_count integer) RETURNS integer
@@ -5730,10 +5488,21 @@ END;
 $$;
 
 
-ALTER FUNCTION award.get_product_count_layer(member_id integer, my_id integer, member_layer integer, product_count integer) OWNER TO postgres;
+--
+-- Name: get_recommend_jin_number(integer); Type: FUNCTION; Schema: award; Owner: -
+--
+
+CREATE FUNCTION award.get_recommend_jin_number(member_id integer) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  return (select count(*) from epmms_membermap where membermap_recommend_id=member_id and membermap_membertype_level=2);
+END;
+$$;
+
 
 --
--- Name: global_month_perf(); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: global_month_perf(); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.global_month_perf() RETURNS integer
@@ -5759,10 +5528,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.global_month_perf() OWNER TO postgres;
-
 --
--- Name: group_award(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: group_award(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.group_award(member_id integer) RETURNS void
@@ -5789,10 +5556,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.group_award(member_id integer) OWNER TO postgres;
-
 --
--- Name: group_prize(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: group_prize(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.group_prize(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -5811,10 +5576,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.group_prize(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: groupmap_del(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: groupmap_del(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.groupmap_del(member_id integer) RETURNS void
@@ -5830,10 +5593,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.groupmap_del(member_id integer) OWNER TO postgres;
-
 --
--- Name: groupmap_upgrade(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: groupmap_upgrade(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.groupmap_upgrade(p_group_id integer) RETURNS integer
@@ -5867,10 +5628,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.groupmap_upgrade(p_group_id integer) OWNER TO postgres;
-
 --
--- Name: insert_status(); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: insert_status(); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.insert_status() RETURNS void
@@ -5884,10 +5643,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.insert_status() OWNER TO postgres;
-
 --
--- Name: intob(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: intob(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.intob(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -5904,10 +5661,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.intob(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: intobmap(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: intobmap(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.intobmap(member_id integer) RETURNS void
@@ -5948,10 +5703,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.intobmap(member_id integer) OWNER TO postgres;
-
 --
--- Name: is_layer_pair(integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: is_layer_pair(integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.is_layer_pair(member_id integer, member_layer integer) RETURNS smallint
@@ -5972,10 +5725,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.is_layer_pair(member_id integer, member_layer integer) OWNER TO postgres;
-
 --
--- Name: is_upgrade_con(integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: is_upgrade_con(integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.is_upgrade_con(member_id integer, member_level integer, start_level integer) RETURNS boolean
@@ -6009,10 +5760,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.is_upgrade_con(member_id integer, member_level integer, start_level integer) OWNER TO postgres;
-
 --
--- Name: new_group(); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: new_group(); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.new_group() RETURNS integer
@@ -6025,10 +5774,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.new_group() OWNER TO postgres;
-
 --
--- Name: next_group(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: next_group(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.next_group(current_group_id integer) RETURNS integer
@@ -6044,10 +5791,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.next_group(current_group_id integer) OWNER TO postgres;
-
 --
--- Name: static_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: static_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.static_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6063,10 +5808,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.static_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: team(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: team(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.team(member_id integer) RETURNS boolean
@@ -6090,10 +5833,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.team(member_id integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_0920(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_0920(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_0920(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6116,10 +5857,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_0920(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_1120(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_1120(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_1120(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6152,10 +5891,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_1120(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_160123(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_160123(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_160123(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6175,10 +5912,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_160123(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_160228(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_160228(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_160228(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6197,10 +5932,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_160228(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_160430(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_160430(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_160430(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6217,10 +5950,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_160430(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_160612(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_160612(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_160612(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6257,10 +5988,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_160612(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_160624(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_160624(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_160624(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6283,10 +6012,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_160624(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_160708(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_160708(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_160708(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6338,10 +6065,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_160708(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_170102(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_170102(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_170102(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6420,10 +6145,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_170102(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_170213(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_170213(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_170213(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6452,10 +6175,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_170213(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_170224(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_170224(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_170224(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6469,10 +6190,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_170224(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_180402(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6520,10 +6239,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_180402(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_180501(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_180501(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_180501(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6607,10 +6324,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_180501(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_180929(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_180929(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_180929(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6698,10 +6413,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_180929(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_181111(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upgrade_level_181111(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upgrade_level_181111(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -6837,10 +6550,118 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upgrade_level_181111(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
+--
+-- Name: upgrade_level_181225(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: award; Owner: -
+--
+
+CREATE FUNCTION award.upgrade_level_181225(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+
+    update epmms_membermap as p set membermap_level=1,membermap_day_count=0,membermap_day_level=1
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=1
+    and coalesce(p.membermap_level,0)<1;
+
+    update epmms_membermap as p set membermap_level=2,membermap_day_count=0,membermap_day_level=2
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=3
+    and coalesce(p.membermap_level,0)<3;
+
+    update epmms_membermap as p set membermap_level=3,membermap_day_count=0,membermap_day_level=3
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=8
+    and coalesce(p.membermap_level,0)<3;
+    
+    update epmms_membermap as p set membermap_level=4,membermap_day_count=0,membermap_day_level=4
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=20
+    and coalesce(p.membermap_level,0)<4;
+    
+    update epmms_membermap as p set membermap_level=5,membermap_day_count=0,membermap_day_level=5
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=40
+    and coalesce(p.membermap_level,0)<5;
+    
+    update epmms_membermap as p set membermap_level=6,membermap_day_count=0,membermap_day_level=6
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=80
+    and coalesce(p.membermap_level,0)<6;
+    
+    update epmms_membermap as p set membermap_level=7,membermap_day_count=0,membermap_day_level=7
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=160
+    and coalesce(p.membermap_level,0)<7;
+    
+    update epmms_membermap as p set membermap_level=8,membermap_day_count=0,membermap_day_level=8
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=260
+    and coalesce(p.membermap_level,0)<8;
+    
+    update epmms_membermap as p set membermap_level=9,membermap_day_count=0,membermap_day_level=9
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=380
+    and coalesce(p.membermap_level,0)<9;
+    
+    update epmms_membermap as p set membermap_level=10,membermap_day_count=0,membermap_day_level=10
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=750
+    and coalesce(p.membermap_level,0)<10;
+    
+    update epmms_membermap as p set membermap_level=11,membermap_day_count=0,membermap_day_level=11
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=1500
+    and coalesce(p.membermap_level,0)<11;
+    
+    update epmms_membermap as p set membermap_level=12,membermap_day_count=0,membermap_day_level=12
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=3000
+    and coalesce(p.membermap_level,0)<12;
+    
+    update epmms_membermap as p set membermap_level=13,membermap_day_count=0,membermap_day_level=13
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=6000
+    and coalesce(p.membermap_level,0)<13;
+    
+    update epmms_membermap as p set membermap_level=14,membermap_day_count=0,membermap_day_level=14
+    from epmms_membermap as my
+    where my.membermap_id=member_id
+    and my.membermap_path like p.membermap_path || '/%'
+    and award.get_little_count(p.membermap_id)>=10000
+    and coalesce(p.membermap_level,0)<14;
+END;
+$$;
+
 
 --
--- Name: upper_area(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_area(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_area(member_id integer) RETURNS integer
@@ -6894,10 +6715,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_area(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_area_area(integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_area_area(integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_area_area(member_id integer, layer integer) RETURNS integer
@@ -6985,10 +6804,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_area_area(member_id integer, layer integer) OWNER TO postgres;
-
 --
--- Name: upper_area_city(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_area_city(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_area_city(member_id integer) RETURNS integer
@@ -7042,10 +6859,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_area_city(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_area_provience(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_area_provience(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_area_provience(member_id integer) RETURNS integer
@@ -7099,10 +6914,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_area_provience(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_area_silver(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_area_silver(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_area_silver(member_id integer) RETURNS integer
@@ -7156,10 +6969,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_area_silver(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_city(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_city(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_city(member_id integer) RETURNS integer
@@ -7213,10 +7024,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_city(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_city_area(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_city_area(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_city_area(member_id integer) RETURNS integer
@@ -7270,10 +7079,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_city_area(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_city_city(integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_city_city(integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_city_city(member_id integer, layer integer) RETURNS integer
@@ -7361,10 +7168,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_city_city(member_id integer, layer integer) OWNER TO postgres;
-
 --
--- Name: upper_city_provience(integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_city_provience(integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_city_provience(member_id integer) RETURNS integer
@@ -7418,10 +7223,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_city_provience(member_id integer) OWNER TO postgres;
-
 --
--- Name: upper_provience(integer, integer); Type: FUNCTION; Schema: award; Owner: postgres
+-- Name: upper_provience(integer, integer); Type: FUNCTION; Schema: award; Owner: -
 --
 
 CREATE FUNCTION award.upper_provience(member_id integer, layer integer) RETURNS integer
@@ -7509,10 +7312,8 @@ END;
 $$;
 
 
-ALTER FUNCTION award.upper_provience(member_id integer, layer integer) OWNER TO postgres;
-
 --
--- Name: award_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_agent(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7527,10 +7328,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_agent(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_bill(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_agent_bill(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_agent_bill(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7545,10 +7344,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_agent_bill(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_membertype(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_agent_membertype(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_agent_membertype(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7565,10 +7362,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_agent_membertype(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_agent_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_agent_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_agent_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7584,10 +7379,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_agent_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_all_bond(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_all_bond(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_all_bond(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7606,17 +7399,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_all_bond(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_all_bond(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_all_bond(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_all_bond(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '新注册会员的2%平均分给所有会员';
 
 
 --
--- Name: award_all_bond_type(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_all_bond_type(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_all_bond_type(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7655,17 +7446,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_all_bond_type(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_all_bond_type(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_all_bond_type(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_all_bond_type(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '新注册会员的2%平均分给所有会员';
 
 
 --
--- Name: award_assign_stock(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_assign_stock(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_assign_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7681,33 +7470,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_assign_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_assign_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_assign_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_assign_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '公司上周业绩周分红';
 
 
 --
--- Name: award_buy3600(); Type: FUNCTION; Schema: public; Owner: postgres
---
-
-CREATE FUNCTION public.award_buy3600() RETURNS void
-    LANGUAGE plpgsql
-    AS $$
-BEGIN
-   	update epmms_finance set finance_award=finance_award-3600 where finace_type_id=1;
-   	perform epmms_verify_member(null,2,nextval('award_period'));
-END;
-$$;
-
-
-ALTER FUNCTION public.award_buy3600() OWNER TO postgres;
-
---
--- Name: award_chuangye(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_chuangye(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_chuangye(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7724,10 +7495,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_chuangye(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_corp_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_corp_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_corp_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7762,17 +7531,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_corp_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_corp_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_corp_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_corp_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '公司分红';
 
 
 --
--- Name: award_corp_fenhong_month(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_corp_fenhong_month(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_corp_fenhong_month(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7801,17 +7568,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_corp_fenhong_month(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_corp_fenhong_month(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_corp_fenhong_month(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_corp_fenhong_month(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '公司分红';
 
 
 --
--- Name: award_corp_fenhong_week(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_corp_fenhong_week(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_corp_fenhong_week(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -7837,17 +7602,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_corp_fenhong_week(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_corp_fenhong_week(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_corp_fenhong_week(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_corp_fenhong_week(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '公司上周业绩周分红';
 
 
 --
--- Name: award_cycle(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_cycle(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_cycle(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7870,10 +7633,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_cycle(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_cycle_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_cycle_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_cycle_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7897,10 +7658,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_cycle_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_cycle_fee(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_cycle_fee(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_cycle_fee(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7922,10 +7681,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_cycle_fee(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_day_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_day_fenhong(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7948,17 +7705,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_day_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '公司上周业绩周分红';
 
 
 --
--- Name: award_day_stock(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_day_stock(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_day_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -7972,17 +7727,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_day_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_day_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_day_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_day_stock(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '公司上周业绩周分红';
 
 
 --
--- Name: award_dif(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dif(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dif(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8023,10 +7776,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dif(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dif2(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dif2(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dif2(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8067,10 +7818,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dif2(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dif3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dif3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dif3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8130,10 +7879,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dif3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_dif3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_dif3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_dif3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '升级各级的条件和各级奖金
@@ -8147,7 +7894,7 @@ COMMENT ON FUNCTION public.award_dif3(member_id integer, award_period integer, a
 
 
 --
--- Name: award_differential(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_differential(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_differential(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8181,10 +7928,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_differential(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dongshi(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dongshi(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8207,17 +7952,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '公司分红';
 
 
 --
--- Name: award_dot_6(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_6(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_6(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8233,10 +7976,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_6(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_fuwu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_fuwu(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_fuwu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8254,10 +7995,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_fuwu(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_group(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_group(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_group(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8274,10 +8013,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_group(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_layer_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_layer_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8304,10 +8041,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_layer_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_layer_recommend(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_layer_recommend(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_layer_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8325,10 +8060,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_layer_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_matrix(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_matrix(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8347,10 +8080,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_matrix(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_member(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_member(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_member(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8367,10 +8098,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_member(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dot_member_type_recommend(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dot_member_type_recommend(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dot_member_type_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8388,10 +8117,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dot_member_type_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_down(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_down(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8414,17 +8141,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) IS '下拿上';
 
 
 --
--- Name: award_down_up(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_down_up(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_down_up(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8446,10 +8171,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_down_up(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8471,10 +8194,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup3000_dot(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup3000_dot(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup3000_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8498,10 +8219,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup3000_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup7200(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup7200(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup7200(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8520,10 +8239,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup7200(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_1000(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_1000(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_1000(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8559,10 +8276,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_1000(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_3000_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_3000_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_3000_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8596,10 +8311,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_3000_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_5000(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_5000(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_5000(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8620,10 +8333,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_5000(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_acc(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_acc(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_acc(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8657,10 +8368,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_acc(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_aixin(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_aixin(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_aixin(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8679,10 +8388,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_aixin(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_award2(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_award2(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_award2(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8700,10 +8407,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_award2(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_award3(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_award3(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_award3(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8721,10 +8426,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_award3(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_award_3000(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_award_3000(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_award_3000(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8749,10 +8452,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_award_3000(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_dot(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_dot(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8772,10 +8473,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_guanhuai(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_guanhuai(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_guanhuai(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8793,10 +8492,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_guanhuai(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_once(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_once(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_once(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8816,10 +8513,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_once(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_dup_sum_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_dup_sum_type(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_dup_sum_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8850,10 +8545,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_dup_sum_type(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -8874,10 +8567,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_fenhong_0805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fenhong_0805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fenhong_0805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8910,10 +8601,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fenhong_0805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fenhong_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fenhong_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fenhong_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8931,10 +8620,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fenhong_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fenhong_3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fenhong_3(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fenhong_3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8952,10 +8639,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fenhong_3(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fenhong_4(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fenhong_4(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fenhong_4(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8974,10 +8659,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fenhong_4(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fenhong_5(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fenhong_5(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fenhong_5(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -8995,10 +8678,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fenhong_5(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fudao(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fudao(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fudao(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9029,10 +8710,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.award_fudao(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_fuli(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fuli(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fuli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9048,10 +8727,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fuli(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_fuli_upgrade(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_fuli_upgrade(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_fuli_upgrade(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9076,10 +8753,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_fuli_upgrade(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_ganen(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_ganen(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_ganen(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9097,10 +8772,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_ganen(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_ganen2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_ganen2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_ganen2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9120,10 +8793,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_ganen2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_gl(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_gl(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_gl(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9145,10 +8816,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_gl(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_gljt(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_gljt(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_gljt(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9168,10 +8837,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_gljt(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_gongpaifenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_gongpaifenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_gongpaifenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9192,10 +8859,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_gongpaifenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_group(bigint, bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_group(bigint, bigint, bigint, bigint); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_group(group_id bigint DEFAULT 1, member_id bigint DEFAULT 1, award_period bigint DEFAULT 1, award_type bigint DEFAULT 2) RETURNS void
@@ -9264,10 +8929,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_group(group_id bigint, member_id bigint, award_period bigint, award_type bigint) OWNER TO postgres;
-
 --
--- Name: award_group5(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_group5(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_group5(groupid integer DEFAULT NULL::integer, member_id integer DEFAULT NULL::integer, award_period integer DEFAULT NULL::integer, award_type integer DEFAULT 36) RETURNS void
@@ -9284,10 +8947,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_group5(groupid integer, member_id integer, award_period integer, award_type integer) OWNER TO postgres;
-
 --
--- Name: award_group7(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_group7(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_group7(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9304,10 +8965,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_group7(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_group_manage(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_group_manage(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_group_manage(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9326,10 +8985,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_group_manage(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_guanai(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_guanai(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_guanai(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9350,10 +9007,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_guanai(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_guanli(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_guanli(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_guanli(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9375,10 +9030,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_guanli(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_huikui(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_huikui(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_huikui(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9434,10 +9087,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_huikui(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_huzu(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_huzu(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_huzu(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9496,10 +9147,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.award_huzu(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_in2out1(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_in2out1(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_in2out1(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9517,10 +9166,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_in2out1(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_in4out1_b(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_in4out1_b(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_in4out1_b(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9540,10 +9187,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_in4out1_b(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_jifen(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_jifen(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_jifen(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9558,10 +9203,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_jifen(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9602,17 +9245,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '层奖，下层会员要大于等于本会员的级别';
 
 
 --
--- Name: award_layer_full(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_layer_full(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_layer_full(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9647,10 +9288,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_layer_full(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer_pair(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_layer_pair(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_layer_pair(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9670,10 +9309,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_layer_pair(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_layer_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_layer_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_layer_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9690,10 +9327,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_layer_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_leader(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9711,10 +9346,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_leader(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_leader_down(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_leader_down(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_leader_down(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9736,10 +9369,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_leader_down(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_left_right(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_left_right(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_left_right(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9768,17 +9399,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_left_right(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_left_right(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_left_right(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_left_right(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '层奖，下层会员要大于等于本会员的级别';
 
 
 --
--- Name: award_lingdao(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_lingdao(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_lingdao(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9811,10 +9440,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_lingdao(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_manage(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_manage(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_manage(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9834,10 +9461,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_manage(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_mengxiang(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_mengxiang(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_mengxiang(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -9865,10 +9490,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_mengxiang(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_month(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_month(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_month(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9890,10 +9513,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_month(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_month_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_month_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9916,17 +9537,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_month_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '新注册会员的2%平均分给所有会员';
 
 
 --
--- Name: award_org_up(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_org_up(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_org_up(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9944,10 +9563,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_org_up(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_org_up_down(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_org_up_down(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_org_up_down(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -9972,10 +9589,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_org_up_down(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_pair(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_pair(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10007,10 +9622,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_pair(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_12(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_pair_12(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_pair_12(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10065,10 +9678,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_pair_12(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pair_cap(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_pair_cap(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_pair_cap(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10112,17 +9723,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_pair_cap(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_pair_cap(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_pair_cap(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_pair_cap(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '对碰,每单10000,公司封面当前收入10%';
 
 
 --
--- Name: award_pair_charge(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_pair_charge(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_pair_charge(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10163,10 +9772,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_pair_charge(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_peiyu(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_peiyu(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_peiyu(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10186,10 +9793,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_peiyu(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_peiyu_month(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_peiyu_month(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_peiyu_month(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10212,10 +9817,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_peiyu_month(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_pond(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_pond(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_pond(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10235,10 +9838,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_pond(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_pond_day(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_pond_day(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_pond_day(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10279,10 +9880,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_pond_day(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_quarter(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_quarter(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_quarter(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10304,10 +9903,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_quarter(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10323,10 +9920,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_2(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend_2(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend_2(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10354,10 +9949,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.award_recommend_2(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_bill(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend_bill(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend_bill(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10375,10 +9968,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_recommend_bill(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend_layer(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10396,10 +9987,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_recommend_layer(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_layer_dot(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend_layer_dot(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend_layer_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10422,10 +10011,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_recommend_layer_dot(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_membertype(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend_membertype(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend_membertype(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10441,10 +10028,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_recommend_membertype(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_recommend_membertype_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_recommend_membertype_2(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_recommend_membertype_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10462,10 +10047,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_recommend_membertype_2(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_rich(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_rich(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_rich(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10482,10 +10065,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_rich(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_send_award(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_send_award(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_send_award(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10506,10 +10087,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_send_award(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_static_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_static_fenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_static_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10527,10 +10106,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_static_fenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_student(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_student(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_student(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10561,10 +10138,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_student(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_up(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_up(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_up(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10588,10 +10163,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_up(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_up_down(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_up_down(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_up_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10615,10 +10188,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_up_down(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_up_down_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_up_down_recommend(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_up_down_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10642,10 +10213,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_up_down_recommend(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_week(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_week(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_week(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10667,10 +10236,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_week(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_week_dongshi(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_week_dongshi(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_week_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10689,10 +10256,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_week_dongshi(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_wuliu(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_wuliu(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_wuliu(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10710,10 +10275,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_wuliu(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_xingyun10(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_xingyun10(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_xingyun10(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10736,10 +10299,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_xingyun10(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_xingyunfenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_xingyunfenhong(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_xingyunfenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10765,10 +10326,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_xingyunfenhong(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_year(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_year(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_year(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10790,10 +10349,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_year(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: award_yeji(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_yeji(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_yeji(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10831,10 +10388,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_yeji(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_zhengzhi(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_zhengzhi(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_zhengzhi(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -10874,10 +10429,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_zhengzhi(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: award_zongjian(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: award_zongjian(integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.award_zongjian(member_id integer, award_period integer, award_type integer, award_sum_type integer) RETURNS void
@@ -10900,17 +10453,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.award_zongjian(member_id integer, award_period integer, award_type integer, award_sum_type integer) OWNER TO postgres;
-
 --
--- Name: FUNCTION award_zongjian(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION award_zongjian(member_id integer, award_period integer, award_type integer, award_sum_type integer); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.award_zongjian(member_id integer, award_period integer, award_type integer, award_sum_type integer) IS '公司分红';
 
 
 --
--- Name: create_upper_member(integer, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: create_upper_member(integer, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.create_upper_member(my_layer integer, my_path text) RETURNS void
@@ -10923,10 +10474,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.create_upper_member(my_layer integer, my_path text) OWNER TO postgres;
-
 --
--- Name: custom_calc(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: custom_calc(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.custom_calc(custom_days integer) RETURNS void
@@ -10940,10 +10489,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.custom_calc(custom_days integer) OWNER TO postgres;
-
 --
--- Name: custom_day_first(integer, date); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: custom_day_first(integer, date); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.custom_day_first(custom_days integer, custom_date date DEFAULT ('now'::text)::date) RETURNS date
@@ -10962,10 +10509,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.custom_day_first(custom_days integer, custom_date date) OWNER TO postgres;
-
 --
--- Name: day_calc(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: day_calc(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.day_calc() RETURNS void
@@ -10977,10 +10522,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.day_calc() OWNER TO postgres;
-
 --
--- Name: epmms_award_day_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_day_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_day_award_sum_ins_tr() RETURNS trigger
@@ -11015,10 +10558,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_day_award_sum_ins_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_day_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_day_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_day_award_sum_total_after_tr() RETURNS trigger
@@ -11044,10 +10585,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_day_award_sum_total_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_day_sum_all_replace(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all_replace(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_day_sum_all_replace() RETURNS trigger
@@ -11072,10 +10611,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_day_sum_all_replace() OWNER TO postgres;
-
 --
--- Name: epmms_award_day_sum_ins_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_ins_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_day_sum_ins_sum_after_tr() RETURNS trigger
@@ -11104,10 +10641,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_day_sum_ins_sum_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_day_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_day_sum_ins_sum_tr() RETURNS trigger
@@ -11135,10 +10670,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_day_sum_ins_sum_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_month_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_month_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_month_award_sum_ins_tr() RETURNS trigger
@@ -11168,10 +10701,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_month_award_sum_ins_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_month_award_total_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_month_award_total_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_month_award_total_sum_after_tr() RETURNS trigger
@@ -11197,10 +10728,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_month_award_total_sum_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_month_sum_all_tr_replace(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all_tr_replace(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_month_sum_all_tr_replace() RETURNS trigger
@@ -11225,10 +10754,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_month_sum_all_tr_replace() OWNER TO postgres;
-
 --
--- Name: epmms_award_month_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_month_sum_ins_sum_tr() RETURNS trigger
@@ -11255,10 +10782,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_month_sum_ins_sum_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_month_sum_total_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_total_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_month_sum_total_sum_after_tr() RETURNS trigger
@@ -11282,10 +10807,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_month_sum_total_sum_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_period_date_type_sum_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_period_date_type_sum_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_period_date_type_sum_tr() RETURNS trigger
@@ -11309,10 +10832,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_period_date_type_sum_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_period_log_fun(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_period_log_fun(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_period_log_fun() RETURNS trigger
@@ -11327,10 +10848,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_period_log_fun() OWNER TO postgres;
-
 --
--- Name: epmms_award_period_sum_log_tr_fun(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_log_tr_fun(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_period_sum_log_tr_fun() RETURNS trigger
@@ -11345,10 +10864,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_period_sum_log_tr_fun() OWNER TO postgres;
-
 --
--- Name: epmms_award_period_sum_sum_award_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_sum_award_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_period_sum_sum_award_after_tr() RETURNS trigger
@@ -11372,10 +10889,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_period_sum_sum_award_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_period_sum_tr_ins(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_tr_ins(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_period_sum_tr_ins() RETURNS trigger
@@ -11492,10 +11007,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_period_sum_tr_ins() OWNER TO postgres;
-
 --
--- Name: epmms_award_period_tr_ins(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_period_tr_ins(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_period_tr_ins() RETURNS trigger
@@ -11937,10 +11450,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_period_tr_ins() OWNER TO postgres;
-
 --
--- Name: epmms_award_sum(integer, bigint, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_sum(integer, bigint, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_sum(member_id integer, period bigint, sum_type integer) RETURNS void
@@ -11962,10 +11473,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_sum(member_id integer, period bigint, sum_type integer) OWNER TO postgres;
-
 --
--- Name: epmms_award_sum_b(integer, bigint, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_sum_b(integer, bigint, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_sum_b(member_id integer, period bigint, member_id_b integer) RETURNS void
@@ -11987,10 +11496,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_sum_b(member_id integer, period bigint, member_id_b integer) OWNER TO postgres;
-
 --
--- Name: epmms_award_sum_member(integer, integer, timestamp without time zone); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_sum_member(integer, integer, timestamp without time zone); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_sum_member(member_id integer, award_period integer, add_date timestamp without time zone) RETURNS void
@@ -12011,10 +11518,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_sum_member(member_id integer, award_period integer, add_date timestamp without time zone) OWNER TO postgres;
-
 --
--- Name: epmms_award_total_award_sum_before_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_total_award_sum_before_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_total_award_sum_before_tr() RETURNS trigger
@@ -12043,10 +11548,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_total_award_sum_before_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_total_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_total_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_total_award_sum_total_after_tr() RETURNS trigger
@@ -12072,10 +11575,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_total_award_sum_total_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_total_sum_award_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum_award_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_total_sum_award_after_tr() RETURNS trigger
@@ -12127,10 +11628,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_total_sum_award_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_total_sum_before_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum_before_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_total_sum_before_tr() RETURNS trigger
@@ -12154,10 +11653,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_total_sum_before_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_week_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_week_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_week_award_sum_ins_tr() RETURNS trigger
@@ -12187,10 +11684,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_week_award_sum_ins_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_week_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_week_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_week_award_sum_total_after_tr() RETURNS trigger
@@ -12215,10 +11710,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_week_award_sum_total_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_week_sum_all_replace(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all_replace(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_week_sum_all_replace() RETURNS trigger
@@ -12244,10 +11737,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_week_sum_all_replace() OWNER TO postgres;
-
 --
--- Name: epmms_award_week_sum_ins_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_ins_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_week_sum_ins_sum_after_tr() RETURNS trigger
@@ -12271,10 +11762,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_week_sum_ins_sum_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_week_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_week_sum_ins_sum_tr() RETURNS trigger
@@ -12302,10 +11791,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_week_sum_ins_sum_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_year_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_year_award_sum_ins_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_year_award_sum_ins_tr() RETURNS trigger
@@ -12335,10 +11822,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_year_award_sum_ins_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_year_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_year_award_sum_total_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_year_award_sum_total_after_tr() RETURNS trigger
@@ -12363,10 +11848,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_year_award_sum_total_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_year_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum_ins_sum_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_year_sum_ins_sum_tr() RETURNS trigger
@@ -12395,10 +11878,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_year_sum_ins_sum_tr() OWNER TO postgres;
-
 --
--- Name: epmms_award_year_sum_total_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum_total_sum_after_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_award_year_sum_total_sum_after_tr() RETURNS trigger
@@ -12422,10 +11903,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_award_year_sum_total_sum_after_tr() OWNER TO postgres;
-
 --
--- Name: epmms_clean_award(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_clean_award(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_clean_award() RETURNS void
@@ -12566,10 +12045,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_clean_award() OWNER TO postgres;
-
 --
--- Name: epmms_clean_award2(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_clean_award2(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_clean_award2() RETURNS void
@@ -12627,10 +12104,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_clean_award2() OWNER TO postgres;
-
 --
--- Name: epmms_clean_cap(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_clean_cap(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_clean_cap() RETURNS void
@@ -12649,384 +12124,392 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_clean_cap() OWNER TO postgres;
-
 --
--- Name: FUNCTION epmms_clean_cap(); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION epmms_clean_cap(); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.epmms_clean_cap() IS '清除封顶';
 
 
 --
--- Name: epmms_clean_data(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_clean_data(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_clean_data(include_member integer DEFAULT 0, is_debug integer DEFAULT 0) RETURNS void
     LANGUAGE plpgsql
-    AS $$
-
-BEGIN
-
-
-
-  truncate table epmms_star;
-
-  alter sequence epmms_star_star_id_seq restart;
-
-  --清空财务数据
-
-  truncate table epmms_supplement;
-
-  alter sequence epmms_supplement_supplement_id_seq restart;
-
-  truncate table epmms_prize;
-
-  alter sequence epmms_prize_prize_id_seq restart;
-
-  truncate table epmms_award_total_sum;
-
-  alter SEQUENCE epmms_award_total_sum_award_total_sum_id_seq restart;
-
-  truncate table epmms_award_total;
-
-  alter SEQUENCE epmms_award_total_award_total_id_seq restart;
-
-
-
-  truncate table epmms_award_year_sum;
-
-  alter SEQUENCE epmms_award_month_year_sum_award_year_sum_id_seq restart;
-
-  truncate table epmms_award_year;
-
-  alter SEQUENCE epmms_award_year_award_year_id_seq restart;
-
-
-
-  truncate table epmms_award_month_sum;
-
-  alter SEQUENCE epmms_award_month_sum_award_month_sum_id_seq restart;
-
-  truncate table epmms_award_month;
-
-  alter SEQUENCE epmms_award_month_award_month_id_seq restart;
-
-  truncate table epmms_award_week_sum;
-
-  alter SEQUENCE epmms_award_week_sum_award_week_sum_id_seq restart;
-
-  truncate table epmms_award_week;
-
-  alter SEQUENCE epmms_award_week_award_week_id_seq restart;
-
-  truncate table epmms_award_day_sum;
-
-  alter SEQUENCE epmms_award_day_sum_award_day_sum_id_seq restart;
-
-  truncate table epmms_award_day_sum_all;
-
-  alter sequence epmms_award_day_sum_all_award_day_sum_id_seq restart;
-
-  truncate table epmms_award_week_sum_all;
-
-  alter sequence epmms_award_week_sum_all_award_week_sum_id_seq restart;
-
-  truncate table epmms_award_month_sum_all;
-
-  alter sequence epmms_award_month_sum_all_award_month_sum_id_seq restart;
-
-  truncate table epmms_award_day;
-
-  alter SEQUENCE epmms_award_day_award_day_id_seq restart;
-
-  truncate table epmms_award_period_sum;
-
-  alter SEQUENCE epmms_award_period_sum_award_period_sum_id_seq restart;
-
-  truncate table epmms_award_period;
-
-  alter SEQUENCE epmms_award_period_award_period_id_seq restart;
-
-  alter SEQUENCE award_period restart;
-
-  truncate table epmms_withdrawals;
-
-  alter SEQUENCE epmms_withdrawals_withdrawals_id_seq restart;
-
-  truncate table epmms_transfer;
-
-  alter SEQUENCE epmms_transfer_transfer_id_seq restart;
-
-  truncate table epmms_charge;
-
-  alter SEQUENCE epmms_charge_charge_id_seq restart;
-
-  
-
-  alter SEQUENCE gen_member restart;
-
-  alter SEQUENCE group_seq restart;
-
-  
-
-  truncate epmms_futou;
-
-  alter sequence epmms_futou_futou_id_seq restart;
-
-
-
-  truncate epmms_foundation;
-
-  alter sequence epmms_foundation_foundation_id_seq restart;
-
-  
-
-  truncate epmms_parent_relation;
-
-  truncate epmms_recommend_relation;
-
-  
-
-  truncate epmms_layer;
-
-  alter sequence epmms_layer_layer_id_seq restart;
-
-  --清空分组
-
-  delete from epmms_groupmap ;
-
-  delete from epmms_group where group_id<>1;
-
-  update epmms_group set group_count=0;
-
-  alter SEQUENCE epmms_group_group_id_seq  restart with 2;
-
-  alter SEQUENCE epmms_groupmap_groupmap_id_seq  restart;
-
-  truncate table epmms_map_edit;
-
-  alter sequence epmms_map_edit_map_edit_id_seq restart;
-
-  update epmms_groupmap set groupmap_is_award=0,groupmap_verify_date=now(),groupmap_award_date=now();
-
-  alter SEQUENCE group_seq restart with 2;
-
-  --清空日志
-
-  truncate table epmms_log;
-
-  alter SEQUENCE epmms_log_log_id_seq restart;
-
-  truncate table epmms_memberstatus;
-
-  insert into epmms_memberstatus(status_id) values (1);
-
-  truncate table epmms_stock_trend;
-
-  alter sequence epmms_stock_trend_stock_trend_id_seq restart;
-
-  --清空订单
-
-  truncate table epmms_orders,epmms_orders_product;
-
-  alter sequence epmms_orders_orders_id_seq restart;
-
-  alter sequence epmms_orders_product_orders_product_id_seq restart;
-
-  --清空代理中心
-
-  delete from epmms_agent where agent_id<>1;
-
-  alter SEQUENCE epmms_agent_agent_id_seq restart with 2;
-
-  update epmms_membermap set 
-
-  membermap_recommend_number=0,
-
-  membermap_recommend_product_count=0,
-
-  membermap_recommend_under_number=0, 
-
-  membermap_recommend_under_product_count=0,   
-
-  membermap_sub_number=0,
-
-  membermap_child_number=0,  
-
-  membermap_sub_product_count=0,  
-
-  membermap_under_number=0,
-
-  membermap_under_product_count=0,
-
-  membermap_agent_number=0,
-
-  membermap_agent_product_count=0,
-
-  membermap_level=null,
-
-  membermap_is_active=1,
-
-  membermap_is_delete=0,
-
-  membermap_buyall=0
-
-   where membermap_id=1;
-
-  
-
-  truncate table epmms_finance;
-
-  alter SEQUENCE epmms_finance_finance_id_seq restart;
-
-  truncate table epmms_ratio;
-
-  alter SEQUENCE epmms_ratio_ratio_id_seq restart;
-
-  truncate table epmms_member_upgrade;
-
-  alter sequence epmms_member_upgrade_member_upgrade_id_seq restart;
-
-  truncate table epmms_appropriate;
-
-  alter SEQUENCE epmms_appropriate_appropriate_id_seq restart;
-
-  truncate table epmms_signing;
-
-  alter SEQUENCE epmms_signing_signing_id_seq restart;
-
-
-
-  --清空会员
-
-  if include_member=0 then
-
-    update epmms_membermap set membermap_is_verify=0,
-
-      membermap_path=null,
-
-      membermap_recommend_path=null,
-
-      membermap_verify_seq=NULL,
-
-      membermap_recommend_number=0,
-
-      membermap_recommend_product_count=0,
-
-      membermap_recommend_under_number=0, 
-
-      membermap_recommend_under_product_count=0,   
-
-      membermap_sub_number=0,
-
-      membermap_child_number=0,  
-
-      membermap_sub_product_count=0,
-
-      membermap_under_number=0,
-
-      membermap_under_product_count=0,
-
-      membermap_agent_number=0,
-
-	  membermap_agent_product_count=0,
-
-      membermap_is_active=1,
-
-      membermap_is_delete=0,
-
-      membermap_level=1,
-
-      membermap_layer_order=null,
-
-      membermap_buyall=0
-
-      where membermap_id!=1;
-
-    update epmms_memberinfo set memberinfo_is_verify=0 where memberinfo_id !=1;
-
-    update epmms_membermap2 set membermap_layer_order=null,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_under_number=0,membermap_is_verify=0,membermap_recommend_number=0;
-
-    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0,membermap_is_verify=0;
-
-    update epmms_membermap2 set membermap_is_verify=1 where membermap_id=1;
-
-    update epmms_membermap4 set membermap_is_verify=1 where membermap_id=1;
-
-  else
-
-    delete from epmms_membermap2 where membermap_id not in (1);
-
-    alter sequence epmms_membermap2_membermap_id_seq restart with 2;
-
-    truncate table epmms_membermap4;
-
-    alter sequence epmms_membermap4_membermap_id_seq restart;
-
-    truncate table epmms_membermap3;
-
-    alter sequence epmms_membermap3_membermap_id_seq restart;
-
-    
-
-    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=1,membermap_under_bill_count=1,membermap_sub_bill_count=1,membermap_recommend_number=1,membermap_under_number=1,membermap_bond_id=null,membermap_verify_date=now() where membermap_id =1;
-
-    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_recommend_number=0,membermap_under_number=0,membermap_bond_id=null,membermap_is_verify=1,membermap_path='/1/1',membermap_recommend_path='/1/1',membermap_layer=2,membermap_recommend_layer=2,membermap_parent_id=1,membermap_order=1,membermap_recommend_id=1,membermap_verify_date=now() where membermap_id=2;
-
-    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0 where membermap_id=1;
-
-  	truncate table epmms_messages;
-
-    alter sequence epmms_messages_messages_id_seq restart;
-
-  	delete from epmms_membermap where membermap_id!=1;
-
-    delete from epmms_memberinfo where memberinfo_id not in (1);
-
-    alter sequence epmms_memberinfo_memberinfo_id_seq restart with 2;
-
-    alter SEQUENCE membermap_add restart with 2;
-
-    update epmms_membermap set membermap_verify_date=now(),membermap_add_date=now() where membermap_id=1;
-
-    update epmms_membermap set membermap_parent_id=null,membermap_order=1,membermap_layer=1,membermap_recommend_id=null,
-
-    membermap_recommend_layer=1,membermap_path='/1',membermap_recommend_path='/1',membermap_is_active=1,
-
-    membermap_layer_order=1 where membermap_id=1;
-
-  end if;
-
-
-
-  update epmms_membermap as m set membermap_product_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype_level=t.membertype_level;
-
-  update epmms_membermap2 as m set membermap_bill_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype=t.membertype_level;
-
-  ALTER SEQUENCE membermap_verify restart with 2;
-
-  ALTER SEQUENCE award_period restart;
-
-
-
-  --重置系统状态
-
-  update epmms_system_status set system_status_expenses=0,system_status_income=0,system_status_withdrawals=0,system_status_start_date=now(),system_status_verify_seq=1,system_status_verify_seq2=0,system_status_groupmap_seq=1,system_status_foundation=0,system_status_award_period=0;
-
-  insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=2,100000000,0),finance_type_id,1 from epmms_finance_type;
-
-	 insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=3,100000000,0),finance_type_id,1 from epmms_finance_type;
-
-END;
-
+    AS $$
+BEGIN
+  
+	--竞买抽奖奖池  中奖记录
+  truncate table epmms_jackpot_win_record;
+  alter sequence epmms_jackpot_win_record_jackpot_id_seq restart;
+	--竞买抽奖奖池  每期奖金记录
+	truncate table epmms_jackpot_info;
+  alter sequence epmms_jackpot_info_info_id_seq restart;
+	--竞买抽奖奖池  激活金卡记录
+	truncate table epmms_activation_record;
+  alter sequence epmms_activation_record_activation_id_seq restart;
+  truncate table epmms_deal CASCADE;
+  alter sequence epmms_deal_deal_id_seq restart;
+  truncate table epmms_sale CASCADE;
+  alter sequence epmms_sale_sale_id_seq restart;
+  truncate table epmms_buy CASCADE;
+  alter sequence epmms_buy_buy_id_seq restart;	
+
+  truncate table epmms_star;
+
+  alter sequence epmms_star_star_id_seq restart;
+
+  --清空财务数据
+
+  truncate table epmms_supplement;
+
+  alter sequence epmms_supplement_supplement_id_seq restart;
+
+  truncate table epmms_prize;
+
+  alter sequence epmms_prize_prize_id_seq restart;
+
+  truncate table epmms_award_total_sum;
+
+  alter SEQUENCE epmms_award_total_sum_award_total_sum_id_seq restart;
+
+  truncate table epmms_award_total;
+
+  alter SEQUENCE epmms_award_total_award_total_id_seq restart;
+
+
+
+  truncate table epmms_award_year_sum;
+
+  alter SEQUENCE epmms_award_month_year_sum_award_year_sum_id_seq restart;
+
+  truncate table epmms_award_year;
+
+  alter SEQUENCE epmms_award_year_award_year_id_seq restart;
+
+
+
+  truncate table epmms_award_month_sum;
+
+  alter SEQUENCE epmms_award_month_sum_award_month_sum_id_seq restart;
+
+  truncate table epmms_award_month;
+
+  alter SEQUENCE epmms_award_month_award_month_id_seq restart;
+
+  truncate table epmms_award_week_sum;
+
+  alter SEQUENCE epmms_award_week_sum_award_week_sum_id_seq restart;
+
+  truncate table epmms_award_week;
+
+  alter SEQUENCE epmms_award_week_award_week_id_seq restart;
+
+  truncate table epmms_award_day_sum;
+
+  alter SEQUENCE epmms_award_day_sum_award_day_sum_id_seq restart;
+
+  truncate table epmms_award_day_sum_all;
+
+  alter sequence epmms_award_day_sum_all_award_day_sum_id_seq restart;
+
+  truncate table epmms_award_week_sum_all;
+
+  alter sequence epmms_award_week_sum_all_award_week_sum_id_seq restart;
+
+  truncate table epmms_award_month_sum_all;
+
+  alter sequence epmms_award_month_sum_all_award_month_sum_id_seq restart;
+
+  truncate table epmms_award_day;
+
+  alter SEQUENCE epmms_award_day_award_day_id_seq restart;
+
+  truncate table epmms_award_period_sum;
+
+  alter SEQUENCE epmms_award_period_sum_award_period_sum_id_seq restart;
+
+  truncate table epmms_award_period;
+
+  alter SEQUENCE epmms_award_period_award_period_id_seq restart;
+
+  alter SEQUENCE award_period restart;
+
+  truncate table epmms_withdrawals;
+
+  alter SEQUENCE epmms_withdrawals_withdrawals_id_seq restart;
+
+  truncate table epmms_transfer;
+
+  alter SEQUENCE epmms_transfer_transfer_id_seq restart;
+
+  truncate table epmms_charge;
+
+  alter SEQUENCE epmms_charge_charge_id_seq restart;
+
+  
+
+  alter SEQUENCE gen_member restart;
+
+  alter SEQUENCE group_seq restart;
+
+  
+
+  truncate epmms_futou;
+
+  alter sequence epmms_futou_futou_id_seq restart;
+
+
+
+  truncate epmms_foundation;
+
+  alter sequence epmms_foundation_foundation_id_seq restart;
+
+  
+
+  truncate epmms_parent_relation;
+
+  truncate epmms_recommend_relation;
+
+  
+
+  truncate epmms_layer;
+
+  alter sequence epmms_layer_layer_id_seq restart;
+
+  --清空分组
+
+  delete from epmms_groupmap ;
+
+  delete from epmms_group where group_id<>1;
+
+  update epmms_group set group_count=0;
+
+  alter SEQUENCE epmms_group_group_id_seq  restart with 2;
+
+  alter SEQUENCE epmms_groupmap_groupmap_id_seq  restart;
+
+  truncate table epmms_map_edit;
+
+  alter sequence epmms_map_edit_map_edit_id_seq restart;
+
+  update epmms_groupmap set groupmap_is_award=0,groupmap_verify_date=now(),groupmap_award_date=now();
+
+  alter SEQUENCE group_seq restart with 2;
+
+  --清空日志
+
+  truncate table epmms_log;
+
+  alter SEQUENCE epmms_log_log_id_seq restart;
+
+  truncate table epmms_memberstatus;
+
+  insert into epmms_memberstatus(status_id) values (1);
+
+  truncate table epmms_stock_trend;
+
+  alter sequence epmms_stock_trend_stock_trend_id_seq restart;
+
+  --清空订单
+
+  truncate table epmms_orders,epmms_orders_product;
+
+  alter sequence epmms_orders_orders_id_seq restart;
+
+  alter sequence epmms_orders_product_orders_product_id_seq restart;
+
+  --清空代理中心
+
+  delete from epmms_agent where agent_id<>1;
+
+  alter SEQUENCE epmms_agent_agent_id_seq restart with 2;
+
+  update epmms_membermap set 
+
+  membermap_recommend_number=0,
+
+  membermap_recommend_product_count=0,
+
+  membermap_recommend_under_number=0, 
+
+  membermap_recommend_under_product_count=0,   
+
+  membermap_sub_number=0,
+
+  membermap_child_number=0,  
+
+  membermap_sub_product_count=0,  
+
+  membermap_under_number=0,
+
+  membermap_under_product_count=0,
+
+  membermap_agent_number=0,
+
+  membermap_agent_product_count=0,
+
+  membermap_level=null,
+
+  membermap_is_active=1,
+
+  membermap_is_delete=0,
+
+  membermap_buyall=0
+
+   where membermap_id=1;
+
+  
+
+  truncate table epmms_finance;
+
+  alter SEQUENCE epmms_finance_finance_id_seq restart;
+
+  truncate table epmms_ratio;
+
+  alter SEQUENCE epmms_ratio_ratio_id_seq restart;
+
+  truncate table epmms_member_upgrade;
+
+  alter sequence epmms_member_upgrade_member_upgrade_id_seq restart;
+
+  truncate table epmms_appropriate;
+
+  alter SEQUENCE epmms_appropriate_appropriate_id_seq restart;
+
+  truncate table epmms_signing;
+
+  alter SEQUENCE epmms_signing_signing_id_seq restart;
+
+
+
+  --清空会员
+
+  if include_member=0 then
+
+    update epmms_membermap set membermap_is_verify=0,
+
+      membermap_path=null,
+
+      membermap_recommend_path=null,
+
+      membermap_verify_seq=NULL,
+
+      membermap_recommend_number=0,
+
+      membermap_recommend_product_count=0,
+
+      membermap_recommend_under_number=0, 
+
+      membermap_recommend_under_product_count=0,   
+
+      membermap_sub_number=0,
+
+      membermap_child_number=0,  
+
+      membermap_sub_product_count=0,
+
+      membermap_under_number=0,
+
+      membermap_under_product_count=0,
+
+      membermap_agent_number=0,
+
+	  membermap_agent_product_count=0,
+
+      membermap_is_active=1,
+
+      membermap_is_delete=0,
+
+      membermap_level=1,
+
+      membermap_layer_order=null,
+
+      membermap_buyall=0
+
+      where membermap_id!=1;
+
+    update epmms_memberinfo set memberinfo_is_verify=0 where memberinfo_id !=1;
+
+    update epmms_membermap2 set membermap_layer_order=null,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_under_number=0,membermap_is_verify=0,membermap_recommend_number=0;
+
+    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0,membermap_is_verify=0;
+
+    update epmms_membermap2 set membermap_is_verify=1 where membermap_id=1;
+
+    update epmms_membermap4 set membermap_is_verify=1 where membermap_id=1;
+
+  else
+
+    delete from epmms_membermap2 where membermap_id not in (1);
+
+    alter sequence epmms_membermap2_membermap_id_seq restart with 2;
+
+    truncate table epmms_membermap4;
+
+    alter sequence epmms_membermap4_membermap_id_seq restart;
+
+    truncate table epmms_membermap3;
+
+    alter sequence epmms_membermap3_membermap_id_seq restart;
+
+    
+
+    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=1,membermap_under_bill_count=1,membermap_sub_bill_count=1,membermap_recommend_number=1,membermap_under_number=1,membermap_bond_id=null,membermap_verify_date=now() where membermap_id =1;
+
+    update epmms_membermap2 set membermap_layer_order=1,membermap_child_number=0,membermap_under_bill_count=0,membermap_sub_bill_count=0,membermap_recommend_number=0,membermap_under_number=0,membermap_bond_id=null,membermap_is_verify=1,membermap_path='/1/1',membermap_recommend_path='/1/1',membermap_layer=2,membermap_recommend_layer=2,membermap_parent_id=1,membermap_order=1,membermap_recommend_id=1,membermap_verify_date=now() where membermap_id=2;
+
+    update epmms_membermap4 set membermap_layer_order=null,membermap_child_number=0 where membermap_id=1;
+
+  	truncate table epmms_messages;
+
+    alter sequence epmms_messages_messages_id_seq restart;
+
+  	delete from epmms_membermap where membermap_id!=1;
+
+    delete from epmms_memberinfo where memberinfo_id not in (1);
+
+    alter sequence epmms_memberinfo_memberinfo_id_seq restart with 2;
+
+    alter SEQUENCE membermap_add restart with 2;
+
+    update epmms_membermap set membermap_verify_date=now(),membermap_add_date=now() where membermap_id=1;
+
+    update epmms_membermap set membermap_parent_id=null,membermap_order=1,membermap_layer=1,membermap_recommend_id=null,
+
+    membermap_recommend_layer=1,membermap_path='/1',membermap_recommend_path='/1',membermap_is_active=1,
+
+    membermap_layer_order=1 where membermap_id=1;
+
+  end if;
+
+
+
+  update epmms_membermap as m set membermap_product_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype_level=t.membertype_level;
+
+  update epmms_membermap2 as m set membermap_bill_count=t.membertype_bill,membermap_money=t.membertype_money from epmms_membertype as t where m.membermap_membertype=t.membertype_level;
+
+  ALTER SEQUENCE membermap_verify restart with 2;
+
+  ALTER SEQUENCE award_period restart;
+
+
+
+  --重置系统状态
+
+  update epmms_system_status set system_status_expenses=0,system_status_income=0,system_status_withdrawals=0,system_status_start_date=now(),system_status_verify_seq=1,system_status_verify_seq2=0,system_status_groupmap_seq=1,system_status_foundation=0,system_status_award_period=0;
+
+  insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=2,100000000,0),finance_type_id,1 from epmms_finance_type;
+
+	 insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(is_debug=1 and finance_type_id=3,100000000,0),finance_type_id,1 from epmms_finance_type;
+
+END;
 $$;
 
 
-ALTER FUNCTION public.epmms_clean_data(include_member integer, is_debug integer) OWNER TO postgres;
-
 --
--- Name: epmms_finance_replace_before_tr(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_finance_replace_before_tr(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_finance_replace_before_tr() RETURNS trigger
@@ -13051,10 +12534,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_finance_replace_before_tr() OWNER TO postgres;
-
 --
--- Name: epmms_get_cap_money(numeric, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_get_cap_money(numeric, numeric, numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_get_cap_money(cap_money numeric, award_money numeric, acc_money numeric) RETURNS numeric
@@ -13075,10 +12556,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_get_cap_money(cap_money numeric, award_money numeric, acc_money numeric) OWNER TO postgres;
-
 --
--- Name: FUNCTION epmms_get_cap_money(cap_money numeric, award_money numeric, acc_money numeric); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION epmms_get_cap_money(cap_money numeric, award_money numeric, acc_money numeric); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.epmms_get_cap_money(cap_money numeric, award_money numeric, acc_money numeric) IS '计算封顶值
@@ -13086,7 +12565,7 @@ null表示不封顶';
 
 
 --
--- Name: epmms_layer_insert_update(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_layer_insert_update(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_layer_insert_update() RETURNS trigger
@@ -13101,10 +12580,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_layer_insert_update() OWNER TO postgres;
-
 --
--- Name: epmms_next_sn(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_next_sn(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_next_sn() RETURNS character
@@ -13116,10 +12593,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_next_sn() OWNER TO postgres;
-
 --
--- Name: epmms_send_message(bigint); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_send_message(bigint); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_send_message(message_id bigint) RETURNS void
@@ -13154,10 +12629,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_send_message(message_id bigint) OWNER TO postgres;
-
 --
--- Name: epmms_upgrade_member(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_upgrade_member(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_upgrade_member(member_id integer, award_period integer DEFAULT NULL::integer, award_sum_type integer DEFAULT 1, award_calc integer DEFAULT 1, award_calc_type integer DEFAULT 2) RETURNS void
@@ -13217,10 +12690,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.epmms_upgrade_member(member_id integer, award_period integer, award_sum_type integer, award_calc integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: epmms_verify_award_date(integer, bigint, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_verify_award_date(integer, bigint, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_verify_award_date(member_id integer DEFAULT NULL::integer, award_period bigint DEFAULT NULL::bigint, award_sum_type integer DEFAULT 1, award_calc integer DEFAULT 1, award_calc_type integer DEFAULT 1, custom_days integer DEFAULT 1) RETURNS void
@@ -13329,10 +12800,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.epmms_verify_award_date(member_id integer, award_period bigint, award_sum_type integer, award_calc integer, award_calc_type integer, custom_days integer) OWNER TO postgres;
-
 --
--- Name: epmms_verify_award_group(integer, bigint, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_verify_award_group(integer, bigint, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_verify_award_group(member_id integer DEFAULT NULL::integer, award_period bigint DEFAULT NULL::bigint, award_sum_type integer DEFAULT 1, award_calc integer DEFAULT 1, award_calc_type integer DEFAULT 1) RETURNS void
@@ -13398,10 +12867,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.epmms_verify_award_group(member_id integer, award_period bigint, award_sum_type integer, award_calc integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: epmms_verify_award_group_b(integer, bigint, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_verify_award_group_b(integer, bigint, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_verify_award_group_b(member_id integer DEFAULT NULL::integer, award_period bigint DEFAULT NULL::bigint, award_sum_type integer DEFAULT 1, award_calc integer DEFAULT 1, award_calc_type integer DEFAULT 1, member_id_b integer DEFAULT NULL::integer) RETURNS void
@@ -13464,10 +12931,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.epmms_verify_award_group_b(member_id integer, award_period bigint, award_sum_type integer, award_calc integer, award_calc_type integer, member_id_b integer) OWNER TO postgres;
-
 --
--- Name: epmms_verify_award_order(integer, bigint, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: epmms_verify_award_order(integer, bigint, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.epmms_verify_award_order(member_id integer DEFAULT NULL::integer, award_period bigint DEFAULT NULL::bigint, award_sum_type integer DEFAULT 1, award_calc integer DEFAULT 1, award_calc_type integer DEFAULT 1, order_id integer DEFAULT NULL::integer) RETURNS void
@@ -13498,10 +12963,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.epmms_verify_award_order(member_id integer, award_period bigint, award_sum_type integer, award_calc integer, award_calc_type integer, order_id integer) OWNER TO postgres;
-
 --
--- Name: gen_finance_log(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: gen_finance_log(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.gen_finance_log() RETURNS void
@@ -13541,10 +13004,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.gen_finance_log() OWNER TO postgres;
-
 --
--- Name: gen_parent_relation(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: gen_parent_relation(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.gen_parent_relation(my_id integer, parent_id integer) RETURNS void
@@ -13562,10 +13023,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.gen_parent_relation(my_id integer, parent_id integer) OWNER TO postgres;
-
 --
--- Name: gen_recommend_relation(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: gen_recommend_relation(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.gen_recommend_relation(my_id integer, parent_id integer) RETURNS void
@@ -13583,10 +13042,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.gen_recommend_relation(my_id integer, parent_id integer) OWNER TO postgres;
-
 --
--- Name: gen_sum_config(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: gen_sum_config(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.gen_sum_config() RETURNS void
@@ -13616,10 +13073,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.gen_sum_config() OWNER TO postgres;
-
 --
--- Name: generation_ratio(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: generation_ratio(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.generation_ratio() RETURNS void
@@ -13632,10 +13087,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.generation_ratio() OWNER TO postgres;
-
 --
--- Name: genusername3(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: genusername3(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.genusername3() RETURNS text
@@ -13660,10 +13113,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.genusername3() OWNER TO postgres;
-
 --
--- Name: get_award_value(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_award_value(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_award_value(award_type integer) RETURNS numeric
@@ -13678,10 +13129,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_award_value(award_type integer) OWNER TO postgres;
-
 --
--- Name: get_award_value_member(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_award_value_member(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_award_value_member(award_type integer, member_type integer) RETURNS numeric
@@ -13697,10 +13146,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_award_value_member(award_type integer, member_type integer) OWNER TO postgres;
-
 --
--- Name: get_bill_money(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_bill_money(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_bill_money() RETURNS integer
@@ -13712,10 +13159,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_bill_money() OWNER TO postgres;
-
 --
--- Name: get_config_award(integer, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_config_award(integer, numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_config_award(award_type integer, member_money numeric DEFAULT NULL::numeric) RETURNS numeric
@@ -13735,10 +13180,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_config_award(award_type integer, member_money numeric) OWNER TO postgres;
-
 --
--- Name: get_date_period(date, date, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_date_period(date, date, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_date_period(date1 date, date2 date, days integer) RETURNS integer
@@ -13754,10 +13197,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_date_period(date1 date, date2 date, days integer) OWNER TO postgres;
-
 --
--- Name: get_group7_id(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_group7_id(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_group7_id(member_id integer) RETURNS integer
@@ -13772,10 +13213,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_group7_id(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_member_id(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_member_id(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_member_id(member_id integer) RETURNS integer
@@ -13801,10 +13240,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_member_id(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_membermap(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_membermap(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_membermap(member_id integer) RETURNS SETOF public.epmms_membermap
@@ -13817,10 +13254,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_membermap(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_pair(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_pair(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_pair(member_id integer, member_order integer, pair2 integer DEFAULT 1) RETURNS integer
@@ -13840,10 +13275,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_pair(member_id integer, member_order integer, pair2 integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_greater_member_count(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_greater_member_count(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_greater_member_count(member_id integer) RETURNS integer
@@ -13864,10 +13297,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_greater_member_count(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_money(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_money(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_money(member_id integer) RETURNS numeric
@@ -13886,10 +13317,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_money(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count(member_id integer) RETURNS integer
@@ -13908,10 +13337,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count(member_id integer, member_order integer, pair2 integer DEFAULT 1) RETURNS integer
@@ -13931,10 +13358,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count(member_id integer, member_order integer, pair2 integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count2(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count2(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count2(member_id integer) RETURNS integer
@@ -13953,10 +13378,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count2(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count90(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count90(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count90(member_id integer, member_order integer, pair2 integer DEFAULT 1) RETURNS integer
@@ -13988,10 +13411,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count90(member_id integer, member_order integer, pair2 integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count_charge(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count_charge(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count_charge(member_id integer) RETURNS integer
@@ -14015,10 +13436,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count_charge(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count_date(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count_date(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count_date(member_id integer) RETURNS integer
@@ -14044,10 +13463,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count_date(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count_date2(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count_date2(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count_date2(member_id integer) RETURNS integer
@@ -14071,10 +13488,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count_date2(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count_id(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count_id(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count_id(member_id integer) RETURNS integer
@@ -14089,10 +13504,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count_id(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_l_under_product_count_lr(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_l_under_product_count_lr(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_l_under_product_count_lr(member_id integer) RETURNS integer
@@ -14107,10 +13520,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_l_under_product_count_lr(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_layer_order(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_layer_order(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_layer_order(member_id integer) RETURNS numeric
@@ -14128,10 +13539,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_layer_order(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_layer_order2(numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_layer_order2(numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_layer_order2(member_id numeric) RETURNS numeric
@@ -14149,10 +13558,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_layer_order2(member_id numeric) OWNER TO postgres;
-
 --
--- Name: get_layer_order4(numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_layer_order4(numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_layer_order4(member_id numeric) RETURNS numeric
@@ -14170,10 +13577,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_layer_order4(member_id numeric) OWNER TO postgres;
-
 --
--- Name: get_layer_pair_money(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_layer_pair_money(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_layer_pair_money(member_id integer, layer integer) RETURNS numeric
@@ -14205,10 +13610,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_layer_pair_money(member_id integer, layer integer) OWNER TO postgres;
-
 --
--- Name: get_left_product_count(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_left_product_count(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_left_product_count(member_id integer) RETURNS integer
@@ -14224,10 +13627,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_left_product_count(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_loc(text, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_loc(text, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_loc(down_path text, up_path text) RETURNS integer
@@ -14252,10 +13653,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_loc(down_path text, up_path text) OWNER TO postgres;
-
 --
--- Name: get_order_under_product_count(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_order_under_product_count(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_order_under_product_count(member_id integer, member_order integer) RETURNS integer
@@ -14275,10 +13674,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_order_under_product_count(member_id integer, member_order integer) OWNER TO postgres;
-
 --
--- Name: get_order_under_product_count2(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_order_under_product_count2(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_order_under_product_count2(member_id integer, member_order integer) RETURNS integer
@@ -14294,10 +13691,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_order_under_product_count2(member_id integer, member_order integer) OWNER TO postgres;
-
 --
--- Name: get_order_under_product_count3(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_order_under_product_count3(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_order_under_product_count3(member_id integer, member_order integer) RETURNS integer
@@ -14313,10 +13708,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_order_under_product_count3(member_id integer, member_order integer) OWNER TO postgres;
-
 --
--- Name: get_order_under_product_count_date(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_order_under_product_count_date(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_order_under_product_count_date(member_id integer, member_order integer) RETURNS integer
@@ -14354,10 +13747,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_order_under_product_count_date(member_id integer, member_order integer) OWNER TO postgres;
-
 --
--- Name: get_order_under_product_count_date2(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_order_under_product_count_date2(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_order_under_product_count_date2(member_id integer, member_order integer) RETURNS integer
@@ -14391,10 +13782,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_order_under_product_count_date2(member_id integer, member_order integer) OWNER TO postgres;
-
 --
--- Name: get_over_currency(numeric, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_over_currency(numeric, numeric, numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_over_currency(award_total numeric, award_period numeric, award_over numeric) RETURNS numeric
@@ -14415,10 +13804,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_over_currency(award_total numeric, award_period numeric, award_over numeric) OWNER TO postgres;
-
 --
--- Name: get_pairs(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_pairs(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_pairs(left_pair integer DEFAULT 0, left_bill integer DEFAULT 0, right_pair integer DEFAULT 0, right_bill integer DEFAULT 0, pair_type integer DEFAULT 1) RETURNS integer
@@ -14442,10 +13829,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_pairs(left_pair integer, left_bill integer, right_pair integer, right_bill integer, pair_type integer) OWNER TO postgres;
-
 --
--- Name: get_pairs_bill(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_pairs_bill(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_pairs_bill(left_pair integer DEFAULT 0, left_bill integer DEFAULT 0, right_pair integer DEFAULT 0, right_bill integer DEFAULT 0, pair_type integer DEFAULT 1, dir integer DEFAULT 0) RETURNS integer
@@ -14480,10 +13865,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_pairs_bill(left_pair integer, left_bill integer, right_pair integer, right_bill integer, pair_type integer, dir integer) OWNER TO postgres;
-
 --
--- Name: get_pairs_bill_one(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_pairs_bill_one(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_pairs_bill_one(left_pair integer DEFAULT 0, left_bill integer DEFAULT 0, right_pair integer DEFAULT 0, right_bill integer DEFAULT 0, pair_type integer DEFAULT 1, dir integer DEFAULT 0) RETURNS integer
@@ -14524,10 +13907,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_pairs_bill_one(left_pair integer, left_bill integer, right_pair integer, right_bill integer, pair_type integer, dir integer) OWNER TO postgres;
-
 --
--- Name: get_pairs_one(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_pairs_one(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_pairs_one(left_pair integer DEFAULT 0, left_bill integer DEFAULT 0, right_pair integer DEFAULT 0, right_bill integer DEFAULT 0, pair_type integer DEFAULT 1) RETURNS integer
@@ -14557,10 +13938,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_pairs_one(left_pair integer, left_bill integer, right_pair integer, right_bill integer, pair_type integer) OWNER TO postgres;
-
 --
--- Name: get_pond_no(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_pond_no(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_pond_no(member_id integer) RETURNS integer
@@ -14577,10 +13956,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_pond_no(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_recommend_group(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_recommend_group(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_recommend_group(member_id integer) RETURNS integer
@@ -14597,10 +13974,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_recommend_group(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_right_product_count(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_right_product_count(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_right_product_count(member_id integer) RETURNS integer
@@ -14616,10 +13991,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_right_product_count(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_suffix(text, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_suffix(text, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_suffix(long_path text, short_path text) RETURNS text
@@ -14631,10 +14004,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_suffix(long_path text, short_path text) OWNER TO postgres;
-
 --
--- Name: get_sum_id(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_sum_id(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_sum_id(award_type integer) RETURNS integer
@@ -14649,10 +14020,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_sum_id(award_type integer) OWNER TO postgres;
-
 --
--- Name: get_topped(numeric, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_topped(numeric, numeric, numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_topped(award_currency numeric, award_topped numeric, award_total numeric) RETURNS numeric
@@ -14675,17 +14044,15 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_topped(award_currency numeric, award_topped numeric, award_total numeric) OWNER TO postgres;
-
 --
--- Name: FUNCTION get_topped(award_currency numeric, award_topped numeric, award_total numeric); Type: COMMENT; Schema: public; Owner: postgres
+-- Name: FUNCTION get_topped(award_currency numeric, award_topped numeric, award_total numeric); Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON FUNCTION public.get_topped(award_currency numeric, award_topped numeric, award_total numeric) IS '计算封顶';
 
 
 --
--- Name: get_under_order(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_under_order(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_under_order(member_id integer, under_id integer) RETURNS integer
@@ -14702,10 +14069,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_under_order(member_id integer, under_id integer) OWNER TO postgres;
-
 --
--- Name: get_under_product_count_charge(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_under_product_count_charge(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_under_product_count_charge(member_id integer, charge_id integer) RETURNS numeric
@@ -14718,10 +14083,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_under_product_count_charge(member_id integer, charge_id integer) OWNER TO postgres;
-
 --
--- Name: get_upgrade_level(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_upgrade_level(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_upgrade_level(new_member_id integer) RETURNS TABLE(member_level integer, member_level_name text)
@@ -14745,10 +14108,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_upgrade_level(new_member_id integer) OWNER TO postgres;
-
 --
--- Name: get_upper_member(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_upper_member(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_upper_member(member_id integer) RETURNS SETOF public.epmms_membermap
@@ -14773,10 +14134,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_upper_member(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_upper_member2(integer, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_upper_member2(integer, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_upper_member2(my_layer integer, my_path text) RETURNS SETOF public.epmms_membermap
@@ -14797,10 +14156,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_upper_member2(my_layer integer, my_path text) OWNER TO postgres;
-
 --
--- Name: get_upper_member_recommend(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_upper_member_recommend(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_upper_member_recommend(member_id integer) RETURNS SETOF public.epmms_membermap
@@ -14824,10 +14181,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_upper_member_recommend(member_id integer) OWNER TO postgres;
-
 --
--- Name: get_upper_member_recommend2(integer, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: get_upper_member_recommend2(integer, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.get_upper_member_recommend2(my_layer integer, my_path text) RETURNS SETOF public.epmms_membermap
@@ -14848,10 +14203,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.get_upper_member_recommend2(my_layer integer, my_path text) OWNER TO postgres;
-
 --
--- Name: id2name(bigint); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: id2name(bigint); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.id2name(member_id bigint) RETURNS text
@@ -14863,10 +14216,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.id2name(member_id bigint) OWNER TO postgres;
-
 --
--- Name: iif(boolean, double precision, double precision); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: iif(boolean, double precision, double precision); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.iif(boolean, double precision, double precision) RETURNS double precision
@@ -14881,10 +14232,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.iif(boolean, double precision, double precision) OWNER TO postgres;
-
 --
--- Name: iif(boolean, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: iif(boolean, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.iif(boolean, integer, integer) RETURNS integer
@@ -14899,10 +14248,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.iif(boolean, integer, integer) OWNER TO postgres;
-
 --
--- Name: iif(boolean, bigint, bigint); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: iif(boolean, bigint, bigint); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.iif(boolean, bigint, bigint) RETURNS bigint
@@ -14917,10 +14264,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.iif(boolean, bigint, bigint) OWNER TO postgres;
-
 --
--- Name: iif(boolean, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: iif(boolean, numeric, numeric); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.iif(boolean, numeric, numeric) RETURNS numeric
@@ -14935,10 +14280,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.iif(boolean, numeric, numeric) OWNER TO postgres;
-
 --
--- Name: iif(boolean, text, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: iif(boolean, text, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.iif(boolean, text, text) RETURNS text
@@ -14953,10 +14296,8 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.iif(boolean, text, text) OWNER TO postgres;
-
 --
--- Name: is2plus4(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: is2plus4(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.is2plus4(member_id integer) RETURNS integer
@@ -14972,10 +14313,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.is2plus4(member_id integer) OWNER TO postgres;
-
 --
--- Name: membermap_custom(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: membermap_custom(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.membermap_custom(custom_days integer) RETURNS SETOF public.epmms_membermap
@@ -14987,10 +14326,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.membermap_custom(custom_days integer) OWNER TO postgres;
-
 --
--- Name: month_calc(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: month_calc(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.month_calc() RETURNS void
@@ -15003,10 +14340,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.month_calc() OWNER TO postgres;
-
 --
--- Name: nextverify(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: nextverify(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.nextverify() RETURNS bigint
@@ -15020,10 +14355,23 @@ END;
 $$;
 
 
-ALTER FUNCTION public.nextverify() OWNER TO postgres;
+--
+-- Name: nextverify2(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.nextverify2() RETURNS bigint
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+	--使用序列不支持事务可以导致不连续，所以使用表来生成审核序列
+	update epmms_system_status set system_status_verify_seq2=system_status_verify_seq2+1;
+  return (select system_status_verify_seq2 from epmms_system_status limit 1);
+END;
+$$;
+
 
 --
--- Name: nextverify_groupmap(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: nextverify_groupmap(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.nextverify_groupmap() RETURNS bigint
@@ -15037,10 +14385,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.nextverify_groupmap() OWNER TO postgres;
-
 --
--- Name: nextverify_membermap3(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: nextverify_membermap3(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.nextverify_membermap3() RETURNS bigint
@@ -15054,10 +14400,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.nextverify_membermap3() OWNER TO postgres;
-
 --
--- Name: pv(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: pv(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.pv() RETURNS numeric
@@ -15069,10 +14413,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.pv() OWNER TO postgres;
-
 --
--- Name: quarter_calc(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: quarter_calc(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.quarter_calc() RETURNS void
@@ -15084,10 +14426,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.quarter_calc() OWNER TO postgres;
-
 --
--- Name: reg7200(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: reg7200(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.reg7200(award_type integer, award_period integer) RETURNS void
@@ -15104,10 +14444,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.reg7200(award_type integer, award_period integer) OWNER TO postgres;
-
 --
--- Name: reset_product_count(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: reset_product_count(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.reset_product_count(member_id integer) RETURNS void
@@ -15145,10 +14483,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.reset_product_count(member_id integer) OWNER TO postgres;
-
 --
--- Name: send_message(text, text, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: send_message(text, text, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.send_message(title text, content text, target integer) RETURNS void
@@ -15176,10 +14512,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.send_message(title text, content text, target integer) OWNER TO postgres;
-
 --
--- Name: set_car_finance(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: set_car_finance(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.set_car_finance(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15193,10 +14527,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.set_car_finance(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: set_foundation_0805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: set_foundation_0805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.set_foundation_0805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15217,10 +14549,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.set_foundation_0805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: set_group7_id(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: set_group7_id(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.set_group7_id(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15232,10 +14562,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.set_group7_id(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: set_month_little_product_count(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: set_month_little_product_count(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.set_month_little_product_count(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15250,10 +14578,50 @@ END;
 $$;
 
 
-ALTER FUNCTION public.set_month_little_product_count(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
+--
+-- Name: setdeal(integer); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.setdeal(pbuy_id integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+    pdeal_currency numeric(16,2);
+    pbuy_currency numeric(16,2);
+    pbuy_member_id integer;
+    sale record;
+BEGIN
+    select buy_real_currency,buy_member_id into pbuy_currency,pbuy_member_id from epmms_buy where buy_id=pbuy_id;
+    pdeal_currency:=pbuy_currency;
+    for sale in (select * from epmms_sale where sale_date::date+iif(sale_type=0,1,get_config_award(364)::integer)<=current_date and sale_status<2 order by sale_id asc)
+    loop
+        if sale.sale_remain_currency>=pdeal_currency then
+           update epmms_buy set buy_status=1,buy_date=now() where buy_id=pbuy_id;
+           update epmms_sale set sale_status=iif(sale_remain_currency-pdeal_currency>0,1,2),sale_remain_currency=sale_remain_currency-pdeal_currency,sale_verify_date=now() where sale_id=sale.sale_id;
+           insert into epmms_deal (deal_sale_id,deal_sale_member_id,deal_buy_id,deal_buy_member_id,deal_currency)values(sale.sale_id,sale.sale_member_id,pbuy_id,pbuy_member_id,pdeal_currency);
+           pdeal_currency:=0;
+           exit;
+        else
+           insert into epmms_deal (deal_sale_id,deal_sale_member_id,deal_buy_id,deal_buy_member_id,deal_currency)values(sale.sale_id,sale.sale_member_id,pbuy_id,pbuy_member_id,sale.sale_remain_currency);
+           update epmms_sale set sale_status=2,sale_remain_currency=0,sale_verify_date=now() where sale_id=sale.sale_id;
+           pdeal_currency:=pdeal_currency-sale.sale_remain_currency;
+        end if;
+    end loop;
+    if pdeal_currency>0 then
+       raise exception '提供金额不足';
+       --update epmms_buy set buy_status=1,buy_date=now() where buy_id=pbuy_id;
+       --insert into epmms_deal (deal_sale_id,deal_buy_id,deal_currency)values(null,pbuy_id,pdeal_currency);
+       --pdeal_currency:=0;
+    end if;
+exception
+    when raise_exception then
+          return;
+END;
+$$;
+
 
 --
--- Name: split_group(integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: split_group(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.split_group(groupid integer) RETURNS void
@@ -15274,10 +14642,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.split_group(groupid integer) OWNER TO postgres;
-
 --
--- Name: stat_under_count_parent(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: stat_under_count_parent(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.stat_under_count_parent(member_id integer, area_order integer) RETURNS numeric
@@ -15298,10 +14664,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.stat_under_count_parent(member_id integer, area_order integer) OWNER TO postgres;
-
 --
--- Name: stat_under_count_recommend(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: stat_under_count_recommend(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.stat_under_count_recommend(member_id integer, area_order integer) RETURNS numeric
@@ -15323,10 +14687,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.stat_under_count_recommend(member_id integer, area_order integer) OWNER TO postgres;
-
 --
--- Name: stat_under_money_parent(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: stat_under_money_parent(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.stat_under_money_parent(member_id integer, area_order integer) RETURNS numeric
@@ -15347,10 +14709,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.stat_under_money_parent(member_id integer, area_order integer) OWNER TO postgres;
-
 --
--- Name: stat_under_money_recommend(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: stat_under_money_recommend(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.stat_under_money_recommend(member_id integer, area_order integer) RETURNS numeric
@@ -15372,10 +14732,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.stat_under_money_recommend(member_id integer, area_order integer) OWNER TO postgres;
-
 --
--- Name: test_found(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: test_found(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.test_found() RETURNS void
@@ -15398,10 +14756,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.test_found() OWNER TO postgres;
-
 --
--- Name: update_left_right_count(integer, text); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_count(integer, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_count(member_id integer, my_path text) RETURNS void
@@ -15418,10 +14774,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_count(member_id integer, my_path text) OWNER TO postgres;
-
 --
--- Name: update_left_right_layer(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_layer(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_layer(member_id integer, my_path text, product_count integer, my_layer integer) RETURNS void
@@ -15449,10 +14803,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_layer(member_id integer, my_path text, product_count integer, my_layer integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_layer_count(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_layer_count(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_layer_count(member_id integer, my_path text, product_count integer, my_layer integer) RETURNS void
@@ -15478,10 +14830,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_layer_count(member_id integer, my_path text, product_count integer, my_layer integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_product_count(integer, text, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_product_count(integer, text, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_product_count(member_id integer, my_path text, product_count integer) RETURNS void
@@ -15499,10 +14849,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_product_count(member_id integer, my_path text, product_count integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_product_count2(integer, text, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_product_count2(integer, text, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_product_count2(member_id integer, my_path text, product_count integer) RETURNS void
@@ -15530,10 +14878,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_product_count2(member_id integer, my_path text, product_count integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_product_count3(integer, text, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_product_count3(integer, text, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_product_count3(member_id integer, my_path text, product_count integer) RETURNS void
@@ -15559,10 +14905,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_product_count3(member_id integer, my_path text, product_count integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_product_count_160908(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_product_count_160908(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_product_count_160908(member_id integer, my_path text, product_count integer, my_layer integer) RETURNS void
@@ -15581,10 +14925,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_product_count_160908(member_id integer, my_path text, product_count integer, my_layer integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_product_count_layer(integer, text, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_product_count_layer(integer, text, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_product_count_layer(member_id integer, my_path text, product_count integer) RETURNS void
@@ -15631,10 +14973,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_product_count_layer(member_id integer, my_path text, product_count integer) OWNER TO postgres;
-
 --
--- Name: update_left_right_product_count_non_first(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: update_left_right_product_count_non_first(integer, text, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.update_left_right_product_count_non_first(member_id integer, my_path text, product_count integer, member_layer integer) RETURNS void
@@ -15672,10 +15012,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_left_right_product_count_non_first(member_id integer, my_path text, product_count integer, member_layer integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: upgrade_level(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.upgrade_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15696,10 +15034,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.upgrade_level(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_0805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: upgrade_level_0805(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.upgrade_level_0805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15732,10 +15068,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.upgrade_level_0805(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: upgrade_level_140710(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: upgrade_level_140710(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.upgrade_level_140710(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) RETURNS void
@@ -15784,10 +15118,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.upgrade_level_140710(member_id integer, award_period integer, award_type integer, award_sum_type integer, award_calc_type integer) OWNER TO postgres;
-
 --
--- Name: verify_group(integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: verify_group(integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.verify_group(member_id integer, award_period integer) RETURNS void
@@ -15812,10 +15144,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.verify_group(member_id integer, award_period integer) OWNER TO postgres;
-
 --
--- Name: week_calc(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: week_calc(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.week_calc() RETURNS void
@@ -15827,10 +15157,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.week_calc() OWNER TO postgres;
-
 --
--- Name: week_calc_615(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: week_calc_615(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.week_calc_615() RETURNS void
@@ -15842,10 +15170,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.week_calc_615() OWNER TO postgres;
-
 --
--- Name: week_calc_65(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: week_calc_65(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.week_calc_65() RETURNS void
@@ -15857,10 +15183,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.week_calc_65() OWNER TO postgres;
-
 --
--- Name: week_calc_bond(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: week_calc_bond(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.week_calc_bond() RETURNS void
@@ -15872,10 +15196,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.week_calc_bond() OWNER TO postgres;
-
 --
--- Name: week_custom_calc(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: week_custom_calc(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.week_custom_calc() RETURNS void
@@ -15892,10 +15214,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.week_custom_calc() OWNER TO postgres;
-
 --
--- Name: year_calc(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: year_calc(); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.year_calc() RETURNS void
@@ -15907,10 +15227,8 @@ END;
 $$;
 
 
-ALTER FUNCTION public.year_calc() OWNER TO postgres;
-
 --
--- Name: award_config_3070; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_3070; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_3070 (
@@ -15920,10 +15238,8 @@ CREATE TABLE award.award_config_3070 (
 );
 
 
-ALTER TABLE award.award_config_3070 OWNER TO postgres;
-
 --
--- Name: award_config_budian; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_budian; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_budian (
@@ -15934,10 +15250,8 @@ CREATE TABLE award.award_config_budian (
 );
 
 
-ALTER TABLE award.award_config_budian OWNER TO postgres;
-
 --
--- Name: award_config_budian_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_budian_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_budian_award_config_id_seq
@@ -15948,17 +15262,55 @@ CREATE SEQUENCE award.award_config_budian_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_budian_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_budian_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_budian_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_budian_award_config_id_seq OWNED BY award.award_config_budian.award_config_id;
 
 
 --
--- Name: award_config_dist; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_day_futou; Type: TABLE; Schema: award; Owner: -
+--
+
+CREATE TABLE award.award_config_day_futou (
+    award_config_id integer NOT NULL,
+    award_config_level integer,
+    award_config_days integer,
+    award_config_money numeric(16,4) DEFAULT 0,
+    award_config_percnet_finance numeric(5,4) DEFAULT 0
+);
+
+
+--
+-- Name: COLUMN award_config_day_futou.award_config_percnet_finance; Type: COMMENT; Schema: award; Owner: -
+--
+
+COMMENT ON COLUMN award.award_config_day_futou.award_config_percnet_finance IS '基金比例';
+
+
+--
+-- Name: award_config_day_futou_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
+--
+
+CREATE SEQUENCE award.award_config_day_futou_award_config_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: award_config_day_futou_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
+--
+
+ALTER SEQUENCE award.award_config_day_futou_award_config_id_seq OWNED BY award.award_config_day_futou.award_config_id;
+
+
+--
+-- Name: award_config_dist; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dist (
@@ -15969,10 +15321,8 @@ CREATE TABLE award.award_config_dist (
 );
 
 
-ALTER TABLE award.award_config_dist OWNER TO postgres;
-
 --
--- Name: award_config_dist_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dist_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dist_award_config_id_seq
@@ -15984,17 +15334,15 @@ CREATE SEQUENCE award.award_config_dist_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dist_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dist_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dist_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dist_award_config_id_seq OWNED BY award.award_config_dist.award_config_id;
 
 
 --
--- Name: award_config_dot_layer; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dot_layer (
@@ -16006,10 +15354,8 @@ CREATE TABLE award.award_config_dot_layer (
 );
 
 
-ALTER TABLE award.award_config_dot_layer OWNER TO postgres;
-
 --
--- Name: award_config_dot_layer2; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer2; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dot_layer2 (
@@ -16019,10 +15365,8 @@ CREATE TABLE award.award_config_dot_layer2 (
 );
 
 
-ALTER TABLE award.award_config_dot_layer2 OWNER TO postgres;
-
 --
--- Name: award_config_dot_layer2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dot_layer2_award_config_id_seq
@@ -16033,17 +15377,15 @@ CREATE SEQUENCE award.award_config_dot_layer2_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dot_layer2_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dot_layer2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dot_layer2_award_config_id_seq OWNED BY award.award_config_dot_layer2.award_config_id;
 
 
 --
--- Name: award_config_dot_layer_150919; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_150919; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dot_layer_150919 (
@@ -16054,10 +15396,8 @@ CREATE TABLE award.award_config_dot_layer_150919 (
 );
 
 
-ALTER TABLE award.award_config_dot_layer_150919 OWNER TO postgres;
-
 --
--- Name: award_config_dot_layer_150919_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_150919_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dot_layer_150919_award_config_id_seq
@@ -16068,17 +15408,15 @@ CREATE SEQUENCE award.award_config_dot_layer_150919_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dot_layer_150919_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dot_layer_150919_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_150919_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dot_layer_150919_award_config_id_seq OWNED BY award.award_config_dot_layer_150919.award_config_id;
 
 
 --
--- Name: award_config_dot_layer_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dot_layer_award_config_id_seq
@@ -16089,17 +15427,15 @@ CREATE SEQUENCE award.award_config_dot_layer_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dot_layer_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dot_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dot_layer_award_config_id_seq OWNED BY award.award_config_dot_layer.award_config_id;
 
 
 --
--- Name: award_config_dot_limit; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dot_limit; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dot_limit (
@@ -16109,10 +15445,8 @@ CREATE TABLE award.award_config_dot_limit (
 );
 
 
-ALTER TABLE award.award_config_dot_limit OWNER TO postgres;
-
 --
--- Name: award_config_dot_limit_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dot_limit_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dot_limit_award_config_id_seq
@@ -16123,17 +15457,15 @@ CREATE SEQUENCE award.award_config_dot_limit_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dot_limit_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dot_limit_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dot_limit_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dot_limit_award_config_id_seq OWNED BY award.award_config_dot_limit.award_config_id;
 
 
 --
--- Name: award_config_dot_matrix2; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dot_matrix2; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dot_matrix2 (
@@ -16144,10 +15476,8 @@ CREATE TABLE award.award_config_dot_matrix2 (
 );
 
 
-ALTER TABLE award.award_config_dot_matrix2 OWNER TO postgres;
-
 --
--- Name: award_config_dot_matrix2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dot_matrix2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dot_matrix2_award_config_id_seq
@@ -16158,17 +15488,15 @@ CREATE SEQUENCE award.award_config_dot_matrix2_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dot_matrix2_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dot_matrix2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dot_matrix2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dot_matrix2_award_config_id_seq OWNED BY award.award_config_dot_matrix2.award_config_id;
 
 
 --
--- Name: award_config_dot_recommend; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dot_recommend; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dot_recommend (
@@ -16179,10 +15507,8 @@ CREATE TABLE award.award_config_dot_recommend (
 );
 
 
-ALTER TABLE award.award_config_dot_recommend OWNER TO postgres;
-
 --
--- Name: award_config_dot_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_dot_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_dot_recommend_award_config_id_seq
@@ -16193,17 +15519,15 @@ CREATE SEQUENCE award.award_config_dot_recommend_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_dot_recommend_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_dot_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_dot_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_dot_recommend_award_config_id_seq OWNED BY award.award_config_dot_recommend.award_config_id;
 
 
 --
--- Name: award_config_down_up; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_down_up; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_down_up (
@@ -16215,10 +15539,8 @@ CREATE TABLE award.award_config_down_up (
 );
 
 
-ALTER TABLE award.award_config_down_up OWNER TO postgres;
-
 --
--- Name: award_config_dup; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_dup; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_dup (
@@ -16228,10 +15550,8 @@ CREATE TABLE award.award_config_dup (
 );
 
 
-ALTER TABLE award.award_config_dup OWNER TO postgres;
-
 --
--- Name: award_config_fanli; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_fanli; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_fanli (
@@ -16242,10 +15562,8 @@ CREATE TABLE award.award_config_fanli (
 );
 
 
-ALTER TABLE award.award_config_fanli OWNER TO postgres;
-
 --
--- Name: award_config_fenhong_level; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_fenhong_level; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_fenhong_level (
@@ -16256,10 +15574,8 @@ CREATE TABLE award.award_config_fenhong_level (
 );
 
 
-ALTER TABLE award.award_config_fenhong_level OWNER TO postgres;
-
 --
--- Name: award_config_fenhong_level_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_fenhong_level_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_fenhong_level_award_config_id_seq
@@ -16270,17 +15586,15 @@ CREATE SEQUENCE award.award_config_fenhong_level_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_fenhong_level_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_fenhong_level_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_fenhong_level_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_fenhong_level_award_config_id_seq OWNED BY award.award_config_fenhong_level.award_config_id;
 
 
 --
--- Name: award_config_global_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_global_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_global_fenhong (
@@ -16292,10 +15606,8 @@ CREATE TABLE award.award_config_global_fenhong (
 );
 
 
-ALTER TABLE award.award_config_global_fenhong OWNER TO postgres;
-
 --
--- Name: award_config_huzhu; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_huzhu; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_huzhu (
@@ -16305,10 +15617,8 @@ CREATE TABLE award.award_config_huzhu (
 );
 
 
-ALTER TABLE award.award_config_huzhu OWNER TO postgres;
-
 --
--- Name: award_config_huzhu_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_huzhu_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_huzhu_award_config_id_seq
@@ -16319,17 +15629,15 @@ CREATE SEQUENCE award.award_config_huzhu_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_huzhu_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_huzhu_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_huzhu_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_huzhu_award_config_id_seq OWNED BY award.award_config_huzhu.award_config_id;
 
 
 --
--- Name: award_config_layer_pair_member; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_layer_pair_member; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_layer_pair_member (
@@ -16341,10 +15649,8 @@ CREATE TABLE award.award_config_layer_pair_member (
 );
 
 
-ALTER TABLE award.award_config_layer_pair_member OWNER TO postgres;
-
 --
--- Name: award_config_leader_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_leader_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_leader_fenhong (
@@ -16354,10 +15660,8 @@ CREATE TABLE award.award_config_leader_fenhong (
 );
 
 
-ALTER TABLE award.award_config_leader_fenhong OWNER TO postgres;
-
 --
--- Name: award_config_leader_recommend; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_leader_recommend (
@@ -16368,10 +15672,8 @@ CREATE TABLE award.award_config_leader_recommend (
 );
 
 
-ALTER TABLE award.award_config_leader_recommend OWNER TO postgres;
-
 --
--- Name: award_config_leader_recommend2; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend2; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_leader_recommend2 (
@@ -16382,10 +15684,8 @@ CREATE TABLE award.award_config_leader_recommend2 (
 );
 
 
-ALTER TABLE award.award_config_leader_recommend2 OWNER TO postgres;
-
 --
--- Name: award_config_leader_recommend2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_leader_recommend2_award_config_id_seq
@@ -16396,17 +15696,15 @@ CREATE SEQUENCE award.award_config_leader_recommend2_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_leader_recommend2_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_leader_recommend2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_leader_recommend2_award_config_id_seq OWNED BY award.award_config_leader_recommend2.award_config_id;
 
 
 --
--- Name: award_config_leader_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_leader_recommend_award_config_id_seq
@@ -16417,17 +15715,15 @@ CREATE SEQUENCE award.award_config_leader_recommend_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_leader_recommend_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_leader_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_leader_recommend_award_config_id_seq OWNED BY award.award_config_leader_recommend.award_config_id;
 
 
 --
--- Name: award_config_manage; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_manage; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_manage (
@@ -16437,10 +15733,8 @@ CREATE TABLE award.award_config_manage (
 );
 
 
-ALTER TABLE award.award_config_manage OWNER TO postgres;
-
 --
--- Name: award_config_market; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_market; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_market (
@@ -16449,10 +15743,8 @@ CREATE TABLE award.award_config_market (
 );
 
 
-ALTER TABLE award.award_config_market OWNER TO postgres;
-
 --
--- Name: epmms_award_config_org_up_down; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_up_down; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_org_up_down (
@@ -16463,10 +15755,8 @@ CREATE TABLE public.epmms_award_config_org_up_down (
 );
 
 
-ALTER TABLE public.epmms_award_config_org_up_down OWNER TO postgres;
-
 --
--- Name: award_config_org_up_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_org_up_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_org_up_down_award_config_id_seq
@@ -16477,17 +15767,15 @@ CREATE SEQUENCE public.award_config_org_up_down_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_org_up_down_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_org_up_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_org_up_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_org_up_down_award_config_id_seq OWNED BY public.epmms_award_config_org_up_down.award_config_id;
 
 
 --
--- Name: award_config_org_up_down; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_org_up_down; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_org_up_down (
@@ -16499,10 +15787,8 @@ CREATE TABLE award.award_config_org_up_down (
 );
 
 
-ALTER TABLE award.award_config_org_up_down OWNER TO postgres;
-
 --
--- Name: award_config_recommend_type2; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_recommend_type2; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_recommend_type2 (
@@ -16512,10 +15798,8 @@ CREATE TABLE award.award_config_recommend_type2 (
 );
 
 
-ALTER TABLE award.award_config_recommend_type2 OWNER TO postgres;
-
 --
--- Name: award_config_signing; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_signing; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_signing (
@@ -16527,10 +15811,8 @@ CREATE TABLE award.award_config_signing (
 );
 
 
-ALTER TABLE award.award_config_signing OWNER TO postgres;
-
 --
--- Name: award_config_static_fenghong_recommend; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_static_fenghong_recommend; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_static_fenghong_recommend (
@@ -16541,10 +15823,8 @@ CREATE TABLE award.award_config_static_fenghong_recommend (
 );
 
 
-ALTER TABLE award.award_config_static_fenghong_recommend OWNER TO postgres;
-
 --
--- Name: award_config_static_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_static_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_static_fenhong (
@@ -16555,10 +15835,8 @@ CREATE TABLE award.award_config_static_fenhong (
 );
 
 
-ALTER TABLE award.award_config_static_fenhong OWNER TO postgres;
-
 --
--- Name: award_config_static_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_static_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_static_fenhong_award_config_id_seq
@@ -16569,17 +15847,15 @@ CREATE SEQUENCE award.award_config_static_fenhong_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_static_fenhong_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_static_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_static_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_static_fenhong_award_config_id_seq OWNED BY award.award_config_static_fenhong.award_config_id;
 
 
 --
--- Name: award_config_up_down_425; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_up_down_425; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_up_down_425 (
@@ -16590,10 +15866,8 @@ CREATE TABLE award.award_config_up_down_425 (
 );
 
 
-ALTER TABLE award.award_config_up_down_425 OWNER TO postgres;
-
 --
--- Name: award_config_up_down_425_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_up_down_425_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_up_down_425_award_config_id_seq
@@ -16604,17 +15878,15 @@ CREATE SEQUENCE award.award_config_up_down_425_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_up_down_425_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_up_down_425_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_up_down_425_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_up_down_425_award_config_id_seq OWNED BY award.award_config_up_down_425.award_config_id;
 
 
 --
--- Name: award_config_upgrade; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_upgrade; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_upgrade (
@@ -16626,10 +15898,8 @@ CREATE TABLE award.award_config_upgrade (
 );
 
 
-ALTER TABLE award.award_config_upgrade OWNER TO postgres;
-
 --
--- Name: award_config_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_upgrade_award_config_id_seq
@@ -16640,17 +15910,27 @@ CREATE SEQUENCE award.award_config_upgrade_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_upgrade_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_upgrade_award_config_id_seq OWNED BY award.award_config_upgrade.award_config_id;
 
 
 --
--- Name: award_config_xingyun; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_xingyu_futou; Type: TABLE; Schema: award; Owner: -
+--
+
+CREATE TABLE award.award_config_xingyu_futou (
+    award_config_id integer NOT NULL,
+    award_config_seqs integer[],
+    award_config_money numeric(16,4),
+    award_config_recommend_jin_number int4range
+);
+
+
+--
+-- Name: award_config_xingyun; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_xingyun (
@@ -16660,10 +15940,8 @@ CREATE TABLE award.award_config_xingyun (
 );
 
 
-ALTER TABLE award.award_config_xingyun OWNER TO postgres;
-
 --
--- Name: award_config_xingyun_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_config_xingyun_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_config_xingyun_award_config_id_seq
@@ -16674,17 +15952,15 @@ CREATE SEQUENCE award.award_config_xingyun_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_config_xingyun_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_xingyun_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_config_xingyun_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_config_xingyun_award_config_id_seq OWNED BY award.award_config_xingyun.award_config_id;
 
 
 --
--- Name: award_config_zhengka; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_config_zhengka; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_config_zhengka (
@@ -16695,10 +15971,8 @@ CREATE TABLE award.award_config_zhengka (
 );
 
 
-ALTER TABLE award.award_config_zhengka OWNER TO postgres;
-
 --
--- Name: award_recommend_matrix; Type: TABLE; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.award_recommend_matrix (
@@ -16709,10 +15983,8 @@ CREATE TABLE award.award_recommend_matrix (
 );
 
 
-ALTER TABLE award.award_recommend_matrix OWNER TO postgres;
-
 --
--- Name: award_recommend_matrix_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.award_recommend_matrix_award_config_id_seq
@@ -16724,17 +15996,15 @@ CREATE SEQUENCE award.award_recommend_matrix_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.award_recommend_matrix_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_recommend_matrix_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.award_recommend_matrix_award_config_id_seq OWNED BY award.award_recommend_matrix.award_config_id;
 
 
 --
--- Name: dynamic_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: dynamic_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.dynamic_fenhong (
@@ -16745,10 +16015,8 @@ CREATE TABLE award.dynamic_fenhong (
 );
 
 
-ALTER TABLE award.dynamic_fenhong OWNER TO postgres;
-
 --
--- Name: dynmmic_fenhong_percent; Type: TABLE; Schema: award; Owner: postgres
+-- Name: dynmmic_fenhong_percent; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.dynmmic_fenhong_percent (
@@ -16758,10 +16026,8 @@ CREATE TABLE award.dynmmic_fenhong_percent (
 );
 
 
-ALTER TABLE award.dynmmic_fenhong_percent OWNER TO postgres;
-
 --
--- Name: epmms_award_config_agent; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_agent; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_agent (
@@ -16771,10 +16037,8 @@ CREATE TABLE public.epmms_award_config_agent (
 );
 
 
-ALTER TABLE public.epmms_award_config_agent OWNER TO postgres;
-
 --
--- Name: epmms_award_config_agent_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_agent_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_agent_award_config_id_seq
@@ -16785,17 +16049,15 @@ CREATE SEQUENCE public.epmms_award_config_agent_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_agent_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_agent_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_agent_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_agent_award_config_id_seq OWNED BY public.epmms_award_config_agent.award_config_id;
 
 
 --
--- Name: epmms_award_config_agent; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_agent; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_agent (
@@ -16805,10 +16067,8 @@ CREATE TABLE award.epmms_award_config_agent (
 );
 
 
-ALTER TABLE award.epmms_award_config_agent OWNER TO postgres;
-
 --
--- Name: epmms_award_config_day_fenhong; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_day_fenhong; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_day_fenhong (
@@ -16818,10 +16078,8 @@ CREATE TABLE public.epmms_award_config_day_fenhong (
 );
 
 
-ALTER TABLE public.epmms_award_config_day_fenhong OWNER TO postgres;
-
 --
--- Name: epmms_award_day_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_day_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_day_fenhong_award_config_id_seq
@@ -16832,17 +16090,15 @@ CREATE SEQUENCE public.epmms_award_day_fenhong_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_day_fenhong_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_day_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_day_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_day_fenhong_award_config_id_seq OWNED BY public.epmms_award_config_day_fenhong.award_config_id;
 
 
 --
--- Name: epmms_award_config_day_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_day_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_day_fenhong (
@@ -16852,10 +16108,8 @@ CREATE TABLE award.epmms_award_config_day_fenhong (
 );
 
 
-ALTER TABLE award.epmms_award_config_day_fenhong OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dif; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dif; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_dif (
@@ -16867,31 +16121,29 @@ CREATE TABLE award.epmms_award_config_dif (
 );
 
 
-ALTER TABLE award.epmms_award_config_dif OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_config_dif.director_level; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_dif.director_level; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_dif.director_level IS '董事级别';
 
 
 --
--- Name: COLUMN epmms_award_config_dif.dif_award; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_dif.dif_award; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_dif.dif_award IS '级差奖';
 
 
 --
--- Name: COLUMN epmms_award_config_dif.equal_award; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_dif.equal_award; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_dif.equal_award IS '平级奖';
 
 
 --
--- Name: epmms_award_config_dot_matrix; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_dot_matrix (
@@ -16903,10 +16155,8 @@ CREATE TABLE award.epmms_award_config_dot_matrix (
 );
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_dot_matrix_award_config_id_seq
@@ -16917,17 +16167,15 @@ CREATE SEQUENCE award.epmms_award_config_dot_matrix_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_dot_matrix_award_config_id_seq OWNED BY award.epmms_award_config_dot_matrix.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_matrix_left; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_left; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_dot_matrix_left (
@@ -16939,10 +16187,8 @@ CREATE TABLE award.epmms_award_config_dot_matrix_left (
 );
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_left OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_left_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_left_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_dot_matrix_left_award_config_id_seq
@@ -16953,17 +16199,15 @@ CREATE SEQUENCE award.epmms_award_config_dot_matrix_left_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_left_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_left_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_left_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_dot_matrix_left_award_config_id_seq OWNED BY award.epmms_award_config_dot_matrix_left.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_dot_matrix_recommend (
@@ -16975,10 +16219,8 @@ CREATE TABLE award.epmms_award_config_dot_matrix_recommend (
 );
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_recommend OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_recommend_151204; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_151204; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_dot_matrix_recommend_151204 (
@@ -16990,10 +16232,8 @@ CREATE TABLE award.epmms_award_config_dot_matrix_recommend_151204 (
 );
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_recommend_151204 OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_dot_matrix_recommend_award_config_id_seq
@@ -17004,17 +16244,15 @@ CREATE SEQUENCE award.epmms_award_config_dot_matrix_recommend_award_config_id_se
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_recommend_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_dot_matrix_recommend_award_config_id_seq OWNED BY award.epmms_award_config_dot_matrix_recommend.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend_new_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_new_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_dot_matrix_recommend_new_award_config_id_seq
@@ -17025,17 +16263,15 @@ CREATE SEQUENCE award.epmms_award_config_dot_matrix_recommend_new_award_config_i
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_dot_matrix_recommend_new_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_recommend_new_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_new_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_dot_matrix_recommend_new_award_config_id_seq OWNED BY award.epmms_award_config_dot_matrix_recommend_151204.award_config_id;
 
 
 --
--- Name: epmms_award_config_layer_full_layer; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_layer_full_layer; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_layer_full_layer (
@@ -17045,10 +16281,8 @@ CREATE TABLE award.epmms_award_config_layer_full_layer (
 );
 
 
-ALTER TABLE award.epmms_award_config_layer_full_layer OWNER TO postgres;
-
 --
--- Name: epmms_award_config_layer_full_layer_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_layer_full_layer_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_layer_full_layer_award_config_id_seq
@@ -17059,17 +16293,15 @@ CREATE SEQUENCE award.epmms_award_config_layer_full_layer_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_layer_full_layer_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_layer_full_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_layer_full_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_layer_full_layer_award_config_id_seq OWNED BY award.epmms_award_config_layer_full_layer.award_config_id;
 
 
 --
--- Name: epmms_award_config_month_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_month_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_month_fenhong (
@@ -17080,10 +16312,8 @@ CREATE TABLE award.epmms_award_config_month_fenhong (
 );
 
 
-ALTER TABLE award.epmms_award_config_month_fenhong OWNER TO postgres;
-
 --
--- Name: epmms_award_config_month_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_month_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_month_fenhong_award_config_id_seq
@@ -17094,17 +16324,15 @@ CREATE SEQUENCE award.epmms_award_config_month_fenhong_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_month_fenhong_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_month_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_month_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_month_fenhong_award_config_id_seq OWNED BY award.epmms_award_config_month_fenhong.award_config_id;
 
 
 --
--- Name: epmms_award_config_pair_member; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_pair_member (
@@ -17115,31 +16343,29 @@ CREATE TABLE award.epmms_award_config_pair_member (
 );
 
 
-ALTER TABLE award.epmms_award_config_pair_member OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_pair_member; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: TABLE epmms_award_config_pair_member; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON TABLE award.epmms_award_config_pair_member IS '1:1对碰';
 
 
 --
--- Name: COLUMN epmms_award_config_pair_member.award_config_membertype; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_pair_member.award_config_membertype; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_pair_member.award_config_membertype IS '会员类型';
 
 
 --
--- Name: COLUMN epmms_award_config_pair_member.award_config_currency; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_pair_member.award_config_currency; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_pair_member.award_config_currency IS '奖金';
 
 
 --
--- Name: epmms_award_config_pair_member_150919; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_150919; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_pair_member_150919 (
@@ -17150,31 +16376,29 @@ CREATE TABLE award.epmms_award_config_pair_member_150919 (
 );
 
 
-ALTER TABLE award.epmms_award_config_pair_member_150919 OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_pair_member_150919; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: TABLE epmms_award_config_pair_member_150919; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON TABLE award.epmms_award_config_pair_member_150919 IS '1:1对碰';
 
 
 --
--- Name: COLUMN epmms_award_config_pair_member_150919.award_config_membertype; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_pair_member_150919.award_config_membertype; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_pair_member_150919.award_config_membertype IS '会员类型';
 
 
 --
--- Name: COLUMN epmms_award_config_pair_member_150919.award_config_currency; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: COLUMN epmms_award_config_pair_member_150919.award_config_currency; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON COLUMN award.epmms_award_config_pair_member_150919.award_config_currency IS '奖金';
 
 
 --
--- Name: epmms_award_config_pair_member_150919_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_150919_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_pair_member_150919_award_config_id_seq
@@ -17185,17 +16409,15 @@ CREATE SEQUENCE award.epmms_award_config_pair_member_150919_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_pair_member_150919_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_pair_member_150919_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_150919_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_pair_member_150919_award_config_id_seq OWNED BY award.epmms_award_config_pair_member_150919.award_config_id;
 
 
 --
--- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_pair_member_award_config_id_seq
@@ -17206,17 +16428,15 @@ CREATE SEQUENCE award.epmms_award_config_pair_member_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_pair_member_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_pair_member_award_config_id_seq OWNED BY award.epmms_award_config_pair_member.award_config_id;
 
 
 --
--- Name: epmms_award_config_prize; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_prize; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_prize (
@@ -17226,10 +16446,8 @@ CREATE TABLE award.epmms_award_config_prize (
 );
 
 
-ALTER TABLE award.epmms_award_config_prize OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_prize; Type: COMMENT; Schema: award; Owner: postgres
+-- Name: TABLE epmms_award_config_prize; Type: COMMENT; Schema: award; Owner: -
 --
 
 COMMENT ON TABLE award.epmms_award_config_prize IS 'A:B表示A大于等于且B大于等于
@@ -17242,7 +16460,7 @@ COMMENT ON TABLE award.epmms_award_config_prize IS 'A:B表示A大于等于且B�
 
 
 --
--- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_prize_award_config_id_seq
@@ -17253,17 +16471,15 @@ CREATE SEQUENCE award.epmms_award_config_prize_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_prize_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_prize_award_config_id_seq OWNED BY award.epmms_award_config_prize.award_config_id;
 
 
 --
--- Name: epmms_award_config_recommend; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_recommend (
@@ -17274,10 +16490,8 @@ CREATE TABLE award.epmms_award_config_recommend (
 );
 
 
-ALTER TABLE award.epmms_award_config_recommend OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend2; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend2; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_recommend2 (
@@ -17288,10 +16502,8 @@ CREATE TABLE award.epmms_award_config_recommend2 (
 );
 
 
-ALTER TABLE award.epmms_award_config_recommend2 OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend2_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_recommend2_award_config_id_seq
@@ -17302,17 +16514,15 @@ CREATE SEQUENCE award.epmms_award_config_recommend2_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_recommend2_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend2_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_recommend2_award_config_id_seq OWNED BY award.epmms_award_config_recommend2.award_config_id;
 
 
 --
--- Name: epmms_award_config_recommend3; Type: TABLE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend3; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.epmms_award_config_recommend3 (
@@ -17323,10 +16533,8 @@ CREATE TABLE award.epmms_award_config_recommend3 (
 );
 
 
-ALTER TABLE award.epmms_award_config_recommend3 OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend3_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend3_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_recommend3_award_config_id_seq
@@ -17337,17 +16545,15 @@ CREATE SEQUENCE award.epmms_award_config_recommend3_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_recommend3_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend3_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend3_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_recommend3_award_config_id_seq OWNED BY award.epmms_award_config_recommend3.award_config_id;
 
 
 --
--- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
 --
 
 CREATE SEQUENCE award.epmms_award_config_recommend_award_config_id_seq
@@ -17358,17 +16564,15 @@ CREATE SEQUENCE award.epmms_award_config_recommend_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE award.epmms_award_config_recommend_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
 --
 
 ALTER SEQUENCE award.epmms_award_config_recommend_award_config_id_seq OWNED BY award.epmms_award_config_recommend.award_config_id;
 
 
 --
--- Name: static_fenhong; Type: TABLE; Schema: award; Owner: postgres
+-- Name: static_fenhong; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.static_fenhong (
@@ -17378,10 +16582,28 @@ CREATE TABLE award.static_fenhong (
 );
 
 
-ALTER TABLE award.static_fenhong OWNER TO postgres;
+--
+-- Name: table_award_config_id_seq; Type: SEQUENCE; Schema: award; Owner: -
+--
+
+CREATE SEQUENCE award.table_award_config_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 
 --
--- Name: upgrade_child_condition; Type: TABLE; Schema: award; Owner: postgres
+-- Name: table_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: award; Owner: -
+--
+
+ALTER SEQUENCE award.table_award_config_id_seq OWNED BY award.award_config_xingyu_futou.award_config_id;
+
+
+--
+-- Name: upgrade_child_condition; Type: TABLE; Schema: award; Owner: -
 --
 
 CREATE TABLE award.upgrade_child_condition (
@@ -17392,21 +16614,8 @@ CREATE TABLE award.upgrade_child_condition (
 );
 
 
-ALTER TABLE award.upgrade_child_condition OWNER TO postgres;
-
 --
--- Name: award; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.award (
-    finance_award numeric(16,4)
-);
-
-
-ALTER TABLE public.award OWNER TO postgres;
-
---
--- Name: epmms_award_config_aixinjijin; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_aixinjijin; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_aixinjijin (
@@ -17416,10 +16625,8 @@ CREATE TABLE public.epmms_award_config_aixinjijin (
 );
 
 
-ALTER TABLE public.epmms_award_config_aixinjijin OWNER TO postgres;
-
 --
--- Name: award_config_aixinjijin_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_aixinjijin_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_aixinjijin_award_config_id_seq
@@ -17430,17 +16637,15 @@ CREATE SEQUENCE public.award_config_aixinjijin_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_aixinjijin_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_aixinjijin_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_aixinjijin_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_aixinjijin_award_config_id_seq OWNED BY public.epmms_award_config_aixinjijin.award_config_id;
 
 
 --
--- Name: epmms_award_config_award_student; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_award_student; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_award_student (
@@ -17453,10 +16658,8 @@ CREATE TABLE public.epmms_award_config_award_student (
 );
 
 
-ALTER TABLE public.epmms_award_config_award_student OWNER TO postgres;
-
 --
--- Name: award_config_award_student_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_award_student_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_award_student_award_config_id_seq
@@ -17467,17 +16670,15 @@ CREATE SEQUENCE public.award_config_award_student_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_award_student_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_award_student_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_award_student_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_award_student_award_config_id_seq OWNED BY public.epmms_award_config_award_student.award_config_id;
 
 
 --
--- Name: epmms_award_config_chuangye; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_chuangye; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_chuangye (
@@ -17487,10 +16688,8 @@ CREATE TABLE public.epmms_award_config_chuangye (
 );
 
 
-ALTER TABLE public.epmms_award_config_chuangye OWNER TO postgres;
-
 --
--- Name: award_config_chuangye_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_chuangye_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_chuangye_award_config_id_seq
@@ -17501,17 +16700,15 @@ CREATE SEQUENCE public.award_config_chuangye_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_chuangye_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_chuangye_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_chuangye_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_chuangye_award_config_id_seq OWNED BY public.epmms_award_config_chuangye.award_config_id;
 
 
 --
--- Name: epmms_award_config_corp_fenhong; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_corp_fenhong; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_corp_fenhong (
@@ -17521,31 +16718,29 @@ CREATE TABLE public.epmms_award_config_corp_fenhong (
 );
 
 
-ALTER TABLE public.epmms_award_config_corp_fenhong OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_corp_fenhong; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_corp_fenhong; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_corp_fenhong IS '公司分红配置';
 
 
 --
--- Name: COLUMN epmms_award_config_corp_fenhong.award_config_award_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_corp_fenhong.award_config_award_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_corp_fenhong.award_config_award_currency IS '奖金';
 
 
 --
--- Name: COLUMN epmms_award_config_corp_fenhong.award_config_level; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_corp_fenhong.award_config_level; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_corp_fenhong.award_config_level IS '会员级别';
 
 
 --
--- Name: award_config_corp_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_corp_fenhong_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_corp_fenhong_award_config_id_seq
@@ -17556,17 +16751,15 @@ CREATE SEQUENCE public.award_config_corp_fenhong_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_corp_fenhong_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_corp_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_corp_fenhong_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_corp_fenhong_award_config_id_seq OWNED BY public.epmms_award_config_corp_fenhong.award_config_id;
 
 
 --
--- Name: epmms_award_config_gljt; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gljt; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_gljt (
@@ -17576,10 +16769,8 @@ CREATE TABLE public.epmms_award_config_gljt (
 );
 
 
-ALTER TABLE public.epmms_award_config_gljt OWNER TO postgres;
-
 --
--- Name: award_config_gljt_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_gljt_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_gljt_award_config_id_seq
@@ -17590,17 +16781,15 @@ CREATE SEQUENCE public.award_config_gljt_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_gljt_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_gljt_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_gljt_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_gljt_award_config_id_seq OWNED BY public.epmms_award_config_gljt.award_config_id;
 
 
 --
--- Name: epmms_award_config_guanli; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_guanli; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_guanli (
@@ -17611,10 +16800,8 @@ CREATE TABLE public.epmms_award_config_guanli (
 );
 
 
-ALTER TABLE public.epmms_award_config_guanli OWNER TO postgres;
-
 --
--- Name: award_config_guanli_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_guanli_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_guanli_award_config_id_seq
@@ -17625,17 +16812,15 @@ CREATE SEQUENCE public.award_config_guanli_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_guanli_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_guanli_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_guanli_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_guanli_award_config_id_seq OWNED BY public.epmms_award_config_guanli.award_config_id;
 
 
 --
--- Name: epmms_award_config_guanli_upgrade; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_guanli_upgrade; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_guanli_upgrade (
@@ -17649,10 +16834,8 @@ CREATE TABLE public.epmms_award_config_guanli_upgrade (
 );
 
 
-ALTER TABLE public.epmms_award_config_guanli_upgrade OWNER TO postgres;
-
 --
--- Name: award_config_guanli_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_guanli_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_guanli_upgrade_award_config_id_seq
@@ -17663,17 +16846,15 @@ CREATE SEQUENCE public.award_config_guanli_upgrade_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_guanli_upgrade_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_guanli_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_guanli_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_guanli_upgrade_award_config_id_seq OWNED BY public.epmms_award_config_guanli_upgrade.award_config_id;
 
 
 --
--- Name: epmms_award_config_layer_full; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_full; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_layer_full (
@@ -17686,17 +16867,15 @@ CREATE TABLE public.epmms_award_config_layer_full (
 );
 
 
-ALTER TABLE public.epmms_award_config_layer_full OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_layer_full; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_layer_full; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_layer_full IS '层奖';
 
 
 --
--- Name: award_config_layer_full_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_layer_full_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_layer_full_award_config_id_seq
@@ -17707,17 +16886,15 @@ CREATE SEQUENCE public.award_config_layer_full_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_layer_full_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_layer_full_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_layer_full_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_layer_full_award_config_id_seq OWNED BY public.epmms_award_config_layer_full.award_config_id;
 
 
 --
--- Name: epmms_config_pond; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_pond; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_pond (
@@ -17730,45 +16907,43 @@ CREATE TABLE public.epmms_config_pond (
 );
 
 
-ALTER TABLE public.epmms_config_pond OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_pond.pond_no; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_pond.pond_no; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_pond.pond_no IS '奖池编号';
 
 
 --
--- Name: COLUMN epmms_config_pond.pond_assign; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_pond.pond_assign; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_pond.pond_assign IS '分配比例';
 
 
 --
--- Name: COLUMN epmms_config_pond.pond_period_topped; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_pond.pond_period_topped; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_pond.pond_period_topped IS '单次封顶';
 
 
 --
--- Name: COLUMN epmms_config_pond.pond_all_topped; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_pond.pond_all_topped; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_pond.pond_all_topped IS '总封顶';
 
 
 --
--- Name: COLUMN epmms_config_pond.pond_achievement; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_pond.pond_achievement; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_pond.pond_achievement IS '业绩条件';
 
 
 --
--- Name: award_config_pond_pond_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_config_pond_pond_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_config_pond_pond_id_seq
@@ -17779,17 +16954,15 @@ CREATE SEQUENCE public.award_config_pond_pond_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.award_config_pond_pond_id_seq OWNER TO postgres;
-
 --
--- Name: award_config_pond_pond_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: award_config_pond_pond_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.award_config_pond_pond_id_seq OWNED BY public.epmms_config_pond.award_config_id;
 
 
 --
--- Name: award_period; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: award_period; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.award_period
@@ -17800,10 +16973,8 @@ CREATE SEQUENCE public.award_period
     CACHE 1;
 
 
-ALTER TABLE public.award_period OWNER TO postgres;
-
 --
--- Name: charge; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: charge; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.charge
@@ -17814,10 +16985,8 @@ CREATE SEQUENCE public.charge
     CACHE 1;
 
 
-ALTER TABLE public.charge OWNER TO postgres;
-
 --
--- Name: ep_index; Type: VIEW; Schema: public; Owner: postgres
+-- Name: ep_index; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.ep_index AS
@@ -17838,10 +17007,67 @@ CREATE VIEW public.ep_index AS
      JOIN pg_namespace ns ON (((ns.oid = i.relnamespace) AND (ns.nspname = ANY (current_schemas(false))))));
 
 
-ALTER TABLE public.ep_index OWNER TO postgres;
+--
+-- Name: epmms_activation_record; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_activation_record (
+    activation_id integer NOT NULL,
+    activation_member_id integer NOT NULL,
+    activation_add_time timestamp(0) without time zone DEFAULT now() NOT NULL
+);
+
 
 --
--- Name: epmms_agent; Type: TABLE; Schema: public; Owner: postgres
+-- Name: TABLE epmms_activation_record; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.epmms_activation_record IS '激活金卡记录';
+
+
+--
+-- Name: COLUMN epmms_activation_record.activation_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_activation_record.activation_id IS '主键id';
+
+
+--
+-- Name: COLUMN epmms_activation_record.activation_member_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_activation_record.activation_member_id IS '会员id';
+
+
+--
+-- Name: COLUMN epmms_activation_record.activation_add_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_activation_record.activation_add_time IS '激活时间';
+
+
+--
+-- Name: epmms_activation_record_activation_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_activation_record_activation_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_activation_record_activation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_activation_record_activation_id_seq OWNED BY public.epmms_activation_record.activation_id;
+
+
+--
+-- Name: epmms_agent; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_agent (
@@ -17859,80 +17085,78 @@ CREATE TABLE public.epmms_agent (
 );
 
 
-ALTER TABLE public.epmms_agent OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_agent.agent_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_memberinfo_id IS '所属会员';
 
 
 --
--- Name: COLUMN epmms_agent.agent_memo; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_memo; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_memo IS '备注';
 
 
 --
--- Name: COLUMN epmms_agent.agent_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_is_verify IS '审核';
 
 
 --
--- Name: COLUMN epmms_agent.agent_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_add_date IS '申请日期';
 
 
 --
--- Name: COLUMN epmms_agent.agent_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_verify_date IS '审核日期';
 
 
 --
--- Name: COLUMN epmms_agent.agent_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_type IS '代理中心类型';
 
 
 --
--- Name: COLUMN epmms_agent.agent_province; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_province; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_province IS '省';
 
 
 --
--- Name: COLUMN epmms_agent.agent_area; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_area; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_area IS '市/地区';
 
 
 --
--- Name: COLUMN epmms_agent.agent_county; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_county; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_county IS '县';
 
 
 --
--- Name: COLUMN epmms_agent.agent_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent.agent_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent.agent_account IS '代理中心编号';
 
 
 --
--- Name: epmms_agent_agent_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_agent_agent_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_agent_agent_id_seq
@@ -17943,10 +17167,8 @@ CREATE SEQUENCE public.epmms_agent_agent_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_agent_agent_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_agent_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_agent_type; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_agent_type (
@@ -17955,24 +17177,22 @@ CREATE TABLE public.epmms_agent_type (
 );
 
 
-ALTER TABLE public.epmms_agent_type OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_agent_type.agent_type_level; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent_type.agent_type_level; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent_type.agent_type_level IS '代理中心类型';
 
 
 --
--- Name: COLUMN epmms_agent_type.agent_type_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_agent_type.agent_type_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_agent_type.agent_type_name IS '代理中心类型名';
 
 
 --
--- Name: epmms_announcement; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_announcement; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_announcement (
@@ -17998,59 +17218,57 @@ CREATE TABLE public.epmms_announcement (
 );
 
 
-ALTER TABLE public.epmms_announcement OWNER TO postgres;
-
 --
--- Name: TABLE epmms_announcement; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_announcement; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_announcement IS '公告';
 
 
 --
--- Name: COLUMN epmms_announcement.announcement_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement.announcement_title; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement.announcement_title IS '公告标题';
 
 
 --
--- Name: COLUMN epmms_announcement.announcement_content; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement.announcement_content; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement.announcement_content IS '公告内容';
 
 
 --
--- Name: COLUMN epmms_announcement.announcement_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement.announcement_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement.announcement_add_date IS '发布日期';
 
 
 --
--- Name: COLUMN epmms_announcement.announcement_mod_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement.announcement_mod_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement.announcement_mod_date IS '修改日期';
 
 
 --
--- Name: COLUMN epmms_announcement.announcement_userinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement.announcement_userinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement.announcement_userinfo_id IS '公告作者';
 
 
 --
--- Name: COLUMN epmms_announcement.announcement_class; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement.announcement_class; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement.announcement_class IS '新闻分类';
 
 
 --
--- Name: epmms_announcement_announcement_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_announcement_announcement_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_announcement_announcement_id_seq
@@ -18061,17 +17279,15 @@ CREATE SEQUENCE public.epmms_announcement_announcement_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_announcement_announcement_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_announcement_announcement_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_announcement_announcement_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_announcement_announcement_id_seq OWNED BY public.epmms_announcement.announcement_id;
 
 
 --
--- Name: epmms_announcement_class; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_announcement_class; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_announcement_class (
@@ -18083,38 +17299,36 @@ CREATE TABLE public.epmms_announcement_class (
 );
 
 
-ALTER TABLE public.epmms_announcement_class OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_announcement_class.class_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement_class.class_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement_class.class_name IS '分类标题';
 
 
 --
--- Name: COLUMN epmms_announcement_class.class_intro; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement_class.class_intro; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement_class.class_intro IS '分类说明';
 
 
 --
--- Name: COLUMN epmms_announcement_class.class_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement_class.class_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement_class.class_add_date IS '添加日期';
 
 
 --
--- Name: COLUMN epmms_announcement_class.class_sort; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_announcement_class.class_sort; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_announcement_class.class_sort IS '排序';
 
 
 --
--- Name: epmms_announcement_class_class_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_announcement_class_class_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_announcement_class_class_id_seq
@@ -18125,17 +17339,15 @@ CREATE SEQUENCE public.epmms_announcement_class_class_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_announcement_class_class_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_announcement_class_class_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_announcement_class_class_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_announcement_class_class_id_seq OWNED BY public.epmms_announcement_class.class_id;
 
 
 --
--- Name: epmms_appropriate; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_appropriate; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_appropriate (
@@ -18148,52 +17360,50 @@ CREATE TABLE public.epmms_appropriate (
 );
 
 
-ALTER TABLE public.epmms_appropriate OWNER TO postgres;
-
 --
--- Name: TABLE epmms_appropriate; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_appropriate; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_appropriate IS '公司拨款';
 
 
 --
--- Name: COLUMN epmms_appropriate.appropriate_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_appropriate.appropriate_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_appropriate.appropriate_currency IS '拨款金额';
 
 
 --
--- Name: COLUMN epmms_appropriate.appropriate_finance_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_appropriate.appropriate_finance_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_appropriate.appropriate_finance_type_id IS '账户类型';
 
 
 --
--- Name: COLUMN epmms_appropriate.appropriate_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_appropriate.appropriate_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_appropriate.appropriate_add_date IS '日期';
 
 
 --
--- Name: COLUMN epmms_appropriate.appropriate_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_appropriate.appropriate_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_appropriate.appropriate_memberinfo_id IS '拨币会员';
 
 
 --
--- Name: COLUMN epmms_appropriate.appropriate_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_appropriate.appropriate_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_appropriate.appropriate_type IS '操作';
 
 
 --
--- Name: epmms_appropriate_appropriate_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_appropriate_appropriate_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_appropriate_appropriate_id_seq
@@ -18204,17 +17414,15 @@ CREATE SEQUENCE public.epmms_appropriate_appropriate_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_appropriate_appropriate_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_appropriate_appropriate_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_appropriate_appropriate_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_appropriate_appropriate_id_seq OWNED BY public.epmms_appropriate.appropriate_id;
 
 
 --
--- Name: epmms_authassignment; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_authassignment; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_authassignment (
@@ -18225,10 +17433,8 @@ CREATE TABLE public.epmms_authassignment (
 );
 
 
-ALTER TABLE public.epmms_authassignment OWNER TO postgres;
-
 --
--- Name: epmms_authitem; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_authitem; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_authitem (
@@ -18242,17 +17448,15 @@ CREATE TABLE public.epmms_authitem (
 );
 
 
-ALTER TABLE public.epmms_authitem OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_authitem.add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_authitem.add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_authitem.add_date IS '添加时间';
 
 
 --
--- Name: epmms_authitem_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_authitem_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_authitem_id_seq
@@ -18263,17 +17467,15 @@ CREATE SEQUENCE public.epmms_authitem_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_authitem_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_authitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_authitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_authitem_id_seq OWNED BY public.epmms_authitem.id;
 
 
 --
--- Name: epmms_authitemchild; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_authitemchild; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_authitemchild (
@@ -18282,10 +17484,8 @@ CREATE TABLE public.epmms_authitemchild (
 );
 
 
-ALTER TABLE public.epmms_authitemchild OWNER TO postgres;
-
 --
--- Name: epmms_award_config; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config (
@@ -18298,38 +17498,36 @@ CREATE TABLE public.epmms_award_config (
 );
 
 
-ALTER TABLE public.epmms_award_config OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_config.award_config_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config.award_config_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config.award_config_type_id IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_award_config.award_config_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config.award_config_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config.award_config_currency IS '奖金额度';
 
 
 --
--- Name: COLUMN epmms_award_config.award_config_is_percent; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config.award_config_is_percent; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config.award_config_is_percent IS '是否奖金百分比';
 
 
 --
--- Name: COLUMN epmms_award_config.award_config_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config.award_config_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config.award_config_order IS '排序';
 
 
 --
--- Name: epmms_award_config_all_fenhong; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_all_fenhong; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_all_fenhong (
@@ -18339,10 +17537,8 @@ CREATE TABLE public.epmms_award_config_all_fenhong (
 );
 
 
-ALTER TABLE public.epmms_award_config_all_fenhong OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_all_fenhong; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_all_fenhong; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_all_fenhong IS '新注册会员的7%平均分给所有金级会员
@@ -18353,14 +17549,14 @@ COMMENT ON TABLE public.epmms_award_config_all_fenhong IS '新注册会员的7%�
 
 
 --
--- Name: COLUMN epmms_award_config_all_fenhong.member_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_all_fenhong.member_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_all_fenhong.member_type IS '会员类型';
 
 
 --
--- Name: epmms_award_config_all_fenhong_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_all_fenhong_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_all_fenhong_config_id_seq
@@ -18371,17 +17567,15 @@ CREATE SEQUENCE public.epmms_award_config_all_fenhong_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_all_fenhong_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_all_fenhong_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_all_fenhong_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_all_fenhong_config_id_seq OWNED BY public.epmms_award_config_all_fenhong.config_id;
 
 
 --
--- Name: epmms_award_config_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_award_config_id_seq
@@ -18392,10 +17586,8 @@ CREATE SEQUENCE public.epmms_award_config_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_bonus; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_bonus; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_bonus (
@@ -18406,10 +17598,8 @@ CREATE TABLE public.epmms_award_config_bonus (
 );
 
 
-ALTER TABLE public.epmms_award_config_bonus OWNER TO postgres;
-
 --
--- Name: epmms_award_config_bonus_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_bonus_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_bonus_award_config_id_seq
@@ -18421,17 +17611,15 @@ CREATE SEQUENCE public.epmms_award_config_bonus_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_bonus_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_bonus_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_bonus_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_bonus_award_config_id_seq OWNED BY public.epmms_award_config_bonus.award_config_id;
 
 
 --
--- Name: epmms_award_config_dif; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dif; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dif (
@@ -18442,31 +17630,29 @@ CREATE TABLE public.epmms_award_config_dif (
 );
 
 
-ALTER TABLE public.epmms_award_config_dif OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_config_dif.director_level; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dif.director_level; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dif.director_level IS '董事级别';
 
 
 --
--- Name: COLUMN epmms_award_config_dif.dif_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dif.dif_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dif.dif_award IS '级差奖';
 
 
 --
--- Name: COLUMN epmms_award_config_dif.equal_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dif.equal_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dif.equal_award IS '平级奖';
 
 
 --
--- Name: epmms_award_config_dot; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dot (
@@ -18478,10 +17664,8 @@ CREATE TABLE public.epmms_award_config_dot (
 );
 
 
-ALTER TABLE public.epmms_award_config_dot OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_dot; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_dot; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_dot IS '接点关系下每上一单可获得相应数额的见点奖
@@ -18501,35 +17685,35 @@ COMMENT ON TABLE public.epmms_award_config_dot IS '接点关系下每上一单�
 
 
 --
--- Name: COLUMN epmms_award_config_dot.member_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dot.member_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dot.member_type IS '注册会员类型';
 
 
 --
--- Name: COLUMN epmms_award_config_dot.recommend_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dot.recommend_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dot.recommend_count IS '推荐数';
 
 
 --
--- Name: COLUMN epmms_award_config_dot.recommend_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dot.recommend_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dot.recommend_layer IS '拿奖金的层数';
 
 
 --
--- Name: COLUMN epmms_award_config_dot.award_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dot.award_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dot.award_money IS '奖金';
 
 
 --
--- Name: epmms_award_config_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_dot_award_config_id_seq
@@ -18540,17 +17724,15 @@ CREATE SEQUENCE public.epmms_award_config_dot_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_dot_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_dot_award_config_id_seq OWNED BY public.epmms_award_config_dot.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_fuwu; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_fuwu; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dot_fuwu (
@@ -18561,10 +17743,8 @@ CREATE TABLE public.epmms_award_config_dot_fuwu (
 );
 
 
-ALTER TABLE public.epmms_award_config_dot_fuwu OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_fuwu_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_fuwu_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_dot_fuwu_award_config_id_seq
@@ -18575,17 +17755,15 @@ CREATE SEQUENCE public.epmms_award_config_dot_fuwu_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_dot_fuwu_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_fuwu_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_fuwu_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_dot_fuwu_award_config_id_seq OWNED BY public.epmms_award_config_dot_fuwu.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_layer; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_layer; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dot_layer (
@@ -18595,24 +17773,22 @@ CREATE TABLE public.epmms_award_config_dot_layer (
 );
 
 
-ALTER TABLE public.epmms_award_config_dot_layer OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_config_dot_layer.award_config_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dot_layer.award_config_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dot_layer.award_config_layer IS '层数';
 
 
 --
--- Name: COLUMN epmms_award_config_dot_layer.award_config_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dot_layer.award_config_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dot_layer.award_config_currency IS '奖金';
 
 
 --
--- Name: epmms_award_config_dot_layer_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_layer_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_dot_layer_award_config_id_seq
@@ -18623,17 +17799,15 @@ CREATE SEQUENCE public.epmms_award_config_dot_layer_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_dot_layer_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_dot_layer_award_config_id_seq OWNED BY public.epmms_award_config_dot_layer.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_matrix; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_matrix; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dot_matrix (
@@ -18645,10 +17819,8 @@ CREATE TABLE public.epmms_award_config_dot_matrix (
 );
 
 
-ALTER TABLE public.epmms_award_config_dot_matrix OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_dot_matrix_award_config_id_seq
@@ -18659,17 +17831,15 @@ CREATE SEQUENCE public.epmms_award_config_dot_matrix_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_dot_matrix_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_dot_matrix_award_config_id_seq OWNED BY public.epmms_award_config_dot_matrix.award_config_id;
 
 
 --
--- Name: epmms_award_config_dot_member; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_member; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dot_member (
@@ -18680,10 +17850,8 @@ CREATE TABLE public.epmms_award_config_dot_member (
 );
 
 
-ALTER TABLE public.epmms_award_config_dot_member OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_member_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_member_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_dot_member_award_config_id_seq
@@ -18694,17 +17862,15 @@ CREATE SEQUENCE public.epmms_award_config_dot_member_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_dot_member_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dot_member_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_member_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_dot_member_award_config_id_seq OWNED BY public.epmms_award_config_dot_member.award_config_id;
 
 
 --
--- Name: epmms_award_config_down; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_down; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_down (
@@ -18715,17 +17881,15 @@ CREATE TABLE public.epmms_award_config_down (
 );
 
 
-ALTER TABLE public.epmms_award_config_down OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_down; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_down; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_down IS '下拿上';
 
 
 --
--- Name: epmms_award_config_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_down_award_config_id_seq
@@ -18736,17 +17900,15 @@ CREATE SEQUENCE public.epmms_award_config_down_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_down_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_down_award_config_id_seq OWNED BY public.epmms_award_config_down.award_config_id;
 
 
 --
--- Name: epmms_award_config_dup_dot; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dup_dot; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_dup_dot (
@@ -18757,31 +17919,29 @@ CREATE TABLE public.epmms_award_config_dup_dot (
 );
 
 
-ALTER TABLE public.epmms_award_config_dup_dot OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_dup_dot; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_dup_dot; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_dup_dot IS '如重消关怀奖所述，推荐关系下面的会员购买产品时，可得相应的重消见点奖';
 
 
 --
--- Name: COLUMN epmms_award_config_dup_dot.recommend_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dup_dot.recommend_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dup_dot.recommend_count IS '推荐个数';
 
 
 --
--- Name: COLUMN epmms_award_config_dup_dot.award_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_dup_dot.award_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_dup_dot.award_money IS '奖金';
 
 
 --
--- Name: epmms_award_config_dup_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dup_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_dup_dot_award_config_id_seq
@@ -18792,17 +17952,15 @@ CREATE SEQUENCE public.epmms_award_config_dup_dot_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_dup_dot_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_dup_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dup_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_dup_dot_award_config_id_seq OWNED BY public.epmms_award_config_dup_dot.award_config_id;
 
 
 --
--- Name: epmms_award_config_foundation; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_foundation; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_foundation (
@@ -18813,10 +17971,8 @@ CREATE TABLE public.epmms_award_config_foundation (
 );
 
 
-ALTER TABLE public.epmms_award_config_foundation OWNER TO postgres;
-
 --
--- Name: epmms_award_config_foundation_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_foundation_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_foundation_award_config_id_seq
@@ -18827,17 +17983,15 @@ CREATE SEQUENCE public.epmms_award_config_foundation_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_foundation_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_foundation_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_foundation_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_foundation_award_config_id_seq OWNED BY public.epmms_award_config_foundation.award_config_id;
 
 
 --
--- Name: epmms_award_config_gl; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gl; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_gl (
@@ -18848,10 +18002,8 @@ CREATE TABLE public.epmms_award_config_gl (
 );
 
 
-ALTER TABLE public.epmms_award_config_gl OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_gl; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_gl; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_gl IS '下代产生组织奖时得管理奖如下:
@@ -18870,7 +18022,7 @@ COMMENT ON TABLE public.epmms_award_config_gl IS '下代产生组织奖时得管
 
 
 --
--- Name: epmms_award_config_gl_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gl_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_gl_award_config_id_seq
@@ -18881,17 +18033,15 @@ CREATE SEQUENCE public.epmms_award_config_gl_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_gl_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_gl_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gl_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_gl_award_config_id_seq OWNED BY public.epmms_award_config_gl.award_config_id;
 
 
 --
--- Name: epmms_award_config_gongpai; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gongpai; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_gongpai (
@@ -18901,10 +18051,8 @@ CREATE TABLE public.epmms_award_config_gongpai (
 );
 
 
-ALTER TABLE public.epmms_award_config_gongpai OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_gongpai; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_gongpai; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_gongpai IS '每注册一个VIP会员给比他注册时间早的10个钻石会员60元
@@ -18912,7 +18060,7 @@ COMMENT ON TABLE public.epmms_award_config_gongpai IS '每注册一个VIP会员�
 
 
 --
--- Name: epmms_award_config_gongpai_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gongpai_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_gongpai_award_config_id_seq
@@ -18923,17 +18071,15 @@ CREATE SEQUENCE public.epmms_award_config_gongpai_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_gongpai_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_gongpai_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gongpai_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_gongpai_award_config_id_seq OWNED BY public.epmms_award_config_gongpai.award_config_id;
 
 
 --
--- Name: epmms_award_config_group; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_group (
@@ -18944,10 +18090,8 @@ CREATE TABLE public.epmms_award_config_group (
 );
 
 
-ALTER TABLE public.epmms_award_config_group OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_group; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_group; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_group IS '接点关系下每注册一个拿10元,默认拿以下层数
@@ -18962,7 +18106,7 @@ COMMENT ON TABLE public.epmms_award_config_group IS '接点关系下每注册一
 
 
 --
--- Name: epmms_award_config_group7; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group7; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_group7 (
@@ -18972,10 +18116,8 @@ CREATE TABLE public.epmms_award_config_group7 (
 );
 
 
-ALTER TABLE public.epmms_award_config_group7 OWNER TO postgres;
-
 --
--- Name: epmms_award_config_group7_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group7_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_group7_award_config_id_seq
@@ -18986,17 +18128,15 @@ CREATE SEQUENCE public.epmms_award_config_group7_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_group7_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_group7_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group7_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_group7_award_config_id_seq OWNED BY public.epmms_award_config_group7.award_config_id;
 
 
 --
--- Name: epmms_award_config_group_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_group_award_config_id_seq
@@ -19007,17 +18147,15 @@ CREATE SEQUENCE public.epmms_award_config_group_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_group_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_group_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_group_award_config_id_seq OWNED BY public.epmms_award_config_group.award_config_id;
 
 
 --
--- Name: epmms_award_config_huikui; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_huikui; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_huikui (
@@ -19028,17 +18166,15 @@ CREATE TABLE public.epmms_award_config_huikui (
 );
 
 
-ALTER TABLE public.epmms_award_config_huikui OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_huikui; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_huikui; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_huikui IS '当某会员下面指定层上的会员升级时该会员可得奖金';
 
 
 --
--- Name: epmms_award_config_huikui_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_huikui_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_huikui_award_config_id_seq
@@ -19049,17 +18185,15 @@ CREATE SEQUENCE public.epmms_award_config_huikui_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_huikui_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_huikui_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_huikui_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_huikui_award_config_id_seq OWNED BY public.epmms_award_config_huikui.award_config_id;
 
 
 --
--- Name: epmms_award_config_layer; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_layer (
@@ -19070,38 +18204,36 @@ CREATE TABLE public.epmms_award_config_layer (
 );
 
 
-ALTER TABLE public.epmms_award_config_layer OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_layer IS '层奖';
 
 
 --
--- Name: COLUMN epmms_award_config_layer.award_config_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_layer.award_config_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_layer.award_config_layer IS '层数';
 
 
 --
--- Name: COLUMN epmms_award_config_layer.award_config_award_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_layer.award_config_award_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_layer.award_config_award_currency IS '奖金';
 
 
 --
--- Name: COLUMN epmms_award_config_layer.award_config_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_layer.award_config_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_layer.award_config_type IS '获奖会员类型';
 
 
 --
--- Name: epmms_award_config_layer_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_layer_award_config_id_seq
@@ -19112,17 +18244,15 @@ CREATE SEQUENCE public.epmms_award_config_layer_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_layer_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_layer_award_config_id_seq OWNED BY public.epmms_award_config_layer.award_config_id;
 
 
 --
--- Name: epmms_award_config_layer_dot; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_dot; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_layer_dot (
@@ -19133,17 +18263,15 @@ CREATE TABLE public.epmms_award_config_layer_dot (
 );
 
 
-ALTER TABLE public.epmms_award_config_layer_dot OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_layer_dot; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_layer_dot; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_layer_dot IS '各层见点奖不同';
 
 
 --
--- Name: epmms_award_config_layer_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_layer_dot_award_config_id_seq
@@ -19154,17 +18282,15 @@ CREATE SEQUENCE public.epmms_award_config_layer_dot_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_layer_dot_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_layer_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_layer_dot_award_config_id_seq OWNED BY public.epmms_award_config_layer_dot.award_config_id;
 
 
 --
--- Name: epmms_award_config_layer_recommend_dot; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_recommend_dot; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_layer_recommend_dot (
@@ -19175,10 +18301,8 @@ CREATE TABLE public.epmms_award_config_layer_recommend_dot (
 );
 
 
-ALTER TABLE public.epmms_award_config_layer_recommend_dot OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_layer_recommend_dot; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_layer_recommend_dot; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_layer_recommend_dot IS '每注册一个会员符合条件的拿
@@ -19190,7 +18314,7 @@ COMMENT ON TABLE public.epmms_award_config_layer_recommend_dot IS '每注册一�
 
 
 --
--- Name: epmms_award_config_layer_recommend_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_recommend_dot_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_layer_recommend_dot_award_config_id_seq
@@ -19201,17 +18325,15 @@ CREATE SEQUENCE public.epmms_award_config_layer_recommend_dot_award_config_id_se
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_layer_recommend_dot_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_layer_recommend_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_recommend_dot_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_layer_recommend_dot_award_config_id_seq OWNED BY public.epmms_award_config_layer_recommend_dot.award_config_id;
 
 
 --
--- Name: epmms_award_config_leader_down; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_leader_down; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_leader_down (
@@ -19222,10 +18344,8 @@ CREATE TABLE public.epmms_award_config_leader_down (
 );
 
 
-ALTER TABLE public.epmms_award_config_leader_down OWNER TO postgres;
-
 --
--- Name: epmms_award_config_leader_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_leader_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_leader_down_award_config_id_seq
@@ -19236,17 +18356,15 @@ CREATE SEQUENCE public.epmms_award_config_leader_down_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_leader_down_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_leader_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_leader_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_leader_down_award_config_id_seq OWNED BY public.epmms_award_config_leader_down.award_config_id;
 
 
 --
--- Name: epmms_award_config_lingdao; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_lingdao; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_lingdao (
@@ -19256,10 +18374,8 @@ CREATE TABLE public.epmms_award_config_lingdao (
 );
 
 
-ALTER TABLE public.epmms_award_config_lingdao OWNER TO postgres;
-
 --
--- Name: epmms_award_config_lingdao_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_lingdao_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_lingdao_award_config_id_seq
@@ -19270,17 +18386,15 @@ CREATE SEQUENCE public.epmms_award_config_lingdao_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_lingdao_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_lingdao_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_lingdao_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_lingdao_award_config_id_seq OWNED BY public.epmms_award_config_lingdao.award_config_id;
 
 
 --
--- Name: epmms_award_config_org_down; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_down; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_org_down (
@@ -19291,10 +18405,8 @@ CREATE TABLE public.epmms_award_config_org_down (
 );
 
 
-ALTER TABLE public.epmms_award_config_org_down OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_org_down; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_org_down; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_org_down IS '互动奖金的细节是这样：
@@ -19308,28 +18420,28 @@ COMMENT ON TABLE public.epmms_award_config_org_down IS '互动奖金的细节是
 
 
 --
--- Name: COLUMN epmms_award_config_org_down.recommend_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_org_down.recommend_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_org_down.recommend_count IS '推荐数';
 
 
 --
--- Name: COLUMN epmms_award_config_org_down.award_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_org_down.award_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_org_down.award_layer IS '拿奖金的层数';
 
 
 --
--- Name: COLUMN epmms_award_config_org_down.award_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_org_down.award_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_org_down.award_money IS '奖金';
 
 
 --
--- Name: epmms_award_config_org_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_down_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_org_down_award_config_id_seq
@@ -19340,17 +18452,15 @@ CREATE SEQUENCE public.epmms_award_config_org_down_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_org_down_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_org_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_down_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_org_down_award_config_id_seq OWNED BY public.epmms_award_config_org_down.award_config_id;
 
 
 --
--- Name: epmms_award_config_out; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_out; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_out (
@@ -19360,24 +18470,22 @@ CREATE TABLE public.epmms_award_config_out (
 );
 
 
-ALTER TABLE public.epmms_award_config_out OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_config_out.award_config_recommend; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_out.award_config_recommend; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_out.award_config_recommend IS '推荐数';
 
 
 --
--- Name: COLUMN epmms_award_config_out.award_config_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_out.award_config_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_out.award_config_award IS '奖金达到该值时出局';
 
 
 --
--- Name: epmms_award_config_out_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_out_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_out_award_config_id_seq
@@ -19388,17 +18496,15 @@ CREATE SEQUENCE public.epmms_award_config_out_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_out_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_out_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_out_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_out_award_config_id_seq OWNED BY public.epmms_award_config_out.award_config_id;
 
 
 --
--- Name: epmms_award_config_pair_member; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_pair_member; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_pair_member (
@@ -19409,31 +18515,29 @@ CREATE TABLE public.epmms_award_config_pair_member (
 );
 
 
-ALTER TABLE public.epmms_award_config_pair_member OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_pair_member; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_pair_member; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_pair_member IS '1:1对碰';
 
 
 --
--- Name: COLUMN epmms_award_config_pair_member.award_config_membertype; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_pair_member.award_config_membertype; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_pair_member.award_config_membertype IS '会员类型';
 
 
 --
--- Name: COLUMN epmms_award_config_pair_member.award_config_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_config_pair_member.award_config_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_config_pair_member.award_config_currency IS '奖金';
 
 
 --
--- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_pair_member_award_config_id_seq
@@ -19444,17 +18548,15 @@ CREATE SEQUENCE public.epmms_award_config_pair_member_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_pair_member_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_pair_member_award_config_id_seq OWNED BY public.epmms_award_config_pair_member.award_config_id;
 
 
 --
--- Name: epmms_award_config_peiyu_upgrade; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_peiyu_upgrade; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_peiyu_upgrade (
@@ -19465,10 +18567,8 @@ CREATE TABLE public.epmms_award_config_peiyu_upgrade (
 );
 
 
-ALTER TABLE public.epmms_award_config_peiyu_upgrade OWNER TO postgres;
-
 --
--- Name: epmms_award_config_peiyu_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_peiyu_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_peiyu_upgrade_award_config_id_seq
@@ -19479,17 +18579,15 @@ CREATE SEQUENCE public.epmms_award_config_peiyu_upgrade_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_peiyu_upgrade_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_peiyu_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_peiyu_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_peiyu_upgrade_award_config_id_seq OWNED BY public.epmms_award_config_peiyu_upgrade.award_config_id;
 
 
 --
--- Name: epmms_award_config_prize; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_prize; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_prize (
@@ -19499,10 +18597,8 @@ CREATE TABLE public.epmms_award_config_prize (
 );
 
 
-ALTER TABLE public.epmms_award_config_prize OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_config_prize; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_config_prize; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_config_prize IS 'A:B表示A大于等于且B大于等于
@@ -19515,7 +18611,7 @@ COMMENT ON TABLE public.epmms_award_config_prize IS 'A:B表示A大于等于且B�
 
 
 --
--- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_prize_award_config_id_seq
@@ -19526,17 +18622,15 @@ CREATE SEQUENCE public.epmms_award_config_prize_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_prize_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_prize_award_config_id_seq OWNED BY public.epmms_award_config_prize.award_config_id;
 
 
 --
--- Name: epmms_award_config_recommend; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_recommend (
@@ -19546,10 +18640,8 @@ CREATE TABLE public.epmms_award_config_recommend (
 );
 
 
-ALTER TABLE public.epmms_award_config_recommend OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_recommend_award_config_id_seq
@@ -19560,17 +18652,15 @@ CREATE SEQUENCE public.epmms_award_config_recommend_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_recommend_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_recommend_award_config_id_seq OWNED BY public.epmms_award_config_recommend.award_config_id;
 
 
 --
--- Name: epmms_award_config_recommend_layer; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_recommend_layer (
@@ -19580,10 +18670,8 @@ CREATE TABLE public.epmms_award_config_recommend_layer (
 );
 
 
-ALTER TABLE public.epmms_award_config_recommend_layer OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_layer_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_recommend_layer_award_config_id_seq
@@ -19594,17 +18682,15 @@ CREATE SEQUENCE public.epmms_award_config_recommend_layer_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_recommend_layer_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_recommend_layer_award_config_id_seq OWNED BY public.epmms_award_config_recommend_layer.award_config_id;
 
 
 --
--- Name: epmms_award_config_recommend_layer_dot; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer_dot; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_recommend_layer_dot (
@@ -19616,10 +18702,8 @@ CREATE TABLE public.epmms_award_config_recommend_layer_dot (
 );
 
 
-ALTER TABLE public.epmms_award_config_recommend_layer_dot OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_level; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_level; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_recommend_level (
@@ -19630,10 +18714,8 @@ CREATE TABLE public.epmms_award_config_recommend_level (
 );
 
 
-ALTER TABLE public.epmms_award_config_recommend_level OWNER TO postgres;
-
 --
--- Name: epmms_award_config_recommend_level_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_level_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_recommend_level_award_config_id_seq
@@ -19644,10 +18726,8 @@ CREATE SEQUENCE public.epmms_award_config_recommend_level_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_recommend_level_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_share; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_share; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_share (
@@ -19657,10 +18737,8 @@ CREATE TABLE public.epmms_award_config_share (
 );
 
 
-ALTER TABLE public.epmms_award_config_share OWNER TO postgres;
-
 --
--- Name: epmms_award_config_share_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_share_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_share_award_config_id_seq
@@ -19672,17 +18750,15 @@ CREATE SEQUENCE public.epmms_award_config_share_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_share_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_share_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_share_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_share_award_config_id_seq OWNED BY public.epmms_award_config_share.award_config_id;
 
 
 --
--- Name: epmms_award_config_stock; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_stock; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_stock (
@@ -19692,10 +18768,8 @@ CREATE TABLE public.epmms_award_config_stock (
 );
 
 
-ALTER TABLE public.epmms_award_config_stock OWNER TO postgres;
-
 --
--- Name: epmms_award_config_stock_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_stock_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_stock_award_config_id_seq
@@ -19706,17 +18780,15 @@ CREATE SEQUENCE public.epmms_award_config_stock_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_stock_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_stock_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_stock_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_stock_award_config_id_seq OWNED BY public.epmms_award_config_stock.award_config_id;
 
 
 --
--- Name: epmms_award_config_student_out; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_student_out; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_student_out (
@@ -19725,10 +18797,8 @@ CREATE TABLE public.epmms_award_config_student_out (
 );
 
 
-ALTER TABLE public.epmms_award_config_student_out OWNER TO postgres;
-
 --
--- Name: epmms_award_config_up; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_up; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_up (
@@ -19739,10 +18809,8 @@ CREATE TABLE public.epmms_award_config_up (
 );
 
 
-ALTER TABLE public.epmms_award_config_up OWNER TO postgres;
-
 --
--- Name: epmms_award_config_up_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_up_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_up_award_config_id_seq
@@ -19753,17 +18821,15 @@ CREATE SEQUENCE public.epmms_award_config_up_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_up_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_up_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_up_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_up_award_config_id_seq OWNED BY public.epmms_award_config_up.award_config_id;
 
 
 --
--- Name: epmms_award_config_upgrade; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_upgrade; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_upgrade (
@@ -19774,10 +18840,8 @@ CREATE TABLE public.epmms_award_config_upgrade (
 );
 
 
-ALTER TABLE public.epmms_award_config_upgrade OWNER TO postgres;
-
 --
--- Name: epmms_award_config_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_upgrade_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_upgrade_award_config_id_seq
@@ -19788,17 +18852,15 @@ CREATE SEQUENCE public.epmms_award_config_upgrade_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_upgrade_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_upgrade_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_upgrade_award_config_id_seq OWNED BY public.epmms_award_config_upgrade.award_config_id;
 
 
 --
--- Name: epmms_award_config_yeji; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_yeji; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_config_yeji (
@@ -19811,10 +18873,8 @@ CREATE TABLE public.epmms_award_config_yeji (
 );
 
 
-ALTER TABLE public.epmms_award_config_yeji OWNER TO postgres;
-
 --
--- Name: epmms_award_config_yeji_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_config_yeji_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_config_yeji_award_config_id_seq
@@ -19825,17 +18885,15 @@ CREATE SEQUENCE public.epmms_award_config_yeji_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_config_yeji_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_config_yeji_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_config_yeji_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_config_yeji_award_config_id_seq OWNED BY public.epmms_award_config_yeji.award_config_id;
 
 
 --
--- Name: epmms_award_day; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_day; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_day (
@@ -19849,45 +18907,43 @@ CREATE TABLE public.epmms_award_day (
 );
 
 
-ALTER TABLE public.epmms_award_day OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_day.award_day_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day.award_day_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day.award_day_date IS '日序号';
 
 
 --
--- Name: COLUMN epmms_award_day.award_day_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day.award_day_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day.award_day_memberinfo_id IS '会员id';
 
 
 --
--- Name: COLUMN epmms_award_day.award_day_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day.award_day_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day.award_day_currency IS '奖金额度';
 
 
 --
--- Name: COLUMN epmms_award_day.award_day_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day.award_day_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day.award_day_type_id IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_award_day.award_day_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day.award_day_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day.award_day_add_date IS '添加时间';
 
 
 --
--- Name: epmms_award_day_award_day_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_day_award_day_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_day_award_day_id_seq
@@ -19898,10 +18954,8 @@ CREATE SEQUENCE public.epmms_award_day_award_day_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_day_award_day_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_day_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_day_sum (
@@ -19915,38 +18969,36 @@ CREATE TABLE public.epmms_award_day_sum (
 );
 
 
-ALTER TABLE public.epmms_award_day_sum OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_day_sum.award_day_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day_sum.award_day_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day_sum.award_day_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_day_sum.award_day_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day_sum.award_day_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day_sum.award_day_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_day_sum.award_day_sum_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day_sum.award_day_sum_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day_sum.award_day_sum_date IS '天日期';
 
 
 --
--- Name: COLUMN epmms_award_day_sum.award_day_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_day_sum.award_day_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_day_sum.award_day_sum_type IS '汇总类别';
 
 
 --
--- Name: epmms_award_day_sum_all; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_day_sum_all (
@@ -19959,10 +19011,8 @@ CREATE TABLE public.epmms_award_day_sum_all (
 );
 
 
-ALTER TABLE public.epmms_award_day_sum_all OWNER TO postgres;
-
 --
--- Name: epmms_award_day_sum_all_award_day_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all_award_day_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_day_sum_all_award_day_sum_id_seq
@@ -19973,17 +19023,15 @@ CREATE SEQUENCE public.epmms_award_day_sum_all_award_day_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_day_sum_all_award_day_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_day_sum_all_award_day_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all_award_day_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_day_sum_all_award_day_sum_id_seq OWNED BY public.epmms_award_day_sum_all.award_day_sum_id;
 
 
 --
--- Name: epmms_award_day_sum_award_day_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_award_day_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_day_sum_award_day_sum_id_seq
@@ -19994,10 +19042,8 @@ CREATE SEQUENCE public.epmms_award_day_sum_award_day_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_day_sum_award_day_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_group; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_group; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_group (
@@ -20008,31 +19054,29 @@ CREATE TABLE public.epmms_award_group (
 );
 
 
-ALTER TABLE public.epmms_award_group OWNER TO postgres;
-
 --
--- Name: TABLE epmms_award_group; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_award_group; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_award_group IS '奖金组配置';
 
 
 --
--- Name: COLUMN epmms_award_group.award_group_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_group.award_group_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_group.award_group_type IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_award_group.award_group_calc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_group.award_group_calc; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_group.award_group_calc IS '结算方式';
 
 
 --
--- Name: epmms_award_group_award_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_group_award_group_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_group_award_group_id_seq
@@ -20043,17 +19087,15 @@ CREATE SEQUENCE public.epmms_award_group_award_group_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_group_award_group_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_group_award_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_group_award_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_group_award_group_id_seq OWNED BY public.epmms_award_group.award_group_id;
 
 
 --
--- Name: epmms_award_month; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_month; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_month (
@@ -20067,45 +19109,43 @@ CREATE TABLE public.epmms_award_month (
 );
 
 
-ALTER TABLE public.epmms_award_month OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_month.award_month_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month.award_month_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month.award_month_date IS '月序号';
 
 
 --
--- Name: COLUMN epmms_award_month.award_month_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month.award_month_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month.award_month_memberinfo_id IS '会员id';
 
 
 --
--- Name: COLUMN epmms_award_month.award_month_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month.award_month_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month.award_month_currency IS '奖金额度';
 
 
 --
--- Name: COLUMN epmms_award_month.award_month_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month.award_month_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month.award_month_type_id IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_award_month.award_month_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month.award_month_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month.award_month_add_date IS '添加日期';
 
 
 --
--- Name: epmms_award_month_award_month_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_month_award_month_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_month_award_month_id_seq
@@ -20116,10 +19156,8 @@ CREATE SEQUENCE public.epmms_award_month_award_month_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_month_award_month_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_month_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_month_sum (
@@ -20133,38 +19171,36 @@ CREATE TABLE public.epmms_award_month_sum (
 );
 
 
-ALTER TABLE public.epmms_award_month_sum OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_month_sum.award_month_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum.award_month_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum.award_month_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_month_sum.award_month_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum.award_month_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum.award_month_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_month_sum.award_month_sum_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum.award_month_sum_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum.award_month_sum_date IS '月日期';
 
 
 --
--- Name: COLUMN epmms_award_month_sum.award_month_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum.award_month_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum.award_month_sum_type IS '汇总分类';
 
 
 --
--- Name: epmms_award_month_sum_all; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_month_sum_all (
@@ -20177,31 +19213,29 @@ CREATE TABLE public.epmms_award_month_sum_all (
 );
 
 
-ALTER TABLE public.epmms_award_month_sum_all OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_month_sum_all.award_month_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum_all.award_month_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum_all.award_month_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_month_sum_all.award_month_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum_all.award_month_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum_all.award_month_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_month_sum_all.award_month_sum_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_month_sum_all.award_month_sum_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_month_sum_all.award_month_sum_date IS '月日期';
 
 
 --
--- Name: epmms_award_month_sum_all_award_month_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all_award_month_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_month_sum_all_award_month_sum_id_seq
@@ -20212,17 +19246,15 @@ CREATE SEQUENCE public.epmms_award_month_sum_all_award_month_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_month_sum_all_award_month_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_month_sum_all_award_month_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all_award_month_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_month_sum_all_award_month_sum_id_seq OWNED BY public.epmms_award_month_sum_all.award_month_sum_id;
 
 
 --
--- Name: epmms_award_month_sum_award_month_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_award_month_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_month_sum_award_month_sum_id_seq
@@ -20233,10 +19265,8 @@ CREATE SEQUENCE public.epmms_award_month_sum_award_month_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_month_sum_award_month_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_year_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_year_sum (
@@ -20249,38 +19279,36 @@ CREATE TABLE public.epmms_award_year_sum (
 );
 
 
-ALTER TABLE public.epmms_award_year_sum OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_year_sum.award_year_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year_sum.award_year_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year_sum.award_year_sum_memberinfo_id IS '获奖会员';
 
 
 --
--- Name: COLUMN epmms_award_year_sum.award_year_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year_sum.award_year_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year_sum.award_year_sum_currency IS '年小计';
 
 
 --
--- Name: COLUMN epmms_award_year_sum.award_year_sum_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year_sum.award_year_sum_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year_sum.award_year_sum_date IS '年度的第一天';
 
 
 --
--- Name: COLUMN epmms_award_year_sum.award_year_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year_sum.award_year_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year_sum.award_year_sum_type IS '汇总类型';
 
 
 --
--- Name: epmms_award_month_year_sum_award_year_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_month_year_sum_award_year_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_month_year_sum_award_year_sum_id_seq
@@ -20291,17 +19319,15 @@ CREATE SEQUENCE public.epmms_award_month_year_sum_award_year_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_month_year_sum_award_year_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_month_year_sum_award_year_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_month_year_sum_award_year_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_month_year_sum_award_year_sum_id_seq OWNED BY public.epmms_award_year_sum.award_year_sum_id;
 
 
 --
--- Name: epmms_award_period; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_period; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_period (
@@ -20316,38 +19342,36 @@ CREATE TABLE public.epmms_award_period (
 );
 
 
-ALTER TABLE public.epmms_award_period OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_period.award_period_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period.award_period_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period.award_period_period IS '期次';
 
 
 --
--- Name: COLUMN epmms_award_period.award_period_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period.award_period_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period.award_period_memberinfo_id IS '会员id';
 
 
 --
--- Name: COLUMN epmms_award_period.award_period_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period.award_period_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period.award_period_currency IS '奖金额度';
 
 
 --
--- Name: COLUMN epmms_award_period.award_period_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period.award_period_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period.award_period_type_id IS '奖金类型';
 
 
 --
--- Name: epmms_award_period_award_period_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_period_award_period_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_period_award_period_id_seq
@@ -20358,10 +19382,8 @@ CREATE SEQUENCE public.epmms_award_period_award_period_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_period_award_period_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_period_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_period_sum (
@@ -20376,45 +19398,43 @@ CREATE TABLE public.epmms_award_period_sum (
 );
 
 
-ALTER TABLE public.epmms_award_period_sum OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_period_sum.award_period_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period_sum.award_period_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period_sum.award_period_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_period_sum.award_period_sum_src_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period_sum.award_period_sum_src_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period_sum.award_period_sum_src_memberinfo_id IS '来源会员id';
 
 
 --
--- Name: COLUMN epmms_award_period_sum.award_period_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period_sum.award_period_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period_sum.award_period_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_period_sum.award_period_sum_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period_sum.award_period_sum_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period_sum.award_period_sum_period IS '期次';
 
 
 --
--- Name: COLUMN epmms_award_period_sum.award_period_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_period_sum.award_period_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_period_sum.award_period_sum_type IS '汇总分类';
 
 
 --
--- Name: epmms_award_period_sum_award_period_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_award_period_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_period_sum_award_period_sum_id_seq
@@ -20425,10 +19445,8 @@ CREATE SEQUENCE public.epmms_award_period_sum_award_period_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_period_sum_award_period_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_total; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_total; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_total (
@@ -20441,31 +19459,29 @@ CREATE TABLE public.epmms_award_total (
 );
 
 
-ALTER TABLE public.epmms_award_total OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_total.award_total_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total.award_total_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total.award_total_memberinfo_id IS '会员id';
 
 
 --
--- Name: COLUMN epmms_award_total.award_total_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total.award_total_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total.award_total_currency IS '奖金额度';
 
 
 --
--- Name: COLUMN epmms_award_total.award_total_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total.award_total_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total.award_total_type_id IS '奖金类型';
 
 
 --
--- Name: epmms_award_total_award_total_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_total_award_total_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_total_award_total_id_seq
@@ -20476,10 +19492,8 @@ CREATE SEQUENCE public.epmms_award_total_award_total_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_total_award_total_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_total_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_total_sum (
@@ -20491,38 +19505,36 @@ CREATE TABLE public.epmms_award_total_sum (
 );
 
 
-ALTER TABLE public.epmms_award_total_sum OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_total_sum.award_total_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total_sum.award_total_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total_sum.award_total_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_total_sum.award_total_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total_sum.award_total_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total_sum.award_total_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_total_sum.award_total_sum_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total_sum.award_total_sum_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total_sum.award_total_sum_add_date IS '添加日期';
 
 
 --
--- Name: COLUMN epmms_award_total_sum.award_total_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_total_sum.award_total_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_total_sum.award_total_sum_type IS '汇总分类';
 
 
 --
--- Name: epmms_award_total_sum_award_total_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum_award_total_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_total_sum_award_total_sum_id_seq
@@ -20533,10 +19545,8 @@ CREATE SEQUENCE public.epmms_award_total_sum_award_total_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_total_sum_award_total_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_type; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_type (
@@ -20552,59 +19562,57 @@ CREATE TABLE public.epmms_award_type (
 );
 
 
-ALTER TABLE public.epmms_award_type OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_type.award_type_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_type_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_type_name IS '奖金名称';
 
 
 --
--- Name: COLUMN epmms_award_type.award_type_desc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_type_desc; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_type_desc IS '奖金描述';
 
 
 --
--- Name: COLUMN epmms_award_type.award_type_is_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_type_is_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_type_is_enable IS '是否启用，只需启用客户需要的奖金制度';
 
 
 --
--- Name: COLUMN epmms_award_type.award_type_class; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_type_class; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_type_class IS '实现该算法的php类或sql函数';
 
 
 --
--- Name: COLUMN epmms_award_type.award_type_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_type_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_type_order IS '奖金显示顺序';
 
 
 --
--- Name: COLUMN epmms_award_type.award_is_calc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_is_calc; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_is_calc IS '是否通过存储过程计算';
 
 
 --
--- Name: COLUMN epmms_award_type.award_type_is_upgrade; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_type.award_type_is_upgrade; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_type.award_type_is_upgrade IS '是否支持升级';
 
 
 --
--- Name: epmms_award_week; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_week; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_week (
@@ -20618,45 +19626,43 @@ CREATE TABLE public.epmms_award_week (
 );
 
 
-ALTER TABLE public.epmms_award_week OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_week.award_week_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week.award_week_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week.award_week_date IS '星期序号';
 
 
 --
--- Name: COLUMN epmms_award_week.award_week_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week.award_week_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week.award_week_memberinfo_id IS '会员id';
 
 
 --
--- Name: COLUMN epmms_award_week.award_week_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week.award_week_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week.award_week_currency IS '奖金额度';
 
 
 --
--- Name: COLUMN epmms_award_week.award_week_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week.award_week_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week.award_week_type_id IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_award_week.award_week_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week.award_week_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week.award_week_add_date IS '添加时间';
 
 
 --
--- Name: epmms_award_week_award_week_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_week_award_week_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_week_award_week_id_seq
@@ -20667,10 +19673,8 @@ CREATE SEQUENCE public.epmms_award_week_award_week_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_week_award_week_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_week_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_week_sum (
@@ -20684,38 +19688,36 @@ CREATE TABLE public.epmms_award_week_sum (
 );
 
 
-ALTER TABLE public.epmms_award_week_sum OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_week_sum.award_week_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum.award_week_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum.award_week_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_week_sum.award_week_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum.award_week_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum.award_week_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_week_sum.award_week_sum_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum.award_week_sum_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum.award_week_sum_date IS '周日期';
 
 
 --
--- Name: COLUMN epmms_award_week_sum.award_week_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum.award_week_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum.award_week_sum_type IS '汇总类型';
 
 
 --
--- Name: epmms_award_week_sum_all; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_week_sum_all (
@@ -20728,31 +19730,29 @@ CREATE TABLE public.epmms_award_week_sum_all (
 );
 
 
-ALTER TABLE public.epmms_award_week_sum_all OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_week_sum_all.award_week_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum_all.award_week_sum_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum_all.award_week_sum_memberinfo_id IS '来源用户';
 
 
 --
--- Name: COLUMN epmms_award_week_sum_all.award_week_sum_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum_all.award_week_sum_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum_all.award_week_sum_currency IS '汇总金额';
 
 
 --
--- Name: COLUMN epmms_award_week_sum_all.award_week_sum_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_week_sum_all.award_week_sum_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_week_sum_all.award_week_sum_date IS '周日期';
 
 
 --
--- Name: epmms_award_week_sum_all_award_week_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all_award_week_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_week_sum_all_award_week_sum_id_seq
@@ -20763,17 +19763,15 @@ CREATE SEQUENCE public.epmms_award_week_sum_all_award_week_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_week_sum_all_award_week_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_week_sum_all_award_week_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all_award_week_sum_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_week_sum_all_award_week_sum_id_seq OWNED BY public.epmms_award_week_sum_all.award_week_sum_id;
 
 
 --
--- Name: epmms_award_week_sum_award_week_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_award_week_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_week_sum_award_week_sum_id_seq
@@ -20784,10 +19782,8 @@ CREATE SEQUENCE public.epmms_award_week_sum_award_week_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_week_sum_award_week_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_year; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_award_year; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_award_year (
@@ -20801,38 +19797,36 @@ CREATE TABLE public.epmms_award_year (
 );
 
 
-ALTER TABLE public.epmms_award_year OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_award_year.award_year_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year.award_year_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year.award_year_date IS '年份的第一天';
 
 
 --
--- Name: COLUMN epmms_award_year.award_year_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year.award_year_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year.award_year_memberinfo_id IS '获奖会员';
 
 
 --
--- Name: COLUMN epmms_award_year.award_year_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year.award_year_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year.award_year_currency IS '奖金';
 
 
 --
--- Name: COLUMN epmms_award_year.award_year_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_award_year.award_year_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_award_year.award_year_type_id IS '奖金类型';
 
 
 --
--- Name: epmms_award_year_award_year_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_award_year_award_year_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_award_year_award_year_id_seq
@@ -20843,17 +19837,15 @@ CREATE SEQUENCE public.epmms_award_year_award_year_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_award_year_award_year_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_award_year_award_year_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_award_year_award_year_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_award_year_award_year_id_seq OWNED BY public.epmms_award_year.award_year_id;
 
 
 --
--- Name: epmms_backup; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_backup; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_backup (
@@ -20866,45 +19858,43 @@ CREATE TABLE public.epmms_backup (
 );
 
 
-ALTER TABLE public.epmms_backup OWNER TO postgres;
-
 --
--- Name: TABLE epmms_backup; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_backup; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_backup IS '备份恢复';
 
 
 --
--- Name: COLUMN epmms_backup.backup_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_backup.backup_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_backup.backup_name IS '备份名称';
 
 
 --
--- Name: COLUMN epmms_backup.backup_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_backup.backup_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_backup.backup_add_date IS '备份日期';
 
 
 --
--- Name: COLUMN epmms_backup.backup_remark; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_backup.backup_remark; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_backup.backup_remark IS '备注';
 
 
 --
--- Name: COLUMN epmms_backup.backup_file; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_backup.backup_file; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_backup.backup_file IS '备份文件';
 
 
 --
--- Name: COLUMN epmms_backup.backup_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_backup.backup_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_backup.backup_type IS '备份类型
@@ -20913,7 +19903,7 @@ COMMENT ON COLUMN public.epmms_backup.backup_type IS '备份类型
 
 
 --
--- Name: epmms_backup_backup_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_backup_backup_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_backup_backup_id_seq
@@ -20924,17 +19914,15 @@ CREATE SEQUENCE public.epmms_backup_backup_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_backup_backup_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_backup_backup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_backup_backup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_backup_backup_id_seq OWNED BY public.epmms_backup.backup_id;
 
 
 --
--- Name: epmms_bank; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_bank; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_bank (
@@ -20945,31 +19933,29 @@ CREATE TABLE public.epmms_bank (
 );
 
 
-ALTER TABLE public.epmms_bank OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_bank.bank_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bank.bank_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bank.bank_name IS '银行名称';
 
 
 --
--- Name: COLUMN epmms_bank.bank_is_preset; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bank.bank_is_preset; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bank.bank_is_preset IS '是否刷定编辑';
 
 
 --
--- Name: COLUMN epmms_bank.bank_is_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bank.bank_is_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bank.bank_is_enable IS '是否启用';
 
 
 --
--- Name: epmms_bank_bank_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_bank_bank_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_bank_bank_id_seq
@@ -20980,10 +19966,8 @@ CREATE SEQUENCE public.epmms_bank_bank_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_bank_bank_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_bankaccount; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_bankaccount; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_bankaccount (
@@ -21001,80 +19985,78 @@ CREATE TABLE public.epmms_bankaccount (
 );
 
 
-ALTER TABLE public.epmms_bankaccount OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_bank_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_bank_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_bank_id IS '所属银行';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_account IS '银行帐号';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_provience; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_provience; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_provience IS '银行所在省';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_area; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_area; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_area IS '银行所在市/地区';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_branch; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_branch; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_branch IS '银行分行地址';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_mobi; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_mobi; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_mobi IS '电话';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_phone; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_phone; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_phone IS '联系电话';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_qq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_qq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_qq IS 'QQ号';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_is_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_is_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_is_enable IS '是否启用';
 
 
 --
--- Name: COLUMN epmms_bankaccount.bankaccount_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_bankaccount.bankaccount_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_bankaccount.bankaccount_name IS '银行开户名';
 
 
 --
--- Name: epmms_bankaccount_bankaccount_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_bankaccount_bankaccount_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_bankaccount_bankaccount_id_seq
@@ -21085,10 +20067,53 @@ CREATE SEQUENCE public.epmms_bankaccount_bankaccount_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_bankaccount_bankaccount_id_seq OWNER TO postgres;
+--
+-- Name: epmms_buy; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_buy (
+    buy_id integer NOT NULL,
+    buy_member_id integer,
+    buy_currency numeric(16,2),
+    buy_date timestamp(0) without time zone,
+    buy_money numeric(16,2),
+    buy_status smallint DEFAULT 0 NOT NULL,
+    buy_tax numeric(16,0) DEFAULT 0 NOT NULL,
+    buy_real_currency numeric(16,2) DEFAULT 0,
+    buy_type smallint,
+    buy_remain_currency numeric(16,2) DEFAULT 0 NOT NULL
+);
+
 
 --
--- Name: epmms_cap_award; Type: TABLE; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_buy.buy_type; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_buy.buy_type IS '方案类型';
+
+
+--
+-- Name: epmms_buy_buy_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_buy_buy_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_buy_buy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_buy_buy_id_seq OWNED BY public.epmms_buy.buy_id;
+
+
+--
+-- Name: epmms_cap_award; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_cap_award (
@@ -21099,38 +20124,36 @@ CREATE TABLE public.epmms_cap_award (
 );
 
 
-ALTER TABLE public.epmms_cap_award OWNER TO postgres;
-
 --
--- Name: TABLE epmms_cap_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_cap_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_cap_award IS '每个奖金的封顶';
 
 
 --
--- Name: COLUMN epmms_cap_award.cap_award_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_award.cap_award_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_award.cap_award_type IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_cap_award.cap_award_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_award.cap_award_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_award.cap_award_money IS '封顶值';
 
 
 --
--- Name: COLUMN epmms_cap_award.cap_award_date_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_award.cap_award_date_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_award.cap_award_date_type IS '日期单位';
 
 
 --
--- Name: epmms_cap_award_cap_award_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_cap_award_cap_award_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_cap_award_cap_award_id_seq
@@ -21141,17 +20164,15 @@ CREATE SEQUENCE public.epmms_cap_award_cap_award_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_cap_award_cap_award_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_cap_award_cap_award_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_cap_award_cap_award_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_cap_award_cap_award_id_seq OWNED BY public.epmms_cap_award.cap_award_id;
 
 
 --
--- Name: epmms_cap_member_award; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_award; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_cap_member_award (
@@ -21163,45 +20184,43 @@ CREATE TABLE public.epmms_cap_member_award (
 );
 
 
-ALTER TABLE public.epmms_cap_member_award OWNER TO postgres;
-
 --
--- Name: TABLE epmms_cap_member_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_cap_member_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_cap_member_award IS '每个会员类型奖金的封顶';
 
 
 --
--- Name: COLUMN epmms_cap_member_award.cap_member_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_award.cap_member_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_award.cap_member_type_id IS '会员类型';
 
 
 --
--- Name: COLUMN epmms_cap_member_award.cap_member_award_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_award.cap_member_award_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_award.cap_member_award_type IS '奖金类型';
 
 
 --
--- Name: COLUMN epmms_cap_member_award.cap_member_award_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_award.cap_member_award_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_award.cap_member_award_money IS '封顶值';
 
 
 --
--- Name: COLUMN epmms_cap_member_award.cap_member_date_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_award.cap_member_date_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_award.cap_member_date_type IS '时间单位';
 
 
 --
--- Name: epmms_cap_member_award_cap_member_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_award_cap_member_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_cap_member_award_cap_member_id_seq
@@ -21212,17 +20231,15 @@ CREATE SEQUENCE public.epmms_cap_member_award_cap_member_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_cap_member_award_cap_member_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_cap_member_award_cap_member_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_award_cap_member_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_cap_member_award_cap_member_id_seq OWNED BY public.epmms_cap_member_award.cap_member_id;
 
 
 --
--- Name: epmms_cap_member_cap_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_cap_sum_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_cap_member_cap_sum_id_seq
@@ -21233,10 +20250,8 @@ CREATE SEQUENCE public.epmms_cap_member_cap_sum_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_cap_member_cap_sum_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_cap_member_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_cap_member_sum (
@@ -21248,10 +20263,8 @@ CREATE TABLE public.epmms_cap_member_sum (
 );
 
 
-ALTER TABLE public.epmms_cap_member_sum OWNER TO postgres;
-
 --
--- Name: TABLE epmms_cap_member_sum; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_cap_member_sum; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_cap_member_sum IS '每个奖金的封顶
@@ -21260,28 +20273,28 @@ COMMENT ON TABLE public.epmms_cap_member_sum IS '每个奖金的封顶
 
 
 --
--- Name: COLUMN epmms_cap_member_sum.cap_member_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_sum.cap_member_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_sum.cap_member_type_id IS '会员类型';
 
 
 --
--- Name: COLUMN epmms_cap_member_sum.cap_member_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_sum.cap_member_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_sum.cap_member_money IS '封顶值';
 
 
 --
--- Name: COLUMN epmms_cap_member_sum.cap_member_date_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_member_sum.cap_member_date_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_member_sum.cap_member_date_type IS '时间单位';
 
 
 --
--- Name: epmms_cap_sum; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_cap_sum (
@@ -21292,31 +20305,29 @@ CREATE TABLE public.epmms_cap_sum (
 );
 
 
-ALTER TABLE public.epmms_cap_sum OWNER TO postgres;
-
 --
--- Name: TABLE epmms_cap_sum; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_cap_sum; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_cap_sum IS '每个奖金的封顶';
 
 
 --
--- Name: COLUMN epmms_cap_sum.cap_sum_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_sum.cap_sum_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_sum.cap_sum_sum_type IS '汇总类型';
 
 
 --
--- Name: COLUMN epmms_cap_sum.cap_sum_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_sum.cap_sum_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_sum.cap_sum_money IS '封顶值';
 
 
 --
--- Name: COLUMN epmms_cap_sum.cap_sum_date_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_cap_sum.cap_sum_date_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_cap_sum.cap_sum_date_type IS '日期单位
@@ -21324,7 +20335,7 @@ period,day,week,month';
 
 
 --
--- Name: epmms_cap_sum_cap_award_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum_cap_award_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_cap_sum_cap_award_id_seq
@@ -21335,17 +20346,15 @@ CREATE SEQUENCE public.epmms_cap_sum_cap_award_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_cap_sum_cap_award_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_cap_sum_cap_award_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum_cap_award_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_cap_sum_cap_award_id_seq OWNED BY public.epmms_cap_sum.cap_sum_id;
 
 
 --
--- Name: epmms_charge; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_charge; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_charge (
@@ -21368,108 +20377,106 @@ CREATE TABLE public.epmms_charge (
 );
 
 
-ALTER TABLE public.epmms_charge OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_charge.charge_sn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_sn; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_sn IS '充值流水号';
 
 
 --
--- Name: COLUMN epmms_charge.charge_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_memberinfo_id IS '代理中心id';
 
 
 --
--- Name: COLUMN epmms_charge.charge_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_currency IS '充值金额';
 
 
 --
--- Name: COLUMN epmms_charge.charge_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_is_verify IS '是否已审核';
 
 
 --
--- Name: COLUMN epmms_charge.charge_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_add_date IS '申请日期';
 
 
 --
--- Name: COLUMN epmms_charge.charge_bank_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_bank_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_bank_id IS '汇款银行';
 
 
 --
--- Name: COLUMN epmms_charge.charge_bank_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_bank_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_bank_account IS '汇款帐号';
 
 
 --
--- Name: COLUMN epmms_charge.charge_bank_address; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_bank_address; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_bank_address IS '银行地址';
 
 
 --
--- Name: COLUMN epmms_charge.charge_bank_sn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_bank_sn; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_bank_sn IS '银行流水号';
 
 
 --
--- Name: COLUMN epmms_charge.charge_bank_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_bank_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_bank_date IS '汇款日期';
 
 
 --
--- Name: COLUMN epmms_charge.charge_bank_account_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_bank_account_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_bank_account_name IS '银行户名';
 
 
 --
--- Name: COLUMN epmms_charge.charge_finance_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_finance_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_finance_type_id IS '充值的帐户类型';
 
 
 --
--- Name: COLUMN epmms_charge.charge_remark; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_remark; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_remark IS '备注';
 
 
 --
--- Name: COLUMN epmms_charge.charge_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_charge.charge_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_charge.charge_verify_date IS '审核日期';
 
 
 --
--- Name: epmms_charge_charge_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_charge_charge_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_charge_charge_id_seq
@@ -21480,10 +20487,8 @@ CREATE SEQUENCE public.epmms_charge_charge_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_charge_charge_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_auth; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_auth; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_auth (
@@ -21496,45 +20501,43 @@ CREATE TABLE public.epmms_config_auth (
 );
 
 
-ALTER TABLE public.epmms_config_auth OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_auth.config_auth_autologin; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_auth.config_auth_autologin; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_auth.config_auth_autologin IS '自动登录';
 
 
 --
--- Name: COLUMN epmms_config_auth.config_auth_timeout; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_auth.config_auth_timeout; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_auth.config_auth_timeout IS '登录超时';
 
 
 --
--- Name: COLUMN epmms_config_auth.config_auth_autologin2; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_auth.config_auth_autologin2; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_auth.config_auth_autologin2 IS '二级密码自动登录';
 
 
 --
--- Name: COLUMN epmms_config_auth.config_auth_timeout2; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_auth.config_auth_timeout2; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_auth.config_auth_timeout2 IS '二级密码超时';
 
 
 --
--- Name: COLUMN epmms_config_auth.config_auth_captcha; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_auth.config_auth_captcha; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_auth.config_auth_captcha IS '验证码验证方式';
 
 
 --
--- Name: epmms_config_award_differential; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_award_differential; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_award_differential (
@@ -21545,10 +20548,8 @@ CREATE TABLE public.epmms_config_award_differential (
 );
 
 
-ALTER TABLE public.epmms_config_award_differential OWNER TO postgres;
-
 --
--- Name: epmms_config_award_differential_award_differential_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_award_differential_award_differential_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_award_differential_award_differential_id_seq
@@ -21559,17 +20560,15 @@ CREATE SEQUENCE public.epmms_config_award_differential_award_differential_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_award_differential_award_differential_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_award_differential_award_differential_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_config_award_differential_award_differential_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_config_award_differential_award_differential_id_seq OWNED BY public.epmms_config_award_differential.award_config_id;
 
 
 --
--- Name: epmms_config_backup; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_backup; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_backup (
@@ -21579,31 +20578,29 @@ CREATE TABLE public.epmms_config_backup (
 );
 
 
-ALTER TABLE public.epmms_config_backup OWNER TO postgres;
-
 --
--- Name: TABLE epmms_config_backup; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_config_backup; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_config_backup IS '备份配置';
 
 
 --
--- Name: COLUMN epmms_config_backup.config_backup_days; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_backup.config_backup_days; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_backup.config_backup_days IS '备份保留的天数';
 
 
 --
--- Name: COLUMN epmms_config_backup.config_backup_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_backup.config_backup_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_backup.config_backup_count IS '备份保留的个数';
 
 
 --
--- Name: epmms_config_backup_config_backup_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_backup_config_backup_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_backup_config_backup_id_seq
@@ -21614,17 +20611,15 @@ CREATE SEQUENCE public.epmms_config_backup_config_backup_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_backup_config_backup_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_backup_config_backup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_config_backup_config_backup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_config_backup_config_backup_id_seq OWNED BY public.epmms_config_backup.config_backup_id;
 
 
 --
--- Name: epmms_config_dif_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_dif_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_dif_award_config_id_seq
@@ -21635,17 +20630,15 @@ CREATE SEQUENCE public.epmms_config_dif_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_dif_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_dif_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_config_dif_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_config_dif_award_config_id_seq OWNED BY public.epmms_award_config_dif.award_config_id;
 
 
 --
--- Name: epmms_config_dot_m_l_r_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_dot_m_l_r_award_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_dot_m_l_r_award_config_id_seq
@@ -21656,17 +20649,111 @@ CREATE SEQUENCE public.epmms_config_dot_m_l_r_award_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_dot_m_l_r_award_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_dot_m_l_r_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_config_dot_m_l_r_award_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_config_dot_m_l_r_award_config_id_seq OWNED BY public.epmms_award_config_recommend_layer_dot.award_config_id;
 
 
 --
--- Name: epmms_config_map; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_jackpot; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_config_jackpot (
+    config_jackpot_id integer NOT NULL,
+    config_jackpot_start_balance numeric(16,4) DEFAULT 0 NOT NULL,
+    config_jackpot_lucky_balance numeric(16,4) DEFAULT 0 NOT NULL,
+    config_jackpot_end_balance numeric(16,4) DEFAULT 0 NOT NULL,
+    config_jackpot_fund numeric(16,4) DEFAULT 0 NOT NULL,
+    config_jackpot_start_order_ratio numeric(16,2) DEFAULT 0 NOT NULL,
+    config_jackpot_lucky_order_ratio numeric(16,2) DEFAULT 0 NOT NULL,
+    config_jackpot_end_order_ratio numeric(16,2) DEFAULT 0 NOT NULL,
+    config_jackpot_start_time integer NOT NULL,
+    config_jackpot_end_time integer NOT NULL,
+    config_jackpot_number integer DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_id IS '主键id';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_start_balance; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_start_balance IS '首单奖池金额';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_lucky_balance; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_lucky_balance IS '幸运奖池金额';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_end_balance; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_end_balance IS '尾单奖池金额';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_fund; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_fund IS '发展基金';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_start_order_ratio; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_start_order_ratio IS '首单比例';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_lucky_order_ratio; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_lucky_order_ratio IS '幸运比例';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_end_order_ratio; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_end_order_ratio IS '尾单比例';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_start_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_start_time IS '开始时间';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_end_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_end_time IS '结束时间';
+
+
+--
+-- Name: COLUMN epmms_config_jackpot.config_jackpot_number; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_config_jackpot.config_jackpot_number IS '期数';
+
+
+--
+-- Name: epmms_config_map; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_map (
@@ -21678,45 +20765,43 @@ CREATE TABLE public.epmms_config_map (
 );
 
 
-ALTER TABLE public.epmms_config_map OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_map.config_map_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_map.config_map_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_map.config_map_id IS '标识';
 
 
 --
--- Name: COLUMN epmms_config_map.config_map_levels; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_map.config_map_levels; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_map.config_map_levels IS '组织结构图的层数';
 
 
 --
--- Name: COLUMN epmms_config_map.config_map_branch; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_map.config_map_branch; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_map.config_map_branch IS '组织结构图的分支数';
 
 
 --
--- Name: COLUMN epmms_config_map.config_map_orientation; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_map.config_map_orientation; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_map.config_map_orientation IS '组织结构图的方向';
 
 
 --
--- Name: COLUMN epmms_config_map.config_map_tree_levels; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_map.config_map_tree_levels; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_map.config_map_tree_levels IS '树状图的层数';
 
 
 --
--- Name: epmms_config_map_config_map_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_map_config_map_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_map_config_map_id_seq
@@ -21727,10 +20812,8 @@ CREATE SEQUENCE public.epmms_config_map_config_map_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_map_config_map_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_site; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_site; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_site (
@@ -21744,45 +20827,43 @@ CREATE TABLE public.epmms_config_site (
 );
 
 
-ALTER TABLE public.epmms_config_site OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_site.config_site_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_site.config_site_title; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_site.config_site_title IS '网站标题';
 
 
 --
--- Name: COLUMN epmms_config_site.config_site_domain; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_site.config_site_domain; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_site.config_site_domain IS '网站域名';
 
 
 --
--- Name: COLUMN epmms_config_site.config_site_keyword; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_site.config_site_keyword; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_site.config_site_keyword IS '关键字';
 
 
 --
--- Name: COLUMN epmms_config_site.config_site_desc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_site.config_site_desc; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_site.config_site_desc IS '搜索引擎描述';
 
 
 --
--- Name: COLUMN epmms_config_site.config_site_deny_robots; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_site.config_site_deny_robots; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_site.config_site_deny_robots IS '是否阻止机器人';
 
 
 --
--- Name: COLUMN epmms_config_site.config_site_is_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_site.config_site_is_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_site.config_site_is_enable IS '是否启用站点
@@ -21790,7 +20871,7 @@ COMMENT ON COLUMN public.epmms_config_site.config_site_is_enable IS '是否启�
 
 
 --
--- Name: epmms_config_sms; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_sms; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_sms (
@@ -21804,52 +20885,50 @@ CREATE TABLE public.epmms_config_sms (
 );
 
 
-ALTER TABLE public.epmms_config_sms OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_sms.config_sms_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_sms.config_sms_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_sms.config_sms_is_verify IS '是否激活时发送短信';
 
 
 --
--- Name: COLUMN epmms_config_sms.config_sms_is_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_sms.config_sms_is_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_sms.config_sms_is_award IS '是否发奖金时发送短信';
 
 
 --
--- Name: COLUMN epmms_config_sms.config_sms_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_sms.config_sms_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_sms.config_sms_award IS '奖金短信内容';
 
 
 --
--- Name: COLUMN epmms_config_sms.config_sms_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_sms.config_sms_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_sms.config_sms_verify IS '审核短信模板';
 
 
 --
--- Name: COLUMN epmms_config_sms.config_sms_is_register; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_sms.config_sms_is_register; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_sms.config_sms_is_register IS '是否发送注册短信';
 
 
 --
--- Name: COLUMN epmms_config_sms.config_sms_register; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_sms.config_sms_register; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_sms.config_sms_register IS '注册短信模板';
 
 
 --
--- Name: epmms_config_sms_config_sms_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_sms_config_sms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_sms_config_sms_id_seq
@@ -21860,10 +20939,8 @@ CREATE SEQUENCE public.epmms_config_sms_config_sms_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_sms_config_sms_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_smtp; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_smtp; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_smtp (
@@ -21877,17 +20954,15 @@ CREATE TABLE public.epmms_config_smtp (
 );
 
 
-ALTER TABLE public.epmms_config_smtp OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_smtp.config_smtp_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_smtp.config_smtp_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_smtp.config_smtp_enable IS '是否启用邮件通知';
 
 
 --
--- Name: epmms_config_withdrawals; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_config_withdrawals; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_config_withdrawals (
@@ -21900,24 +20975,22 @@ CREATE TABLE public.epmms_config_withdrawals (
 );
 
 
-ALTER TABLE public.epmms_config_withdrawals OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_config_withdrawals.config_withdrawals_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_withdrawals.config_withdrawals_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_withdrawals.config_withdrawals_type IS '手续费方式';
 
 
 --
--- Name: COLUMN epmms_config_withdrawals.config_withdrawals_scale; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_config_withdrawals.config_withdrawals_scale; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_config_withdrawals.config_withdrawals_scale IS '提现倍数';
 
 
 --
--- Name: epmms_config_withdrawals_config_withdrawals_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_config_withdrawals_config_withdrawals_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_config_withdrawals_config_withdrawals_id_seq
@@ -21928,17 +21001,90 @@ CREATE SEQUENCE public.epmms_config_withdrawals_config_withdrawals_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_config_withdrawals_config_withdrawals_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_config_withdrawals_config_withdrawals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_config_withdrawals_config_withdrawals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_config_withdrawals_config_withdrawals_id_seq OWNED BY public.epmms_config_withdrawals.config_withdrawals_id;
 
 
 --
--- Name: epmms_finance; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_deal; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_deal (
+    deal_id integer NOT NULL,
+    deal_sale_id integer,
+    deal_buy_id integer NOT NULL,
+    deal_currency numeric(16,2),
+    deal_date timestamp(0) without time zone DEFAULT now(),
+    deal_image text,
+    deal_status smallint DEFAULT 0 NOT NULL,
+    deal_image_date timestamp(0) without time zone,
+    deal_verify_date timestamp(0) without time zone,
+    deal_sale_member_id integer,
+    deal_buy_member_id integer,
+    deal_count integer DEFAULT 0 NOT NULL,
+    deal_type smallint DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: epmms_deal_deal_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_deal_deal_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_deal_deal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_deal_deal_id_seq OWNED BY public.epmms_deal.deal_id;
+
+
+--
+-- Name: epmms_dup; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_dup (
+    dup_id integer NOT NULL,
+    dup_member_id integer NOT NULL,
+    dup_money numeric(16,2) NOT NULL,
+    dup_is_verify smallint DEFAULT 0 NOT NULL,
+    dup_add_date timestamp(0) without time zone DEFAULT now(),
+    dup_verify_date timestamp(0) without time zone
+);
+
+
+--
+-- Name: epmms_dup_dup_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_dup_dup_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_dup_dup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_dup_dup_id_seq OWNED BY public.epmms_dup.dup_id;
+
+
+--
+-- Name: epmms_finance; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_finance (
@@ -21950,10 +21096,8 @@ CREATE TABLE public.epmms_finance (
 );
 
 
-ALTER TABLE public.epmms_finance OWNER TO postgres;
-
 --
--- Name: TABLE epmms_finance; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_finance; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_finance IS '保存会员的帐户金额
@@ -21961,35 +21105,35 @@ COMMENT ON TABLE public.epmms_finance IS '保存会员的帐户金额
 
 
 --
--- Name: COLUMN epmms_finance.finance_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_finance.finance_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_finance.finance_award IS '帐上奖金';
 
 
 --
--- Name: COLUMN epmms_finance.finance_mod_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_finance.finance_mod_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_finance.finance_mod_date IS '更新日期';
 
 
 --
--- Name: COLUMN epmms_finance.finance_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_finance.finance_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_finance.finance_type IS '帐户类型';
 
 
 --
--- Name: COLUMN epmms_finance.finance_memberinfo_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_finance.finance_memberinfo_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_finance.finance_memberinfo_id IS '会员';
 
 
 --
--- Name: epmms_finance_finance_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_finance_finance_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_finance_finance_id_seq
@@ -22000,10 +21144,8 @@ CREATE SEQUENCE public.epmms_finance_finance_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_finance_finance_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_finance_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_finance_type; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_finance_type (
@@ -22014,24 +21156,22 @@ CREATE TABLE public.epmms_finance_type (
 );
 
 
-ALTER TABLE public.epmms_finance_type OWNER TO postgres;
-
 --
--- Name: TABLE epmms_finance_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_finance_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_finance_type IS '汇总分类';
 
 
 --
--- Name: COLUMN epmms_finance_type.finance_type_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_finance_type.finance_type_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_finance_type.finance_type_name IS '帐户类型';
 
 
 --
--- Name: epmms_foundation; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_foundation; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_foundation (
@@ -22047,73 +21187,71 @@ CREATE TABLE public.epmms_foundation (
 );
 
 
-ALTER TABLE public.epmms_foundation OWNER TO postgres;
-
 --
--- Name: TABLE epmms_foundation; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_foundation; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_foundation IS '信用基金';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_member_id IS '会员';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_currency IS '申请金额';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_tax; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_tax; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_tax IS '手续费';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_real_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_real_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_real_currency IS '实发金额';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_reamrk; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_reamrk; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_reamrk IS '备注';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_is_verify IS '审核状态';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_add_date IS '申请时间';
 
 
 --
--- Name: COLUMN epmms_foundation.foundation_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_foundation.foundation_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_foundation.foundation_verify_date IS '审核时间';
 
 
 --
--- Name: epmms_foundation_foundation_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_foundation_foundation_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_foundation_foundation_id_seq
@@ -22124,17 +21262,15 @@ CREATE SEQUENCE public.epmms_foundation_foundation_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_foundation_foundation_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_foundation_foundation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_foundation_foundation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_foundation_foundation_id_seq OWNED BY public.epmms_foundation.foundation_id;
 
 
 --
--- Name: epmms_futou; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_futou; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_futou (
@@ -22151,66 +21287,64 @@ ALTER TABLE ONLY public.epmms_futou ALTER COLUMN futou_member_id SET STATISTICS 
 ALTER TABLE ONLY public.epmms_futou ALTER COLUMN futou_deduct SET STATISTICS 0;
 
 
-ALTER TABLE public.epmms_futou OWNER TO postgres;
-
 --
--- Name: TABLE epmms_futou; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_futou; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_futou IS '复投';
 
 
 --
--- Name: COLUMN epmms_futou.futou_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_member_id IS '会员';
 
 
 --
--- Name: COLUMN epmms_futou.futou_deduct1; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_deduct1; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_deduct1 IS '奖金币';
 
 
 --
--- Name: COLUMN epmms_futou.futou_deduct2; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_deduct2; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_deduct2 IS '注册币';
 
 
 --
--- Name: COLUMN epmms_futou.futou_deduct3; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_deduct3; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_deduct3 IS '赞助劵商基金';
 
 
 --
--- Name: COLUMN epmms_futou.futou_deduct4; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_deduct4; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_deduct4 IS '提拔公益基金';
 
 
 --
--- Name: COLUMN epmms_futou.futou_deduct; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_deduct; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_deduct IS '复投金额';
 
 
 --
--- Name: COLUMN epmms_futou.futou_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_futou.futou_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_futou.futou_add_date IS '复投日期';
 
 
 --
--- Name: epmms_futou_futou_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_futou_futou_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_futou_futou_id_seq
@@ -22221,17 +21355,15 @@ CREATE SEQUENCE public.epmms_futou_futou_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_futou_futou_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_futou_futou_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_futou_futou_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_futou_futou_id_seq OWNED BY public.epmms_futou.futou_id;
 
 
 --
--- Name: epmms_game_charge; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_game_charge; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_game_charge (
@@ -22248,45 +21380,43 @@ CREATE TABLE public.epmms_game_charge (
 );
 
 
-ALTER TABLE public.epmms_game_charge OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_game_charge.charge_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_game_charge.charge_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_game_charge.charge_name IS '姓名';
 
 
 --
--- Name: COLUMN epmms_game_charge.charge_phone; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_game_charge.charge_phone; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_game_charge.charge_phone IS '电话';
 
 
 --
--- Name: COLUMN epmms_game_charge.charge_age; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_game_charge.charge_age; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_game_charge.charge_age IS '年龄';
 
 
 --
--- Name: COLUMN epmms_game_charge.charge_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_game_charge.charge_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_game_charge.charge_account IS '充值账号';
 
 
 --
--- Name: COLUMN epmms_game_charge.charge_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_game_charge.charge_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_game_charge.charge_money IS '充值金额';
 
 
 --
--- Name: epmms_game_charge_charge_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_game_charge_charge_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_game_charge_charge_id_seq
@@ -22297,17 +21427,15 @@ CREATE SEQUENCE public.epmms_game_charge_charge_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_game_charge_charge_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_game_charge_charge_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_game_charge_charge_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_game_charge_charge_id_seq OWNED BY public.epmms_game_charge.charge_id;
 
 
 --
--- Name: group_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: group_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.group_seq
@@ -22318,17 +21446,15 @@ CREATE SEQUENCE public.group_seq
     CACHE 1;
 
 
-ALTER TABLE public.group_seq OWNER TO postgres;
-
 --
--- Name: SEQUENCE group_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: SEQUENCE group_seq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON SEQUENCE public.group_seq IS '组创建序列';
 
 
 --
--- Name: epmms_group; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_group; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_group (
@@ -22339,24 +21465,22 @@ CREATE TABLE public.epmms_group (
 );
 
 
-ALTER TABLE public.epmms_group OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_group.group_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_group.group_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_group.group_count IS '成员数';
 
 
 --
--- Name: COLUMN epmms_group.group_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_group.group_seq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_group.group_seq IS '组的创建顺序';
 
 
 --
--- Name: epmms_group_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_group_group_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_group_group_id_seq
@@ -22367,17 +21491,15 @@ CREATE SEQUENCE public.epmms_group_group_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_group_group_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_group_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_group_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_group_group_id_seq OWNED BY public.epmms_group.group_id;
 
 
 --
--- Name: epmms_groupmap; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_groupmap; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_groupmap (
@@ -22395,66 +21517,64 @@ CREATE TABLE public.epmms_groupmap (
 );
 
 
-ALTER TABLE public.epmms_groupmap OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_groupmap.groupmap_group_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_group_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_group_id IS '所属的组';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_order IS '组中的位置';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_verify_date IS '审核时间';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_award_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_award_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_award_date IS '最后拿奖金日期';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_award_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_award_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_award_count IS '拿奖金次数';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_group_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_group_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_group_date IS '加入组的时间';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_award_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_award_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_award_period IS '最后一次实发奖金的期次';
 
 
 --
--- Name: COLUMN epmms_groupmap.groupmap_is_award; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_groupmap.groupmap_is_award; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_groupmap.groupmap_is_award IS '奖金是否实发';
 
 
 --
--- Name: epmms_groupmap_groupmap_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_groupmap_groupmap_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_groupmap_groupmap_id_seq
@@ -22465,10 +21585,8 @@ CREATE SEQUENCE public.epmms_groupmap_groupmap_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_groupmap_groupmap_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_help; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_help; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_help (
@@ -22480,52 +21598,50 @@ CREATE TABLE public.epmms_help (
 );
 
 
-ALTER TABLE public.epmms_help OWNER TO postgres;
-
 --
--- Name: TABLE epmms_help; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_help; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_help IS '帮助及使用教程';
 
 
 --
--- Name: COLUMN epmms_help.help_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_help.help_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_help.help_id IS '帮助';
 
 
 --
--- Name: COLUMN epmms_help.help_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_help.help_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_help.help_type IS '类型';
 
 
 --
--- Name: COLUMN epmms_help.help_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_help.help_title; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_help.help_title IS '标题';
 
 
 --
--- Name: COLUMN epmms_help.help_content; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_help.help_content; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_help.help_content IS '内容';
 
 
 --
--- Name: COLUMN epmms_help.help_mod_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_help.help_mod_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_help.help_mod_date IS '修改日期';
 
 
 --
--- Name: epmms_help_help_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_help_help_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_help_help_id_seq
@@ -22536,17 +21652,197 @@ CREATE SEQUENCE public.epmms_help_help_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_help_help_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_help_help_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_help_help_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_help_help_id_seq OWNED BY public.epmms_help.help_id;
 
 
 --
--- Name: epmms_layer; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_jackpot_info; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_jackpot_info (
+    info_id integer NOT NULL,
+    info_start_time timestamp(0) without time zone DEFAULT now() NOT NULL,
+    info_end_time timestamp(0) without time zone DEFAULT now() NOT NULL,
+    info_start_balance numeric(16,4) DEFAULT 0 NOT NULL,
+    info_lucky_balance numeric(16,4) DEFAULT 0 NOT NULL,
+    info_end_balance numeric(16,4) DEFAULT 0 NOT NULL,
+    info_number integer NOT NULL
+);
+
+
+--
+-- Name: TABLE epmms_jackpot_info; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.epmms_jackpot_info IS '奖池信息';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_id IS '主键id';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_start_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_start_time IS '开始时间';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_end_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_end_time IS '结束时间';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_start_balance; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_start_balance IS '首单奖池金额';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_lucky_balance; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_lucky_balance IS '幸运奖池金额';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_end_balance; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_end_balance IS '尾单奖池金额';
+
+
+--
+-- Name: COLUMN epmms_jackpot_info.info_number; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_info.info_number IS '期数';
+
+
+--
+-- Name: epmms_jackpot_info_info_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_jackpot_info_info_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_jackpot_info_info_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_jackpot_info_info_id_seq OWNED BY public.epmms_jackpot_info.info_id;
+
+
+--
+-- Name: epmms_jackpot_win_record; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_jackpot_win_record (
+    jackpot_id integer NOT NULL,
+    jackpot_member_id integer NOT NULL,
+    jackpot_money numeric(16,4),
+    jackpot_type integer,
+    jackpot_start_time integer,
+    jackpot_end_time integer,
+    jackpot_number integer NOT NULL
+);
+
+
+--
+-- Name: TABLE epmms_jackpot_win_record; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.epmms_jackpot_win_record IS '竞买抽奖获奖记录';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_id IS '主键id';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_member_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_member_id IS '会员id';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_money; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_money IS '获得金额';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_type; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_type IS '类型 1 首单奖 2 幸运奖 3 尾单奖';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_start_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_start_time IS '开始时间';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_end_time; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_end_time IS '结束时间';
+
+
+--
+-- Name: COLUMN epmms_jackpot_win_record.jackpot_number; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_jackpot_win_record.jackpot_number IS '期数';
+
+
+--
+-- Name: epmms_jackpot_win_record_jackpot_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_jackpot_win_record_jackpot_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_jackpot_win_record_jackpot_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_jackpot_win_record_jackpot_id_seq OWNED BY public.epmms_jackpot_win_record.jackpot_id;
+
+
+--
+-- Name: epmms_layer; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_layer (
@@ -22565,10 +21861,8 @@ CREATE TABLE public.epmms_layer (
 );
 
 
-ALTER TABLE public.epmms_layer OWNER TO postgres;
-
 --
--- Name: epmms_layer_layer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_layer_layer_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_layer_layer_id_seq
@@ -22579,17 +21873,15 @@ CREATE SEQUENCE public.epmms_layer_layer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_layer_layer_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_layer_layer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_layer_layer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_layer_layer_id_seq OWNED BY public.epmms_layer.layer_id;
 
 
 --
--- Name: epmms_log; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_log; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_log (
@@ -22608,87 +21900,85 @@ CREATE TABLE public.epmms_log (
 );
 
 
-ALTER TABLE public.epmms_log OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_log.log_category; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_category; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_category IS '日志分类';
 
 
 --
--- Name: COLUMN epmms_log.log_source; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_source; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_source IS '日志来源';
 
 
 --
--- Name: COLUMN epmms_log.log_operate; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_operate; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_operate IS '操作名称';
 
 
 --
--- Name: COLUMN epmms_log.log_target; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_target; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_target IS '操作目标对象';
 
 
 --
--- Name: COLUMN epmms_log.log_value; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_value; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_value IS '操作数据';
 
 
 --
--- Name: COLUMN epmms_log.log_info; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_info; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_info IS '详细信息';
 
 
 --
--- Name: COLUMN epmms_log.log_ip; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_ip; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_ip IS '客户端ip';
 
 
 --
--- Name: COLUMN epmms_log.log_user; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_user; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_user IS '用户名';
 
 
 --
--- Name: COLUMN epmms_log.log_role; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_role; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_role IS '用户角色';
 
 
 --
--- Name: COLUMN epmms_log.log_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_add_date IS '日期';
 
 
 --
--- Name: COLUMN epmms_log.log_status; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_log.log_status; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_log.log_status IS '操作的结果，成功或失败';
 
 
 --
--- Name: epmms_log_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_log_log_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_log_log_id_seq
@@ -22699,10 +21989,8 @@ CREATE SEQUENCE public.epmms_log_log_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_log_log_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_map_edit; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_map_edit; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_map_edit (
@@ -22720,87 +22008,85 @@ CREATE TABLE public.epmms_map_edit (
 );
 
 
-ALTER TABLE public.epmms_map_edit OWNER TO postgres;
-
 --
--- Name: TABLE epmms_map_edit; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_map_edit; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_map_edit IS '图谱编辑';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_src_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_src_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_src_member_id IS '源会员id';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_dst_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_dst_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_dst_member_id IS '目标会员ID';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_add_date IS '添加日期';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_verify_date IS '处理日期';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_operate; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_operate; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_operate IS '操作';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_info; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_info; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_info IS '详情';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_is_verify IS '审核状态';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_type IS '交换类型(接点关系或推荐关系)';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_dst_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_dst_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_dst_order IS '接点位置';
 
 
 --
--- Name: COLUMN epmms_map_edit.map_edit_dst_recommend_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_map_edit.map_edit_dst_recommend_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_map_edit.map_edit_dst_recommend_id IS '推荐人';
 
 
 --
--- Name: epmms_map_edit_map_edit_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_map_edit_map_edit_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_map_edit_map_edit_id_seq
@@ -22811,17 +22097,15 @@ CREATE SEQUENCE public.epmms_map_edit_map_edit_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_map_edit_map_edit_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_map_edit_map_edit_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_map_edit_map_edit_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_map_edit_map_edit_id_seq OWNED BY public.epmms_map_edit.map_edit_id;
 
 
 --
--- Name: epmms_member_level; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_member_level; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_member_level (
@@ -22830,17 +22114,15 @@ CREATE TABLE public.epmms_member_level (
 );
 
 
-ALTER TABLE public.epmms_member_level OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_member_level.member_level_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_level.member_level_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_level.member_level_name IS '级别名称';
 
 
 --
--- Name: epmms_member_upgrade; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_member_upgrade (
@@ -22856,66 +22138,64 @@ CREATE TABLE public.epmms_member_upgrade (
 );
 
 
-ALTER TABLE public.epmms_member_upgrade OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_member_id IS '会员';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_type IS '升级类型';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_is_verify IS '审核状态';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_add_date IS '申请日期';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_verify_date IS '审核日期';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_period IS '期次';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_old_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_old_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_old_type IS '原';
 
 
 --
--- Name: COLUMN epmms_member_upgrade.member_upgrade_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_member_upgrade.member_upgrade_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_member_upgrade.member_upgrade_money IS '升级金额';
 
 
 --
--- Name: epmms_member_upgrade_member_upgrade_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade_member_upgrade_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_member_upgrade_member_upgrade_id_seq
@@ -22926,17 +22206,15 @@ CREATE SEQUENCE public.epmms_member_upgrade_member_upgrade_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_member_upgrade_member_upgrade_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_member_upgrade_member_upgrade_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade_member_upgrade_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_member_upgrade_member_upgrade_id_seq OWNED BY public.epmms_member_upgrade.member_upgrade_id;
 
 
 --
--- Name: epmms_memberinfo; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_memberinfo (
@@ -22980,252 +22258,258 @@ CREATE TABLE public.epmms_memberinfo (
     memberinfo_agent_id integer,
     memberinfo_postoffice character varying(200),
     memberinfo_init_password character varying(256),
-    memberinfo_init_password2 character varying(256)
+    memberinfo_init_password2 character varying(256),
+    memberinfo_type character varying(256)
 );
 
 
-ALTER TABLE public.epmms_memberinfo OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_account IS '会员帐号';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_password; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_password; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_password IS '一级密码';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_password2; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_password2; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_password2 IS '二级密码';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_name IS '姓名';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_nickname; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_nickname; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_nickname IS '昵称';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_mobi; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_mobi; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_mobi IS '手机';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_phone; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_phone; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_phone IS '电话';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_qq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_qq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_qq IS 'qq';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_sex; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_sex; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_sex IS '性别';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_idcard_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_idcard_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_idcard_type IS '证件类型';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_idcard; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_idcard; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_idcard IS '证明身份的证件号码';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_zipcode; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_zipcode; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_zipcode IS '邮编';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_birthday; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_birthday; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_birthday IS '出生日期';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_address_provience; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_address_provience; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_address_provience IS '省地址';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_address_area; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_address_area; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_address_area IS '市/地区地址';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_address_county; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_address_county; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_address_county IS '县地址';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_address_detail; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_address_detail; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_address_detail IS '详细地址';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_bank_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_bank_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_bank_id IS '银行';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_bank_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_bank_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_bank_name IS '银行开户名';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_bank_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_bank_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_bank_account IS '银行帐号';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_bank_provience; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_bank_provience; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_bank_provience IS '银行所在省';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_bank_area; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_bank_area; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_bank_area IS '银行所在市/地区';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_bank_branch; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_bank_branch; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_bank_branch IS '银行支行地址';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_question; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_question; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_question IS '密保问题';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_answer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_answer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_answer IS '密保答案';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_memo; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_memo; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_memo IS '备注';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_is_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_is_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_is_enable IS '是否启用该会员';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_register_ip; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_register_ip; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_register_ip IS '注册时的ip地址';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_last_ip; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_last_ip; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_last_ip IS '最后访问ip';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_last_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_last_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_last_date IS '最后登录日期';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_mod_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_mod_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_mod_date IS '更新时间';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_is_agent; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_is_agent; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_is_agent IS '是否代理中心';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_is_verify IS '审核状态';
 
 
 --
--- Name: COLUMN epmms_memberinfo.memberinfo_postoffice; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_postoffice; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_postoffice IS '邮局';
 
 
 --
--- Name: epmms_memberinfo_item; Type: TABLE; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo.memberinfo_type; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_memberinfo.memberinfo_type IS '类型';
+
+
+--
+-- Name: epmms_memberinfo_item; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_memberinfo_item (
@@ -23242,66 +22526,64 @@ CREATE TABLE public.epmms_memberinfo_item (
 );
 
 
-ALTER TABLE public.epmms_memberinfo_item OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_field; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_field; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_field IS '字段名称';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_title; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_title IS '项目标题';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_visible; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_visible; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_visible IS '1显示，0隐藏';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_required; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_required; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_required IS '是否必填';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_update; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_update; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_update IS '是否可更新';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_is_enable; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_is_enable; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_is_enable IS '是否开启';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_admin; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_admin; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_admin IS '管理页面是否可见';
 
 
 --
--- Name: COLUMN epmms_memberinfo_item.memberinfo_item_view; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberinfo_item.memberinfo_item_view; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberinfo_item.memberinfo_item_view IS '查看页面是否可见';
 
 
 --
--- Name: epmms_memberinfo_item_memberinfo_item_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo_item_memberinfo_item_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_memberinfo_item_memberinfo_item_id_seq
@@ -23312,10 +22594,8 @@ CREATE SEQUENCE public.epmms_memberinfo_item_memberinfo_item_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_memberinfo_item_memberinfo_item_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_memberinfo_memberinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo_memberinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_memberinfo_memberinfo_id_seq
@@ -23326,10 +22606,8 @@ CREATE SEQUENCE public.epmms_memberinfo_memberinfo_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_memberinfo_memberinfo_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_membermap2; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_membermap2; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_membermap2 (
@@ -23361,66 +22639,64 @@ CREATE TABLE public.epmms_membermap2 (
 );
 
 
-ALTER TABLE public.epmms_membermap2 OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_membermap2.membermap_parent_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_parent_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_parent_id IS '接点人';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_order IS '接点位置';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_layer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_layer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_layer IS '接点层数';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_path; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_path; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_path IS '接点路径';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_add_date IS '添加日期';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_bond_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_bond_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_bond_id IS '关联会员';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_name IS '节点名字';
 
 
 --
--- Name: COLUMN epmms_membermap2.membermap_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap2.membermap_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap2.membermap_is_verify IS '审核状态';
 
 
 --
--- Name: epmms_membermap2_membermap_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_membermap2_membermap_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_membermap2_membermap_id_seq
@@ -23431,10 +22707,8 @@ CREATE SEQUENCE public.epmms_membermap2_membermap_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_membermap2_membermap_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_membermap3; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_membermap3; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_membermap3 (
@@ -23447,45 +22721,43 @@ CREATE TABLE public.epmms_membermap3 (
 );
 
 
-ALTER TABLE public.epmms_membermap3 OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_membermap3.membermap_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap3.membermap_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap3.membermap_name IS '标识名称';
 
 
 --
--- Name: COLUMN epmms_membermap3.membermap_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap3.membermap_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap3.membermap_member_id IS '绑定会员';
 
 
 --
--- Name: COLUMN epmms_membermap3.membermap_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap3.membermap_seq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap3.membermap_seq IS '审核顺序';
 
 
 --
--- Name: COLUMN epmms_membermap3.membermap_is_active; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap3.membermap_is_active; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap3.membermap_is_active IS '是否出局';
 
 
 --
--- Name: COLUMN epmms_membermap3.membermap_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membermap3.membermap_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membermap3.membermap_add_date IS '审核时间';
 
 
 --
--- Name: epmms_membermap3_membermap_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_membermap3_membermap_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_membermap3_membermap_id_seq
@@ -23496,17 +22768,15 @@ CREATE SEQUENCE public.epmms_membermap3_membermap_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_membermap3_membermap_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_membermap3_membermap_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_membermap3_membermap_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_membermap3_membermap_id_seq OWNED BY public.epmms_membermap3.membermap_id;
 
 
 --
--- Name: epmms_membermap4; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_membermap4; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_membermap4 (
@@ -23528,10 +22798,8 @@ CREATE TABLE public.epmms_membermap4 (
 );
 
 
-ALTER TABLE public.epmms_membermap4 OWNER TO postgres;
-
 --
--- Name: epmms_membermap4_membermap_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_membermap4_membermap_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_membermap4_membermap_id_seq
@@ -23542,17 +22810,15 @@ CREATE SEQUENCE public.epmms_membermap4_membermap_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_membermap4_membermap_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_membermap4_membermap_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_membermap4_membermap_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_membermap4_membermap_id_seq OWNED BY public.epmms_membermap4.membermap_id;
 
 
 --
--- Name: epmms_memberstatus; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_memberstatus; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_memberstatus (
@@ -23574,31 +22840,29 @@ CREATE TABLE public.epmms_memberstatus (
 );
 
 
-ALTER TABLE public.epmms_memberstatus OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_memberstatus.status_pair; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberstatus.status_pair; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberstatus.status_pair IS '当前对碰数';
 
 
 --
--- Name: COLUMN epmms_memberstatus.left_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberstatus.left_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberstatus.left_count IS '左分支会员数';
 
 
 --
--- Name: COLUMN epmms_memberstatus.right_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_memberstatus.right_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_memberstatus.right_count IS '右分支会员数';
 
 
 --
--- Name: epmms_membertype; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_membertype; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_membertype (
@@ -23613,45 +22877,43 @@ CREATE TABLE public.epmms_membertype (
 );
 
 
-ALTER TABLE public.epmms_membertype OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_membertype.membertype_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membertype.membertype_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membertype.membertype_name IS '类型名称';
 
 
 --
--- Name: COLUMN epmms_membertype.membertype_desc; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membertype.membertype_desc; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membertype.membertype_desc IS '说明';
 
 
 --
--- Name: COLUMN epmms_membertype.membertype_level; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membertype.membertype_level; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membertype.membertype_level IS '等级';
 
 
 --
--- Name: COLUMN epmms_membertype.membertype_money; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membertype.membertype_money; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membertype.membertype_money IS '会员报单金额(购物金额)';
 
 
 --
--- Name: COLUMN epmms_membertype.membertype_bill; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_membertype.membertype_bill; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_membertype.membertype_bill IS '购物积分';
 
 
 --
--- Name: epmms_menu; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_menu; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_menu (
@@ -23664,45 +22926,43 @@ CREATE TABLE public.epmms_menu (
 );
 
 
-ALTER TABLE public.epmms_menu OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_menu.menu_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_menu.menu_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_menu.menu_name IS '菜单显示名';
 
 
 --
--- Name: COLUMN epmms_menu.menu_url; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_menu.menu_url; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_menu.menu_url IS '链接URL';
 
 
 --
--- Name: COLUMN epmms_menu.menu_pid; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_menu.menu_pid; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_menu.menu_pid IS '父级id';
 
 
 --
--- Name: COLUMN epmms_menu.menu_order; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_menu.menu_order; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_menu.menu_order IS '排序';
 
 
 --
--- Name: COLUMN epmms_menu.menu_mod_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_menu.menu_mod_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_menu.menu_mod_date IS '菜单更新时间';
 
 
 --
--- Name: epmms_menu_menu_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_menu_menu_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_menu_menu_id_seq
@@ -23713,10 +22973,8 @@ CREATE SEQUENCE public.epmms_menu_menu_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_menu_menu_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_messages; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_messages; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_messages (
@@ -23732,66 +22990,64 @@ CREATE TABLE public.epmms_messages (
 );
 
 
-ALTER TABLE public.epmms_messages OWNER TO postgres;
-
 --
--- Name: TABLE epmms_messages; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_messages; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_messages IS '站内信';
 
 
 --
--- Name: COLUMN epmms_messages.messages_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_title; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_title IS '标题';
 
 
 --
--- Name: COLUMN epmms_messages.messages_content; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_content; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_content IS '内容';
 
 
 --
--- Name: COLUMN epmms_messages.messages_sender_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_sender_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_sender_member_id IS '发件人';
 
 
 --
--- Name: COLUMN epmms_messages.messages_receiver_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_receiver_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_receiver_member_id IS '收件人';
 
 
 --
--- Name: COLUMN epmms_messages.messages_session; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_session; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_session IS '会话标识';
 
 
 --
--- Name: COLUMN epmms_messages.messages_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_member_id IS '所属的会员';
 
 
 --
--- Name: COLUMN epmms_messages.messages_is_read; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_messages.messages_is_read; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_messages.messages_is_read IS '是否已读';
 
 
 --
--- Name: epmms_messages_messages_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_messages_messages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_messages_messages_id_seq
@@ -23802,17 +23058,87 @@ CREATE SEQUENCE public.epmms_messages_messages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_messages_messages_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_messages_messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_messages_messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_messages_messages_id_seq OWNED BY public.epmms_messages.messages_id;
 
 
 --
--- Name: epmms_orders; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_mybank; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_mybank (
+    mybank_id integer NOT NULL,
+    mybank_bank_id integer NOT NULL,
+    mybank_name character varying(50) NOT NULL,
+    mybank_account character varying(50) NOT NULL,
+    mybank_memberinfo_id integer NOT NULL,
+    mybank_add_date timestamp(0) without time zone DEFAULT CURRENT_TIMESTAMP,
+    mybank_is_default boolean DEFAULT false,
+    mybank_address character varying(50),
+    mybank_memo character varying(50)
+);
+
+
+--
+-- Name: COLUMN epmms_mybank.mybank_name; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_mybank.mybank_name IS '户名';
+
+
+--
+-- Name: COLUMN epmms_mybank.mybank_account; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_mybank.mybank_account IS '银行卡号';
+
+
+--
+-- Name: COLUMN epmms_mybank.mybank_is_default; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_mybank.mybank_is_default IS '默认银行卡';
+
+
+--
+-- Name: COLUMN epmms_mybank.mybank_address; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_mybank.mybank_address IS '开户支行';
+
+
+--
+-- Name: COLUMN epmms_mybank.mybank_memo; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_mybank.mybank_memo IS '备注';
+
+
+--
+-- Name: epmms_mybank_mybank_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_mybank_mybank_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_mybank_mybank_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_mybank_mybank_id_seq OWNED BY public.epmms_mybank.mybank_id;
+
+
+--
+-- Name: epmms_orders; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_orders (
@@ -23831,66 +23157,64 @@ CREATE TABLE public.epmms_orders (
 );
 
 
-ALTER TABLE public.epmms_orders OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_orders.orders_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_member_id IS '会员';
 
 
 --
--- Name: COLUMN epmms_orders.orders_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_currency IS '订单金额';
 
 
 --
--- Name: COLUMN epmms_orders.orders_status; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_status; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_status IS '订单状态';
 
 
 --
--- Name: COLUMN epmms_orders.orders_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_add_date IS '订单日期';
 
 
 --
--- Name: COLUMN epmms_orders.orders_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_is_verify IS '审核状态';
 
 
 --
--- Name: COLUMN epmms_orders.orders_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_verify_date IS '审核日期';
 
 
 --
--- Name: COLUMN epmms_orders.orders_remark; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_remark; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_remark IS '备注';
 
 
 --
--- Name: COLUMN epmms_orders.orders_sn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders.orders_sn; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders.orders_sn IS '订单流水号';
 
 
 --
--- Name: epmms_orders_orders_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_orders_orders_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_orders_orders_id_seq
@@ -23901,17 +23225,15 @@ CREATE SEQUENCE public.epmms_orders_orders_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_orders_orders_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_orders_orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_orders_orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_orders_orders_id_seq OWNED BY public.epmms_orders.orders_id;
 
 
 --
--- Name: epmms_orders_product; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_orders_product; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_orders_product (
@@ -23924,45 +23246,43 @@ CREATE TABLE public.epmms_orders_product (
 );
 
 
-ALTER TABLE public.epmms_orders_product OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_orders_product.orders_product_product_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders_product.orders_product_product_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders_product.orders_product_product_id IS '产品';
 
 
 --
--- Name: COLUMN epmms_orders_product.orders_product_price; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders_product.orders_product_price; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders_product.orders_product_price IS '产品价格';
 
 
 --
--- Name: COLUMN epmms_orders_product.orders_product_orders_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders_product.orders_product_orders_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders_product.orders_product_orders_id IS '订单id';
 
 
 --
--- Name: COLUMN epmms_orders_product.orders_product_count; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders_product.orders_product_count; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders_product.orders_product_count IS '产品数量';
 
 
 --
--- Name: COLUMN epmms_orders_product.orders_product_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_orders_product.orders_product_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_orders_product.orders_product_currency IS '产品金额';
 
 
 --
--- Name: epmms_orders_product_orders_product_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_orders_product_orders_product_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_orders_product_orders_product_id_seq
@@ -23973,10 +23293,8 @@ CREATE SEQUENCE public.epmms_orders_product_orders_product_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_orders_product_orders_product_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_parent_relation; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_parent_relation; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_parent_relation (
@@ -23985,24 +23303,22 @@ CREATE TABLE public.epmms_parent_relation (
 );
 
 
-ALTER TABLE public.epmms_parent_relation OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_parent_relation.parent_relation_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_parent_relation.parent_relation_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_parent_relation.parent_relation_member_id IS '会员ID';
 
 
 --
--- Name: COLUMN epmms_parent_relation.parent_relation_upper_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_parent_relation.parent_relation_upper_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_parent_relation.parent_relation_upper_id IS '上级会员ID';
 
 
 --
--- Name: epmms_pond; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_pond; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_pond (
@@ -24012,17 +23328,15 @@ CREATE TABLE public.epmms_pond (
 );
 
 
-ALTER TABLE public.epmms_pond OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_pond.pond_no; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_pond.pond_no; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_pond.pond_no IS '奖池编号';
 
 
 --
--- Name: epmms_pond_member_currency; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_pond_member_currency; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_pond_member_currency (
@@ -24032,10 +23346,8 @@ CREATE TABLE public.epmms_pond_member_currency (
 );
 
 
-ALTER TABLE public.epmms_pond_member_currency OWNER TO postgres;
-
 --
--- Name: epmms_pond_pond_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_pond_pond_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_pond_pond_id_seq
@@ -24046,17 +23358,15 @@ CREATE SEQUENCE public.epmms_pond_pond_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_pond_pond_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_pond_pond_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_pond_pond_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_pond_pond_id_seq OWNED BY public.epmms_pond.pond_id;
 
 
 --
--- Name: epmms_prize; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_prize; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_prize (
@@ -24070,17 +23380,15 @@ CREATE TABLE public.epmms_prize (
 );
 
 
-ALTER TABLE public.epmms_prize OWNER TO postgres;
-
 --
--- Name: TABLE epmms_prize; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_prize; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_prize IS '发放的奖品';
 
 
 --
--- Name: epmms_prize_prize_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_prize_prize_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_prize_prize_id_seq
@@ -24091,17 +23399,15 @@ CREATE SEQUENCE public.epmms_prize_prize_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_prize_prize_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_prize_prize_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_prize_prize_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_prize_prize_id_seq OWNED BY public.epmms_prize.prize_id;
 
 
 --
--- Name: epmms_product; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_product; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_product (
@@ -24122,45 +23428,43 @@ CREATE TABLE public.epmms_product (
 );
 
 
-ALTER TABLE public.epmms_product OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_product.product_title; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_title; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_title IS '产品全称标题';
 
 
 --
--- Name: COLUMN epmms_product.product_price; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_price; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_price IS '产品价格';
 
 
 --
--- Name: COLUMN epmms_product.product_info; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_info; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_info IS '产品介绍';
 
 
 --
--- Name: COLUMN epmms_product.product_image_url; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_image_url; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_image_url IS '产品大图';
 
 
 --
--- Name: COLUMN epmms_product.product_stock; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_stock; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_stock IS '库存';
 
 
 --
--- Name: COLUMN epmms_product.product_sale_status; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_sale_status; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_sale_status IS '销售状态
@@ -24168,42 +23472,42 @@ COMMENT ON COLUMN public.epmms_product.product_sale_status IS '销售状态
 
 
 --
--- Name: COLUMN epmms_product.product_sales_amount; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_sales_amount; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_sales_amount IS '销售总量';
 
 
 --
--- Name: COLUMN epmms_product.product_star; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_star; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_star IS '评级';
 
 
 --
--- Name: COLUMN epmms_product.product_class_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_class_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_class_id IS '产品分类';
 
 
 --
--- Name: COLUMN epmms_product.product_cost; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_cost; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_cost IS '产品成本';
 
 
 --
--- Name: COLUMN epmms_product.product_credit; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product.product_credit; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product.product_credit IS '产品积分';
 
 
 --
--- Name: epmms_product_class; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_product_class; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_product_class (
@@ -24214,38 +23518,36 @@ CREATE TABLE public.epmms_product_class (
 );
 
 
-ALTER TABLE public.epmms_product_class OWNER TO postgres;
-
 --
--- Name: TABLE epmms_product_class; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_product_class; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_product_class IS '产品分类';
 
 
 --
--- Name: COLUMN epmms_product_class.product_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product_class.product_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product_class.product_name IS '分类名称';
 
 
 --
--- Name: COLUMN epmms_product_class.product_info; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product_class.product_info; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product_class.product_info IS '分类说明';
 
 
 --
--- Name: COLUMN epmms_product_class.product_parent_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_product_class.product_parent_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_product_class.product_parent_id IS '父分类';
 
 
 --
--- Name: epmms_product_class_product_class_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_product_class_product_class_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_product_class_product_class_id_seq
@@ -24256,17 +23558,15 @@ CREATE SEQUENCE public.epmms_product_class_product_class_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_product_class_product_class_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_product_class_product_class_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_product_class_product_class_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_product_class_product_class_id_seq OWNED BY public.epmms_product_class.product_class_id;
 
 
 --
--- Name: epmms_product_product_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_product_product_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_product_product_id_seq
@@ -24277,10 +23577,8 @@ CREATE SEQUENCE public.epmms_product_product_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_product_product_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_ratio; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_ratio; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_ratio (
@@ -24290,31 +23588,29 @@ CREATE TABLE public.epmms_ratio (
 );
 
 
-ALTER TABLE public.epmms_ratio OWNER TO postgres;
-
 --
--- Name: TABLE epmms_ratio; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_ratio; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_ratio IS '拨出比历史';
 
 
 --
--- Name: COLUMN epmms_ratio.ratio_value; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_ratio.ratio_value; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_ratio.ratio_value IS '拨出比值';
 
 
 --
--- Name: COLUMN epmms_ratio.ratio_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_ratio.ratio_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_ratio.ratio_add_date IS '添加日期';
 
 
 --
--- Name: epmms_ratio_ratio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_ratio_ratio_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_ratio_ratio_id_seq
@@ -24325,17 +23621,15 @@ CREATE SEQUENCE public.epmms_ratio_ratio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_ratio_ratio_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_ratio_ratio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_ratio_ratio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_ratio_ratio_id_seq OWNED BY public.epmms_ratio.ratio_id;
 
 
 --
--- Name: epmms_recommend_relation; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_recommend_relation; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_recommend_relation (
@@ -24344,10 +23638,8 @@ CREATE TABLE public.epmms_recommend_relation (
 );
 
 
-ALTER TABLE public.epmms_recommend_relation OWNER TO postgres;
-
 --
--- Name: epmms_rights; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_rights; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_rights (
@@ -24357,10 +23649,55 @@ CREATE TABLE public.epmms_rights (
 );
 
 
-ALTER TABLE public.epmms_rights OWNER TO postgres;
+--
+-- Name: epmms_sale; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.epmms_sale (
+    sale_id integer NOT NULL,
+    sale_member_id integer NOT NULL,
+    sale_currency numeric(16,2) NOT NULL,
+    sale_date timestamp(0) without time zone DEFAULT now(),
+    sale_money numeric(16,2),
+    sale_remain_currency numeric(16,2) NOT NULL,
+    sale_status smallint DEFAULT 0 NOT NULL,
+    sale_verify_date timestamp(0) without time zone,
+    sale_tax numeric(16,2),
+    sale_dup numeric(16,2) DEFAULT 0 NOT NULL,
+    sale_aixin numeric(16,2) DEFAULT 0 NOT NULL,
+    sale_type smallint DEFAULT 0 NOT NULL
+);
+
 
 --
--- Name: epmms_signing; Type: TABLE; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_sale.sale_type; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.epmms_sale.sale_type IS '方案类型';
+
+
+--
+-- Name: epmms_sale_sale_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.epmms_sale_sale_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: epmms_sale_sale_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.epmms_sale_sale_id_seq OWNED BY public.epmms_sale.sale_id;
+
+
+--
+-- Name: epmms_signing; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_signing (
@@ -24375,52 +23712,50 @@ CREATE TABLE public.epmms_signing (
 );
 
 
-ALTER TABLE public.epmms_signing OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_signing.signing_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_signing.signing_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_signing.signing_member_id IS '会员';
 
 
 --
--- Name: COLUMN epmms_signing.signing_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_signing.signing_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_signing.signing_is_verify IS '已签约';
 
 
 --
--- Name: COLUMN epmms_signing.signing_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_signing.signing_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_signing.signing_date IS '最后签约时间';
 
 
 --
--- Name: COLUMN epmms_signing.signing_is_refund; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_signing.signing_is_refund; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_signing.signing_is_refund IS '是否已退款';
 
 
 --
--- Name: COLUMN epmms_signing.signing_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_signing.signing_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_signing.signing_verify_date IS '签约时间';
 
 
 --
--- Name: COLUMN epmms_signing.signing_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_signing.signing_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_signing.signing_type IS '签约类型';
 
 
 --
--- Name: epmms_signing_signing_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_signing_signing_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_signing_signing_id_seq
@@ -24431,17 +23766,15 @@ CREATE SEQUENCE public.epmms_signing_signing_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_signing_signing_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_signing_signing_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_signing_signing_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_signing_signing_id_seq OWNED BY public.epmms_signing.signing_id;
 
 
 --
--- Name: epmms_star; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_star; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_star (
@@ -24453,31 +23786,29 @@ CREATE TABLE public.epmms_star (
 );
 
 
-ALTER TABLE public.epmms_star OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_star.star_product_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_star.star_product_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_star.star_product_id IS '产品';
 
 
 --
--- Name: COLUMN epmms_star.star_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_star.star_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_star.star_member_id IS '会员';
 
 
 --
--- Name: COLUMN epmms_star.star_grade; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_star.star_grade; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_star.star_grade IS '评级';
 
 
 --
--- Name: epmms_star_star_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_star_star_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_star_star_id_seq
@@ -24488,17 +23819,15 @@ CREATE SEQUENCE public.epmms_star_star_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_star_star_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_star_star_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_star_star_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_star_star_id_seq OWNED BY public.epmms_star.star_id;
 
 
 --
--- Name: epmms_stock_trend; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_stock_trend (
@@ -24509,10 +23838,8 @@ CREATE TABLE public.epmms_stock_trend (
 );
 
 
-ALTER TABLE public.epmms_stock_trend OWNER TO postgres;
-
 --
--- Name: epmms_stock_trend_stock_trend_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend_stock_trend_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_stock_trend_stock_trend_id_seq
@@ -24523,17 +23850,15 @@ CREATE SEQUENCE public.epmms_stock_trend_stock_trend_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_stock_trend_stock_trend_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_stock_trend_stock_trend_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend_stock_trend_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_stock_trend_stock_trend_id_seq OWNED BY public.epmms_stock_trend.stock_trend_id;
 
 
 --
--- Name: epmms_sum_config; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_sum_config; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_sum_config (
@@ -24543,24 +23868,22 @@ CREATE TABLE public.epmms_sum_config (
 );
 
 
-ALTER TABLE public.epmms_sum_config OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_sum_config.sum_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_sum_config.sum_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_sum_config.sum_type_id IS '汇总类型';
 
 
 --
--- Name: COLUMN epmms_sum_config.sum_config_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_sum_config.sum_config_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_sum_config.sum_config_date IS '汇总日期';
 
 
 --
--- Name: epmms_sum_config_sum_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_sum_config_sum_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_sum_config_sum_config_id_seq
@@ -24571,17 +23894,15 @@ CREATE SEQUENCE public.epmms_sum_config_sum_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_sum_config_sum_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_sum_config_sum_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_sum_config_sum_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_sum_config_sum_config_id_seq OWNED BY public.epmms_sum_config.sum_config_id;
 
 
 --
--- Name: epmms_sum_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_sum_type; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_sum_type (
@@ -24591,31 +23912,29 @@ CREATE TABLE public.epmms_sum_type (
 );
 
 
-ALTER TABLE public.epmms_sum_type OWNER TO postgres;
-
 --
--- Name: TABLE epmms_sum_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_sum_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_sum_type IS '汇总分类';
 
 
 --
--- Name: COLUMN epmms_sum_type.sum_type_name; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_sum_type.sum_type_name; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_sum_type.sum_type_name IS '汇总类型';
 
 
 --
--- Name: COLUMN epmms_sum_type.sum_finance_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_sum_type.sum_finance_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_sum_type.sum_finance_type_id IS '帐户类型';
 
 
 --
--- Name: epmms_supplement; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_supplement; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_supplement (
@@ -24627,17 +23946,15 @@ CREATE TABLE public.epmms_supplement (
 );
 
 
-ALTER TABLE public.epmms_supplement OWNER TO postgres;
-
 --
--- Name: TABLE epmms_supplement; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_supplement; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_supplement IS '续费或充值';
 
 
 --
--- Name: epmms_supplement_supplement_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_supplement_supplement_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_supplement_supplement_id_seq
@@ -24648,17 +23965,15 @@ CREATE SEQUENCE public.epmms_supplement_supplement_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_supplement_supplement_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_supplement_supplement_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_supplement_supplement_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_supplement_supplement_id_seq OWNED BY public.epmms_supplement.supplement_id;
 
 
 --
--- Name: epmms_system_status; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_system_status; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_system_status (
@@ -24677,66 +23992,64 @@ CREATE TABLE public.epmms_system_status (
 );
 
 
-ALTER TABLE public.epmms_system_status OWNER TO postgres;
-
 --
--- Name: TABLE epmms_system_status; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_system_status; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_system_status IS '系统状态参数';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_expenses; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_expenses; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_expenses IS '总支出';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_income; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_income; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_income IS '总收入';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_last_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_last_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_last_verify IS '最后激活会员的时间';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_start_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_start_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_start_date IS '系统启动时间';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_withdrawals; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_withdrawals; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_withdrawals IS '已提现金额';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_verify_seq; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_verify_seq; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_verify_seq IS '审核序列';
 
 
 --
--- Name: COLUMN epmms_system_status.system_status_award_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_system_status.system_status_award_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_system_status.system_status_award_period IS '当前奖金结算的最后期次';
 
 
 --
--- Name: epmms_system_status_system_status_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_system_status_system_status_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_system_status_system_status_id_seq
@@ -24747,17 +24060,15 @@ CREATE SEQUENCE public.epmms_system_status_system_status_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_system_status_system_status_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_system_status_system_status_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_system_status_system_status_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_system_status_system_status_id_seq OWNED BY public.epmms_system_status.system_status_id;
 
 
 --
--- Name: epmms_transfer; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_transfer; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_transfer (
@@ -24776,87 +24087,85 @@ CREATE TABLE public.epmms_transfer (
 );
 
 
-ALTER TABLE public.epmms_transfer OWNER TO postgres;
-
 --
--- Name: TABLE epmms_transfer; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_transfer; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_transfer IS '转帐申请';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_src_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_src_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_src_member_id IS '转出会员';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_src_finance_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_src_finance_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_src_finance_type IS '转出帐户类型';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_dst_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_dst_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_dst_member_id IS '转入会员';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_dst_finance_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_dst_finance_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_dst_finance_type IS '转入帐户类型';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_currency IS '转帐金额';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_remark; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_remark; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_remark IS '备注';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_is_verify IS '是否审核';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_add_date IS '申请日期';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_verify_date IS '审核日期';
 
 
 --
--- Name: COLUMN epmms_transfer.transfer_sn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer.transfer_sn; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer.transfer_sn IS '流水号';
 
 
 --
--- Name: epmms_transfer_config; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_transfer_config; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_transfer_config (
@@ -24871,52 +24180,50 @@ CREATE TABLE public.epmms_transfer_config (
 );
 
 
-ALTER TABLE public.epmms_transfer_config OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_transfer_config.transfer_config_src_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer_config.transfer_config_src_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer_config.transfer_config_src_type IS '转出账户类型';
 
 
 --
--- Name: COLUMN epmms_transfer_config.transfer_config_dst_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer_config.transfer_config_dst_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer_config.transfer_config_dst_type IS '转入账户类型';
 
 
 --
--- Name: COLUMN epmms_transfer_config.transfer_config_src_role; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer_config.transfer_config_src_role; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer_config.transfer_config_src_role IS '转出会员身份';
 
 
 --
--- Name: COLUMN epmms_transfer_config.transfer_config_dst_role; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer_config.transfer_config_dst_role; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer_config.transfer_config_dst_role IS '转入会员身份';
 
 
 --
--- Name: COLUMN epmms_transfer_config.transfer_config_member_able; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer_config.transfer_config_member_able; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer_config.transfer_config_member_able IS '会员间转账';
 
 
 --
--- Name: COLUMN epmms_transfer_config.transfer_config_relation; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_transfer_config.transfer_config_relation; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_transfer_config.transfer_config_relation IS '非上下级间转账';
 
 
 --
--- Name: epmms_transfer_config_transfer_config_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_transfer_config_transfer_config_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_transfer_config_transfer_config_id_seq
@@ -24927,17 +24234,15 @@ CREATE SEQUENCE public.epmms_transfer_config_transfer_config_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_transfer_config_transfer_config_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_transfer_config_transfer_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_transfer_config_transfer_config_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_transfer_config_transfer_config_id_seq OWNED BY public.epmms_transfer_config.transfer_config_id;
 
 
 --
--- Name: epmms_transfer_transfer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_transfer_transfer_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_transfer_transfer_id_seq
@@ -24948,17 +24253,15 @@ CREATE SEQUENCE public.epmms_transfer_transfer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_transfer_transfer_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_transfer_transfer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_transfer_transfer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_transfer_transfer_id_seq OWNED BY public.epmms_transfer.transfer_id;
 
 
 --
--- Name: epmms_userinfo; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_userinfo; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_userinfo (
@@ -24976,31 +24279,29 @@ CREATE TABLE public.epmms_userinfo (
 );
 
 
-ALTER TABLE public.epmms_userinfo OWNER TO postgres;
-
 --
--- Name: COLUMN epmms_userinfo.userinfo_account; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_userinfo.userinfo_account; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_userinfo.userinfo_account IS '登录帐号';
 
 
 --
--- Name: COLUMN epmms_userinfo.userinfo_jobtitle; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_userinfo.userinfo_jobtitle; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_userinfo.userinfo_jobtitle IS '工作职务';
 
 
 --
--- Name: COLUMN epmms_userinfo.userinfo_role; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_userinfo.userinfo_role; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_userinfo.userinfo_role IS '用户权限角色';
 
 
 --
--- Name: epmms_userinfo_userinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_userinfo_userinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_userinfo_userinfo_id_seq
@@ -25011,10 +24312,8 @@ CREATE SEQUENCE public.epmms_userinfo_userinfo_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_userinfo_userinfo_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_withdrawals; Type: TABLE; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.epmms_withdrawals (
@@ -25034,94 +24333,92 @@ CREATE TABLE public.epmms_withdrawals (
 ALTER TABLE ONLY public.epmms_withdrawals ALTER COLUMN withdrawals_id SET STATISTICS 0;
 
 
-ALTER TABLE public.epmms_withdrawals OWNER TO postgres;
-
 --
--- Name: TABLE epmms_withdrawals; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TABLE epmms_withdrawals; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TABLE public.epmms_withdrawals IS '提款申请';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_member_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_member_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_member_id IS '提款会员';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_currency IS '提款金额';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_add_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_add_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_add_date IS '提款日期';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_is_verify; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_is_verify; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_is_verify IS '是否申核过';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_verify_date; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_verify_date; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_verify_date IS '申核日期';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_remark; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_remark; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_remark IS '备注';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_finance_type_id; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_finance_type_id; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_finance_type_id IS '提款帐户';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_sn; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_sn; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_sn IS '提现流水号';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_tax; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_tax; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_tax IS '手续费';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_real_currency; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_real_currency; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_real_currency IS '实收金额';
 
 
 --
--- Name: COLUMN epmms_withdrawals.withdrawals_type; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN epmms_withdrawals.withdrawals_type; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON COLUMN public.epmms_withdrawals.withdrawals_type IS '次日/次周';
 
 
 --
--- Name: epmms_withdrawals_withdrawals_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals_withdrawals_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.epmms_withdrawals_withdrawals_id_seq
@@ -25132,17 +24429,15 @@ CREATE SEQUENCE public.epmms_withdrawals_withdrawals_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.epmms_withdrawals_withdrawals_id_seq OWNER TO postgres;
-
 --
--- Name: epmms_withdrawals_withdrawals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals_withdrawals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.epmms_withdrawals_withdrawals_id_seq OWNED BY public.epmms_withdrawals.withdrawals_id;
 
 
 --
--- Name: gen_member; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: gen_member; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.gen_member
@@ -25153,17 +24448,15 @@ CREATE SEQUENCE public.gen_member
     CACHE 1;
 
 
-ALTER TABLE public.gen_member OWNER TO postgres;
-
 --
--- Name: SEQUENCE gen_member; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: SEQUENCE gen_member; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON SEQUENCE public.gen_member IS '生成会员的account';
 
 
 --
--- Name: membermap_add; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: membermap_add; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.membermap_add
@@ -25174,10 +24467,8 @@ CREATE SEQUENCE public.membermap_add
     CACHE 1;
 
 
-ALTER TABLE public.membermap_add OWNER TO postgres;
-
 --
--- Name: membermap_day; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_day; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_day AS
@@ -25222,10 +24513,8 @@ CREATE VIEW public.membermap_day AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_verify_date < date_trunc('day'::text, now())) AND (epmms_membermap.membermap_verify_date >= (date_trunc('day'::text, now()) - '1 day'::interval)));
 
 
-ALTER TABLE public.membermap_day OWNER TO postgres;
-
 --
--- Name: membermap_month; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_month; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_month AS
@@ -25270,10 +24559,8 @@ CREATE VIEW public.membermap_month AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_verify_date < date_trunc('month'::text, now())) AND (epmms_membermap.membermap_verify_date >= (date_trunc('month'::text, now()) - '1 mon'::interval)));
 
 
-ALTER TABLE public.membermap_month OWNER TO postgres;
-
 --
--- Name: membermap_quarter; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_quarter; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_quarter AS
@@ -25318,10 +24605,8 @@ CREATE VIEW public.membermap_quarter AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_verify_date < date_trunc('quarter'::text, now())) AND (epmms_membermap.membermap_verify_date >= (date_trunc('quarter'::text, now()) - '3 mons'::interval)));
 
 
-ALTER TABLE public.membermap_quarter OWNER TO postgres;
-
 --
--- Name: membermap_verify; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: membermap_verify; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.membermap_verify
@@ -25332,10 +24617,8 @@ CREATE SEQUENCE public.membermap_verify
     CACHE 1;
 
 
-ALTER TABLE public.membermap_verify OWNER TO postgres;
-
 --
--- Name: membermap_week; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_week; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_week AS
@@ -25380,10 +24663,8 @@ CREATE VIEW public.membermap_week AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_verify_date < date_trunc('week'::text, now())) AND (epmms_membermap.membermap_verify_date >= (date_trunc('week'::text, now()) - '7 days'::interval)));
 
 
-ALTER TABLE public.membermap_week OWNER TO postgres;
-
 --
--- Name: membermap_week_615; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_week_615; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_week_615 AS
@@ -25428,10 +24709,8 @@ CREATE VIEW public.membermap_week_615 AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_add_date < date_trunc('week'::text, ('2015-06-22'::date)::timestamp with time zone)) AND (epmms_membermap.membermap_add_date >= (date_trunc('week'::text, ('2015-06-22'::date)::timestamp with time zone) - '7 days'::interval)));
 
 
-ALTER TABLE public.membermap_week_615 OWNER TO postgres;
-
 --
--- Name: membermap_week_65; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_week_65; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_week_65 AS
@@ -25476,10 +24755,8 @@ CREATE VIEW public.membermap_week_65 AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_add_date < date_trunc('week'::text, ('2015-06-29'::date)::timestamp with time zone)) AND (epmms_membermap.membermap_add_date >= (date_trunc('week'::text, ('2015-06-29'::date)::timestamp with time zone) - '7 days'::interval)));
 
 
-ALTER TABLE public.membermap_week_65 OWNER TO postgres;
-
 --
--- Name: membermap_year; Type: VIEW; Schema: public; Owner: postgres
+-- Name: membermap_year; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.membermap_year AS
@@ -25524,10 +24801,8 @@ CREATE VIEW public.membermap_year AS
   WHERE ((epmms_membermap.membermap_is_verify = 1) AND (epmms_membermap.membermap_verify_date < date_trunc('year'::text, now())) AND (epmms_membermap.membermap_verify_date >= (date_trunc('year'::text, now()) - '1 year'::interval)));
 
 
-ALTER TABLE public.membermap_year OWNER TO postgres;
-
 --
--- Name: messages_session; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: messages_session; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.messages_session
@@ -25538,66 +24813,8 @@ CREATE SEQUENCE public.messages_session
     CACHE 1;
 
 
-ALTER TABLE public.messages_session OWNER TO postgres;
-
 --
--- Name: my_team; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.my_team (
-    membermap_id integer,
-    membermap_seq integer,
-    membermap_parent_id integer,
-    membermap_recommend_id integer,
-    membermap_membertype_level integer,
-    membermap_layer integer,
-    membermap_order integer,
-    membermap_path character varying(10000),
-    membermap_recommend_path character varying(10000),
-    membermap_recommend_number integer,
-    membermap_recommend_under_number integer,
-    membermap_child_number integer,
-    membermap_sub_number integer,
-    membermap_sub_product_count integer,
-    membermap_recommend_under_product_count integer,
-    membermap_product_count integer,
-    membermap_agent_id bigint,
-    membermap_is_verify smallint,
-    membermap_verify_seq integer,
-    membermap_is_agent smallint,
-    membermap_verify_date timestamp(0) without time zone,
-    membermap_verify_member_id bigint,
-    membermap_add_date timestamp(0) without time zone,
-    membermap_is_empty smallint,
-    membermap_money numeric(16,2),
-    membermap_bond_id integer,
-    membermap_level integer,
-    membermap_recommend_layer integer,
-    membermap_period integer,
-    membermap_membertype_level_old integer,
-    membermap_is_active smallint,
-    membermap_is_delete smallint,
-    membermap_under_product_count integer,
-    membermap_under_number integer,
-    membermap_agent_number integer,
-    membermap_agent_product_count integer,
-    membermap_recommend_product_count integer,
-    membermap_agent_type integer,
-    membermap_layer_order numeric(50,0),
-    membermap_reg_member_id integer,
-    membermap_percent1 numeric(4,0),
-    membermap_percent2 numeric(4,0),
-    membermap_no character varying(20),
-    membermap_buyall numeric(16,2),
-    membermap_buy_date timestamp(0) without time zone,
-    membermap_is_goods smallint
-);
-
-
-ALTER TABLE public.my_team OWNER TO postgres;
-
---
--- Name: serial_number; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: serial_number; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.serial_number
@@ -25608,17 +24825,15 @@ CREATE SEQUENCE public.serial_number
     CACHE 1;
 
 
-ALTER TABLE public.serial_number OWNER TO postgres;
-
 --
--- Name: SEQUENCE serial_number; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: SEQUENCE serial_number; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON SEQUENCE public.serial_number IS '财务流水号';
 
 
 --
--- Name: week_bond; Type: VIEW; Schema: public; Owner: postgres
+-- Name: week_bond; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.week_bond AS
@@ -25666,829 +24881,897 @@ CREATE VIEW public.week_bond AS
   WHERE (epmms_membermap.membermap_bond_id = '-2'::integer);
 
 
-ALTER TABLE public.week_bond OWNER TO postgres;
-
 --
--- Name: award_config_budian award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_budian award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_budian ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_budian_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dist award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_day_futou award_config_id; Type: DEFAULT; Schema: award; Owner: -
+--
+
+ALTER TABLE ONLY award.award_config_day_futou ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_day_futou_award_config_id_seq'::regclass);
+
+
+--
+-- Name: award_config_dist award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dist ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dist_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dot_layer award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_layer ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dot_layer_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dot_layer2 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer2 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_layer2 ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dot_layer2_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dot_layer_150919 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_150919 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_layer_150919 ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dot_layer_150919_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dot_limit award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_dot_limit award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_limit ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dot_limit_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dot_matrix2 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_dot_matrix2 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_matrix2 ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dot_matrix2_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_dot_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_dot_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_recommend ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_dot_recommend_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_fenhong_level award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_fenhong_level award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_fenhong_level ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_fenhong_level_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_huzhu award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_huzhu award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_huzhu ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_huzhu_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_leader_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_leader_recommend ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_leader_recommend_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_leader_recommend2 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend2 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_leader_recommend2 ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_leader_recommend2_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_static_fenhong award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_static_fenhong award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_static_fenhong ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_static_fenhong_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_up_down_425 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_up_down_425 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_up_down_425 ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_up_down_425_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_upgrade award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_upgrade award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_upgrade ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_upgrade_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_config_xingyun award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_config_xingyu_futou award_config_id; Type: DEFAULT; Schema: award; Owner: -
+--
+
+ALTER TABLE ONLY award.award_config_xingyu_futou ALTER COLUMN award_config_id SET DEFAULT nextval('award.table_award_config_id_seq'::regclass);
+
+
+--
+-- Name: award_config_xingyun award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_xingyun ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_config_xingyun_award_config_id_seq'::regclass);
 
 
 --
--- Name: award_recommend_matrix award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_recommend_matrix ALTER COLUMN award_config_id SET DEFAULT nextval('award.award_recommend_matrix_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_matrix award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_dot_matrix_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_matrix_left award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_left award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix_left ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_dot_matrix_left_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix_recommend ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_dot_matrix_recommend_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend_151204 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_151204 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix_recommend_151204 ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_dot_matrix_recommend_new_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_layer_full_layer award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_layer_full_layer award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_layer_full_layer ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_layer_full_layer_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_month_fenhong award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_month_fenhong award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_month_fenhong ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_month_fenhong_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_pair_member award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_pair_member ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_pair_member_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_pair_member_150919 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_150919 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_pair_member_150919 ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_pair_member_150919_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_prize award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_prize award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_prize ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_prize_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_recommend ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_recommend_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_recommend2 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend2 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_recommend2 ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_recommend2_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_recommend3 award_config_id; Type: DEFAULT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend3 award_config_id; Type: DEFAULT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_recommend3 ALTER COLUMN award_config_id SET DEFAULT nextval('award.epmms_award_config_recommend3_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_announcement announcement_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_activation_record activation_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_activation_record ALTER COLUMN activation_id SET DEFAULT nextval('public.epmms_activation_record_activation_id_seq'::regclass);
+
+
+--
+-- Name: epmms_announcement announcement_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_announcement ALTER COLUMN announcement_id SET DEFAULT nextval('public.epmms_announcement_announcement_id_seq'::regclass);
 
 
 --
--- Name: epmms_announcement_class class_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_announcement_class class_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_announcement_class ALTER COLUMN class_id SET DEFAULT nextval('public.epmms_announcement_class_class_id_seq'::regclass);
 
 
 --
--- Name: epmms_appropriate appropriate_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_appropriate appropriate_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_appropriate ALTER COLUMN appropriate_id SET DEFAULT nextval('public.epmms_appropriate_appropriate_id_seq'::regclass);
 
 
 --
--- Name: epmms_authitem id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_authitem id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authitem ALTER COLUMN id SET DEFAULT nextval('public.epmms_authitem_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_agent award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_agent award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_agent ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_agent_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_aixinjijin award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_aixinjijin award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_aixinjijin ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_aixinjijin_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_all_fenhong config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_all_fenhong config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_all_fenhong ALTER COLUMN config_id SET DEFAULT nextval('public.epmms_award_config_all_fenhong_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_award_student award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_award_student award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_award_student ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_award_student_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_bonus award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_bonus award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_bonus ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_bonus_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_chuangye award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_chuangye award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_chuangye ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_chuangye_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_corp_fenhong award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_corp_fenhong award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_corp_fenhong ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_corp_fenhong_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_day_fenhong award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_day_fenhong award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_day_fenhong ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_day_fenhong_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dif award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dif award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dif ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_config_dif_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_dot_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_fuwu award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_fuwu award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_fuwu ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_dot_fuwu_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_layer award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_layer award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_layer ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_dot_layer_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_matrix award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_matrix award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_matrix ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_dot_matrix_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dot_member award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_member award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_member ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_dot_member_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_down award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_down award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_down ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_down_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_dup_dot award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dup_dot award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dup_dot ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_dup_dot_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_foundation award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_foundation award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_foundation ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_foundation_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_gl award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gl award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_gl ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_gl_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_gljt award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gljt award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_gljt ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_gljt_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_gongpai award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gongpai award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_gongpai ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_gongpai_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_group award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_group ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_group_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_group7 award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group7 award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_group7 ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_group7_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_guanli award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_guanli award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_guanli ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_guanli_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_guanli_upgrade award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_guanli_upgrade award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_guanli_upgrade ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_guanli_upgrade_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_huikui award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_huikui award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_huikui ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_huikui_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_layer award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_layer_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_layer_dot award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_dot award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer_dot ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_layer_dot_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_layer_full award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_full award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer_full ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_layer_full_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_layer_recommend_dot award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_recommend_dot award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer_recommend_dot ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_layer_recommend_dot_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_leader_down award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_leader_down award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_leader_down ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_leader_down_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_lingdao award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_lingdao award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_lingdao ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_lingdao_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_org_down award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_down award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_org_down ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_org_down_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_org_up_down award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_up_down award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_org_up_down ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_org_up_down_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_out award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_out award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_out ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_out_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_pair_member award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_pair_member award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_pair_member ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_pair_member_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_peiyu_upgrade award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_peiyu_upgrade award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_peiyu_upgrade ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_peiyu_upgrade_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_prize award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_prize award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_prize ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_prize_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_recommend award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_recommend_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_recommend_layer award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend_layer ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_recommend_layer_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_recommend_layer_dot award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer_dot award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend_layer_dot ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_config_dot_m_l_r_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_share award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_share award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_share ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_share_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_stock award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_stock award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_stock ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_stock_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_up award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_up award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_up ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_up_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_upgrade award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_upgrade award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_upgrade ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_upgrade_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_config_yeji award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_yeji award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_yeji ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_award_config_yeji_award_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_day_sum_all award_day_sum_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all award_day_sum_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum_all ALTER COLUMN award_day_sum_id SET DEFAULT nextval('public.epmms_award_day_sum_all_award_day_sum_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_group award_group_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_group award_group_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_group ALTER COLUMN award_group_id SET DEFAULT nextval('public.epmms_award_group_award_group_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_month_sum_all award_month_sum_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all award_month_sum_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month_sum_all ALTER COLUMN award_month_sum_id SET DEFAULT nextval('public.epmms_award_month_sum_all_award_month_sum_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_week_sum_all award_week_sum_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all award_week_sum_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week_sum_all ALTER COLUMN award_week_sum_id SET DEFAULT nextval('public.epmms_award_week_sum_all_award_week_sum_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_year award_year_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_year award_year_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year ALTER COLUMN award_year_id SET DEFAULT nextval('public.epmms_award_year_award_year_id_seq'::regclass);
 
 
 --
--- Name: epmms_award_year_sum award_year_sum_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum award_year_sum_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year_sum ALTER COLUMN award_year_sum_id SET DEFAULT nextval('public.epmms_award_month_year_sum_award_year_sum_id_seq'::regclass);
 
 
 --
--- Name: epmms_backup backup_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_backup backup_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_backup ALTER COLUMN backup_id SET DEFAULT nextval('public.epmms_backup_backup_id_seq'::regclass);
 
 
 --
--- Name: epmms_cap_award cap_award_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_buy buy_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_buy ALTER COLUMN buy_id SET DEFAULT nextval('public.epmms_buy_buy_id_seq'::regclass);
+
+
+--
+-- Name: epmms_cap_award cap_award_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_award ALTER COLUMN cap_award_id SET DEFAULT nextval('public.epmms_cap_award_cap_award_id_seq'::regclass);
 
 
 --
--- Name: epmms_cap_member_award cap_member_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_award cap_member_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_member_award ALTER COLUMN cap_member_id SET DEFAULT nextval('public.epmms_cap_member_award_cap_member_id_seq'::regclass);
 
 
 --
--- Name: epmms_cap_sum cap_sum_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum cap_sum_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_sum ALTER COLUMN cap_sum_id SET DEFAULT nextval('public.epmms_cap_sum_cap_award_id_seq'::regclass);
 
 
 --
--- Name: epmms_config_award_differential award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_config_award_differential award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_award_differential ALTER COLUMN award_config_id SET DEFAULT nextval('public.epmms_config_award_differential_award_differential_id_seq'::regclass);
 
 
 --
--- Name: epmms_config_backup config_backup_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_config_backup config_backup_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_backup ALTER COLUMN config_backup_id SET DEFAULT nextval('public.epmms_config_backup_config_backup_id_seq'::regclass);
 
 
 --
--- Name: epmms_config_pond award_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_config_pond award_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_pond ALTER COLUMN award_config_id SET DEFAULT nextval('public.award_config_pond_pond_id_seq'::regclass);
 
 
 --
--- Name: epmms_config_withdrawals config_withdrawals_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_config_withdrawals config_withdrawals_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_withdrawals ALTER COLUMN config_withdrawals_id SET DEFAULT nextval('public.epmms_config_withdrawals_config_withdrawals_id_seq'::regclass);
 
 
 --
--- Name: epmms_foundation foundation_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_deal deal_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_deal ALTER COLUMN deal_id SET DEFAULT nextval('public.epmms_deal_deal_id_seq'::regclass);
+
+
+--
+-- Name: epmms_dup dup_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_dup ALTER COLUMN dup_id SET DEFAULT nextval('public.epmms_dup_dup_id_seq'::regclass);
+
+
+--
+-- Name: epmms_foundation foundation_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_foundation ALTER COLUMN foundation_id SET DEFAULT nextval('public.epmms_foundation_foundation_id_seq'::regclass);
 
 
 --
--- Name: epmms_futou futou_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_futou futou_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_futou ALTER COLUMN futou_id SET DEFAULT nextval('public.epmms_futou_futou_id_seq'::regclass);
 
 
 --
--- Name: epmms_game_charge charge_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_game_charge charge_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_game_charge ALTER COLUMN charge_id SET DEFAULT nextval('public.epmms_game_charge_charge_id_seq'::regclass);
 
 
 --
--- Name: epmms_group group_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_group group_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_group ALTER COLUMN group_id SET DEFAULT nextval('public.epmms_group_group_id_seq'::regclass);
 
 
 --
--- Name: epmms_help help_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_help help_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_help ALTER COLUMN help_id SET DEFAULT nextval('public.epmms_help_help_id_seq'::regclass);
 
 
 --
--- Name: epmms_layer layer_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_jackpot_info info_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_jackpot_info ALTER COLUMN info_id SET DEFAULT nextval('public.epmms_jackpot_info_info_id_seq'::regclass);
+
+
+--
+-- Name: epmms_jackpot_win_record jackpot_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_jackpot_win_record ALTER COLUMN jackpot_id SET DEFAULT nextval('public.epmms_jackpot_win_record_jackpot_id_seq'::regclass);
+
+
+--
+-- Name: epmms_layer layer_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_layer ALTER COLUMN layer_id SET DEFAULT nextval('public.epmms_layer_layer_id_seq'::regclass);
 
 
 --
--- Name: epmms_map_edit map_edit_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_map_edit map_edit_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_map_edit ALTER COLUMN map_edit_id SET DEFAULT nextval('public.epmms_map_edit_map_edit_id_seq'::regclass);
 
 
 --
--- Name: epmms_member_upgrade member_upgrade_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade member_upgrade_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_member_upgrade ALTER COLUMN member_upgrade_id SET DEFAULT nextval('public.epmms_member_upgrade_member_upgrade_id_seq'::regclass);
 
 
 --
--- Name: epmms_membermap3 membermap_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_membermap3 membermap_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap3 ALTER COLUMN membermap_id SET DEFAULT nextval('public.epmms_membermap3_membermap_id_seq'::regclass);
 
 
 --
--- Name: epmms_membermap4 membermap_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_membermap4 membermap_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap4 ALTER COLUMN membermap_id SET DEFAULT nextval('public.epmms_membermap4_membermap_id_seq'::regclass);
 
 
 --
--- Name: epmms_messages messages_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_messages messages_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_messages ALTER COLUMN messages_id SET DEFAULT nextval('public.epmms_messages_messages_id_seq'::regclass);
 
 
 --
--- Name: epmms_orders orders_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_mybank mybank_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_mybank ALTER COLUMN mybank_id SET DEFAULT nextval('public.epmms_mybank_mybank_id_seq'::regclass);
+
+
+--
+-- Name: epmms_orders orders_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders ALTER COLUMN orders_id SET DEFAULT nextval('public.epmms_orders_orders_id_seq'::regclass);
 
 
 --
--- Name: epmms_pond pond_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_pond pond_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_pond ALTER COLUMN pond_id SET DEFAULT nextval('public.epmms_pond_pond_id_seq'::regclass);
 
 
 --
--- Name: epmms_prize prize_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_prize prize_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_prize ALTER COLUMN prize_id SET DEFAULT nextval('public.epmms_prize_prize_id_seq'::regclass);
 
 
 --
--- Name: epmms_product_class product_class_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_product_class product_class_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_product_class ALTER COLUMN product_class_id SET DEFAULT nextval('public.epmms_product_class_product_class_id_seq'::regclass);
 
 
 --
--- Name: epmms_ratio ratio_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_ratio ratio_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_ratio ALTER COLUMN ratio_id SET DEFAULT nextval('public.epmms_ratio_ratio_id_seq'::regclass);
 
 
 --
--- Name: epmms_signing signing_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_sale sale_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_sale ALTER COLUMN sale_id SET DEFAULT nextval('public.epmms_sale_sale_id_seq'::regclass);
+
+
+--
+-- Name: epmms_signing signing_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_signing ALTER COLUMN signing_id SET DEFAULT nextval('public.epmms_signing_signing_id_seq'::regclass);
 
 
 --
--- Name: epmms_star star_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_star star_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_star ALTER COLUMN star_id SET DEFAULT nextval('public.epmms_star_star_id_seq'::regclass);
 
 
 --
--- Name: epmms_stock_trend stock_trend_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend stock_trend_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_stock_trend ALTER COLUMN stock_trend_id SET DEFAULT nextval('public.epmms_stock_trend_stock_trend_id_seq'::regclass);
 
 
 --
--- Name: epmms_sum_config sum_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_sum_config sum_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_sum_config ALTER COLUMN sum_config_id SET DEFAULT nextval('public.epmms_sum_config_sum_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_supplement supplement_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_supplement supplement_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_supplement ALTER COLUMN supplement_id SET DEFAULT nextval('public.epmms_supplement_supplement_id_seq'::regclass);
 
 
 --
--- Name: epmms_system_status system_status_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_system_status system_status_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_system_status ALTER COLUMN system_status_id SET DEFAULT nextval('public.epmms_system_status_system_status_id_seq'::regclass);
 
 
 --
--- Name: epmms_transfer transfer_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_transfer transfer_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer ALTER COLUMN transfer_id SET DEFAULT nextval('public.epmms_transfer_transfer_id_seq'::regclass);
 
 
 --
--- Name: epmms_transfer_config transfer_config_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_transfer_config transfer_config_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer_config ALTER COLUMN transfer_config_id SET DEFAULT nextval('public.epmms_transfer_config_transfer_config_id_seq'::regclass);
 
 
 --
--- Name: epmms_withdrawals withdrawals_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals withdrawals_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_withdrawals ALTER COLUMN withdrawals_id SET DEFAULT nextval('public.epmms_withdrawals_withdrawals_id_seq'::regclass);
 
 
 --
--- Data for Name: award_config_3070; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_3070; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_3070 (award_config_id, award_config_ratio, award_config_currency) FROM stdin;
@@ -26498,7 +25781,7 @@ COPY award.award_config_3070 (award_config_id, award_config_ratio, award_config_
 
 
 --
--- Data for Name: award_config_budian; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_budian; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_budian (award_config_id, award_config_award_member, award_config_new_member, award_config_currency) FROM stdin;
@@ -26515,7 +25798,29 @@ COPY award.award_config_budian (award_config_id, award_config_award_member, awar
 
 
 --
--- Data for Name: award_config_dist; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_day_futou; Type: TABLE DATA; Schema: award; Owner: -
+--
+
+COPY award.award_config_day_futou (award_config_id, award_config_level, award_config_days, award_config_money, award_config_percnet_finance) FROM stdin;
+5	5	30	330.0000	0.1500
+6	6	30	660.0000	0.1500
+7	7	30	990.0000	0.1500
+8	8	30	1200.0000	0.1500
+10	10	30	2400.0000	0.2500
+9	9	300	1800.0000	0.2500
+11	11	30	3000.0000	0.2500
+12	12	30	5000.0000	0.2500
+13	13	300	10000.0000	0.2500
+14	13	99999999	20000.0000	0.2500
+1	1	30	200.0000	0.0500
+2	2	30	500.0000	0.0500
+3	3	30	1400.0000	0.0500
+4	4	30	1800.0000	0.0500
+\.
+
+
+--
+-- Data for Name: award_config_dist; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dist (award_config_id, award_config_agent_type, award_config_award, award_config_layer) FROM stdin;
@@ -26523,7 +25828,7 @@ COPY award.award_config_dist (award_config_id, award_config_agent_type, award_co
 
 
 --
--- Data for Name: award_config_dot_layer; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dot_layer; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dot_layer (award_config_id, award_config_layer, award_config_currency, award_config_recommend, award_config_membertype) FROM stdin;
@@ -26534,7 +25839,7 @@ COPY award.award_config_dot_layer (award_config_id, award_config_layer, award_co
 
 
 --
--- Data for Name: award_config_dot_layer2; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dot_layer2; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dot_layer2 (award_config_id, award_config_layer, award_config_currency) FROM stdin;
@@ -26547,7 +25852,7 @@ COPY award.award_config_dot_layer2 (award_config_id, award_config_layer, award_c
 
 
 --
--- Data for Name: award_config_dot_layer_150919; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dot_layer_150919; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dot_layer_150919 (award_config_id, award_config_layer, award_config_currency, award_config_recommend) FROM stdin;
@@ -26556,7 +25861,7 @@ COPY award.award_config_dot_layer_150919 (award_config_id, award_config_layer, a
 
 
 --
--- Data for Name: award_config_dot_limit; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dot_limit; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dot_limit (award_config_id, award_config_recommend, award_config_limit) FROM stdin;
@@ -26568,7 +25873,7 @@ COPY award.award_config_dot_limit (award_config_id, award_config_recommend, awar
 
 
 --
--- Data for Name: award_config_dot_matrix2; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dot_matrix2; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dot_matrix2 (award_config_id, award_config_award_member, award_config_new_member, award_config_currency) FROM stdin;
@@ -26585,7 +25890,7 @@ COPY award.award_config_dot_matrix2 (award_config_id, award_config_award_member,
 
 
 --
--- Data for Name: award_config_dot_recommend; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dot_recommend; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dot_recommend (award_config_id, award_config_membertype, award_config_layer, award_config_currency) FROM stdin;
@@ -26596,7 +25901,7 @@ COPY award.award_config_dot_recommend (award_config_id, award_config_membertype,
 
 
 --
--- Data for Name: award_config_down_up; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_down_up; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_down_up (award_config_id, award_config_member, award_config_layer, award_config_currency, award_config_recommend) FROM stdin;
@@ -26610,7 +25915,7 @@ COPY award.award_config_down_up (award_config_id, award_config_member, award_con
 
 
 --
--- Data for Name: award_config_dup; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_dup; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_dup (award_config_id, award_config_total, award_config_award) FROM stdin;
@@ -26618,7 +25923,7 @@ COPY award.award_config_dup (award_config_id, award_config_total, award_config_a
 
 
 --
--- Data for Name: award_config_fanli; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_fanli; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_fanli (award_config_id, award_config_membertype, award_config_currency, award_config_buy) FROM stdin;
@@ -26629,7 +25934,7 @@ COPY award.award_config_fanli (award_config_id, award_config_membertype, award_c
 
 
 --
--- Data for Name: award_config_fenhong_level; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_fenhong_level; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_fenhong_level (award_config_id, award_config_level, award_config_currency, award_config_month_money) FROM stdin;
@@ -26644,7 +25949,7 @@ COPY award.award_config_fenhong_level (award_config_id, award_config_level, awar
 
 
 --
--- Data for Name: award_config_global_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_global_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_global_fenhong (member_number, member_level, upgrade_level, df_currency, currency) FROM stdin;
@@ -26657,7 +25962,7 @@ COPY award.award_config_global_fenhong (member_number, member_level, upgrade_lev
 
 
 --
--- Data for Name: award_config_huzhu; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_huzhu; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_huzhu (award_config_id, award_config_layer, award_config_currency) FROM stdin;
@@ -26670,7 +25975,7 @@ COPY award.award_config_huzhu (award_config_id, award_config_layer, award_config
 
 
 --
--- Data for Name: award_config_layer_pair_member; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_layer_pair_member; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_layer_pair_member (award_config_membertype, award_config_layer, award_config_currency, award_config_id, award_config_recommend) FROM stdin;
@@ -26679,7 +25984,7 @@ COPY award.award_config_layer_pair_member (award_config_membertype, award_config
 
 
 --
--- Data for Name: award_config_leader_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_leader_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_leader_fenhong (member_number, level, currency) FROM stdin;
@@ -26693,7 +25998,7 @@ COPY award.award_config_leader_fenhong (member_number, level, currency) FROM std
 
 
 --
--- Data for Name: award_config_leader_recommend; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_leader_recommend; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_leader_recommend (award_config_id, award_config_membertype, award_config_recommend_layer, award_config_money) FROM stdin;
@@ -26711,7 +26016,7 @@ COPY award.award_config_leader_recommend (award_config_id, award_config_memberty
 
 
 --
--- Data for Name: award_config_leader_recommend2; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_leader_recommend2; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_leader_recommend2 (award_config_id, award_config_membertype, award_config_recommend_layer, award_config_money) FROM stdin;
@@ -26729,7 +26034,7 @@ COPY award.award_config_leader_recommend2 (award_config_id, award_config_membert
 
 
 --
--- Data for Name: award_config_manage; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_manage; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_manage (award_layer, award_money, award_type) FROM stdin;
@@ -26739,7 +26044,7 @@ COPY award.award_config_manage (award_layer, award_money, award_type) FROM stdin
 
 
 --
--- Data for Name: award_config_market; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_market; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_market (layer, currency) FROM stdin;
@@ -26753,7 +26058,7 @@ COPY award.award_config_market (layer, currency) FROM stdin;
 
 
 --
--- Data for Name: award_config_org_up_down; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_org_up_down; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_org_up_down (award_config_id, award_config_layer, award_config_membertype, award_config_currency, award_config_recommend) FROM stdin;
@@ -26773,7 +26078,7 @@ COPY award.award_config_org_up_down (award_config_id, award_config_layer, award_
 
 
 --
--- Data for Name: award_config_recommend_type2; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_recommend_type2; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_recommend_type2 (award_config_id, award_config_membertype, award_config_currency) FROM stdin;
@@ -26783,7 +26088,7 @@ COPY award.award_config_recommend_type2 (award_config_id, award_config_membertyp
 
 
 --
--- Data for Name: award_config_signing; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_signing; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_signing (signing_type, config_currency, signing_refuse, config_id, award_type) FROM stdin;
@@ -26793,7 +26098,7 @@ COPY award.award_config_signing (signing_type, config_currency, signing_refuse, 
 
 
 --
--- Data for Name: award_config_static_fenghong_recommend; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_static_fenghong_recommend; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_static_fenghong_recommend (award_config_id, award_config_recommend, award_config_currency, award_config_limit) FROM stdin;
@@ -26804,7 +26109,7 @@ COPY award.award_config_static_fenghong_recommend (award_config_id, award_config
 
 
 --
--- Data for Name: award_config_static_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_static_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_static_fenhong (award_config_id, award_config_membertype, award_config_money, award_config_limit) FROM stdin;
@@ -26819,7 +26124,7 @@ COPY award.award_config_static_fenhong (award_config_id, award_config_membertype
 
 
 --
--- Data for Name: award_config_up_down_425; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_up_down_425; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_up_down_425 (award_config_id, award_config_recommend, award_config_layer, award_config_currency) FROM stdin;
@@ -26842,7 +26147,7 @@ COPY award.award_config_up_down_425 (award_config_id, award_config_recommend, aw
 
 
 --
--- Data for Name: award_config_upgrade; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_upgrade; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_upgrade (award_config_id, little_currency, down_number, down_level, upgrade_level) FROM stdin;
@@ -26856,7 +26161,18 @@ COPY award.award_config_upgrade (award_config_id, little_currency, down_number, 
 
 
 --
--- Data for Name: award_config_xingyun; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_xingyu_futou; Type: TABLE DATA; Schema: award; Owner: -
+--
+
+COPY award.award_config_xingyu_futou (award_config_id, award_config_seqs, award_config_money, award_config_recommend_jin_number) FROM stdin;
+1	{1,4,7}	8.0000	[0,2)
+2	{1,2,4,5,7,8}	12.0000	[2,4)
+3	{1,2,3,4,5,6,7,8,9}	20.0000	[4,)
+\.
+
+
+--
+-- Data for Name: award_config_xingyun; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_xingyun (award_config_id, award_config_membertype, award_config_currency) FROM stdin;
@@ -26869,7 +26185,7 @@ COPY award.award_config_xingyun (award_config_id, award_config_membertype, award
 
 
 --
--- Data for Name: award_config_zhengka; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_config_zhengka; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_config_zhengka (award_config_id, award_config_membertype, award_config_membertype_new, award_config_currency) FROM stdin;
@@ -26886,7 +26202,7 @@ COPY award.award_config_zhengka (award_config_id, award_config_membertype, award
 
 
 --
--- Data for Name: award_recommend_matrix; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: award_recommend_matrix; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.award_recommend_matrix (award_config_id, award_config_award_membertype, award_config_new_membertype, award_config_award) FROM stdin;
@@ -26924,7 +26240,7 @@ COPY award.award_recommend_matrix (award_config_id, award_config_award_membertyp
 
 
 --
--- Data for Name: dynamic_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: dynamic_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.dynamic_fenhong (award_config_id, membertype, billcount, layers) FROM stdin;
@@ -26944,7 +26260,7 @@ COPY award.dynamic_fenhong (award_config_id, membertype, billcount, layers) FROM
 
 
 --
--- Data for Name: dynmmic_fenhong_percent; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: dynmmic_fenhong_percent; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.dynmmic_fenhong_percent (award_config_id, layers, award_currency) FROM stdin;
@@ -26956,7 +26272,7 @@ COPY award.dynmmic_fenhong_percent (award_config_id, layers, award_currency) FRO
 
 
 --
--- Data for Name: epmms_award_config_agent; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_agent; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_agent (award_config_id, award_config_agent, award_config_currency) FROM stdin;
@@ -26967,7 +26283,7 @@ COPY award.epmms_award_config_agent (award_config_id, award_config_agent, award_
 
 
 --
--- Data for Name: epmms_award_config_day_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_day_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_day_fenhong (award_config_id, award_membertype, award_currency) FROM stdin;
@@ -26982,7 +26298,7 @@ COPY award.epmms_award_config_day_fenhong (award_config_id, award_membertype, aw
 
 
 --
--- Data for Name: epmms_award_config_dif; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_dif; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_dif (award_config_id, director_level, dif_award, equal_award, membertype) FROM stdin;
@@ -26999,7 +26315,7 @@ COPY award.epmms_award_config_dif (award_config_id, director_level, dif_award, e
 
 
 --
--- Data for Name: epmms_award_config_dot_matrix; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_dot_matrix; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_dot_matrix (award_config_id, award_config_award_member, award_config_new_member, award_config_layer, award_config_currency) FROM stdin;
@@ -27032,7 +26348,7 @@ COPY award.epmms_award_config_dot_matrix (award_config_id, award_config_award_me
 
 
 --
--- Data for Name: epmms_award_config_dot_matrix_left; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_dot_matrix_left; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_dot_matrix_left (award_config_id, award_config_award_member, award_config_new_member, award_config_layer, award_config_currency) FROM stdin;
@@ -27049,7 +26365,7 @@ COPY award.epmms_award_config_dot_matrix_left (award_config_id, award_config_awa
 
 
 --
--- Data for Name: epmms_award_config_dot_matrix_recommend; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_dot_matrix_recommend; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_dot_matrix_recommend (award_config_id, award_config_award_member, award_config_new_member, award_config_layer, award_config_currency) FROM stdin;
@@ -27066,7 +26382,7 @@ COPY award.epmms_award_config_dot_matrix_recommend (award_config_id, award_confi
 
 
 --
--- Data for Name: epmms_award_config_dot_matrix_recommend_151204; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_dot_matrix_recommend_151204; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_dot_matrix_recommend_151204 (award_config_id, award_config_award_member, award_config_new_member, award_config_layer, award_config_currency) FROM stdin;
@@ -27083,7 +26399,7 @@ COPY award.epmms_award_config_dot_matrix_recommend_151204 (award_config_id, awar
 
 
 --
--- Data for Name: epmms_award_config_layer_full_layer; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_layer_full_layer; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_layer_full_layer (award_config_id, award_config_layer, award_config_currency) FROM stdin;
@@ -27093,7 +26409,7 @@ COPY award.epmms_award_config_layer_full_layer (award_config_id, award_config_la
 
 
 --
--- Data for Name: epmms_award_config_month_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_month_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_month_fenhong (award_config_id, award_membertype, award_currency, award_config_limit) FROM stdin;
@@ -27108,7 +26424,7 @@ COPY award.epmms_award_config_month_fenhong (award_config_id, award_membertype, 
 
 
 --
--- Data for Name: epmms_award_config_pair_member; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_pair_member; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_pair_member (award_config_id, award_config_membertype, award_config_currency, award_config_diff) FROM stdin;
@@ -27119,7 +26435,7 @@ COPY award.epmms_award_config_pair_member (award_config_id, award_config_membert
 
 
 --
--- Data for Name: epmms_award_config_pair_member_150919; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_pair_member_150919; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_pair_member_150919 (award_config_id, award_config_membertype, award_config_currency, award_config_diff) FROM stdin;
@@ -27128,7 +26444,7 @@ COPY award.epmms_award_config_pair_member_150919 (award_config_id, award_config_
 
 
 --
--- Data for Name: epmms_award_config_prize; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_prize; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_prize (award_config_id, award_config_name, award_config_total) FROM stdin;
@@ -27139,7 +26455,7 @@ COPY award.epmms_award_config_prize (award_config_id, award_config_name, award_c
 
 
 --
--- Data for Name: epmms_award_config_recommend; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_recommend; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_recommend (award_config_id, award_config_membertype, award_config_currency, award_config_membertype_new) FROM stdin;
@@ -27150,7 +26466,7 @@ COPY award.epmms_award_config_recommend (award_config_id, award_config_membertyp
 
 
 --
--- Data for Name: epmms_award_config_recommend2; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_recommend2; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_recommend2 (award_config_id, award_config_membertype, award_config_currency, award_config_membertype_new) FROM stdin;
@@ -27160,7 +26476,7 @@ COPY award.epmms_award_config_recommend2 (award_config_id, award_config_memberty
 
 
 --
--- Data for Name: epmms_award_config_recommend3; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: epmms_award_config_recommend3; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.epmms_award_config_recommend3 (award_config_id, award_config_membertype, award_config_currency, award_config_membertype_new) FROM stdin;
@@ -27172,7 +26488,7 @@ COPY award.epmms_award_config_recommend3 (award_config_id, award_config_memberty
 
 
 --
--- Data for Name: static_fenhong; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: static_fenhong; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.static_fenhong (award_config_id, membertype, award_currency) FROM stdin;
@@ -27184,7 +26500,7 @@ COPY award.static_fenhong (award_config_id, membertype, award_currency) FROM std
 
 
 --
--- Data for Name: upgrade_child_condition; Type: TABLE DATA; Schema: award; Owner: postgres
+-- Data for Name: upgrade_child_condition; Type: TABLE DATA; Schema: award; Owner: -
 --
 
 COPY award.upgrade_child_condition (config_id, upgrade_level, child_number, child_level) FROM stdin;
@@ -27202,16 +26518,15 @@ COPY award.upgrade_child_condition (config_id, upgrade_level, child_number, chil
 
 
 --
--- Data for Name: award; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_activation_record; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.award (finance_award) FROM stdin;
-1960.0000
+COPY public.epmms_activation_record (activation_id, activation_member_id, activation_add_time) FROM stdin;
 \.
 
 
 --
--- Data for Name: epmms_agent; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_agent; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_agent (agent_id, agent_memberinfo_id, agent_memo, agent_is_verify, agent_add_date, agent_verify_date, agent_type, agent_province, agent_area, agent_county, agent_account) FROM stdin;
@@ -27220,7 +26535,7 @@ COPY public.epmms_agent (agent_id, agent_memberinfo_id, agent_memo, agent_is_ver
 
 
 --
--- Data for Name: epmms_agent_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_agent_type; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_agent_type (agent_type_level, agent_type_name) FROM stdin;
@@ -27231,7 +26546,7 @@ COPY public.epmms_agent_type (agent_type_level, agent_type_name) FROM stdin;
 
 
 --
--- Data for Name: epmms_announcement; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_announcement; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_announcement (announcement_id, announcement_title, announcement_content, announcement_add_date, announcement_mod_date, announcement_userinfo_id, announcement_class, log_id, log_category, log_source, log_operate, log_target, log_value, log_info, log_ip, log_user, log_role, log_add_date, log_status) FROM stdin;
@@ -27240,7 +26555,7 @@ COPY public.epmms_announcement (announcement_id, announcement_title, announcemen
 
 
 --
--- Data for Name: epmms_announcement_class; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_announcement_class; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_announcement_class (class_id, class_name, class_intro, class_add_date, class_sort) FROM stdin;
@@ -27249,16 +26564,15 @@ COPY public.epmms_announcement_class (class_id, class_name, class_intro, class_a
 
 
 --
--- Data for Name: epmms_appropriate; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_appropriate; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_appropriate (appropriate_id, appropriate_currency, appropriate_finance_type_id, appropriate_add_date, appropriate_memberinfo_id, appropriate_type) FROM stdin;
-1	100000.00	2	2019-01-02 11:48:22	2	0
 \.
 
 
 --
--- Data for Name: epmms_authassignment; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_authassignment; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_authassignment (itemname, userid, bizrule, data) FROM stdin;
@@ -27267,7 +26581,7 @@ epmms	1	\N	N;
 
 
 --
--- Data for Name: epmms_authitem; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_authitem; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_authitem (name, type, description, bizrule, data, add_date, id) FROM stdin;
@@ -27640,11 +26954,22 @@ Membermap.GetLevelCount	0	\N	\N	N;	2018-11-17 14:30:53	389
 epmms	2	管理员	\N	N;	2014-01-07 16:27:16	38
 Memberinfo.Team	0	\N	\N	N;	2018-12-10 18:20:43	390
 AwardTotalSum.AwardSum	0	\N	\N	N;	2018-12-11 11:07:15	391
+ConfigJackpot.Index	0	奖池配置信息	\N	N;	2019-01-05 03:04:12	392
+JackpotRecord.Index	0	竞买奖池获奖者	\N	N;	2019-01-05 03:04:57	393
+Buy.Create	0	卖出	\N	N;	2019-01-07 18:48:36	394
+Buy.Index	0	卖出列表	\N	N;	2019-01-09 11:11:18	395
+Buy.Delete	0	卖出删除	\N	N;	2019-01-09 12:46:02	396
+Deal.Index	0	买入卖出记录	\N	N;	2019-01-09 12:47:28	397
+Sale.Create	0	买入	\N	N;	2019-01-09 12:49:07	398
+Deal.Upload	0	买入卖出图片	\N	N;	2019-01-09 16:29:19	399
+JackpotInfo.Index	0	竞买奖池余额记录	\N	N;	2019-01-10 19:16:49	401
+ConfigJackpot.Update	0	奖池配置	\N	N;	2019-01-10 19:26:37	403
+Deal.Verify	0	买入卖出订单	\N	N;	2019-01-11 10:51:44	404
 \.
 
 
 --
--- Data for Name: epmms_authitemchild; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_authitemchild; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_authitemchild (parent, child) FROM stdin;
@@ -28359,21 +27684,53 @@ member	AwardTotalSum.AwardSum
 member	Agent.View
 agent	Memberinfo.IndexRecommend
 member	Memberinfo.IndexRecommend
+agent	Buy.Create
+leader	Buy.Create
+member	Buy.Create
+agent	Buy.Index
+leader	Buy.Index
+member	Buy.Index
+agent	Buy.Delete
+leader	Buy.Delete
+member	Buy.Delete
+agent	Deal.Index
+leader	Deal.Index
+member	Deal.Index
+agent	Sale.Create
+leader	Sale.Create
+member	Sale.Create
+agent	Deal.Upload
+leader	Deal.Upload
+member	Deal.Upload
+member	JackpotInfo.Index
+leader	JackpotInfo.Index
+agent	JackpotInfo.Index
+member	JackpotRecord.Index
+leader	JackpotRecord.Index
+agent	JackpotRecord.Index
+member	ConfigJackpot.Index
+leader	ConfigJackpot.Index
+agent	ConfigJackpot.Index
+leader	ConfigJackpot.Update
+agent	Deal.Verify
+leader	Deal.Verify
+member	Deal.Verify
 \.
 
 
 --
--- Data for Name: epmms_award_config; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config (award_config_id, award_config_type_id, award_config_currency, award_config_is_percent, award_config_add_date, award_config_order) FROM stdin;
 169	614	20.0000	0	2018-11-17 22:20:36	\N
 170	613	-20.0000	1	2018-12-12 15:14:39	\N
+171	351	5.0000	0	2019-01-07 19:35:47	\N
 \.
 
 
 --
--- Data for Name: epmms_award_config_agent; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_agent; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_agent (award_config_id, award_config_agent, award_config_currency) FROM stdin;
@@ -28383,7 +27740,7 @@ COPY public.epmms_award_config_agent (award_config_id, award_config_agent, award
 
 
 --
--- Data for Name: epmms_award_config_aixinjijin; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_aixinjijin; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_aixinjijin (award_config_id, award_config_award_total, award_config_currency) FROM stdin;
@@ -28393,7 +27750,7 @@ COPY public.epmms_award_config_aixinjijin (award_config_id, award_config_award_t
 
 
 --
--- Data for Name: epmms_award_config_all_fenhong; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_all_fenhong; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_all_fenhong (config_id, member_type, award_value) FROM stdin;
@@ -28404,7 +27761,7 @@ COPY public.epmms_award_config_all_fenhong (config_id, member_type, award_value)
 
 
 --
--- Data for Name: epmms_award_config_award_student; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_award_student; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_award_student (award_config_id, award_config_recommend, award_config_layer, award_config_condition, award_config_currency, award_config_is_condition) FROM stdin;
@@ -28432,7 +27789,7 @@ COPY public.epmms_award_config_award_student (award_config_id, award_config_reco
 
 
 --
--- Data for Name: epmms_award_config_bonus; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_bonus; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_bonus (award_config_id, award_config_recommend_count, award_config_recommend_layer, award_config_currency) FROM stdin;
@@ -28446,7 +27803,7 @@ COPY public.epmms_award_config_bonus (award_config_id, award_config_recommend_co
 
 
 --
--- Data for Name: epmms_award_config_chuangye; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_chuangye; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_chuangye (award_config_id, award_config_layer, award_config_currency) FROM stdin;
@@ -28457,7 +27814,7 @@ COPY public.epmms_award_config_chuangye (award_config_id, award_config_layer, aw
 
 
 --
--- Data for Name: epmms_award_config_corp_fenhong; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_corp_fenhong; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_corp_fenhong (award_config_id, award_config_award_currency, award_config_level) FROM stdin;
@@ -28469,7 +27826,7 @@ COPY public.epmms_award_config_corp_fenhong (award_config_id, award_config_award
 
 
 --
--- Data for Name: epmms_award_config_day_fenhong; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_day_fenhong; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_day_fenhong (award_config_id, award_membertype, award_currency) FROM stdin;
@@ -28482,7 +27839,7 @@ COPY public.epmms_award_config_day_fenhong (award_config_id, award_membertype, a
 
 
 --
--- Data for Name: epmms_award_config_dif; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dif; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dif (award_config_id, director_level, dif_award, equal_award) FROM stdin;
@@ -28495,7 +27852,7 @@ COPY public.epmms_award_config_dif (award_config_id, director_level, dif_award, 
 
 
 --
--- Data for Name: epmms_award_config_dot; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dot; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dot (award_config_id, member_type, recommend_count, recommend_layer, award_money) FROM stdin;
@@ -28507,7 +27864,7 @@ COPY public.epmms_award_config_dot (award_config_id, member_type, recommend_coun
 
 
 --
--- Data for Name: epmms_award_config_dot_fuwu; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dot_fuwu; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dot_fuwu (award_config_id, award_config_recommend, award_config_layer, award_config_currency) FROM stdin;
@@ -28518,7 +27875,7 @@ COPY public.epmms_award_config_dot_fuwu (award_config_id, award_config_recommend
 
 
 --
--- Data for Name: epmms_award_config_dot_layer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dot_layer; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dot_layer (award_config_id, award_config_layer, award_config_currency) FROM stdin;
@@ -28528,7 +27885,7 @@ COPY public.epmms_award_config_dot_layer (award_config_id, award_config_layer, a
 
 
 --
--- Data for Name: epmms_award_config_dot_matrix; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dot_matrix; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dot_matrix (award_config_id, award_config_award_member, award_config_new_member, award_config_layer, award_config_currency) FROM stdin;
@@ -28572,7 +27929,7 @@ COPY public.epmms_award_config_dot_matrix (award_config_id, award_config_award_m
 
 
 --
--- Data for Name: epmms_award_config_dot_member; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dot_member; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dot_member (award_config_id, award_config_member, award_config_layer, award_config_currency) FROM stdin;
@@ -28584,7 +27941,7 @@ COPY public.epmms_award_config_dot_member (award_config_id, award_config_member,
 
 
 --
--- Data for Name: epmms_award_config_down; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_down; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_down (award_config_id, award_config_layer, award_config_award_member, award_config_currency) FROM stdin;
@@ -28596,7 +27953,7 @@ COPY public.epmms_award_config_down (award_config_id, award_config_layer, award_
 
 
 --
--- Data for Name: epmms_award_config_dup_dot; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_dup_dot; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_dup_dot (award_config_id, recommend_count, award_layer, award_money) FROM stdin;
@@ -28608,7 +27965,7 @@ COPY public.epmms_award_config_dup_dot (award_config_id, recommend_count, award_
 
 
 --
--- Data for Name: epmms_award_config_foundation; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_foundation; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_foundation (award_config_id, award_config_foundation_money, award_config_founcation_score, award_config_member) FROM stdin;
@@ -28619,7 +27976,7 @@ COPY public.epmms_award_config_foundation (award_config_id, award_config_foundat
 
 
 --
--- Data for Name: epmms_award_config_gl; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_gl; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_gl (award_config_id, award_config_layer, award_config_currency, award_config_member) FROM stdin;
@@ -28637,7 +27994,7 @@ COPY public.epmms_award_config_gl (award_config_id, award_config_layer, award_co
 
 
 --
--- Data for Name: epmms_award_config_gljt; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_gljt; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_gljt (award_config_id, award_config_member_type, award_config_currency) FROM stdin;
@@ -28648,7 +28005,7 @@ COPY public.epmms_award_config_gljt (award_config_id, award_config_member_type, 
 
 
 --
--- Data for Name: epmms_award_config_gongpai; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_gongpai; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_gongpai (award_config_id, award_config_new_member, award_config_currency) FROM stdin;
@@ -28658,7 +28015,7 @@ COPY public.epmms_award_config_gongpai (award_config_id, award_config_new_member
 
 
 --
--- Data for Name: epmms_award_config_group; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_group; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_group (award_config_id, award_config_membertype, award_config_layer, award_config_currency) FROM stdin;
@@ -28670,7 +28027,7 @@ COPY public.epmms_award_config_group (award_config_id, award_config_membertype, 
 
 
 --
--- Data for Name: epmms_award_config_group7; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_group7; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_group7 (award_config_id, award_config_membertype, award_config_currency) FROM stdin;
@@ -28681,7 +28038,7 @@ COPY public.epmms_award_config_group7 (award_config_id, award_config_membertype,
 
 
 --
--- Data for Name: epmms_award_config_guanli; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_guanli; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_guanli (award_config_id, award_config_new_member, award_config_award_member, award_config_currency) FROM stdin;
@@ -28693,7 +28050,7 @@ COPY public.epmms_award_config_guanli (award_config_id, award_config_new_member,
 
 
 --
--- Data for Name: epmms_award_config_guanli_upgrade; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_guanli_upgrade; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_guanli_upgrade (award_config_id, award_config_level, award_config_number, award_config_membertype, award_config_memberlevel, award_config_income, award_config_currency) FROM stdin;
@@ -28705,7 +28062,7 @@ COPY public.epmms_award_config_guanli_upgrade (award_config_id, award_config_lev
 
 
 --
--- Data for Name: epmms_award_config_huikui; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_huikui; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_huikui (award_config_id, award_config_layer, award_config_level, award_config_currency) FROM stdin;
@@ -28723,7 +28080,7 @@ COPY public.epmms_award_config_huikui (award_config_id, award_config_layer, awar
 
 
 --
--- Data for Name: epmms_award_config_layer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_layer; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_layer (award_config_id, award_config_layer, award_config_award_currency, award_config_type) FROM stdin;
@@ -28739,7 +28096,7 @@ COPY public.epmms_award_config_layer (award_config_id, award_config_layer, award
 
 
 --
--- Data for Name: epmms_award_config_layer_dot; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_layer_dot; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_layer_dot (award_config_id, award_config_layer, award_config_recommend_number, award_config_currency) FROM stdin;
@@ -28762,7 +28119,7 @@ COPY public.epmms_award_config_layer_dot (award_config_id, award_config_layer, a
 
 
 --
--- Data for Name: epmms_award_config_layer_full; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_layer_full; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_layer_full (award_config_id, award_config_layer, award_config_currency, award_config_count, award_config_recommend_number, award_config_type) FROM stdin;
@@ -28772,7 +28129,7 @@ COPY public.epmms_award_config_layer_full (award_config_id, award_config_layer, 
 
 
 --
--- Data for Name: epmms_award_config_layer_recommend_dot; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_layer_recommend_dot; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_layer_recommend_dot (award_config_id, award_recommend_count, award_layer, award_currency) FROM stdin;
@@ -28783,7 +28140,7 @@ COPY public.epmms_award_config_layer_recommend_dot (award_config_id, award_recom
 
 
 --
--- Data for Name: epmms_award_config_leader_down; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_leader_down; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_leader_down (award_config_id, award_config_member, award_config_layer, award_config_currency) FROM stdin;
@@ -28793,7 +28150,7 @@ COPY public.epmms_award_config_leader_down (award_config_id, award_config_member
 
 
 --
--- Data for Name: epmms_award_config_lingdao; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_lingdao; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_lingdao (award_config_id, award_config_new_member, award_config_currency) FROM stdin;
@@ -28803,7 +28160,7 @@ COPY public.epmms_award_config_lingdao (award_config_id, award_config_new_member
 
 
 --
--- Data for Name: epmms_award_config_org_down; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_org_down; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_org_down (award_config_id, recommend_count, award_layer, award_money) FROM stdin;
@@ -28830,7 +28187,7 @@ COPY public.epmms_award_config_org_down (award_config_id, recommend_count, award
 
 
 --
--- Data for Name: epmms_award_config_org_up_down; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_org_up_down; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_org_up_down (award_config_id, award_config_layer, award_config_membertype, award_config_currency) FROM stdin;
@@ -28847,7 +28204,7 @@ COPY public.epmms_award_config_org_up_down (award_config_id, award_config_layer,
 
 
 --
--- Data for Name: epmms_award_config_out; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_out; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_out (award_config_id, award_config_recommend, award_config_award) FROM stdin;
@@ -28865,7 +28222,7 @@ COPY public.epmms_award_config_out (award_config_id, award_config_recommend, awa
 
 
 --
--- Data for Name: epmms_award_config_pair_member; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_pair_member; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_pair_member (award_config_id, award_config_membertype, award_config_currency, award_config_diff) FROM stdin;
@@ -28875,7 +28232,7 @@ COPY public.epmms_award_config_pair_member (award_config_id, award_config_member
 
 
 --
--- Data for Name: epmms_award_config_peiyu_upgrade; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_peiyu_upgrade; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_peiyu_upgrade (award_config_id, award_config_number, award_config_member_level, award_config_upgrade) FROM stdin;
@@ -28887,7 +28244,7 @@ COPY public.epmms_award_config_peiyu_upgrade (award_config_id, award_config_numb
 
 
 --
--- Data for Name: epmms_award_config_prize; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_prize; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_prize (award_config_id, award_config_name, award_config_total) FROM stdin;
@@ -28899,7 +28256,7 @@ COPY public.epmms_award_config_prize (award_config_id, award_config_name, award_
 
 
 --
--- Data for Name: epmms_award_config_recommend; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_recommend; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_recommend (award_config_id, award_config_membertype, award_config_currency) FROM stdin;
@@ -28909,7 +28266,7 @@ COPY public.epmms_award_config_recommend (award_config_id, award_config_memberty
 
 
 --
--- Data for Name: epmms_award_config_recommend_layer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_recommend_layer; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_recommend_layer (award_config_id, award_config_recommend_layer, award_config_currency) FROM stdin;
@@ -28922,7 +28279,7 @@ COPY public.epmms_award_config_recommend_layer (award_config_id, award_config_re
 
 
 --
--- Data for Name: epmms_award_config_recommend_layer_dot; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_recommend_layer_dot; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_recommend_layer_dot (award_config_id, award_config_new_member, award_config_layer, award_config_recommend, award_config_currency) FROM stdin;
@@ -28960,7 +28317,7 @@ COPY public.epmms_award_config_recommend_layer_dot (award_config_id, award_confi
 
 
 --
--- Data for Name: epmms_award_config_recommend_level; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_recommend_level; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_recommend_level (award_config_id, award_config_level, award_config_recommend_layer, award_config_currency) FROM stdin;
@@ -28977,7 +28334,7 @@ COPY public.epmms_award_config_recommend_level (award_config_id, award_config_le
 
 
 --
--- Data for Name: epmms_award_config_share; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_share; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_share (award_config_id, award_config_member_count, award_config_currency) FROM stdin;
@@ -28987,7 +28344,7 @@ COPY public.epmms_award_config_share (award_config_id, award_config_member_count
 
 
 --
--- Data for Name: epmms_award_config_stock; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_stock; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_stock (award_config_id, award_config_membertype, award_config_currency) FROM stdin;
@@ -29000,7 +28357,7 @@ COPY public.epmms_award_config_stock (award_config_id, award_config_membertype, 
 
 
 --
--- Data for Name: epmms_award_config_student_out; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_student_out; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_student_out (award_config_recommend, award_config_out_currency) FROM stdin;
@@ -29012,7 +28369,7 @@ COPY public.epmms_award_config_student_out (award_config_recommend, award_config
 
 
 --
--- Data for Name: epmms_award_config_up; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_up; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_up (award_config_id, award_config_layer, award_config_award_member, award_config_currency) FROM stdin;
@@ -29026,7 +28383,7 @@ COPY public.epmms_award_config_up (award_config_id, award_config_layer, award_co
 
 
 --
--- Data for Name: epmms_award_config_upgrade; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_upgrade; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_upgrade (award_config_id, award_config_layer, award_config_level, award_config_money) FROM stdin;
@@ -29044,7 +28401,7 @@ COPY public.epmms_award_config_upgrade (award_config_id, award_config_layer, awa
 
 
 --
--- Data for Name: epmms_award_config_yeji; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_config_yeji; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_config_yeji (award_config_id, award_config_member, award_config_layer, award_config_currency, award_config_free_date, award_config_yeji) FROM stdin;
@@ -29055,7 +28412,7 @@ COPY public.epmms_award_config_yeji (award_config_id, award_config_member, award
 
 
 --
--- Data for Name: epmms_award_day; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_day; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_day (award_day_id, award_day_date, award_day_memberinfo_id, award_day_currency, award_day_type_id, award_day_add_date, award_day_sum_type) FROM stdin;
@@ -29063,7 +28420,7 @@ COPY public.epmms_award_day (award_day_id, award_day_date, award_day_memberinfo_
 
 
 --
--- Data for Name: epmms_award_day_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_day_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_day_sum (award_day_sum_id, award_day_sum_memberinfo_id, award_day_sum_currency, award_day_sum_date, award_day_sum_add_date, award_day_sum_type, award_day_sum_is_withdrawals) FROM stdin;
@@ -29071,7 +28428,7 @@ COPY public.epmms_award_day_sum (award_day_sum_id, award_day_sum_memberinfo_id, 
 
 
 --
--- Data for Name: epmms_award_day_sum_all; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_day_sum_all; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_day_sum_all (award_day_sum_id, award_day_sum_memberinfo_id, award_day_sum_currency, award_day_sum_date, award_day_sum_add_date, award_day_sum_is_withdrawals) FROM stdin;
@@ -29079,24 +28436,22 @@ COPY public.epmms_award_day_sum_all (award_day_sum_id, award_day_sum_memberinfo_
 
 
 --
--- Data for Name: epmms_award_group; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_group; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_group (award_group_id, award_group_group, award_group_type, award_group_calc) FROM stdin;
-146	1	614	{1}
-241	1	615	{1}
-244	2	617	{1}
-246	3	614	{1}
-247	3	615	{1}
-234	1	616	{1}
-245	3	616	{1}
-248	1	613	{1}
-249	3	613	{1}
+249	1	625	{0}
+240	6	619	{0}
+241	5	620	{0}
+243	4	621	{0}
+244	7	622	{0}
+245	1	623	{0}
+246	7	624	{0}
 \.
 
 
 --
--- Data for Name: epmms_award_month; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_month; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_month (award_month_id, award_month_date, award_month_memberinfo_id, award_month_currency, award_month_type_id, award_month_add_date, award_month_sum_type) FROM stdin;
@@ -29104,7 +28459,7 @@ COPY public.epmms_award_month (award_month_id, award_month_date, award_month_mem
 
 
 --
--- Data for Name: epmms_award_month_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_month_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_month_sum (award_month_sum_id, award_month_sum_memberinfo_id, award_month_sum_currency, award_month_sum_date, award_month_sum_add_date, award_month_sum_type, award_month_sum_is_withdrawals) FROM stdin;
@@ -29112,7 +28467,7 @@ COPY public.epmms_award_month_sum (award_month_sum_id, award_month_sum_memberinf
 
 
 --
--- Data for Name: epmms_award_month_sum_all; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_month_sum_all; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_month_sum_all (award_month_sum_id, award_month_sum_memberinfo_id, award_month_sum_currency, award_month_sum_date, award_month_sum_add_date, award_month_sum_is_withdrawals) FROM stdin;
@@ -29120,7 +28475,7 @@ COPY public.epmms_award_month_sum_all (award_month_sum_id, award_month_sum_membe
 
 
 --
--- Data for Name: epmms_award_period; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_period; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_period (award_period_id, award_period_period, award_period_memberinfo_id, award_period_currency, award_period_type_id, award_period_add_date, award_period_sum_type, award_period_type2) FROM stdin;
@@ -29128,7 +28483,7 @@ COPY public.epmms_award_period (award_period_id, award_period_period, award_peri
 
 
 --
--- Data for Name: epmms_award_period_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_period_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_period_sum (award_period_sum_id, award_period_sum_memberinfo_id, award_period_sum_src_memberinfo_id, award_period_sum_currency, award_period_sum_period, award_period_sum_add_date, award_period_sum_type, award_period_sum_src_memberinfo_id_b) FROM stdin;
@@ -29136,7 +28491,7 @@ COPY public.epmms_award_period_sum (award_period_sum_id, award_period_sum_member
 
 
 --
--- Data for Name: epmms_award_total; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_total; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_total (award_total_id, award_total_memberinfo_id, award_total_currency, award_total_type_id, award_total_add_date, award_total_sum_type) FROM stdin;
@@ -29144,7 +28499,7 @@ COPY public.epmms_award_total (award_total_id, award_total_memberinfo_id, award_
 
 
 --
--- Data for Name: epmms_award_total_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_total_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_total_sum (award_total_sum_id, award_total_sum_memberinfo_id, award_total_sum_currency, award_total_sum_add_date, award_total_sum_type) FROM stdin;
@@ -29152,7 +28507,7 @@ COPY public.epmms_award_total_sum (award_total_sum_id, award_total_sum_memberinf
 
 
 --
--- Data for Name: epmms_award_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_type; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_type (award_type_id, award_type_name, award_type_desc, award_type_is_enable, award_type_class, award_type_order, award_is_calc, award_type_is_upgrade, award_time) FROM stdin;
@@ -29662,7 +29017,6 @@ COPY public.epmms_award_type (award_type_id, award_type_name, award_type_desc, a
 604	直接销售奖(代理)	\N	0	award.award_recommend_matrix_agent	0	0	0	\N
 605	升级	\N	0	award.upgrade_level_180929	0	0	0	\N
 611	升级	\N	0	"award"."upgrade_level_181111"	0	1	1	\N
-614	日返利	\N	1	"award"."award_fanli"	0	1	0	\N
 609	董事分红	\N	0	"award"."award_month_fenhong_181111"	4	1	0	\N
 608	对碰奖	\N	0	award.award_pair_status	3	1	1	\N
 610	报单费	\N	0	"award"."award_agent_type"	5	1	0	\N
@@ -29670,16 +29024,29 @@ COPY public.epmms_award_type (award_type_id, award_type_name, award_type_desc, a
 607	见点奖	\N	0	"award"."award_dot_layer"	2	1	0	\N
 265	扣税	\N	0	award.award_dup	6	0	0	\N
 612	考核天数	\N	0	\N	0	0	0	\N
-613	扣税	\N	1	"award"."award_dup"	10	1	0	\N
-615	分享奖	\N	1	"award"."award_lt_recommend"	0	1	0	\N
-616	见点奖	\N	1	"award"."award_lt_bonus"	0	1	0	\N
-618	团队	\N	1	"award"."award_team"	0	1	0	\N
-617	抵扣	\N	1	\N	0	0	0	\N
+619	尾单奖	\N	1	"award"."award_jackpot_fanxian"	0	1	0	\N
+620	幸运奖	\N	1	"award"."award_jackpot_fanxian"	0	1	0	\N
+621	首单奖	\N	1	"award"."award_jackpot_fanxian"	0	1	0	\N
+622	日薪	\N	1	award.award_day_futou	0	1	0	\N
+623	升级	\N	0	award.upgrade_level_181225	0	1	0	\N
+624	基金	\N	1	\N	0	0	0	\N
+613	扣税	\N	0	"award"."award_dup"	10	0	0	\N
+614	日返利	\N	0	"award"."award_fanli"	0	0	0	\N
+615	分享奖	\N	0	"award"."award_lt_recommend"	0	0	0	\N
+616	见点奖	\N	0	"award"."award_lt_bonus"	0	0	0	\N
+617	抵扣	\N	0	\N	0	0	0	\N
+625	店补积分	\N	1	award.award_xingyun_dianbu	0	1	0	\N
+641	购买手续费	\N	0	\N	0	0	0	\N
+640	交易手续费	\N	0	\N	0	0	0	\N
+642	重复消费	\N	0	"award"."award_dup_sum_type"	4	0	0	\N
+643	爱心基金	\N	0	"award"."award_dup"	5	0	0	\N
+351	积分价格	\N	0	\N	0	0	0	\N
+618	团队	\N	0	"award"."award_team"	0	0	0	\N
 \.
 
 
 --
--- Data for Name: epmms_award_week; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_week; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_week (award_week_id, award_week_date, award_week_memberinfo_id, award_week_currency, award_week_type_id, award_week_add_date, award_week_sum_type) FROM stdin;
@@ -29687,7 +29054,7 @@ COPY public.epmms_award_week (award_week_id, award_week_date, award_week_memberi
 
 
 --
--- Data for Name: epmms_award_week_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_week_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_week_sum (award_week_sum_id, award_week_sum_memberinfo_id, award_week_sum_currency, award_week_sum_date, award_week_sum_add_date, award_week_sum_type, award_week_sum_is_withdrawals) FROM stdin;
@@ -29695,7 +29062,7 @@ COPY public.epmms_award_week_sum (award_week_sum_id, award_week_sum_memberinfo_i
 
 
 --
--- Data for Name: epmms_award_week_sum_all; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_week_sum_all; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_week_sum_all (award_week_sum_id, award_week_sum_memberinfo_id, award_week_sum_currency, award_week_sum_date, award_week_sum_add_date, award_week_sum_is_withdrawals) FROM stdin;
@@ -29703,7 +29070,7 @@ COPY public.epmms_award_week_sum_all (award_week_sum_id, award_week_sum_memberin
 
 
 --
--- Data for Name: epmms_award_year; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_year; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_year (award_year_id, award_year_date, award_year_memberinfo_id, award_year_currency, award_year_type_id, award_year_add_date, award_year_sum_type) FROM stdin;
@@ -29711,7 +29078,7 @@ COPY public.epmms_award_year (award_year_id, award_year_date, award_year_memberi
 
 
 --
--- Data for Name: epmms_award_year_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_award_year_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_award_year_sum (award_year_sum_id, award_year_sum_memberinfo_id, award_year_sum_currency, award_year_sum_date, award_year_sum_add_date, award_year_sum_type) FROM stdin;
@@ -29719,24 +29086,16 @@ COPY public.epmms_award_year_sum (award_year_sum_id, award_year_sum_memberinfo_i
 
 
 --
--- Data for Name: epmms_backup; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_backup; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_backup (backup_id, backup_name, backup_add_date, backup_remark, backup_file, backup_type) FROM stdin;
-1	清空数据	2018-12-28 20:17:49	2018-12-28 20:17:48	..\\db_backup\\yii27_2018-12-28_20_17_48_fb49e81236bb39c7496719d746e65d59_1.bak	1
-2	审核：san1	2018-12-28 20:18:51	审核时间：2018-12-28 20:18:50	..\\db_backup\\yii27_2018-12-28_20_18_50_f745508ecf34e1e451b2edd7820c53a1_1.bak	1
-3	审核：san2	2018-12-28 20:19:43	审核时间：2018-12-28 20:19:42	..\\db_backup\\yii27_2018-12-28_20_19_42_e6466a38578de24ab01f8f5e1b9ef906_1.bak	1
-4	审核：san1-1	2018-12-28 20:22:59	审核时间：2018-12-28 20:22:58	..\\db_backup\\yii27_2018-12-28_20_22_58_b682c5e339bead5ea484fee6f5a33ac7_1.bak	1
-5	审核：san1-2	2018-12-28 20:24:38	审核时间：2018-12-28 20:24:37	..\\db_backup\\yii27_2018-12-28_20_24_37_eb907d3a4f22c1c190e0da8ebef4d79d_1.bak	1
-6	审核：san1-3	2018-12-28 20:25:52	审核时间：2018-12-28 20:25:51	..\\db_backup\\yii27_2018-12-28_20_25_51_67e4d5c35a9597921ed373a1df634627_1.bak	1
-7	审核：san1-4	2018-12-28 20:26:50	审核时间：2018-12-28 20:26:49	..\\db_backup\\yii27_2018-12-28_20_26_49_8611d614afff06a5e08807ca17fa9e1f_1.bak	1
-8	公司拨款:san1	2019-01-02 11:48:26	时间:2019-01-02 11:48:22\r\n金额:100000\r\n类型:报单币	..\\db_backup\\yii27_2019-01-02_11_48_22_2fbab87291a1eb4f205303f9a33cc966_1.bak	1
-9	升级san1到金卡会员	2019-01-02 11:53:20	审核时间：2019-01-02 11:53:19	..\\db_backup\\yii27_2019-01-02_11_53_19_4d812a02c2e12e37aebe6f85c0f4cf8d_1.bak	1
+1	清空数据	2019-01-12 19:29:44	2019-01-12 19:29:43	../db_backup/epmms_181225_2019-01-12_19_29_43_3b3b7cfe61c41ca450d1a86756ee9295_1.bak	1
 \.
 
 
 --
--- Data for Name: epmms_bank; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_bank; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_bank (bank_id, bank_name, bank_is_preset, bank_is_enable) FROM stdin;
@@ -29752,7 +29111,7 @@ COPY public.epmms_bank (bank_id, bank_name, bank_is_preset, bank_is_enable) FROM
 
 
 --
--- Data for Name: epmms_bankaccount; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_bankaccount; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_bankaccount (bankaccount_id, bankaccount_bank_id, bankaccount_account, bankaccount_provience, bankaccount_area, bankaccount_branch, bankaccount_mobi, bankaccount_phone, bankaccount_qq, bankaccount_is_enable, bankaccount_name) FROM stdin;
@@ -29760,7 +29119,15 @@ COPY public.epmms_bankaccount (bankaccount_id, bankaccount_bank_id, bankaccount_
 
 
 --
--- Data for Name: epmms_cap_award; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_buy; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_buy (buy_id, buy_member_id, buy_currency, buy_date, buy_money, buy_status, buy_tax, buy_real_currency, buy_type, buy_remain_currency) FROM stdin;
+\.
+
+
+--
+-- Data for Name: epmms_cap_award; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_cap_award (cap_award_id, cap_award_type, cap_award_money, cap_award_date_type) FROM stdin;
@@ -29768,7 +29135,7 @@ COPY public.epmms_cap_award (cap_award_id, cap_award_type, cap_award_money, cap_
 
 
 --
--- Data for Name: epmms_cap_member_award; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_cap_member_award; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_cap_member_award (cap_member_id, cap_member_type_id, cap_member_award_type, cap_member_award_money, cap_member_date_type) FROM stdin;
@@ -29776,19 +29143,15 @@ COPY public.epmms_cap_member_award (cap_member_id, cap_member_type_id, cap_membe
 
 
 --
--- Data for Name: epmms_cap_member_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_cap_member_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_cap_member_sum (cap_member_id, cap_member_type_id, cap_member_money, cap_member_date_type, cap_member_sum_type) FROM stdin;
-15	2	2500.00	day	{1}
-12	1	5000.00	total	{1}
-13	2	20000.00	total	{1}
-14	1	2500.00	day	{1}
 \.
 
 
 --
--- Data for Name: epmms_cap_sum; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_cap_sum; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_cap_sum (cap_sum_id, cap_sum_sum_type, cap_sum_money, cap_sum_date_type) FROM stdin;
@@ -29796,7 +29159,7 @@ COPY public.epmms_cap_sum (cap_sum_id, cap_sum_sum_type, cap_sum_money, cap_sum_
 
 
 --
--- Data for Name: epmms_charge; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_charge; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_charge (charge_id, charge_sn, charge_memberinfo_id, charge_currency, charge_is_verify, charge_add_date, charge_bank_id, charge_bank_account, charge_bank_address, charge_bank_sn, charge_bank_date, charge_bank_account_name, charge_finance_type_id, charge_remark, charge_verify_date, charge_type) FROM stdin;
@@ -29804,16 +29167,16 @@ COPY public.epmms_charge (charge_id, charge_sn, charge_memberinfo_id, charge_cur
 
 
 --
--- Data for Name: epmms_config_auth; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_auth; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_auth (config_auth_id, config_auth_autologin, config_auth_timeout, config_auth_autologin2, config_auth_timeout2, config_auth_captcha) FROM stdin;
-1	1	600	1	300	1
+1	1	3600	1	3600	1
 \.
 
 
 --
--- Data for Name: epmms_config_award_differential; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_award_differential; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_award_differential (award_config_id, award_config_l_bill, award_config_level, award_config_currency) FROM stdin;
@@ -29824,7 +29187,7 @@ COPY public.epmms_config_award_differential (award_config_id, award_config_l_bil
 
 
 --
--- Data for Name: epmms_config_backup; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_backup; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_backup (config_backup_id, config_backup_days, config_backup_count) FROM stdin;
@@ -29833,7 +29196,16 @@ COPY public.epmms_config_backup (config_backup_id, config_backup_days, config_ba
 
 
 --
--- Data for Name: epmms_config_map; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_jackpot; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_config_jackpot (config_jackpot_id, config_jackpot_start_balance, config_jackpot_lucky_balance, config_jackpot_end_balance, config_jackpot_fund, config_jackpot_start_order_ratio, config_jackpot_lucky_order_ratio, config_jackpot_end_order_ratio, config_jackpot_start_time, config_jackpot_end_time, config_jackpot_number) FROM stdin;
+1	1055151.1800	2637877.9600	1582726.7800	3461418.6000	20.00	50.00	30.00	1547292902	1547293082	1371
+\.
+
+
+--
+-- Data for Name: epmms_config_map; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_map (config_map_id, config_map_levels, config_map_branch, config_map_orientation, config_map_tree_levels) FROM stdin;
@@ -29842,7 +29214,7 @@ COPY public.epmms_config_map (config_map_id, config_map_levels, config_map_branc
 
 
 --
--- Data for Name: epmms_config_pond; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_pond; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_pond (award_config_id, pond_no, pond_assign, pond_period_topped, pond_all_topped, pond_achievement) FROM stdin;
@@ -29855,16 +29227,16 @@ COPY public.epmms_config_pond (award_config_id, pond_no, pond_assign, pond_perio
 
 
 --
--- Data for Name: epmms_config_site; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_site; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_site (config_site_id, config_site_title, config_site_domain, config_site_keyword, config_site_desc, config_site_deny_robots, config_site_is_enable) FROM stdin;
-1	新龍騰國際理財	local	新龙腾国际理财	新龍騰國際理財	0	1
+1	业务员销售系统	local	业务员销售系统	业务员销售系统	0	1
 \.
 
 
 --
--- Data for Name: epmms_config_sms; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_sms; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_sms (config_sms_id, config_sms_is_verify, config_sms_is_award, config_sms_award, config_sms_verify, config_sms_is_register, config_sms_register) FROM stdin;
@@ -29873,7 +29245,7 @@ COPY public.epmms_config_sms (config_sms_id, config_sms_is_verify, config_sms_is
 
 
 --
--- Data for Name: epmms_config_smtp; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_smtp; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_smtp (config_smtp_id, config_smtp_server, config_smtp_port, config_smtp_account, config_smtp_password, config_smtp_email, config_smtp_enable) FROM stdin;
@@ -29882,52 +29254,45 @@ COPY public.epmms_config_smtp (config_smtp_id, config_smtp_server, config_smtp_p
 
 
 --
--- Data for Name: epmms_config_withdrawals; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_config_withdrawals; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_config_withdrawals (config_withdrawals_id, config_withdrawals_type, config_withdrawals_scale, config_withdrawals_tax, config_withdrawals_tax_cap, config_withdrawals_min) FROM stdin;
-1	1	100	0.10	0.00	100.00
+1	0	10	0.05	0.00	200.00
 \.
 
 
 --
--- Data for Name: epmms_finance; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_deal; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_deal (deal_id, deal_sale_id, deal_buy_id, deal_currency, deal_date, deal_image, deal_status, deal_image_date, deal_verify_date, deal_sale_member_id, deal_buy_member_id, deal_count, deal_type) FROM stdin;
+\.
+
+
+--
+-- Data for Name: epmms_dup; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_dup (dup_id, dup_member_id, dup_money, dup_is_verify, dup_add_date, dup_verify_date) FROM stdin;
+\.
+
+
+--
+-- Data for Name: epmms_finance; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_finance (finance_id, finance_award, finance_mod_date, finance_type, finance_memberinfo_id) FROM stdin;
-2	0.0000	2018-12-28 20:17:49	1	1
-3	100000000.0000	2018-12-28 20:17:49	3	1
-4	0.0000	2018-12-28 20:17:49	4	1
-10	0.0000	2018-12-28 20:18:51	1	2
-12	999.0000	2018-12-28 20:18:51	4	2
-13	0.0000	2018-12-28 20:19:44	2	3
-14	0.0000	2018-12-28 20:19:44	1	3
-15	0.0000	2018-12-28 20:19:44	3	3
-16	999.0000	2018-12-28 20:19:44	4	3
-17	0.0000	2018-12-28 20:22:59	2	4
-18	0.0000	2018-12-28 20:22:59	1	4
-19	0.0000	2018-12-28 20:22:59	3	4
-20	999.0000	2018-12-28 20:22:59	4	4
-21	0.0000	2018-12-28 20:24:38	2	5
-22	0.0000	2018-12-28 20:24:38	1	5
-23	0.0000	2018-12-28 20:24:38	3	5
-24	999.0000	2018-12-28 20:24:38	4	5
-25	0.0000	2018-12-28 20:25:52	2	6
-26	0.0000	2018-12-28 20:25:52	1	6
-27	0.0000	2018-12-28 20:25:52	3	6
-28	999.0000	2018-12-28 20:25:52	4	6
-1	99994006.0000	2018-12-28 20:26:50	2	1
-29	0.0000	2018-12-28 20:26:50	2	7
-30	0.0000	2018-12-28 20:26:50	1	7
-31	0.0000	2018-12-28 20:26:50	3	7
-32	999.0000	2018-12-28 20:26:50	4	7
-11	2997.0000	2019-01-02 11:53:18	3	2
-9	97003.0000	2019-01-02 11:53:18	2	2
+1	100000000.0000	2019-01-12 19:29:44	2	1
+2	0.0000	2019-01-12 19:29:44	1	1
+3	100000000.0000	2019-01-12 19:29:44	3	1
+4	0.0000	2019-01-12 19:29:44	4	1
+5	0.0000	2019-01-12 19:29:44	5	1
 \.
 
 
 --
--- Data for Name: epmms_finance_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_finance_type; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_finance_type (finance_type_id, finance_type_name, finance_type_withdrawals, finance_type_charge) FROM stdin;
@@ -29935,11 +29300,12 @@ COPY public.epmms_finance_type (finance_type_id, finance_type_name, finance_type
 1	钱包币	1	0
 3	店补积分	0	0
 4	提货币	0	0
+5	复消币	0	0
 \.
 
 
 --
--- Data for Name: epmms_foundation; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_foundation; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_foundation (foundation_id, foundation_member_id, foundation_currency, foundation_tax, foundation_real_currency, foundation_reamrk, foundation_is_verify, foundation_add_date, foundation_verify_date) FROM stdin;
@@ -29947,7 +29313,7 @@ COPY public.epmms_foundation (foundation_id, foundation_member_id, foundation_cu
 
 
 --
--- Data for Name: epmms_futou; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_futou; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_futou (futou_id, futou_member_id, futou_deduct1, futou_deduct2, futou_deduct3, futou_deduct4, futou_deduct, futou_add_date) FROM stdin;
@@ -29955,7 +29321,7 @@ COPY public.epmms_futou (futou_id, futou_member_id, futou_deduct1, futou_deduct2
 
 
 --
--- Data for Name: epmms_game_charge; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_game_charge; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_game_charge (charge_id, charge_recommend, charge_name, charge_phone, charge_age, charge_account, charge_money, charge_add_date, charge_is_verify, charge_verify_date) FROM stdin;
@@ -29967,7 +29333,7 @@ COPY public.epmms_game_charge (charge_id, charge_recommend, charge_name, charge_
 
 
 --
--- Data for Name: epmms_group; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_group; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_group (group_id, group_count, group_seq, group_add_date) FROM stdin;
@@ -29976,7 +29342,7 @@ COPY public.epmms_group (group_id, group_count, group_seq, group_add_date) FROM 
 
 
 --
--- Data for Name: epmms_groupmap; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_groupmap; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_groupmap (groupmap_id, groupmap_group_id, groupmap_order, groupmap_verify_date, groupmap_award_date, groupmap_award_count, groupmap_group_date, groupmap_award_period, groupmap_is_award, groupmap_member_id, groupmap_name) FROM stdin;
@@ -29984,7 +29350,7 @@ COPY public.epmms_groupmap (groupmap_id, groupmap_group_id, groupmap_order, grou
 
 
 --
--- Data for Name: epmms_help; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_help; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_help (help_id, help_type, help_title, help_content, help_mod_date) FROM stdin;
@@ -29994,7 +29360,25 @@ COPY public.epmms_help (help_id, help_type, help_title, help_content, help_mod_d
 
 
 --
--- Data for Name: epmms_layer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_jackpot_info; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_jackpot_info (info_id, info_start_time, info_end_time, info_start_balance, info_lucky_balance, info_end_balance, info_number) FROM stdin;
+1	2019-01-12 19:29:02	2019-01-12 19:32:02	1051151.1800	2627877.9600	1576726.7800	1369
+2	2019-01-12 19:32:02	2019-01-12 19:35:02	1053151.1800	2632877.9600	1579726.7800	1370
+\.
+
+
+--
+-- Data for Name: epmms_jackpot_win_record; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_jackpot_win_record (jackpot_id, jackpot_member_id, jackpot_money, jackpot_type, jackpot_start_time, jackpot_end_time, jackpot_number) FROM stdin;
+\.
+
+
+--
+-- Data for Name: epmms_layer; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_layer (layer_id, layer_member_id, layer_layer, layer_left, layer_right, layer_little, layer_pair, layer_first_member, layer_first_order, layer_current_pair, layer_left_count, layer_right_count) FROM stdin;
@@ -30002,68 +29386,16 @@ COPY public.epmms_layer (layer_id, layer_member_id, layer_layer, layer_left, lay
 
 
 --
--- Data for Name: epmms_log; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_log; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_log (log_id, log_category, log_source, log_operate, log_target, log_value, log_info, log_ip, log_user, log_role, log_add_date, log_status) FROM stdin;
-1	operate	会员	清空数据	\N	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:17:49	0
-2	finance	财务	扣除	gs1	999.00	报单币	\N	gs1	\N	2018-12-28 20:18:51	0
-3	finance	财务	增加	san1	999.00	提货币	\N	san1	\N	2018-12-28 20:18:51	0
-4	operate	会员	审核会员	san1	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:18:51	0
-5	finance	财务	扣除	gs1	999.00	报单币	\N	gs1	\N	2018-12-28 20:19:43	0
-6	finance	财务	增加	san2	999.00	提货币	\N	san2	\N	2018-12-28 20:19:44	0
-7	operate	会员	审核会员	san2	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:19:44	0
-8	finance	财务	扣除	gs1	999.00	报单币	\N	gs1	\N	2018-12-28 20:22:59	0
-9	finance	财务	增加	san1-1	999.00	提货币	\N	san1-1	\N	2018-12-28 20:22:59	0
-10	operate	会员	审核会员	san1-1	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:22:59	0
-11	finance	财务	扣除	gs1	999.00	报单币	\N	gs1	\N	2018-12-28 20:24:38	0
-12	finance	财务	增加	san1-2	999.00	提货币	\N	san1-2	\N	2018-12-28 20:24:38	0
-13	operate	会员	审核会员	san1-2	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:24:38	0
-14	finance	财务	扣除	gs1	999.00	报单币	\N	gs1	\N	2018-12-28 20:25:52	0
-15	finance	财务	增加	san1-3	999.00	提货币	\N	san1-3	\N	2018-12-28 20:25:52	0
-16	operate	会员	审核会员	san1-3	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:25:52	0
-17	finance	财务	扣除	gs1	999.00	报单币	\N	gs1	\N	2018-12-28 20:26:50	0
-18	finance	财务	增加	san1-4	999.00	提货币	\N	san1-4	\N	2018-12-28 20:26:50	0
-19	operate	会员	审核会员	san1-4	\N	\N	192.168.31.107	epmms	leader	2018-12-28 20:26:50	0
-20	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 09:05:05	0
-21	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 09:31:08	0
-22	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 09:33:36	0
-23	operate	订单	购买产品	\N	\N	\N	192.168.31.235	gs1	agent	2018-12-29 09:43:38	0
-24	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 10:26:39	0
-25	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 10:26:45	0
-26	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 10:44:18	0
-27	login	会员登录	登录	gs1	\N	会员登录	192.168.31.107	gs1	agent	2018-12-29 11:00:00	0
-28	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 11:10:38	0
-29	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 11:12:35	0
-30	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 11:12:44	0
-31	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 11:59:02	0
-32	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 12:17:19	0
-33	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 14:03:39	0
-34	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 14:04:39	0
-35	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 14:28:33	0
-36	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 15:21:24	0
-37	operate	订单	购买产品	\N	\N	\N	192.168.31.235	gs1	agent	2018-12-29 15:21:33	0
-38	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 15:36:27	0
-39	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2018-12-29 16:56:21	0
-40	login	会员登录	登录	gs1	\N	会员登录	192.168.31.113	gs1	agent	2018-12-29 17:38:59	0
-41	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.107	epmms	leader	2018-12-29 18:30:50	0
-42	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2019-01-02 09:13:30	0
-43	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2019-01-02 09:50:26	0
-44	login	会员登录	登录	gs1	\N	会员登录	192.168.31.235	gs1	agent	2019-01-02 11:40:20	0
-45	login	会员登录	登录	san1	\N	会员登录	192.168.31.235	san1	\N	2019-01-02 11:45:35	1
-46	login	会员登录	登录	san1	\N	会员登录	192.168.31.235	san1	member	2019-01-02 11:45:46	0
-48	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.235	epmms	leader	2019-01-02 11:46:52	0
-49	operate	充值申请	在线支付	\N	10000.00	\N	192.168.31.235	epmms	leader	2019-01-02 11:47:49	1
-50	operate	公司拨款	公司拨款	\N	\N	\N	192.168.31.235	epmms	leader	2019-01-02 11:48:26	0
-51	finance	财务	增加	san1	2997.00	店补积分	\N	san1	\N	2019-01-02 11:53:18	0
-52	finance	财务	扣除	san1	2997.00	报单币	\N	san1	\N	2019-01-02 11:53:18	0
-53	operate	会员升级	申请会员升级	\N	\N	\N	192.168.31.235	san1	member	2019-01-02 11:53:20	0
-54	login	会员登录	登录	epmms	\N	管理员登录	192.168.31.235	epmms	leader	2019-01-02 11:59:30	0
+1	operate	会员	清空数据	\N	\N	\N	192.168.31.250	epmms	leader	2019-01-12 19:29:45	0
 \.
 
 
 --
--- Data for Name: epmms_map_edit; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_map_edit; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_map_edit (map_edit_id, map_edit_src_member_id, map_edit_dst_member_id, map_edit_add_date, map_edit_verify_date, map_edit_operate, map_edit_info, map_edit_is_verify, map_edit_type, map_edit_dst_order, map_edit_dst_recommend_id) FROM stdin;
@@ -30071,7 +29403,7 @@ COPY public.epmms_map_edit (map_edit_id, map_edit_src_member_id, map_edit_dst_me
 
 
 --
--- Data for Name: epmms_member_level; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_member_level; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_member_level (member_level_level, member_level_name) FROM stdin;
@@ -30086,31 +29418,24 @@ COPY public.epmms_member_level (member_level_level, member_level_name) FROM stdi
 
 
 --
--- Data for Name: epmms_member_upgrade; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_member_upgrade; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_member_upgrade (member_upgrade_id, member_upgrade_member_id, member_upgrade_type, member_upgrade_is_verify, member_upgrade_add_date, member_upgrade_verify_date, member_upgrade_period, member_upgrade_old_type, member_upgrade_money) FROM stdin;
-2	2	2	1	2019-01-02 11:53:18	2019-01-02 11:53:19	\N	1	2997.00
 \.
 
 
 --
--- Data for Name: epmms_memberinfo; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_memberinfo; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.epmms_memberinfo (memberinfo_id, memberinfo_account, memberinfo_password, memberinfo_password2, memberinfo_name, memberinfo_nickname, memberinfo_email, memberinfo_mobi, memberinfo_phone, memberinfo_qq, memberinfo_msn, memberinfo_sex, memberinfo_idcard_type, memberinfo_idcard, memberinfo_zipcode, memberinfo_birthday, memberinfo_address_provience, memberinfo_address_area, memberinfo_address_county, memberinfo_address_detail, memberinfo_bank_id, memberinfo_bank_name, memberinfo_bank_account, memberinfo_bank_provience, memberinfo_bank_area, memberinfo_bank_branch, memberinfo_question, memberinfo_answer, memberinfo_memo, memberinfo_is_enable, memberinfo_register_ip, memberinfo_last_ip, memberinfo_last_date, memberinfo_add_date, memberinfo_mod_date, memberinfo_is_agent, memberinfo_is_verify, memberinfo_agent_id, memberinfo_postoffice, memberinfo_init_password, memberinfo_init_password2) FROM stdin;
-1	gs1	$2y$13$NMQPU5k2zdp9GLmNxx3xIOemI0cHfpQu2V/enEuUaC1XDTR/VbnwK	$2y$13$r9G10/cs/R7t1vVHNCmEWudjWUUoj2VouhWrx3L7cELgeUZcyPyMO	公司	21322	\N	186	123456789000	\N	\N	0	0	111	\N	\N	云南省			天安门	15	sss	123132123123123	河南省	郑州市	qqq		\N	\N	1	192.168.5.2	192.168.5.2	2019-01-02 11:40:21	1970-11-30 07:02:26	2018-12-13 15:41:51	1	1	\N	\N	\N	\N
-2	san1	$2y$13$x4dKUUMYpHH.jyY7xSpzdumc6HYECoSUSzyX/I4PxN23XYYmr6VUG	$2y$13$HB7o/Pybtp2a99DP2VPub.wNGGm/eC1xRhZOm1aZUF1auLLYQuOIi	光	光	\N	13567876541	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	192.168.31.107	192.168.31.107	2019-01-02 11:45:47	2018-12-28 20:18:13	\N	0	1	\N	\N	123456	111111
-4	san1-1	$2y$13$sDV9/H.VMR/ed0i6445jpu/PnGl3E3PnwwX7tekM2GTSiJT2y7PVq	$2y$13$sb8xMwguXdYGRt/O7kx7oufY689Ej5yp/jbKfWpf75Cm/KFWiAd5y	光	光	\N	13567876545	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	192.168.31.107	192.168.31.107	\N	2018-12-28 20:22:52	\N	0	1	\N	\N	123456	111111
-5	san1-2	$2y$13$W4IzTwoYH7ImwBgA8yIK/OR9u9AxDwlpZpfs.vGPJj163tElK9egW	$2y$13$J41V4ZdcgNjskIh7ie4/dOuWNO1RloLISBrWtYsFRXYWWkP3z31ti	光大	光大	\N	13567876548	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	192.168.31.107	192.168.31.107	\N	2018-12-28 20:23:38	\N	0	1	\N	\N	123456	111111
-6	san1-3	$2y$13$sXnhB6MNaDUEiGN3iCjTCubgn3dpDUY2sLHKgYHBxG562QAr3g4L2	$2y$13$giYoCqfq80XAQpq7sXkZNOwDroYUvrePbLptRnTefLwgZqxpcW9ra	光	光	\N	13567876545	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	192.168.31.107	192.168.31.107	\N	2018-12-28 20:25:13	\N	0	1	\N	\N	123456	111111
-7	san1-4	$2y$13$9cA/uOnIj8RH/hIXGkoxnu65ttoiR563WcTK59uam/ufRd2upk.JW	$2y$13$HH9IQcaGpdjuOzWHBHEdsu2gTLln/JI2qEsVwetDWKwkRoyyG.MMq	光大	光大	\N	13567876548	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	192.168.31.107	192.168.31.107	\N	2018-12-28 20:26:41	\N	0	1	\N	\N	123456	111111
-3	san2	$2y$13$FAuC..GuZk0p2Siat6kr3.ifq3MwPv1sWd/88iqX1PoxiDBOuirGi	$2y$13$svCPZ0/zajTathCfnqAtN.QAKEecz0ueB.nG0AjVum4INQpj04saW	光大	光大	\N	13567876542	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	192.168.31.107	192.168.31.107	\N	2018-12-28 20:19:32	\N	0	1	\N	\N	123456	111111
+COPY public.epmms_memberinfo (memberinfo_id, memberinfo_account, memberinfo_password, memberinfo_password2, memberinfo_name, memberinfo_nickname, memberinfo_email, memberinfo_mobi, memberinfo_phone, memberinfo_qq, memberinfo_msn, memberinfo_sex, memberinfo_idcard_type, memberinfo_idcard, memberinfo_zipcode, memberinfo_birthday, memberinfo_address_provience, memberinfo_address_area, memberinfo_address_county, memberinfo_address_detail, memberinfo_bank_id, memberinfo_bank_name, memberinfo_bank_account, memberinfo_bank_provience, memberinfo_bank_area, memberinfo_bank_branch, memberinfo_question, memberinfo_answer, memberinfo_memo, memberinfo_is_enable, memberinfo_register_ip, memberinfo_last_ip, memberinfo_last_date, memberinfo_add_date, memberinfo_mod_date, memberinfo_is_agent, memberinfo_is_verify, memberinfo_agent_id, memberinfo_postoffice, memberinfo_init_password, memberinfo_init_password2, memberinfo_type) FROM stdin;
+1	root	$2y$13$NMQPU5k2zdp9GLmNxx3xIOemI0cHfpQu2V/enEuUaC1XDTR/VbnwK	$2y$13$r9G10/cs/R7t1vVHNCmEWudjWUUoj2VouhWrx3L7cELgeUZcyPyMO	公司	21322	\N	186	123456789000	\N	\N	0	0	111	\N	\N	云南省			天安门	15	sss	123132123123123	河南省	郑州市	qqq		\N	\N	1	192.168.5.2	192.168.5.2	2019-01-12 16:16:53	1970-11-30 07:02:26	2018-12-13 15:41:51	1	1	\N	\N	\N	\N	\N
 \.
 
 
 --
--- Data for Name: epmms_memberinfo_item; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_memberinfo_item; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_memberinfo_item (memberinfo_item_id, memberinfo_item_field, memberinfo_item_title, memberinfo_item_visible, memberinfo_item_required, memberinfo_item_update, memberinfo_item_is_enable, memberinfo_item_order, memberinfo_item_admin, memberinfo_item_view) FROM stdin;
@@ -30151,50 +29476,45 @@ COPY public.epmms_memberinfo_item (memberinfo_item_id, memberinfo_item_field, me
 49	membermap_percent1	电子币	0	0	0	1	100000	0	0
 50	membermap_percent2	注册币	0	0	0	1	100001	0	0
 4	memberinfo_phone	电话号码	0	0	1	1	60	0	1
-2	memberinfo_nickname	昵称	1	1	1	1	11	1	0
 31	membermap_membertype_level	会员类型	1	1	1	1	79	1	1
 36	membermap_is_empty	是否空单	0	0	0	1	212	1	0
 37	memberinfo_password	登录密码	1	1	1	1	20	0	0
 44	memberinfo_is_agent	是否报单中心	0	0	0	1	225	0	0
-48	membermap_level	等级	0	0	0	1	100000	0	0
 53	membermap_is_goods	提货方式	0	0	0	1	100000	0	0
-54	memberinfo_init_password	一级密码(明)	1	1	0	1	100000	1	1
-55	memberinfo_init_password2	二级密码(明)	1	1	0	1	100000	1	1
 33	membermap_agent_id	报单中心	1	1	0	1	230	1	1
 3	memberinfo_mobi	手机号码	1	1	0	1	50	0	0
 34	memberinfo_account	登录账号	1	1	1	1	8	1	1
-1	memberinfo_name	姓名	0	0	0	1	9	0	0
+1	memberinfo_name	真实姓名	0	0	0	1	9	0	0
+2	memberinfo_nickname	姓名	1	1	1	1	11	1	0
 32	membermap_order	接点位置	1	1	0	1	211	1	1
+55	memberinfo_init_password2	二级密码(明)	0	0	0	0	100000	0	0
+54	memberinfo_init_password	一级密码(明)	0	0	0	0	100000	0	0
+48	membermap_level	等级	0	0	1	1	100000	1	1
+56	memberinfo_type	类型	0	0	0	1	100000	1	1
 29	membermap_parent_id	接点人	0	0	0	1	210	1	1
 \.
 
 
 --
--- Data for Name: epmms_membermap; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_membermap; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.epmms_membermap (membermap_id, membermap_seq, membermap_parent_id, membermap_recommend_id, membermap_membertype_level, membermap_layer, membermap_order, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_agent_id, membermap_is_verify, membermap_verify_seq, membermap_is_agent, membermap_verify_date, membermap_verify_member_id, membermap_add_date, membermap_is_empty, membermap_money, membermap_bond_id, membermap_level, membermap_recommend_layer, membermap_period, membermap_membertype_level_old, membermap_is_active, membermap_is_delete, membermap_under_product_count, membermap_under_number, membermap_agent_number, membermap_agent_product_count, membermap_recommend_product_count, membermap_agent_type, membermap_layer_order, membermap_reg_member_id, membermap_percent1, membermap_percent2, membermap_no, membermap_buyall, membermap_buy_date, membermap_is_goods) FROM stdin;
-1	1	\N	\N	2	1	1	/1	/1	6	6	2	2	1998	8991	2997	\N	1	1	1	2018-12-28 20:17:49	\N	2018-12-28 20:17:49	0	2997.00	\N	\N	1	\N	2	1	0	5994	6	0	2997	8991	1	1	\N	\N	\N	\N	0.00	2018-12-14 18:31:32	\N
-2	2	1	1	2	2	1	/1/1	/1/1	0	0	2	2	1998	2997	2997	1	1	2	0	2018-12-28 20:18:51	\N	2018-12-28 20:18:13	0	2997.00	\N	\N	2	\N	1	1	0	1998	2	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-28 20:18:51	\N
-5	5	2	1	1	3	2	/1/1/2	/1/4	0	0	0	0	0	0	999	1	1	5	0	2018-12-28 20:24:38	\N	2018-12-28 20:23:38	0	999.00	\N	\N	2	\N	1	1	0	0	0	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-28 20:24:38	\N
-6	6	3	1	1	3	1	/1/2/1	/1/5	0	0	0	0	0	0	999	1	1	6	0	2018-12-28 20:25:52	\N	2018-12-28 20:25:13	0	999.00	\N	\N	2	\N	1	1	0	0	0	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-28 20:25:52	\N
-4	4	2	1	1	3	1	/1/1/1	/1/3	0	0	0	0	0	0	999	1	1	4	0	2018-12-28 20:22:59	\N	2018-12-28 20:22:52	0	999.00	\N	\N	2	\N	1	1	0	0	0	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-28 20:22:59	\N
-3	3	1	1	1	2	2	/1/2	/1/2	0	0	2	2	1998	0	999	1	1	3	0	2018-12-28 20:19:44	\N	2018-12-28 20:19:32	0	999.00	\N	\N	2	\N	1	1	0	1998	2	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-28 20:19:44	\N
-7	7	3	1	1	3	2	/1/2/2	/1/6	0	0	0	0	0	0	999	1	1	7	0	2018-12-28 20:26:50	\N	2018-12-28 20:26:41	0	999.00	\N	\N	2	\N	1	1	0	0	0	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-28 20:26:50	\N
+COPY public.epmms_membermap (membermap_id, membermap_seq, membermap_parent_id, membermap_recommend_id, membermap_membertype_level, membermap_layer, membermap_order, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_agent_id, membermap_is_verify, membermap_verify_seq, membermap_is_agent, membermap_verify_date, membermap_verify_member_id, membermap_add_date, membermap_is_empty, membermap_money, membermap_bond_id, membermap_level, membermap_recommend_layer, membermap_period, membermap_membertype_level_old, membermap_is_active, membermap_is_delete, membermap_under_product_count, membermap_under_number, membermap_agent_number, membermap_agent_product_count, membermap_recommend_product_count, membermap_agent_type, membermap_layer_order, membermap_reg_member_id, membermap_percent1, membermap_percent2, membermap_no, membermap_buyall, membermap_buy_date, membermap_is_goods, membermap_day_count, membermap_day_level, membermap_futou_date, membermap_verify_seq2, membermap_jifen) FROM stdin;
+1	1	\N	\N	2	1	1	/1	/1	0	0	0	0	0	0	2997	\N	1	1	1	2019-01-12 19:29:44	\N	2019-01-12 19:29:44	0	2997.00	\N	\N	1	\N	2	1	0	0	0	0	0	0	1	1	\N	\N	\N	\N	0.00	2018-12-14 18:31:32	\N	2	3	\N	0	\N
 \.
 
 
 --
--- Data for Name: epmms_membermap2; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_membermap2; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_membermap2 (membermap_id, membermap_parent_id, membermap_order, membermap_layer, membermap_path, membermap_add_date, membermap_bond_id, membermap_name, membermap_bond_info, membermap_child_number, membermap_layer_order, membermap_is_verify, membermap_bill_count, membermap_membertype, membermap_under_bill_count, membermap_sub_bill_count, membermap_money, membermap_under_number, membermap_is_active, membermap_recommend_id, membermap_period, membermap_verify_date, membermap_recommend_number, membermap_recommend_layer, membermap_recommend_path) FROM stdin;
-1	\N	\N	1	/1	2016-08-30 12:11:12	\N	root	1	1	1	1	999	1	1	1	999.00	1	1	\N	\N	2018-12-28 20:17:49	1	1	/1
+1	\N	\N	1	/1	2016-08-30 12:11:12	\N	root	1	1	1	1	999	1	1	1	999.00	1	1	\N	\N	2019-01-12 19:29:44	1	1	/1
 \.
 
 
 --
--- Data for Name: epmms_membermap3; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_membermap3; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_membermap3 (membermap_id, membermap_name, membermap_member_id, membermap_seq, membermap_is_active, membermap_add_date) FROM stdin;
@@ -30202,7 +29522,7 @@ COPY public.epmms_membermap3 (membermap_id, membermap_name, membermap_member_id,
 
 
 --
--- Data for Name: epmms_membermap4; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_membermap4; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_membermap4 (membermap_id, membermap_member_id, membermap_parent_id, membermap_layer, membermap_order, membermap_path, membermap_add_date, membermap_name, membermap_child_number, membermap_is_verify, membermap_layer_order, membermap_is_active, membermap_gongpai_count, membermap_bond_id, membermap_period) FROM stdin;
@@ -30210,22 +29530,16 @@ COPY public.epmms_membermap4 (membermap_id, membermap_member_id, membermap_paren
 
 
 --
--- Data for Name: epmms_memberstatus; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_memberstatus; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_memberstatus (status_id, status_pair, status_pair2, left_product_count, right_product_count, little_product_count, left_count, right_count, status_award_period, left_product_count2, right_product_count2, count2_date, left_product_count3, right_product_count3, count3_date) FROM stdin;
-4	0	0	0	0	0	0	0	\N	0	0	2018-12-28	0	0	2018-12-28
-2	0	0	999	999	999	1	1	\N	999	999	2018-12-28	999	999	2018-12-28
-5	0	0	0	0	0	0	0	\N	0	0	2018-12-28	0	0	2018-12-28
-6	0	0	0	0	0	0	0	\N	0	0	2018-12-28	0	0	2018-12-28
-3	0	0	999	999	999	1	1	\N	999	999	2018-12-28	999	999	2018-12-28
-7	0	0	0	0	0	0	0	\N	0	0	2018-12-28	0	0	2018-12-28
-1	0	0	5994	2997	2997	3	3	\N	5994	2997	2018-12-28	5994	2997	2018-12-28
+1	0	0	0	0	0	0	0	\N	0	0	2019-01-12	0	0	2019-01-12
 \.
 
 
 --
--- Data for Name: epmms_membertype; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_membertype; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_membertype (membertype_name, membertype_desc, membertype_level, membertype_mod_date, membertype_color, membertype_money, membertype_bill, membertype_agent_money) FROM stdin;
@@ -30235,7 +29549,7 @@ COPY public.epmms_membertype (membertype_name, membertype_desc, membertype_level
 
 
 --
--- Data for Name: epmms_menu; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_menu; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_menu (menu_id, menu_name, menu_url, menu_pid, menu_order, menu_mod_date) FROM stdin;
@@ -30350,11 +29664,16 @@ COPY public.epmms_menu (menu_id, menu_name, menu_url, menu_pid, menu_order, menu
 55	报单中心列表	agent/index	5	5	2013-01-11 10:35:04
 140	我要复投	memberUpgrade/create	6	200	\N
 159	奖金统计	awardDaySum/	4	5	\N
+162	中奖记录	JackpotRecord/Index	160	1	\N
+160	竞买抽奖	\N	\N	8	\N
+163	财务日志	log/indexFinance	4	50	\N
+164	奖金记录	JackpotInfo/Index	160	3	\N
+161	抽奖配置	ConfigJackpot/Update	160	0	\N
 \.
 
 
 --
--- Data for Name: epmms_messages; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_messages; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_messages (messages_id, messages_title, messages_content, messages_add_date, messages_sender_member_id, messages_receiver_member_id, messages_session, messages_member_id, messages_is_read) FROM stdin;
@@ -30362,43 +29681,39 @@ COPY public.epmms_messages (messages_id, messages_title, messages_content, messa
 
 
 --
--- Data for Name: epmms_orders; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_mybank; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_mybank (mybank_id, mybank_bank_id, mybank_name, mybank_account, mybank_memberinfo_id, mybank_add_date, mybank_is_default, mybank_address, mybank_memo) FROM stdin;
+\.
+
+
+--
+-- Data for Name: epmms_orders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_orders (orders_id, orders_member_id, orders_currency, orders_status, orders_add_date, orders_is_verify, orders_verify_date, orders_remark, orders_sn, orders_logistics_name, orders_logistics_sn, orders_price) FROM stdin;
-1	1	94400.00	新订单	2018-12-29 09:43:37	0	\N		0000079257	\N	\N	94400.00
 \.
 
 
 --
--- Data for Name: epmms_orders_product; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_orders_product; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_orders_product (orders_product_id, orders_product_product_id, orders_product_price, orders_product_orders_id, orders_product_count, orders_product_currency) FROM stdin;
-2	244	23600.00	1	4	94400.00
 \.
 
 
 --
--- Data for Name: epmms_parent_relation; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_parent_relation; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_parent_relation (parent_relation_member_id, parent_relation_upper_id) FROM stdin;
-2	1
-3	1
-4	1
-4	2
-5	1
-5	2
-6	1
-6	3
-7	1
-7	3
 \.
 
 
 --
--- Data for Name: epmms_pond; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_pond; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_pond (pond_id, pond_no, pond_currency) FROM stdin;
@@ -30411,7 +29726,7 @@ COPY public.epmms_pond (pond_id, pond_no, pond_currency) FROM stdin;
 
 
 --
--- Data for Name: epmms_pond_member_currency; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_pond_member_currency; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_pond_member_currency (member_id, pond_no, all_topped) FROM stdin;
@@ -30429,7 +29744,7 @@ COPY public.epmms_pond_member_currency (member_id, pond_no, all_topped) FROM std
 
 
 --
--- Data for Name: epmms_prize; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_prize; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_prize (prize_id, prize_info, prize_is_verify, prize_verify_date, prize_date, prize_member_id, prize_id_id) FROM stdin;
@@ -30437,16 +29752,16 @@ COPY public.epmms_prize (prize_id, prize_info, prize_is_verify, prize_verify_dat
 
 
 --
--- Data for Name: epmms_product; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_product; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_product (product_id, product_name, product_title, product_price, product_info, product_image_url, product_mod_date, product_stock, product_sale_status, product_sales_amount, product_star, product_class_id, product_cost, product_credit) FROM stdin;
-244	测试产品图片	仙肤莱漫妮青春定格原液	23600.00	111	product_5c138615a9ad3.jpg	2018-12-29 15:21:33	39872	1	60128	3.00	3	100.00	10
+244	测试产品图片	仙肤莱漫妮青春定格原液	999.00	111	product_5c32ffaef019e.jpg	2019-01-11 09:02:27	39840	1	60160	3.00	3	100.00	10
 \.
 
 
 --
--- Data for Name: epmms_product_class; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_product_class; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_product_class (product_class_id, product_name, product_info, product_parent_id) FROM stdin;
@@ -30455,42 +29770,23 @@ COPY public.epmms_product_class (product_class_id, product_name, product_info, p
 
 
 --
--- Data for Name: epmms_ratio; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_ratio; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_ratio (ratio_id, ratio_value, ratio_add_date) FROM stdin;
-1	0.0000	2018-12-28 20:18:51
-2	0.0000	2018-12-28 20:18:51
-3	0.0000	2018-12-28 20:19:44
-4	0.0000	2018-12-28 20:19:44
-5	0.0000	2018-12-28 20:22:59
-6	0.0000	2018-12-28 20:22:59
-7	0.0000	2018-12-28 20:24:38
-8	0.0000	2018-12-28 20:24:38
-9	0.0000	2018-12-28 20:25:52
-10	0.0000	2018-12-28 20:25:52
-11	0.0000	2018-12-28 20:26:50
-12	0.0000	2018-12-28 20:26:50
-13	0.0000	2019-01-02 11:53:19
 \.
 
 
 --
--- Data for Name: epmms_recommend_relation; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_recommend_relation; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_recommend_relation (recommend_relation_member_id, recommend_relation_upper_id) FROM stdin;
-2	1
-3	1
-4	1
-5	1
-6	1
-7	1
 \.
 
 
 --
--- Data for Name: epmms_rights; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_rights; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_rights (itemname, type, weight) FROM stdin;
@@ -30498,7 +29794,15 @@ COPY public.epmms_rights (itemname, type, weight) FROM stdin;
 
 
 --
--- Data for Name: epmms_signing; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_sale; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.epmms_sale (sale_id, sale_member_id, sale_currency, sale_date, sale_money, sale_remain_currency, sale_status, sale_verify_date, sale_tax, sale_dup, sale_aixin, sale_type) FROM stdin;
+\.
+
+
+--
+-- Data for Name: epmms_signing; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_signing (signing_id, signing_member_id, signing_is_verify, signing_date, signing_is_refund, signing_verify_date, signing_type, signing_is_award) FROM stdin;
@@ -30506,7 +29810,7 @@ COPY public.epmms_signing (signing_id, signing_member_id, signing_is_verify, sig
 
 
 --
--- Data for Name: epmms_star; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_star; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_star (star_id, star_product_id, star_member_id, star_grade, star_date) FROM stdin;
@@ -30514,7 +29818,7 @@ COPY public.epmms_star (star_id, star_product_id, star_member_id, star_grade, st
 
 
 --
--- Data for Name: epmms_stock_trend; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_stock_trend; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_stock_trend (stock_trend_id, stock_trend_value, stock_trend_date, stock_trend_memberinfo_id) FROM stdin;
@@ -30522,38 +29826,70 @@ COPY public.epmms_stock_trend (stock_trend_id, stock_trend_value, stock_trend_da
 
 
 --
--- Data for Name: epmms_sum_config; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_sum_config; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_sum_config (sum_config_id, sum_type_id, sum_config_date) FROM stdin;
+1	2	period
 2	3	period
 3	1	period
-5	3	day
-6	1	day
-8	3	week
-9	1	week
-11	3	month
-12	1	month
-14	3	year
-15	1	year
-17	3	total
-18	1	total
+4	4	period
+5	5	period
+6	6	period
+7	7	period
+8	2	day
+9	3	day
+10	1	day
+11	4	day
+12	5	day
+13	6	day
+14	7	day
+15	2	week
+16	3	week
+17	1	week
+18	4	week
+19	5	week
+20	6	week
+21	7	week
+22	2	month
+23	3	month
+24	1	month
+25	4	month
+26	5	month
+27	6	month
+28	7	month
+29	2	year
+30	3	year
+31	1	year
+32	4	year
+33	5	year
+34	6	year
+35	7	year
+36	2	total
+37	3	total
+38	1	total
+39	4	total
+40	5	total
+41	6	total
+42	7	total
 \.
 
 
 --
--- Data for Name: epmms_sum_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_sum_type; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_sum_type (sum_type_id, sum_type_name, sum_finance_type_id) FROM stdin;
-2	抵扣	3
-3	彩金币	4
-1	现金积分	1
+4	首单奖金	1
+5	幸运奖金	1
+6	尾单奖金	1
+7	日薪	5
+1	秒结	1
 \.
 
 
 --
--- Data for Name: epmms_supplement; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_supplement; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_supplement (supplement_id, supplement_currency, supplement_member_id, supplement_date, supplement_member_level) FROM stdin;
@@ -30561,16 +29897,16 @@ COPY public.epmms_supplement (supplement_id, supplement_currency, supplement_mem
 
 
 --
--- Data for Name: epmms_system_status; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_system_status; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_system_status (system_status_id, system_status_expenses, system_status_income, system_status_last_verify, system_status_start_date, system_status_withdrawals, system_status_verify_seq, system_status_groupmap_seq, system_status_foundation, system_status_verify_seq2, system_status_award_period, system_status_mapedit) FROM stdin;
-3	0.00	8991.00	\N	2018-12-28 20:17:50	0.00	7	1	0.00	0	6	0
+3	0.00	0.00	\N	2019-01-12 19:29:45	0.00	1	1	0.00	0	0	0
 \.
 
 
 --
--- Data for Name: epmms_transfer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_transfer; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_transfer (transfer_id, transfer_src_member_id, transfer_src_finance_type, transfer_dst_member_id, transfer_dst_finance_type, transfer_currency, transfer_remark, transfer_is_verify, transfer_add_date, transfer_verify_date, transfer_sn, transfer_tax) FROM stdin;
@@ -30578,7 +29914,7 @@ COPY public.epmms_transfer (transfer_id, transfer_src_member_id, transfer_src_fi
 
 
 --
--- Data for Name: epmms_transfer_config; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_transfer_config; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_transfer_config (transfer_config_id, transfer_config_src_type, transfer_config_dst_type, transfer_config_src_role, transfer_config_dst_role, transfer_config_member_able, transfer_config_relation, transfer_config_tax) FROM stdin;
@@ -30587,19 +29923,16 @@ COPY public.epmms_transfer_config (transfer_config_id, transfer_config_src_type,
 
 
 --
--- Data for Name: epmms_userinfo; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_userinfo; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_userinfo (userinfo_id, userinfo_account, userinfo_password, userinfo_password2, userinfo_name, userinfo_sex, userinfo_email, userinfo_mobi, userinfo_jobtitle, userinfo_role, userinfo_add_date) FROM stdin;
 1	epmms	$2a$13$Pj..awFNC6cFwNfOaBDEcuXNdAFs6pmGbn8GtWToh5HrumHsZyAvK	$2a$13$EchrFhUmWcGD9kdeaUYl..8uDq334ioUukOTDAfB0IrRhjT6AmEDW		0	aa@gmail.com			leader	2013-09-05 22:30:39
-20	admin	$2y$13$jdsSYN2LhlOnbPAFaHbuVevsmGp665mgooM1FXRG4SUg7cFkzMsvy	$2y$13$At/zST8QMUjNId0jgebskeXVW.Z5HWPpprNw1j/fJsxYZwAESb0G.	放放	0	123@qq.com			accountant	2018-12-28 03:02:02
-21	xiaoming	$2y$13$NA7HDsMVHyuzTvo8KjWyPe4RSm/i.kS4ppamXwlZmlQ.IXD6VVisG	$2y$13$57uzdwCYDFoKNYsrKHPPpODC0Sqcf18KSL8Sp8sXb145Uimx1Khvu		\N	123@qq.com			auditor	2018-12-28 03:03:25
-22	chanpin	$2y$13$9FBY1afdjF52uuZpCOqoiO2aklhQEVYjprmpv82dakqvUxlDffzG6	$2y$13$N96nuHeaJmF7RyC8XbT9tuFLA43z7skRKLrh6yR57Hp3pkfPWFUfe		\N	123@qq.com			product	2018-12-28 03:05:15
 \.
 
 
 --
--- Data for Name: epmms_withdrawals; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: epmms_withdrawals; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.epmms_withdrawals (withdrawals_id, withdrawals_member_id, withdrawals_currency, withdrawals_add_date, withdrawals_is_verify, withdrawals_verify_date, withdrawals_remark, withdrawals_finance_type_id, withdrawals_sn, withdrawals_tax, withdrawals_real_currency, withdrawals_type) FROM stdin;
@@ -30607,1095 +29940,1155 @@ COPY public.epmms_withdrawals (withdrawals_id, withdrawals_member_id, withdrawal
 
 
 --
--- Data for Name: my_team; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.my_team (membermap_id, membermap_seq, membermap_parent_id, membermap_recommend_id, membermap_membertype_level, membermap_layer, membermap_order, membermap_path, membermap_recommend_path, membermap_recommend_number, membermap_recommend_under_number, membermap_child_number, membermap_sub_number, membermap_sub_product_count, membermap_recommend_under_product_count, membermap_product_count, membermap_agent_id, membermap_is_verify, membermap_verify_seq, membermap_is_agent, membermap_verify_date, membermap_verify_member_id, membermap_add_date, membermap_is_empty, membermap_money, membermap_bond_id, membermap_level, membermap_recommend_layer, membermap_period, membermap_membertype_level_old, membermap_is_active, membermap_is_delete, membermap_under_product_count, membermap_under_number, membermap_agent_number, membermap_agent_product_count, membermap_recommend_product_count, membermap_agent_type, membermap_layer_order, membermap_reg_member_id, membermap_percent1, membermap_percent2, membermap_no, membermap_buyall, membermap_buy_date, membermap_is_goods) FROM stdin;
-3	3	1	1	1	2	2	/1/2	/1/2	0	0	0	0	0	0	1000	1	1	3	1	2018-12-10 12:35:59	\N	2018-12-10 12:35:57	0	1000.00	\N	\N	2	\N	1	1	0	0	0	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-10 12:35:59	\N
-2	2	1	1	1	2	1	/1/1	/1/1	0	0	0	0	0	0	1000	1	1	2	1	2018-12-10 12:35:04	\N	2018-12-10 12:35:02	0	1000.00	\N	\N	2	\N	1	1	0	0	0	0	0	0	\N	\N	\N	50	50	\N	0.00	2018-12-10 12:35:04	\N
-\.
-
-
---
--- Name: award_config_budian_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_budian_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_budian_award_config_id_seq', 9, true);
 
 
 --
--- Name: award_config_dist_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_day_futou_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
+--
+
+SELECT pg_catalog.setval('award.award_config_day_futou_award_config_id_seq', 14, true);
+
+
+--
+-- Name: award_config_dist_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dist_award_config_id_seq', 1, false);
 
 
 --
--- Name: award_config_dot_layer2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dot_layer2_award_config_id_seq', 6, true);
 
 
 --
--- Name: award_config_dot_layer_150919_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_150919_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dot_layer_150919_award_config_id_seq', 7, false);
 
 
 --
--- Name: award_config_dot_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dot_layer_award_config_id_seq', 25, true);
 
 
 --
--- Name: award_config_dot_limit_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_dot_limit_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dot_limit_award_config_id_seq', 7, true);
 
 
 --
--- Name: award_config_dot_matrix2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_dot_matrix2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dot_matrix2_award_config_id_seq', 9, true);
 
 
 --
--- Name: award_config_dot_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_dot_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_dot_recommend_award_config_id_seq', 3, true);
 
 
 --
--- Name: award_config_fenhong_level_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_fenhong_level_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_fenhong_level_award_config_id_seq', 7, true);
 
 
 --
--- Name: award_config_huzhu_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_huzhu_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_huzhu_award_config_id_seq', 5, true);
 
 
 --
--- Name: award_config_leader_recommend2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_leader_recommend2_award_config_id_seq', 10, true);
 
 
 --
--- Name: award_config_leader_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_leader_recommend_award_config_id_seq', 15, true);
 
 
 --
--- Name: award_config_static_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_static_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_static_fenhong_award_config_id_seq', 13, true);
 
 
 --
--- Name: award_config_up_down_425_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_up_down_425_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_up_down_425_award_config_id_seq', 23, true);
 
 
 --
--- Name: award_config_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_upgrade_award_config_id_seq', 11, true);
 
 
 --
--- Name: award_config_xingyun_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_config_xingyun_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_config_xingyun_award_config_id_seq', 5, true);
 
 
 --
--- Name: award_recommend_matrix_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.award_recommend_matrix_award_config_id_seq', 32, true);
 
 
 --
--- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_dot_matrix_award_config_id_seq', 40, true);
 
 
 --
--- Name: epmms_award_config_dot_matrix_left_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_left_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_dot_matrix_left_award_config_id_seq', 17, true);
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_dot_matrix_recommend_award_config_id_seq', 11, false);
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend_new_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_new_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_dot_matrix_recommend_new_award_config_id_seq', 39, true);
 
 
 --
--- Name: epmms_award_config_layer_full_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_layer_full_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_layer_full_layer_award_config_id_seq', 3, false);
 
 
 --
--- Name: epmms_award_config_month_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_month_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_month_fenhong_award_config_id_seq', 7, true);
 
 
 --
--- Name: epmms_award_config_pair_member_150919_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_150919_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_pair_member_150919_award_config_id_seq', 15, false);
 
 
 --
--- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_pair_member_award_config_id_seq', 34, true);
 
 
 --
--- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_prize_award_config_id_seq', 3, true);
 
 
 --
--- Name: epmms_award_config_recommend2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend2_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_recommend2_award_config_id_seq', 13, false);
 
 
 --
--- Name: epmms_award_config_recommend3_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend3_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_recommend3_award_config_id_seq', 14, true);
 
 
 --
--- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
 --
 
 SELECT pg_catalog.setval('award.epmms_award_config_recommend_award_config_id_seq', 14, true);
 
 
 --
--- Name: award_config_aixinjijin_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: table_award_config_id_seq; Type: SEQUENCE SET; Schema: award; Owner: -
+--
+
+SELECT pg_catalog.setval('award.table_award_config_id_seq', 3, true);
+
+
+--
+-- Name: award_config_aixinjijin_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_aixinjijin_award_config_id_seq', 2, true);
 
 
 --
--- Name: award_config_award_student_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_award_student_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_award_student_award_config_id_seq', 23, true);
 
 
 --
--- Name: award_config_chuangye_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_chuangye_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_chuangye_award_config_id_seq', 4, true);
 
 
 --
--- Name: award_config_corp_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_corp_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_corp_fenhong_award_config_id_seq', 4, true);
 
 
 --
--- Name: award_config_gljt_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_gljt_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_gljt_award_config_id_seq', 3, true);
 
 
 --
--- Name: award_config_guanli_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_guanli_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_guanli_award_config_id_seq', 4, true);
 
 
 --
--- Name: award_config_guanli_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_guanli_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_guanli_upgrade_award_config_id_seq', 4, true);
 
 
 --
--- Name: award_config_layer_full_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_layer_full_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_layer_full_award_config_id_seq', 3, true);
 
 
 --
--- Name: award_config_org_up_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_org_up_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_org_up_down_award_config_id_seq', 48, true);
 
 
 --
--- Name: award_config_pond_pond_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_config_pond_pond_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.award_config_pond_pond_id_seq', 7, true);
 
 
 --
--- Name: award_period; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: award_period; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.award_period', 7, true);
+SELECT pg_catalog.setval('public.award_period', 1, false);
 
 
 --
--- Name: charge; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: charge; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.charge', 6, true);
 
 
 --
--- Name: epmms_agent_agent_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_activation_record_activation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_activation_record_activation_id_seq', 1, false);
+
+
+--
+-- Name: epmms_agent_agent_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_agent_agent_id_seq', 2, false);
 
 
 --
--- Name: epmms_announcement_announcement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_announcement_announcement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_announcement_announcement_id_seq', 23, true);
 
 
 --
--- Name: epmms_announcement_class_class_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_announcement_class_class_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_announcement_class_class_id_seq', 3, true);
 
 
 --
--- Name: epmms_appropriate_appropriate_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_appropriate_appropriate_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_appropriate_appropriate_id_seq', 1, true);
-
-
---
--- Name: epmms_authitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.epmms_authitem_id_seq', 391, true);
+SELECT pg_catalog.setval('public.epmms_appropriate_appropriate_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_config_agent_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_authitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_authitem_id_seq', 404, true);
+
+
+--
+-- Name: epmms_award_config_agent_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_agent_award_config_id_seq', 8, true);
 
 
 --
--- Name: epmms_award_config_all_fenhong_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_all_fenhong_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_all_fenhong_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_award_config_id_seq', 170, true);
 
 
 --
--- Name: epmms_award_config_bonus_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_bonus_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_bonus_award_config_id_seq', 6, true);
 
 
 --
--- Name: epmms_award_config_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_dot_award_config_id_seq', 28, true);
 
 
 --
--- Name: epmms_award_config_dot_fuwu_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_fuwu_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_dot_fuwu_award_config_id_seq', 3, true);
 
 
 --
--- Name: epmms_award_config_dot_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_dot_layer_award_config_id_seq', 10, true);
 
 
 --
--- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_dot_matrix_award_config_id_seq', 36, true);
 
 
 --
--- Name: epmms_award_config_dot_member_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_member_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_dot_member_award_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_down_award_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_dup_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dup_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_dup_dot_award_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_foundation_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_foundation_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_foundation_award_config_id_seq', 3, true);
 
 
 --
--- Name: epmms_award_config_gl_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gl_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_gl_award_config_id_seq', 11, true);
 
 
 --
--- Name: epmms_award_config_gongpai_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gongpai_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_gongpai_award_config_id_seq', 2, true);
 
 
 --
--- Name: epmms_award_config_group7_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group7_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_group7_award_config_id_seq', 3, true);
 
 
 --
--- Name: epmms_award_config_group_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_group_award_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_huikui_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_huikui_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_huikui_award_config_id_seq', 10, true);
 
 
 --
--- Name: epmms_award_config_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_layer_award_config_id_seq', 8, true);
 
 
 --
--- Name: epmms_award_config_layer_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_layer_dot_award_config_id_seq', 15, true);
 
 
 --
--- Name: epmms_award_config_layer_recommend_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_recommend_dot_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_layer_recommend_dot_award_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_leader_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_leader_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_leader_down_award_config_id_seq', 2, true);
 
 
 --
--- Name: epmms_award_config_lingdao_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_lingdao_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_lingdao_award_config_id_seq', 2, true);
 
 
 --
--- Name: epmms_award_config_org_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_down_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_org_down_award_config_id_seq', 24, true);
 
 
 --
--- Name: epmms_award_config_out_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_out_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_out_award_config_id_seq', 10, true);
 
 
 --
--- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_pair_member_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_pair_member_award_config_id_seq', 10, true);
 
 
 --
--- Name: epmms_award_config_peiyu_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_peiyu_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_peiyu_upgrade_award_config_id_seq', 4, true);
 
 
 --
--- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_prize_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_prize_award_config_id_seq', 6, true);
 
 
 --
--- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_recommend_award_config_id_seq', 5, true);
 
 
 --
--- Name: epmms_award_config_recommend_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_recommend_layer_award_config_id_seq', 6, true);
 
 
 --
--- Name: epmms_award_config_recommend_level_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_level_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_recommend_level_award_config_id_seq', 9, true);
 
 
 --
--- Name: epmms_award_config_share_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_share_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_share_award_config_id_seq', 2, true);
 
 
 --
--- Name: epmms_award_config_stock_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_stock_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_stock_award_config_id_seq', 5, true);
 
 
 --
--- Name: epmms_award_config_up_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_up_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_up_award_config_id_seq', 6, true);
 
 
 --
--- Name: epmms_award_config_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_upgrade_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_upgrade_award_config_id_seq', 11, true);
 
 
 --
--- Name: epmms_award_config_yeji_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_config_yeji_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_config_yeji_award_config_id_seq', 3, true);
 
 
 --
--- Name: epmms_award_day_award_day_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_day_award_day_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_day_award_day_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_day_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_day_fenhong_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_day_fenhong_award_config_id_seq', 13, true);
 
 
 --
--- Name: epmms_award_day_sum_all_award_day_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all_award_day_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_day_sum_all_award_day_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_day_sum_award_day_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_award_day_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_day_sum_award_day_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_group_award_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_group_award_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_award_group_award_group_id_seq', 244, true);
+SELECT pg_catalog.setval('public.epmms_award_group_award_group_id_seq', 249, true);
 
 
 --
--- Name: epmms_award_month_award_month_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_month_award_month_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_month_award_month_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_month_sum_all_award_month_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all_award_month_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_month_sum_all_award_month_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_month_sum_award_month_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_award_month_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_month_sum_award_month_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_month_year_sum_award_year_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_month_year_sum_award_year_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_month_year_sum_award_year_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_period_award_period_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_period_award_period_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_period_award_period_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_period_sum_award_period_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_award_period_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_period_sum_award_period_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_total_award_total_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_total_award_total_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_total_award_total_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_total_sum_award_total_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum_award_total_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_total_sum_award_total_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_week_award_week_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_week_award_week_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_week_award_week_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_week_sum_all_award_week_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all_award_week_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_week_sum_all_award_week_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_week_sum_award_week_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_award_week_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_week_sum_award_week_sum_id_seq', 1, false);
 
 
 --
--- Name: epmms_award_year_award_year_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_award_year_award_year_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_award_year_award_year_id_seq', 1, false);
 
 
 --
--- Name: epmms_backup_backup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_backup_backup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_backup_backup_id_seq', 9, true);
+SELECT pg_catalog.setval('public.epmms_backup_backup_id_seq', 1, true);
 
 
 --
--- Name: epmms_bank_bank_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_bank_bank_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_bank_bank_id_seq', 10, true);
 
 
 --
--- Name: epmms_bankaccount_bankaccount_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_bankaccount_bankaccount_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_bankaccount_bankaccount_id_seq', 9, true);
 
 
 --
--- Name: epmms_cap_award_cap_award_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_buy_buy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_buy_buy_id_seq', 1, false);
+
+
+--
+-- Name: epmms_cap_award_cap_award_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_cap_award_cap_award_id_seq', 13, true);
 
 
 --
--- Name: epmms_cap_member_award_cap_member_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_award_cap_member_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_cap_member_award_cap_member_id_seq', 56, true);
 
 
 --
--- Name: epmms_cap_member_cap_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_cap_sum_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_cap_member_cap_sum_id_seq', 15, true);
 
 
 --
--- Name: epmms_cap_sum_cap_award_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum_cap_award_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_cap_sum_cap_award_id_seq', 14, true);
 
 
 --
--- Name: epmms_charge_charge_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_charge_charge_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_charge_charge_id_seq', 1, false);
 
 
 --
--- Name: epmms_config_award_differential_award_differential_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_award_differential_award_differential_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_award_differential_award_differential_id_seq', 4, true);
 
 
 --
--- Name: epmms_config_backup_config_backup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_backup_config_backup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_backup_config_backup_id_seq', 3, true);
 
 
 --
--- Name: epmms_config_dif_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_dif_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_dif_award_config_id_seq', 9, true);
 
 
 --
--- Name: epmms_config_dot_m_l_r_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_dot_m_l_r_award_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_dot_m_l_r_award_config_id_seq', 30, true);
 
 
 --
--- Name: epmms_config_map_config_map_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_map_config_map_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_map_config_map_id_seq', 6, true);
 
 
 --
--- Name: epmms_config_sms_config_sms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_sms_config_sms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_sms_config_sms_id_seq', 1, true);
 
 
 --
--- Name: epmms_config_withdrawals_config_withdrawals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_config_withdrawals_config_withdrawals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_config_withdrawals_config_withdrawals_id_seq', 1, true);
 
 
 --
--- Name: epmms_finance_finance_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_deal_deal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_finance_finance_id_seq', 32, true);
+SELECT pg_catalog.setval('public.epmms_deal_deal_id_seq', 1, false);
 
 
 --
--- Name: epmms_foundation_foundation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_dup_dup_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_dup_dup_id_seq', 1, false);
+
+
+--
+-- Name: epmms_finance_finance_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_finance_finance_id_seq', 10, true);
+
+
+--
+-- Name: epmms_foundation_foundation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_foundation_foundation_id_seq', 1, false);
 
 
 --
--- Name: epmms_futou_futou_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_futou_futou_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_futou_futou_id_seq', 1, false);
 
 
 --
--- Name: epmms_game_charge_charge_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_game_charge_charge_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_game_charge_charge_id_seq', 5, true);
 
 
 --
--- Name: epmms_group_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_group_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_group_group_id_seq', 2, false);
 
 
 --
--- Name: epmms_groupmap_groupmap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_groupmap_groupmap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_groupmap_groupmap_id_seq', 1, false);
 
 
 --
--- Name: epmms_help_help_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_help_help_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_help_help_id_seq', 3, true);
 
 
 --
--- Name: epmms_layer_layer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_jackpot_info_info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_jackpot_info_info_id_seq', 2, true);
+
+
+--
+-- Name: epmms_jackpot_win_record_jackpot_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_jackpot_win_record_jackpot_id_seq', 1, false);
+
+
+--
+-- Name: epmms_layer_layer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_layer_layer_id_seq', 1, false);
 
 
 --
--- Name: epmms_log_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_log_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_log_log_id_seq', 54, true);
+SELECT pg_catalog.setval('public.epmms_log_log_id_seq', 1, true);
 
 
 --
--- Name: epmms_map_edit_map_edit_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_map_edit_map_edit_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_map_edit_map_edit_id_seq', 1, false);
 
 
 --
--- Name: epmms_member_upgrade_member_upgrade_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade_member_upgrade_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_member_upgrade_member_upgrade_id_seq', 3, true);
+SELECT pg_catalog.setval('public.epmms_member_upgrade_member_upgrade_id_seq', 1, false);
 
 
 --
--- Name: epmms_memberinfo_item_memberinfo_item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo_item_memberinfo_item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_memberinfo_item_memberinfo_item_id_seq', 53, true);
 
 
 --
--- Name: epmms_memberinfo_memberinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo_memberinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_memberinfo_memberinfo_id_seq', 7, true);
+SELECT pg_catalog.setval('public.epmms_memberinfo_memberinfo_id_seq', 2, false);
 
 
 --
--- Name: epmms_membermap2_membermap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_membermap2_membermap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_membermap2_membermap_id_seq', 2, false);
 
 
 --
--- Name: epmms_membermap3_membermap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_membermap3_membermap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_membermap3_membermap_id_seq', 1, false);
 
 
 --
--- Name: epmms_membermap4_membermap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_membermap4_membermap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_membermap4_membermap_id_seq', 1, false);
 
 
 --
--- Name: epmms_menu_menu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_menu_menu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_menu_menu_id_seq', 159, true);
+SELECT pg_catalog.setval('public.epmms_menu_menu_id_seq', 164, true);
 
 
 --
--- Name: epmms_messages_messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_messages_messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_messages_messages_id_seq', 1, false);
 
 
 --
--- Name: epmms_orders_orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_mybank_mybank_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_orders_orders_id_seq', 1, true);
-
-
---
--- Name: epmms_orders_product_orders_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.epmms_orders_product_orders_product_id_seq', 2, true);
+SELECT pg_catalog.setval('public.epmms_mybank_mybank_id_seq', 1, false);
 
 
 --
--- Name: epmms_pond_pond_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_orders_orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_orders_orders_id_seq', 1, false);
+
+
+--
+-- Name: epmms_orders_product_orders_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_orders_product_orders_product_id_seq', 1, false);
+
+
+--
+-- Name: epmms_pond_pond_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_pond_pond_id_seq', 5, true);
 
 
 --
--- Name: epmms_prize_prize_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_prize_prize_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_prize_prize_id_seq', 1, false);
 
 
 --
--- Name: epmms_product_class_product_class_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_product_class_product_class_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_product_class_product_class_id_seq', 70, true);
 
 
 --
--- Name: epmms_product_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_product_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_product_product_id_seq', 244, true);
 
 
 --
--- Name: epmms_ratio_ratio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_ratio_ratio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_ratio_ratio_id_seq', 13, true);
+SELECT pg_catalog.setval('public.epmms_ratio_ratio_id_seq', 1, false);
 
 
 --
--- Name: epmms_signing_signing_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_sale_sale_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.epmms_sale_sale_id_seq', 1, false);
+
+
+--
+-- Name: epmms_signing_signing_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_signing_signing_id_seq', 1, false);
 
 
 --
--- Name: epmms_star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_star_star_id_seq', 1, false);
 
 
 --
--- Name: epmms_stock_trend_stock_trend_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend_stock_trend_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_stock_trend_stock_trend_id_seq', 1, false);
 
 
 --
--- Name: epmms_sum_config_sum_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_sum_config_sum_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.epmms_sum_config_sum_config_id_seq', 18, true);
+SELECT pg_catalog.setval('public.epmms_sum_config_sum_config_id_seq', 42, true);
 
 
 --
--- Name: epmms_supplement_supplement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_supplement_supplement_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_supplement_supplement_id_seq', 1, false);
 
 
 --
--- Name: epmms_system_status_system_status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_system_status_system_status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_system_status_system_status_id_seq', 3, true);
 
 
 --
--- Name: epmms_transfer_config_transfer_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_transfer_config_transfer_config_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_transfer_config_transfer_config_id_seq', 2, true);
 
 
 --
--- Name: epmms_transfer_transfer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_transfer_transfer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_transfer_transfer_id_seq', 1, false);
 
 
 --
--- Name: epmms_userinfo_userinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_userinfo_userinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_userinfo_userinfo_id_seq', 22, true);
 
 
 --
--- Name: epmms_withdrawals_withdrawals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals_withdrawals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.epmms_withdrawals_withdrawals_id_seq', 1, false);
 
 
 --
--- Name: gen_member; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: gen_member; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.gen_member', 1, false);
 
 
 --
--- Name: group_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: group_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.group_seq', 2, false);
 
 
 --
--- Name: membermap_add; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: membermap_add; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.membermap_add', 7, true);
+SELECT pg_catalog.setval('public.membermap_add', 2, false);
 
 
 --
--- Name: membermap_verify; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: membermap_verify; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.membermap_verify', 2, false);
 
 
 --
--- Name: messages_session; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: messages_session; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.messages_session', 46, true);
-
-
---
--- Name: serial_number; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.serial_number', 79257, true);
+SELECT pg_catalog.setval('public.messages_session', 47, true);
 
 
 --
--- Name: award_config_3070 award_3070_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: serial_number; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.serial_number', 79268, true);
+
+
+--
+-- Name: award_config_3070 award_3070_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_3070
@@ -31703,7 +31096,7 @@ ALTER TABLE ONLY award.award_config_3070
 
 
 --
--- Name: award_config_budian award_config_budian_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_budian award_config_budian_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_budian
@@ -31711,7 +31104,15 @@ ALTER TABLE ONLY award.award_config_budian
 
 
 --
--- Name: award_config_dist award_config_dist_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_day_futou award_config_day_futou_pkey; Type: CONSTRAINT; Schema: award; Owner: -
+--
+
+ALTER TABLE ONLY award.award_config_day_futou
+    ADD CONSTRAINT award_config_day_futou_pkey PRIMARY KEY (award_config_id);
+
+
+--
+-- Name: award_config_dist award_config_dist_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dist
@@ -31719,7 +31120,7 @@ ALTER TABLE ONLY award.award_config_dist
 
 
 --
--- Name: award_config_dot_layer2 award_config_dot_layer2_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer2 award_config_dot_layer2_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_layer2
@@ -31727,7 +31128,7 @@ ALTER TABLE ONLY award.award_config_dot_layer2
 
 
 --
--- Name: award_config_dot_layer_150919 award_config_dot_layer_150919_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer_150919 award_config_dot_layer_150919_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_layer_150919
@@ -31735,7 +31136,7 @@ ALTER TABLE ONLY award.award_config_dot_layer_150919
 
 
 --
--- Name: award_config_dot_layer award_config_dot_layer_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dot_layer award_config_dot_layer_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_layer
@@ -31743,7 +31144,7 @@ ALTER TABLE ONLY award.award_config_dot_layer
 
 
 --
--- Name: award_config_dot_limit award_config_dot_limit_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dot_limit award_config_dot_limit_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_limit
@@ -31751,7 +31152,7 @@ ALTER TABLE ONLY award.award_config_dot_limit
 
 
 --
--- Name: award_config_dot_matrix2 award_config_dot_matrix2_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dot_matrix2 award_config_dot_matrix2_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_matrix2
@@ -31759,7 +31160,7 @@ ALTER TABLE ONLY award.award_config_dot_matrix2
 
 
 --
--- Name: award_config_dot_recommend award_config_dot_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dot_recommend award_config_dot_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dot_recommend
@@ -31767,7 +31168,7 @@ ALTER TABLE ONLY award.award_config_dot_recommend
 
 
 --
--- Name: award_config_down_up award_config_down_up_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_down_up award_config_down_up_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_down_up
@@ -31775,7 +31176,7 @@ ALTER TABLE ONLY award.award_config_down_up
 
 
 --
--- Name: award_config_dup award_config_dup_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_dup award_config_dup_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_dup
@@ -31783,7 +31184,7 @@ ALTER TABLE ONLY award.award_config_dup
 
 
 --
--- Name: award_config_fanli award_config_fanli_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_fanli award_config_fanli_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_fanli
@@ -31791,7 +31192,7 @@ ALTER TABLE ONLY award.award_config_fanli
 
 
 --
--- Name: award_config_fenhong_level award_config_fenhong_level_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_fenhong_level award_config_fenhong_level_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_fenhong_level
@@ -31799,7 +31200,7 @@ ALTER TABLE ONLY award.award_config_fenhong_level
 
 
 --
--- Name: award_config_huzhu award_config_huzhu_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_huzhu award_config_huzhu_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_huzhu
@@ -31807,7 +31208,7 @@ ALTER TABLE ONLY award.award_config_huzhu
 
 
 --
--- Name: award_config_layer_pair_member award_config_layer_pair_member_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_layer_pair_member award_config_layer_pair_member_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_layer_pair_member
@@ -31815,7 +31216,7 @@ ALTER TABLE ONLY award.award_config_layer_pair_member
 
 
 --
--- Name: award_config_leader_recommend2 award_config_leader_recommend2_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend2 award_config_leader_recommend2_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_leader_recommend2
@@ -31823,7 +31224,7 @@ ALTER TABLE ONLY award.award_config_leader_recommend2
 
 
 --
--- Name: award_config_leader_recommend award_config_leader_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_leader_recommend award_config_leader_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_leader_recommend
@@ -31831,7 +31232,7 @@ ALTER TABLE ONLY award.award_config_leader_recommend
 
 
 --
--- Name: award_config_manage award_config_manage_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_manage award_config_manage_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_manage
@@ -31839,7 +31240,7 @@ ALTER TABLE ONLY award.award_config_manage
 
 
 --
--- Name: award_config_org_up_down award_config_org_up_down_award_config_org_up_down_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_org_up_down award_config_org_up_down_award_config_org_up_down_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_org_up_down
@@ -31847,7 +31248,7 @@ ALTER TABLE ONLY award.award_config_org_up_down
 
 
 --
--- Name: award_config_recommend_type2 award_config_recommend_type2_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_recommend_type2 award_config_recommend_type2_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_recommend_type2
@@ -31855,7 +31256,7 @@ ALTER TABLE ONLY award.award_config_recommend_type2
 
 
 --
--- Name: award_config_signing award_config_signing_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_signing award_config_signing_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_signing
@@ -31863,7 +31264,7 @@ ALTER TABLE ONLY award.award_config_signing
 
 
 --
--- Name: award_config_static_fenghong_recommend award_config_static_fenghong_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_static_fenghong_recommend award_config_static_fenghong_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_static_fenghong_recommend
@@ -31871,7 +31272,7 @@ ALTER TABLE ONLY award.award_config_static_fenghong_recommend
 
 
 --
--- Name: award_config_static_fenhong award_config_static_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_static_fenhong award_config_static_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_static_fenhong
@@ -31879,7 +31280,7 @@ ALTER TABLE ONLY award.award_config_static_fenhong
 
 
 --
--- Name: award_config_up_down_425 award_config_up_down_425_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_up_down_425 award_config_up_down_425_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_up_down_425
@@ -31887,7 +31288,7 @@ ALTER TABLE ONLY award.award_config_up_down_425
 
 
 --
--- Name: award_config_upgrade award_config_upgrade_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_upgrade award_config_upgrade_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_upgrade
@@ -31895,7 +31296,7 @@ ALTER TABLE ONLY award.award_config_upgrade
 
 
 --
--- Name: award_config_xingyun award_config_xingyun_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_xingyun award_config_xingyun_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_xingyun
@@ -31903,7 +31304,7 @@ ALTER TABLE ONLY award.award_config_xingyun
 
 
 --
--- Name: award_config_zhengka award_config_zhengka_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_zhengka award_config_zhengka_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_config_zhengka
@@ -31911,7 +31312,7 @@ ALTER TABLE ONLY award.award_config_zhengka
 
 
 --
--- Name: award_recommend_matrix award_recommend_matrix_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_recommend_matrix award_recommend_matrix_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.award_recommend_matrix
@@ -31919,7 +31320,7 @@ ALTER TABLE ONLY award.award_recommend_matrix
 
 
 --
--- Name: dynamic_fenhong dynamic_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: dynamic_fenhong dynamic_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.dynamic_fenhong
@@ -31927,7 +31328,7 @@ ALTER TABLE ONLY award.dynamic_fenhong
 
 
 --
--- Name: dynmmic_fenhong_percent dynmmic_fenhong_percent_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: dynmmic_fenhong_percent dynmmic_fenhong_percent_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.dynmmic_fenhong_percent
@@ -31935,7 +31336,7 @@ ALTER TABLE ONLY award.dynmmic_fenhong_percent
 
 
 --
--- Name: epmms_award_config_agent epmms_award_config_agent_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_agent epmms_award_config_agent_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_agent
@@ -31943,7 +31344,7 @@ ALTER TABLE ONLY award.epmms_award_config_agent
 
 
 --
--- Name: epmms_award_config_day_fenhong epmms_award_config_day_fenhong_epmms_award_day_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_day_fenhong epmms_award_config_day_fenhong_epmms_award_day_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_day_fenhong
@@ -31951,7 +31352,7 @@ ALTER TABLE ONLY award.epmms_award_config_day_fenhong
 
 
 --
--- Name: epmms_award_config_dif epmms_award_config_dif_epmms_config_dif_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dif epmms_award_config_dif_epmms_config_dif_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dif
@@ -31959,7 +31360,7 @@ ALTER TABLE ONLY award.epmms_award_config_dif
 
 
 --
--- Name: epmms_award_config_dot_matrix_left epmms_award_config_dot_matrix_left_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_left epmms_award_config_dot_matrix_left_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix_left
@@ -31967,7 +31368,7 @@ ALTER TABLE ONLY award.epmms_award_config_dot_matrix_left
 
 
 --
--- Name: epmms_award_config_dot_matrix epmms_award_config_dot_matrix_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix epmms_award_config_dot_matrix_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix
@@ -31975,7 +31376,7 @@ ALTER TABLE ONLY award.epmms_award_config_dot_matrix
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend_151204 epmms_award_config_dot_matrix_recommend_new_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend_151204 epmms_award_config_dot_matrix_recommend_new_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix_recommend_151204
@@ -31983,7 +31384,7 @@ ALTER TABLE ONLY award.epmms_award_config_dot_matrix_recommend_151204
 
 
 --
--- Name: epmms_award_config_dot_matrix_recommend epmms_award_config_dot_matrix_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_dot_matrix_recommend epmms_award_config_dot_matrix_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_dot_matrix_recommend
@@ -31991,7 +31392,7 @@ ALTER TABLE ONLY award.epmms_award_config_dot_matrix_recommend
 
 
 --
--- Name: epmms_award_config_layer_full_layer epmms_award_config_layer_full_layer_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_layer_full_layer epmms_award_config_layer_full_layer_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_layer_full_layer
@@ -31999,7 +31400,7 @@ ALTER TABLE ONLY award.epmms_award_config_layer_full_layer
 
 
 --
--- Name: epmms_award_config_pair_member_150919 epmms_award_config_pair_member_150919_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member_150919 epmms_award_config_pair_member_150919_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_pair_member_150919
@@ -32007,7 +31408,7 @@ ALTER TABLE ONLY award.epmms_award_config_pair_member_150919
 
 
 --
--- Name: epmms_award_config_pair_member epmms_award_config_pair_member_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_pair_member epmms_award_config_pair_member_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_pair_member
@@ -32015,7 +31416,7 @@ ALTER TABLE ONLY award.epmms_award_config_pair_member
 
 
 --
--- Name: epmms_award_config_prize epmms_award_config_prize_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_prize epmms_award_config_prize_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_prize
@@ -32023,7 +31424,7 @@ ALTER TABLE ONLY award.epmms_award_config_prize
 
 
 --
--- Name: epmms_award_config_recommend2 epmms_award_config_recommend2_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend2 epmms_award_config_recommend2_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_recommend2
@@ -32031,7 +31432,7 @@ ALTER TABLE ONLY award.epmms_award_config_recommend2
 
 
 --
--- Name: epmms_award_config_recommend3 epmms_award_config_recommend3_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend3 epmms_award_config_recommend3_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_recommend3
@@ -32039,7 +31440,7 @@ ALTER TABLE ONLY award.epmms_award_config_recommend3
 
 
 --
--- Name: epmms_award_config_recommend epmms_award_config_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: epmms_award_config_recommend epmms_award_config_recommend_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.epmms_award_config_recommend
@@ -32047,7 +31448,7 @@ ALTER TABLE ONLY award.epmms_award_config_recommend
 
 
 --
--- Name: static_fenhong static_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: static_fenhong static_fenhong_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.static_fenhong
@@ -32055,7 +31456,15 @@ ALTER TABLE ONLY award.static_fenhong
 
 
 --
--- Name: upgrade_child_condition upgrade_child_condition_pkey; Type: CONSTRAINT; Schema: award; Owner: postgres
+-- Name: award_config_xingyu_futou table_pkey; Type: CONSTRAINT; Schema: award; Owner: -
+--
+
+ALTER TABLE ONLY award.award_config_xingyu_futou
+    ADD CONSTRAINT table_pkey PRIMARY KEY (award_config_id);
+
+
+--
+-- Name: upgrade_child_condition upgrade_child_condition_pkey; Type: CONSTRAINT; Schema: award; Owner: -
 --
 
 ALTER TABLE ONLY award.upgrade_child_condition
@@ -32063,7 +31472,7 @@ ALTER TABLE ONLY award.upgrade_child_condition
 
 
 --
--- Name: epmms_award_config_aixinjijin award_config_aixinjijin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_aixinjijin award_config_aixinjijin_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_aixinjijin
@@ -32071,7 +31480,7 @@ ALTER TABLE ONLY public.epmms_award_config_aixinjijin
 
 
 --
--- Name: epmms_award_config_award_student award_config_award_student_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_award_student award_config_award_student_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_award_student
@@ -32079,7 +31488,7 @@ ALTER TABLE ONLY public.epmms_award_config_award_student
 
 
 --
--- Name: epmms_award_config_chuangye award_config_chuangye_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_chuangye award_config_chuangye_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_chuangye
@@ -32087,7 +31496,7 @@ ALTER TABLE ONLY public.epmms_award_config_chuangye
 
 
 --
--- Name: epmms_award_config_corp_fenhong award_config_corp_fenhong_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_corp_fenhong award_config_corp_fenhong_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_corp_fenhong
@@ -32095,7 +31504,7 @@ ALTER TABLE ONLY public.epmms_award_config_corp_fenhong
 
 
 --
--- Name: epmms_award_config_gljt award_config_gljt_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gljt award_config_gljt_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_gljt
@@ -32103,7 +31512,7 @@ ALTER TABLE ONLY public.epmms_award_config_gljt
 
 
 --
--- Name: epmms_award_config_guanli award_config_guanli_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_guanli award_config_guanli_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_guanli
@@ -32111,7 +31520,7 @@ ALTER TABLE ONLY public.epmms_award_config_guanli
 
 
 --
--- Name: epmms_award_config_guanli_upgrade award_config_guanli_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_guanli_upgrade award_config_guanli_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_guanli_upgrade
@@ -32119,7 +31528,7 @@ ALTER TABLE ONLY public.epmms_award_config_guanli_upgrade
 
 
 --
--- Name: epmms_award_config_layer_full award_config_layer_full_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_full award_config_layer_full_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer_full
@@ -32127,7 +31536,7 @@ ALTER TABLE ONLY public.epmms_award_config_layer_full
 
 
 --
--- Name: epmms_award_config_org_up_down award_config_org_up_down_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_up_down award_config_org_up_down_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_org_up_down
@@ -32135,7 +31544,7 @@ ALTER TABLE ONLY public.epmms_award_config_org_up_down
 
 
 --
--- Name: epmms_config_pond award_config_pond_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_pond award_config_pond_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_pond
@@ -32143,7 +31552,7 @@ ALTER TABLE ONLY public.epmms_config_pond
 
 
 --
--- Name: epmms_award_config_student_out award_config_student_out_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_student_out award_config_student_out_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_student_out
@@ -32151,7 +31560,7 @@ ALTER TABLE ONLY public.epmms_award_config_student_out
 
 
 --
--- Name: epmms_bank bank_name; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_bank bank_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_bank
@@ -32159,7 +31568,7 @@ ALTER TABLE ONLY public.epmms_bank
 
 
 --
--- Name: epmms_bankaccount bankaccount_account; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_bankaccount bankaccount_account; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_bankaccount
@@ -32167,7 +31576,15 @@ ALTER TABLE ONLY public.epmms_bankaccount
 
 
 --
--- Name: epmms_agent epmms_agent_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_activation_record epmms_activation_record_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_activation_record
+    ADD CONSTRAINT epmms_activation_record_pkey PRIMARY KEY (activation_id);
+
+
+--
+-- Name: epmms_agent epmms_agent_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_agent
@@ -32175,7 +31592,7 @@ ALTER TABLE ONLY public.epmms_agent
 
 
 --
--- Name: epmms_agent_type epmms_agent_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_agent_type epmms_agent_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_agent_type
@@ -32183,7 +31600,7 @@ ALTER TABLE ONLY public.epmms_agent_type
 
 
 --
--- Name: epmms_announcement_class epmms_announcement_class_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_announcement_class epmms_announcement_class_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_announcement_class
@@ -32191,7 +31608,7 @@ ALTER TABLE ONLY public.epmms_announcement_class
 
 
 --
--- Name: epmms_announcement epmms_announcement_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_announcement epmms_announcement_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_announcement
@@ -32199,7 +31616,7 @@ ALTER TABLE ONLY public.epmms_announcement
 
 
 --
--- Name: epmms_appropriate epmms_appropriate_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_appropriate epmms_appropriate_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_appropriate
@@ -32207,7 +31624,7 @@ ALTER TABLE ONLY public.epmms_appropriate
 
 
 --
--- Name: epmms_authassignment epmms_authassignment_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_authassignment epmms_authassignment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authassignment
@@ -32215,7 +31632,7 @@ ALTER TABLE ONLY public.epmms_authassignment
 
 
 --
--- Name: epmms_authitem epmms_authitem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_authitem epmms_authitem_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authitem
@@ -32223,7 +31640,7 @@ ALTER TABLE ONLY public.epmms_authitem
 
 
 --
--- Name: epmms_authitemchild epmms_authitemchild_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_authitemchild epmms_authitemchild_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authitemchild
@@ -32231,7 +31648,7 @@ ALTER TABLE ONLY public.epmms_authitemchild
 
 
 --
--- Name: epmms_award_config_agent epmms_award_config_agent_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_agent epmms_award_config_agent_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_agent
@@ -32239,7 +31656,7 @@ ALTER TABLE ONLY public.epmms_award_config_agent
 
 
 --
--- Name: epmms_award_config_all_fenhong epmms_award_config_all_fenhong_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_all_fenhong epmms_award_config_all_fenhong_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_all_fenhong
@@ -32247,7 +31664,7 @@ ALTER TABLE ONLY public.epmms_award_config_all_fenhong
 
 
 --
--- Name: epmms_award_config_dot_fuwu epmms_award_config_dot_fuwu_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_fuwu epmms_award_config_dot_fuwu_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_fuwu
@@ -32255,7 +31672,7 @@ ALTER TABLE ONLY public.epmms_award_config_dot_fuwu
 
 
 --
--- Name: epmms_award_config_dot_layer epmms_award_config_dot_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_layer epmms_award_config_dot_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_layer
@@ -32263,7 +31680,7 @@ ALTER TABLE ONLY public.epmms_award_config_dot_layer
 
 
 --
--- Name: epmms_award_config_dot_matrix epmms_award_config_dot_matrix_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_matrix epmms_award_config_dot_matrix_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_matrix
@@ -32271,7 +31688,7 @@ ALTER TABLE ONLY public.epmms_award_config_dot_matrix
 
 
 --
--- Name: epmms_award_config_dot_member epmms_award_config_dot_member_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot_member epmms_award_config_dot_member_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot_member
@@ -32279,7 +31696,7 @@ ALTER TABLE ONLY public.epmms_award_config_dot_member
 
 
 --
--- Name: epmms_award_config_dot epmms_award_config_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dot epmms_award_config_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dot
@@ -32287,7 +31704,7 @@ ALTER TABLE ONLY public.epmms_award_config_dot
 
 
 --
--- Name: epmms_award_config_down epmms_award_config_down_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_down epmms_award_config_down_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_down
@@ -32295,7 +31712,7 @@ ALTER TABLE ONLY public.epmms_award_config_down
 
 
 --
--- Name: epmms_award_config_dup_dot epmms_award_config_dup_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dup_dot epmms_award_config_dup_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dup_dot
@@ -32303,7 +31720,7 @@ ALTER TABLE ONLY public.epmms_award_config_dup_dot
 
 
 --
--- Name: epmms_award_config_foundation epmms_award_config_foundation_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_foundation epmms_award_config_foundation_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_foundation
@@ -32311,7 +31728,7 @@ ALTER TABLE ONLY public.epmms_award_config_foundation
 
 
 --
--- Name: epmms_award_config_gl epmms_award_config_gl_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gl epmms_award_config_gl_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_gl
@@ -32319,7 +31736,7 @@ ALTER TABLE ONLY public.epmms_award_config_gl
 
 
 --
--- Name: epmms_award_config_gongpai epmms_award_config_gongpai_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_gongpai epmms_award_config_gongpai_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_gongpai
@@ -32327,7 +31744,7 @@ ALTER TABLE ONLY public.epmms_award_config_gongpai
 
 
 --
--- Name: epmms_award_config_group7 epmms_award_config_group7_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group7 epmms_award_config_group7_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_group7
@@ -32335,7 +31752,7 @@ ALTER TABLE ONLY public.epmms_award_config_group7
 
 
 --
--- Name: epmms_award_config_group epmms_award_config_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_group epmms_award_config_group_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_group
@@ -32343,7 +31760,7 @@ ALTER TABLE ONLY public.epmms_award_config_group
 
 
 --
--- Name: epmms_award_config_huikui epmms_award_config_huikui_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_huikui epmms_award_config_huikui_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_huikui
@@ -32351,7 +31768,7 @@ ALTER TABLE ONLY public.epmms_award_config_huikui
 
 
 --
--- Name: epmms_award_config_layer_dot epmms_award_config_layer_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_dot epmms_award_config_layer_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer_dot
@@ -32359,7 +31776,7 @@ ALTER TABLE ONLY public.epmms_award_config_layer_dot
 
 
 --
--- Name: epmms_award_config_layer epmms_award_config_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer epmms_award_config_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer
@@ -32367,7 +31784,7 @@ ALTER TABLE ONLY public.epmms_award_config_layer
 
 
 --
--- Name: epmms_award_config_layer_recommend_dot epmms_award_config_layer_recommend_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_layer_recommend_dot epmms_award_config_layer_recommend_dot_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_layer_recommend_dot
@@ -32375,7 +31792,7 @@ ALTER TABLE ONLY public.epmms_award_config_layer_recommend_dot
 
 
 --
--- Name: epmms_award_config_leader_down epmms_award_config_leader_down_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_leader_down epmms_award_config_leader_down_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_leader_down
@@ -32383,7 +31800,7 @@ ALTER TABLE ONLY public.epmms_award_config_leader_down
 
 
 --
--- Name: epmms_award_config_lingdao epmms_award_config_lingdao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_lingdao epmms_award_config_lingdao_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_lingdao
@@ -32391,7 +31808,7 @@ ALTER TABLE ONLY public.epmms_award_config_lingdao
 
 
 --
--- Name: epmms_award_config_org_down epmms_award_config_org_down_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_org_down epmms_award_config_org_down_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_org_down
@@ -32399,7 +31816,7 @@ ALTER TABLE ONLY public.epmms_award_config_org_down
 
 
 --
--- Name: epmms_award_config_out epmms_award_config_out_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_out epmms_award_config_out_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_out
@@ -32407,7 +31824,7 @@ ALTER TABLE ONLY public.epmms_award_config_out
 
 
 --
--- Name: epmms_award_config_pair_member epmms_award_config_pair_member_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_pair_member epmms_award_config_pair_member_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_pair_member
@@ -32415,7 +31832,7 @@ ALTER TABLE ONLY public.epmms_award_config_pair_member
 
 
 --
--- Name: epmms_award_config_peiyu_upgrade epmms_award_config_peiyu_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_peiyu_upgrade epmms_award_config_peiyu_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_peiyu_upgrade
@@ -32423,7 +31840,7 @@ ALTER TABLE ONLY public.epmms_award_config_peiyu_upgrade
 
 
 --
--- Name: epmms_award_config epmms_award_config_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config epmms_award_config_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config
@@ -32431,7 +31848,7 @@ ALTER TABLE ONLY public.epmms_award_config
 
 
 --
--- Name: epmms_award_config_prize epmms_award_config_prize_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_prize epmms_award_config_prize_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_prize
@@ -32439,7 +31856,7 @@ ALTER TABLE ONLY public.epmms_award_config_prize
 
 
 --
--- Name: epmms_award_config_recommend_layer epmms_award_config_recommend_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer epmms_award_config_recommend_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend_layer
@@ -32447,7 +31864,7 @@ ALTER TABLE ONLY public.epmms_award_config_recommend_layer
 
 
 --
--- Name: epmms_award_config_recommend_level epmms_award_config_recommend_level_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_level epmms_award_config_recommend_level_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend_level
@@ -32455,7 +31872,7 @@ ALTER TABLE ONLY public.epmms_award_config_recommend_level
 
 
 --
--- Name: epmms_award_config_recommend epmms_award_config_recommend_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend epmms_award_config_recommend_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend
@@ -32463,7 +31880,7 @@ ALTER TABLE ONLY public.epmms_award_config_recommend
 
 
 --
--- Name: epmms_award_config_stock epmms_award_config_stock_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_stock epmms_award_config_stock_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_stock
@@ -32471,7 +31888,7 @@ ALTER TABLE ONLY public.epmms_award_config_stock
 
 
 --
--- Name: epmms_award_config_up epmms_award_config_up_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_up epmms_award_config_up_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_up
@@ -32479,7 +31896,7 @@ ALTER TABLE ONLY public.epmms_award_config_up
 
 
 --
--- Name: epmms_award_config_upgrade epmms_award_config_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_upgrade epmms_award_config_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_upgrade
@@ -32487,7 +31904,7 @@ ALTER TABLE ONLY public.epmms_award_config_upgrade
 
 
 --
--- Name: epmms_award_config_yeji epmms_award_config_yeji_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_yeji epmms_award_config_yeji_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_yeji
@@ -32495,7 +31912,7 @@ ALTER TABLE ONLY public.epmms_award_config_yeji
 
 
 --
--- Name: epmms_award_day epmms_award_day_date_award_type_sum_uni; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day epmms_award_day_date_award_type_sum_uni; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day
@@ -32503,14 +31920,14 @@ ALTER TABLE ONLY public.epmms_award_day
 
 
 --
--- Name: CONSTRAINT epmms_award_day_date_award_type_sum_uni ON epmms_award_day; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: CONSTRAINT epmms_award_day_date_award_type_sum_uni ON epmms_award_day; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON CONSTRAINT epmms_award_day_date_award_type_sum_uni ON public.epmms_award_day IS '组合候选键';
 
 
 --
--- Name: epmms_award_config_day_fenhong epmms_award_day_fenhong_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_day_fenhong epmms_award_day_fenhong_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_day_fenhong
@@ -32518,7 +31935,7 @@ ALTER TABLE ONLY public.epmms_award_config_day_fenhong
 
 
 --
--- Name: epmms_award_day epmms_award_day_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day epmms_award_day_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day
@@ -32526,7 +31943,7 @@ ALTER TABLE ONLY public.epmms_award_day
 
 
 --
--- Name: epmms_award_day_sum_all epmms_award_day_sum_all_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all epmms_award_day_sum_all_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum_all
@@ -32534,7 +31951,7 @@ ALTER TABLE ONLY public.epmms_award_day_sum_all
 
 
 --
--- Name: epmms_award_day_sum epmms_award_day_sum_date_type; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum epmms_award_day_sum_date_type; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum
@@ -32542,7 +31959,7 @@ ALTER TABLE ONLY public.epmms_award_day_sum
 
 
 --
--- Name: epmms_award_day_sum epmms_award_day_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum epmms_award_day_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum
@@ -32550,7 +31967,7 @@ ALTER TABLE ONLY public.epmms_award_day_sum
 
 
 --
--- Name: epmms_award_group epmms_award_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_group epmms_award_group_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_group
@@ -32558,7 +31975,7 @@ ALTER TABLE ONLY public.epmms_award_group
 
 
 --
--- Name: epmms_award_month epmms_award_month_date_award_type; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month epmms_award_month_date_award_type; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month
@@ -32566,7 +31983,7 @@ ALTER TABLE ONLY public.epmms_award_month
 
 
 --
--- Name: epmms_award_month epmms_award_month_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month epmms_award_month_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month
@@ -32574,7 +31991,7 @@ ALTER TABLE ONLY public.epmms_award_month
 
 
 --
--- Name: epmms_award_month_sum_all epmms_award_month_sum_all_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all epmms_award_month_sum_all_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month_sum_all
@@ -32582,7 +31999,7 @@ ALTER TABLE ONLY public.epmms_award_month_sum_all
 
 
 --
--- Name: epmms_award_month_sum epmms_award_month_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum epmms_award_month_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month_sum
@@ -32590,7 +32007,7 @@ ALTER TABLE ONLY public.epmms_award_month_sum
 
 
 --
--- Name: epmms_award_year_sum epmms_award_month_year_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum epmms_award_month_year_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year_sum
@@ -32598,7 +32015,7 @@ ALTER TABLE ONLY public.epmms_award_year_sum
 
 
 --
--- Name: epmms_award_period epmms_award_period_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period epmms_award_period_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period
@@ -32606,7 +32023,7 @@ ALTER TABLE ONLY public.epmms_award_period
 
 
 --
--- Name: epmms_award_period_sum epmms_award_period_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum epmms_award_period_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period_sum
@@ -32614,7 +32031,7 @@ ALTER TABLE ONLY public.epmms_award_period_sum
 
 
 --
--- Name: epmms_award_total epmms_award_total_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_total epmms_award_total_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_total
@@ -32622,7 +32039,7 @@ ALTER TABLE ONLY public.epmms_award_total
 
 
 --
--- Name: epmms_award_total_sum epmms_award_total_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum epmms_award_total_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_total_sum
@@ -32630,7 +32047,7 @@ ALTER TABLE ONLY public.epmms_award_total_sum
 
 
 --
--- Name: epmms_award_type epmms_award_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_type epmms_award_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_type
@@ -32638,7 +32055,7 @@ ALTER TABLE ONLY public.epmms_award_type
 
 
 --
--- Name: epmms_award_week epmms_award_week_date_type_sum_uni; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week epmms_award_week_date_type_sum_uni; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week
@@ -32646,7 +32063,7 @@ ALTER TABLE ONLY public.epmms_award_week
 
 
 --
--- Name: epmms_award_week epmms_award_week_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week epmms_award_week_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week
@@ -32654,7 +32071,7 @@ ALTER TABLE ONLY public.epmms_award_week
 
 
 --
--- Name: epmms_award_week_sum_all epmms_award_week_sum_all_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all epmms_award_week_sum_all_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week_sum_all
@@ -32662,7 +32079,7 @@ ALTER TABLE ONLY public.epmms_award_week_sum_all
 
 
 --
--- Name: epmms_award_week_sum epmms_award_week_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum epmms_award_week_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week_sum
@@ -32670,7 +32087,7 @@ ALTER TABLE ONLY public.epmms_award_week_sum
 
 
 --
--- Name: epmms_award_year epmms_award_year_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_year epmms_award_year_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year
@@ -32678,7 +32095,7 @@ ALTER TABLE ONLY public.epmms_award_year
 
 
 --
--- Name: epmms_backup epmms_backup_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_backup epmms_backup_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_backup
@@ -32686,7 +32103,7 @@ ALTER TABLE ONLY public.epmms_backup
 
 
 --
--- Name: epmms_bank epmms_bank_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_bank epmms_bank_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_bank
@@ -32694,7 +32111,7 @@ ALTER TABLE ONLY public.epmms_bank
 
 
 --
--- Name: epmms_bankaccount epmms_bankaccount_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_bankaccount epmms_bankaccount_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_bankaccount
@@ -32702,7 +32119,15 @@ ALTER TABLE ONLY public.epmms_bankaccount
 
 
 --
--- Name: epmms_cap_award epmms_cap_award_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_buy epmms_buy_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_buy
+    ADD CONSTRAINT epmms_buy_pkey PRIMARY KEY (buy_id);
+
+
+--
+-- Name: epmms_cap_award epmms_cap_award_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_award
@@ -32710,7 +32135,7 @@ ALTER TABLE ONLY public.epmms_cap_award
 
 
 --
--- Name: epmms_cap_award epmms_cap_award_type_award_uni; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_cap_award epmms_cap_award_type_award_uni; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_award
@@ -32718,7 +32143,7 @@ ALTER TABLE ONLY public.epmms_cap_award
 
 
 --
--- Name: epmms_cap_member_award epmms_cap_member_award_epmms_cap_member_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_award epmms_cap_member_award_epmms_cap_member_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_member_award
@@ -32726,7 +32151,7 @@ ALTER TABLE ONLY public.epmms_cap_member_award
 
 
 --
--- Name: epmms_cap_member_sum epmms_cap_member_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_cap_member_sum epmms_cap_member_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_member_sum
@@ -32734,7 +32159,7 @@ ALTER TABLE ONLY public.epmms_cap_member_sum
 
 
 --
--- Name: epmms_cap_sum epmms_cap_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum epmms_cap_sum_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_sum
@@ -32742,7 +32167,7 @@ ALTER TABLE ONLY public.epmms_cap_sum
 
 
 --
--- Name: epmms_cap_sum epmms_cap_sum_type_uni; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_cap_sum epmms_cap_sum_type_uni; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_sum
@@ -32750,7 +32175,7 @@ ALTER TABLE ONLY public.epmms_cap_sum
 
 
 --
--- Name: epmms_charge epmms_charge_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_charge epmms_charge_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_charge
@@ -32758,7 +32183,7 @@ ALTER TABLE ONLY public.epmms_charge
 
 
 --
--- Name: epmms_config_auth epmms_config_auth_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_auth epmms_config_auth_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_auth
@@ -32766,7 +32191,7 @@ ALTER TABLE ONLY public.epmms_config_auth
 
 
 --
--- Name: epmms_config_award_differential epmms_config_award_differential_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_award_differential epmms_config_award_differential_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_award_differential
@@ -32774,7 +32199,7 @@ ALTER TABLE ONLY public.epmms_config_award_differential
 
 
 --
--- Name: epmms_config_backup epmms_config_backup_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_backup epmms_config_backup_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_backup
@@ -32782,7 +32207,7 @@ ALTER TABLE ONLY public.epmms_config_backup
 
 
 --
--- Name: epmms_award_config_dif epmms_config_dif_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_dif epmms_config_dif_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_dif
@@ -32790,7 +32215,7 @@ ALTER TABLE ONLY public.epmms_award_config_dif
 
 
 --
--- Name: epmms_award_config_recommend_layer_dot epmms_config_dot_m_l_r_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config_recommend_layer_dot epmms_config_dot_m_l_r_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config_recommend_layer_dot
@@ -32798,7 +32223,15 @@ ALTER TABLE ONLY public.epmms_award_config_recommend_layer_dot
 
 
 --
--- Name: epmms_config_map epmms_config_map_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_jackpot epmms_config_jackpot_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_config_jackpot
+    ADD CONSTRAINT epmms_config_jackpot_pkey PRIMARY KEY (config_jackpot_id);
+
+
+--
+-- Name: epmms_config_map epmms_config_map_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_map
@@ -32806,7 +32239,7 @@ ALTER TABLE ONLY public.epmms_config_map
 
 
 --
--- Name: epmms_config_site epmms_config_site_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_site epmms_config_site_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_site
@@ -32814,7 +32247,7 @@ ALTER TABLE ONLY public.epmms_config_site
 
 
 --
--- Name: epmms_config_sms epmms_config_sms_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_sms epmms_config_sms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_sms
@@ -32822,7 +32255,7 @@ ALTER TABLE ONLY public.epmms_config_sms
 
 
 --
--- Name: epmms_config_smtp epmms_config_smtp_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_smtp epmms_config_smtp_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_smtp
@@ -32830,7 +32263,7 @@ ALTER TABLE ONLY public.epmms_config_smtp
 
 
 --
--- Name: epmms_config_withdrawals epmms_config_withdrawals_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_config_withdrawals epmms_config_withdrawals_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_config_withdrawals
@@ -32838,7 +32271,23 @@ ALTER TABLE ONLY public.epmms_config_withdrawals
 
 
 --
--- Name: epmms_finance_type epmms_finace_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_deal epmms_deal_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_deal
+    ADD CONSTRAINT epmms_deal_pkey PRIMARY KEY (deal_id);
+
+
+--
+-- Name: epmms_dup epmms_dup_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_dup
+    ADD CONSTRAINT epmms_dup_pkey PRIMARY KEY (dup_id);
+
+
+--
+-- Name: epmms_finance_type epmms_finace_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_finance_type
@@ -32846,7 +32295,7 @@ ALTER TABLE ONLY public.epmms_finance_type
 
 
 --
--- Name: epmms_finance epmms_finance_member_finance_uni; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_finance epmms_finance_member_finance_uni; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_finance
@@ -32854,7 +32303,7 @@ ALTER TABLE ONLY public.epmms_finance
 
 
 --
--- Name: epmms_finance epmms_finance_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_finance epmms_finance_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_finance
@@ -32862,7 +32311,7 @@ ALTER TABLE ONLY public.epmms_finance
 
 
 --
--- Name: epmms_finance_type epmms_finance_type_finance_type_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_finance_type epmms_finance_type_finance_type_name_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_finance_type
@@ -32870,7 +32319,7 @@ ALTER TABLE ONLY public.epmms_finance_type
 
 
 --
--- Name: epmms_foundation epmms_foundation_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_foundation epmms_foundation_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_foundation
@@ -32878,7 +32327,7 @@ ALTER TABLE ONLY public.epmms_foundation
 
 
 --
--- Name: epmms_futou epmms_futou_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_futou epmms_futou_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_futou
@@ -32886,7 +32335,7 @@ ALTER TABLE ONLY public.epmms_futou
 
 
 --
--- Name: epmms_game_charge epmms_game_charge_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_game_charge epmms_game_charge_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_game_charge
@@ -32894,7 +32343,7 @@ ALTER TABLE ONLY public.epmms_game_charge
 
 
 --
--- Name: epmms_group epmms_group_group_seq_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_group epmms_group_group_seq_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_group
@@ -32902,7 +32351,7 @@ ALTER TABLE ONLY public.epmms_group
 
 
 --
--- Name: epmms_group epmms_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_group epmms_group_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_group
@@ -32910,7 +32359,7 @@ ALTER TABLE ONLY public.epmms_group
 
 
 --
--- Name: epmms_groupmap epmms_groupmap_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_groupmap epmms_groupmap_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_groupmap
@@ -32918,7 +32367,7 @@ ALTER TABLE ONLY public.epmms_groupmap
 
 
 --
--- Name: epmms_help epmms_help_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_help epmms_help_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_help
@@ -32926,7 +32375,23 @@ ALTER TABLE ONLY public.epmms_help
 
 
 --
--- Name: epmms_layer epmms_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_jackpot_info epmms_jackpot_info_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_jackpot_info
+    ADD CONSTRAINT epmms_jackpot_info_pkey PRIMARY KEY (info_id);
+
+
+--
+-- Name: epmms_jackpot_win_record epmms_jackpot_win_record_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_jackpot_win_record
+    ADD CONSTRAINT epmms_jackpot_win_record_pkey PRIMARY KEY (jackpot_id);
+
+
+--
+-- Name: epmms_layer epmms_layer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_layer
@@ -32934,7 +32399,7 @@ ALTER TABLE ONLY public.epmms_layer
 
 
 --
--- Name: epmms_log epmms_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_log epmms_log_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_log
@@ -32942,7 +32407,7 @@ ALTER TABLE ONLY public.epmms_log
 
 
 --
--- Name: epmms_map_edit epmms_map_edit_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_map_edit epmms_map_edit_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_map_edit
@@ -32950,7 +32415,7 @@ ALTER TABLE ONLY public.epmms_map_edit
 
 
 --
--- Name: epmms_member_level epmms_member_level_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_member_level epmms_member_level_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_member_level
@@ -32958,7 +32423,7 @@ ALTER TABLE ONLY public.epmms_member_level
 
 
 --
--- Name: epmms_member_upgrade epmms_member_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade epmms_member_upgrade_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_member_upgrade
@@ -32966,7 +32431,7 @@ ALTER TABLE ONLY public.epmms_member_upgrade
 
 
 --
--- Name: epmms_memberinfo_item epmms_memberinfo_item_field; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo_item epmms_memberinfo_item_field; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberinfo_item
@@ -32974,7 +32439,7 @@ ALTER TABLE ONLY public.epmms_memberinfo_item
 
 
 --
--- Name: epmms_memberinfo_item epmms_memberinfo_item_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo_item epmms_memberinfo_item_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberinfo_item
@@ -32982,7 +32447,7 @@ ALTER TABLE ONLY public.epmms_memberinfo_item
 
 
 --
--- Name: epmms_memberinfo epmms_memberinfo_memberinfo_account_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo epmms_memberinfo_memberinfo_account_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberinfo
@@ -32990,7 +32455,7 @@ ALTER TABLE ONLY public.epmms_memberinfo
 
 
 --
--- Name: epmms_memberinfo epmms_memberinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo epmms_memberinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberinfo
@@ -32998,7 +32463,7 @@ ALTER TABLE ONLY public.epmms_memberinfo
 
 
 --
--- Name: epmms_membermap2 epmms_membermap2_membermap_path_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap2 epmms_membermap2_membermap_path_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap2
@@ -33006,7 +32471,7 @@ ALTER TABLE ONLY public.epmms_membermap2
 
 
 --
--- Name: epmms_membermap2 epmms_membermap2_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap2 epmms_membermap2_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap2
@@ -33014,7 +32479,7 @@ ALTER TABLE ONLY public.epmms_membermap2
 
 
 --
--- Name: epmms_membermap3 epmms_membermap3_membermap_seq_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap3 epmms_membermap3_membermap_seq_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap3
@@ -33022,7 +32487,7 @@ ALTER TABLE ONLY public.epmms_membermap3
 
 
 --
--- Name: epmms_membermap3 epmms_membermap3_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap3 epmms_membermap3_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap3
@@ -33030,7 +32495,7 @@ ALTER TABLE ONLY public.epmms_membermap3
 
 
 --
--- Name: epmms_membermap4 epmms_membermap4_idx; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap4 epmms_membermap4_idx; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap4
@@ -33038,7 +32503,7 @@ ALTER TABLE ONLY public.epmms_membermap4
 
 
 --
--- Name: epmms_membermap4 epmms_membermap4_membermap_path_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap4 epmms_membermap4_membermap_path_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap4
@@ -33046,7 +32511,7 @@ ALTER TABLE ONLY public.epmms_membermap4
 
 
 --
--- Name: epmms_membermap4 epmms_membermap4_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap4 epmms_membermap4_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap4
@@ -33054,7 +32519,7 @@ ALTER TABLE ONLY public.epmms_membermap4
 
 
 --
--- Name: epmms_membermap epmms_membermap_membermap_no_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_membermap_no_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -33062,7 +32527,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -33070,7 +32535,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_memberstatus epmms_memberstatus_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberstatus epmms_memberstatus_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberstatus
@@ -33078,7 +32543,7 @@ ALTER TABLE ONLY public.epmms_memberstatus
 
 
 --
--- Name: epmms_membertype epmms_membertype_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membertype epmms_membertype_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membertype
@@ -33086,7 +32551,7 @@ ALTER TABLE ONLY public.epmms_membertype
 
 
 --
--- Name: epmms_menu epmms_menu_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_menu epmms_menu_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_menu
@@ -33094,7 +32559,7 @@ ALTER TABLE ONLY public.epmms_menu
 
 
 --
--- Name: epmms_messages epmms_messages_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_messages epmms_messages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_messages
@@ -33102,7 +32567,7 @@ ALTER TABLE ONLY public.epmms_messages
 
 
 --
--- Name: epmms_orders epmms_orders_orders_sn_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_orders epmms_orders_orders_sn_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders
@@ -33110,7 +32575,7 @@ ALTER TABLE ONLY public.epmms_orders
 
 
 --
--- Name: epmms_orders epmms_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_orders epmms_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders
@@ -33118,7 +32583,7 @@ ALTER TABLE ONLY public.epmms_orders
 
 
 --
--- Name: epmms_orders_product epmms_orders_product_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_orders_product epmms_orders_product_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders_product
@@ -33126,7 +32591,7 @@ ALTER TABLE ONLY public.epmms_orders_product
 
 
 --
--- Name: epmms_parent_relation epmms_parent_relation_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_parent_relation epmms_parent_relation_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_parent_relation
@@ -33134,7 +32599,7 @@ ALTER TABLE ONLY public.epmms_parent_relation
 
 
 --
--- Name: epmms_pond epmms_pond_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_pond epmms_pond_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_pond
@@ -33142,7 +32607,7 @@ ALTER TABLE ONLY public.epmms_pond
 
 
 --
--- Name: epmms_prize epmms_prize_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_prize epmms_prize_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_prize
@@ -33150,7 +32615,7 @@ ALTER TABLE ONLY public.epmms_prize
 
 
 --
--- Name: epmms_product_class epmms_product_class_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_product_class epmms_product_class_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_product_class
@@ -33158,7 +32623,7 @@ ALTER TABLE ONLY public.epmms_product_class
 
 
 --
--- Name: epmms_product epmms_product_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_product epmms_product_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_product
@@ -33166,7 +32631,7 @@ ALTER TABLE ONLY public.epmms_product
 
 
 --
--- Name: epmms_ratio epmms_ratio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_ratio epmms_ratio_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_ratio
@@ -33174,7 +32639,7 @@ ALTER TABLE ONLY public.epmms_ratio
 
 
 --
--- Name: epmms_recommend_relation epmms_recommend_relation_idx; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_recommend_relation epmms_recommend_relation_idx; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_recommend_relation
@@ -33182,7 +32647,7 @@ ALTER TABLE ONLY public.epmms_recommend_relation
 
 
 --
--- Name: epmms_rights epmms_rights_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_rights epmms_rights_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_rights
@@ -33190,7 +32655,15 @@ ALTER TABLE ONLY public.epmms_rights
 
 
 --
--- Name: epmms_signing epmms_signing_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_sale epmms_sale_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_sale
+    ADD CONSTRAINT epmms_sale_pkey PRIMARY KEY (sale_id);
+
+
+--
+-- Name: epmms_signing epmms_signing_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_signing
@@ -33198,7 +32671,7 @@ ALTER TABLE ONLY public.epmms_signing
 
 
 --
--- Name: epmms_star epmms_star_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_star epmms_star_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_star
@@ -33206,7 +32679,7 @@ ALTER TABLE ONLY public.epmms_star
 
 
 --
--- Name: epmms_stock_trend epmms_stock_trend_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend epmms_stock_trend_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_stock_trend
@@ -33214,7 +32687,7 @@ ALTER TABLE ONLY public.epmms_stock_trend
 
 
 --
--- Name: epmms_sum_config epmms_sum_config_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_sum_config epmms_sum_config_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_sum_config
@@ -33222,7 +32695,7 @@ ALTER TABLE ONLY public.epmms_sum_config
 
 
 --
--- Name: epmms_sum_type epmms_sum_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_sum_type epmms_sum_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_sum_type
@@ -33230,7 +32703,7 @@ ALTER TABLE ONLY public.epmms_sum_type
 
 
 --
--- Name: epmms_sum_type epmms_sum_type_sum_type_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_sum_type epmms_sum_type_sum_type_name_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_sum_type
@@ -33238,7 +32711,7 @@ ALTER TABLE ONLY public.epmms_sum_type
 
 
 --
--- Name: epmms_supplement epmms_supplement_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_supplement epmms_supplement_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_supplement
@@ -33246,7 +32719,7 @@ ALTER TABLE ONLY public.epmms_supplement
 
 
 --
--- Name: epmms_system_status epmms_system_status_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_system_status epmms_system_status_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_system_status
@@ -33254,7 +32727,7 @@ ALTER TABLE ONLY public.epmms_system_status
 
 
 --
--- Name: epmms_transfer_config epmms_transfer_config_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer_config epmms_transfer_config_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer_config
@@ -33262,7 +32735,7 @@ ALTER TABLE ONLY public.epmms_transfer_config
 
 
 --
--- Name: epmms_transfer epmms_transfer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer epmms_transfer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer
@@ -33270,7 +32743,7 @@ ALTER TABLE ONLY public.epmms_transfer
 
 
 --
--- Name: epmms_transfer epmms_transfer_transfer_no_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer epmms_transfer_transfer_no_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer
@@ -33278,7 +32751,7 @@ ALTER TABLE ONLY public.epmms_transfer
 
 
 --
--- Name: epmms_userinfo epmms_userinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_userinfo epmms_userinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_userinfo
@@ -33286,7 +32759,7 @@ ALTER TABLE ONLY public.epmms_userinfo
 
 
 --
--- Name: epmms_withdrawals epmms_withdrawals_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals epmms_withdrawals_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_withdrawals
@@ -33294,7 +32767,7 @@ ALTER TABLE ONLY public.epmms_withdrawals
 
 
 --
--- Name: epmms_membermap membermap_verify_seq; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap membermap_verify_seq; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -33302,7 +32775,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membertype membertype_name; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membertype membertype_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membertype
@@ -33310,7 +32783,15 @@ ALTER TABLE ONLY public.epmms_membertype
 
 
 --
--- Name: epmms_product product_name; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_mybank mybank_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_mybank
+    ADD CONSTRAINT mybank_pkey PRIMARY KEY (mybank_id);
+
+
+--
+-- Name: epmms_product product_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_product
@@ -33318,7 +32799,7 @@ ALTER TABLE ONLY public.epmms_product
 
 
 --
--- Name: epmms_userinfo userinfo_account; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_userinfo userinfo_account; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_userinfo
@@ -33326,483 +32807,483 @@ ALTER TABLE ONLY public.epmms_userinfo
 
 
 --
--- Name: agent_memberinfo_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: agent_memberinfo_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX agent_memberinfo_id ON public.epmms_agent USING btree (agent_memberinfo_id);
 
 
 --
--- Name: agentcharge_agent_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: agentcharge_agent_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX agentcharge_agent_id ON public.epmms_charge USING btree (charge_memberinfo_id);
 
 
 --
--- Name: award_config_type_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: award_config_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX award_config_type_id ON public.epmms_award_config USING btree (award_config_type_id);
 
 
 --
--- Name: award_period_memberinfo_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: award_period_memberinfo_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX award_period_memberinfo_id ON public.epmms_award_day USING btree (award_day_memberinfo_id);
 
 
 --
--- Name: award_period_memberinfo_id1; Type: INDEX; Schema: public; Owner: postgres
+-- Name: award_period_memberinfo_id1; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX award_period_memberinfo_id1 ON public.epmms_award_month USING btree (award_month_memberinfo_id);
 
 
 --
--- Name: award_period_memberinfo_id3; Type: INDEX; Schema: public; Owner: postgres
+-- Name: award_period_memberinfo_id3; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX award_period_memberinfo_id3 ON public.epmms_award_week USING btree (award_week_memberinfo_id);
 
 
 --
--- Name: award_period_sum_src_memberinfo_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: award_period_sum_src_memberinfo_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX award_period_sum_src_memberinfo_id ON public.epmms_award_period_sum USING btree (award_period_sum_src_memberinfo_id);
 
 
 --
--- Name: bankaccount_bank_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: bankaccount_bank_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX bankaccount_bank_id ON public.epmms_bankaccount USING btree (bankaccount_bank_id);
 
 
 --
--- Name: child; Type: INDEX; Schema: public; Owner: postgres
+-- Name: child; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX child ON public.epmms_authitemchild USING btree (child);
 
 
 --
--- Name: epmms_award_day_sum_all_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX epmms_award_day_sum_all_idx ON public.epmms_award_day_sum_all USING btree (award_day_sum_memberinfo_id, award_day_sum_date);
 
 
 --
--- Name: epmms_award_month_sum_all_member_date_type_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all_member_date_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX epmms_award_month_sum_all_member_date_type_id ON public.epmms_award_month_sum_all USING btree (award_month_sum_memberinfo_id, award_month_sum_date);
 
 
 --
--- Name: epmms_award_month_sum_member_date_type_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_member_date_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_month_sum_member_date_type_id ON public.epmms_award_month_sum USING btree (award_month_sum_memberinfo_id, award_month_sum_date, award_month_sum_type);
 
 
 --
--- Name: epmms_award_period_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_period_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_period_idx ON public.epmms_award_period USING btree (award_period_period);
 
 
 --
--- Name: epmms_award_period_member_period_type_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_period_member_period_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_period_member_period_type_id ON public.epmms_award_period USING btree (award_period_memberinfo_id, award_period_period, award_period_type_id);
 
 
 --
--- Name: epmms_award_period_sum_memberinfo_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_memberinfo_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_period_sum_memberinfo_id ON public.epmms_award_day_sum USING btree (award_day_sum_memberinfo_id);
 
 
 --
--- Name: epmms_award_period_sum_memberinfo_id1; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_memberinfo_id1; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_period_sum_memberinfo_id1 ON public.epmms_award_month_sum USING btree (award_month_sum_memberinfo_id);
 
 
 --
--- Name: epmms_award_period_sum_period_type; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum_period_type; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX epmms_award_period_sum_period_type ON public.epmms_award_period_sum USING btree (award_period_sum_memberinfo_id, award_period_sum_period, award_period_sum_type);
 
 
 --
--- Name: epmms_award_total_award_period_memberinfo_id1; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_total_award_period_memberinfo_id1; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_total_award_period_memberinfo_id1 ON public.epmms_award_total USING btree (award_total_memberinfo_id);
 
 
 --
--- Name: epmms_award_total_member_type_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_total_member_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_total_member_type_id ON public.epmms_award_total USING btree (award_total_memberinfo_id, award_total_type_id, award_total_sum_type);
 
 
 --
--- Name: epmms_award_total_sum_epmms_award_period_sum_memberinfo_id1; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum_epmms_award_period_sum_memberinfo_id1; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_total_sum_epmms_award_period_sum_memberinfo_id1 ON public.epmms_award_total_sum USING btree (award_total_sum_memberinfo_id);
 
 
 --
--- Name: epmms_award_total_sum_member_type_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum_member_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_total_sum_member_type_id ON public.epmms_award_total_sum USING btree (award_total_sum_memberinfo_id, award_total_sum_type);
 
 
 --
--- Name: epmms_award_week_sum_all_date_sum; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all_date_sum; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX epmms_award_week_sum_all_date_sum ON public.epmms_award_week_sum_all USING btree (award_week_sum_memberinfo_id, award_week_sum_date);
 
 
 --
--- Name: epmms_award_week_sum_date_sum; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_date_sum; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX epmms_award_week_sum_date_sum ON public.epmms_award_week_sum USING btree (award_week_sum_memberinfo_id, award_week_sum_date, award_week_sum_type);
 
 
 --
--- Name: epmms_award_year_date_type_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_year_date_type_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_year_date_type_idx ON public.epmms_award_year USING btree (award_year_memberinfo_id, award_year_date, award_year_type_id, award_year_sum_type);
 
 
 --
--- Name: epmms_award_year_memberinfo_id_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_year_memberinfo_id_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_award_year_memberinfo_id_idx ON public.epmms_award_year USING btree (award_year_memberinfo_id);
 
 
 --
--- Name: epmms_award_year_sum_member_type_Id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum_member_type_Id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX "epmms_award_year_sum_member_type_Id" ON public.epmms_award_year_sum USING btree (award_year_sum_memberinfo_id, award_year_sum_date, award_year_sum_type);
 
 
 --
--- Name: epmms_layer_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_layer_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX epmms_layer_idx ON public.epmms_layer USING btree (layer_member_id, layer_layer);
 
 
 --
--- Name: epmms_membermap_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_membermap_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_membermap_idx ON public.epmms_membermap USING btree (membermap_id, membermap_membertype_level);
 
 
 --
--- Name: epmms_parent_relation_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_parent_relation_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_parent_relation_idx ON public.epmms_parent_relation USING btree (parent_relation_member_id);
 
 
 --
--- Name: epmms_star_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_star_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_star_idx ON public.epmms_star USING btree (star_product_id, star_grade);
 
 
 --
--- Name: epmms_star_idx1; Type: INDEX; Schema: public; Owner: postgres
+-- Name: epmms_star_idx1; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX epmms_star_idx1 ON public.epmms_star USING btree (star_member_id, star_product_id);
 
 
 --
--- Name: memberinfo_bank_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: memberinfo_bank_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX memberinfo_bank_id ON public.epmms_memberinfo USING btree (memberinfo_bank_id);
 
 
 --
--- Name: membermap_agent_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: membermap_agent_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX membermap_agent_id ON public.epmms_membermap USING btree (membermap_agent_id);
 
 
 --
--- Name: membermap_parent_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: membermap_parent_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX membermap_parent_id ON public.epmms_membermap USING btree (membermap_parent_id);
 
 
 --
--- Name: membermap_recommend_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: membermap_recommend_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX membermap_recommend_id ON public.epmms_membermap USING btree (membermap_recommend_id);
 
 
 --
--- Name: menu_pid; Type: INDEX; Schema: public; Owner: postgres
+-- Name: menu_pid; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX menu_pid ON public.epmms_menu USING btree (menu_pid);
 
 
 --
--- Name: parent_order; Type: INDEX; Schema: public; Owner: postgres
+-- Name: parent_order; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX parent_order ON public.epmms_membermap USING btree (membermap_parent_id, membermap_order);
 
 
 --
--- Name: period_idx; Type: INDEX; Schema: public; Owner: postgres
+-- Name: period_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX period_idx ON public.epmms_award_period_sum USING btree (award_period_sum_period);
 
 
 --
--- Name: userinfo_role; Type: INDEX; Schema: public; Owner: postgres
+-- Name: userinfo_role; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX userinfo_role ON public.epmms_userinfo USING btree (userinfo_role);
 
 
 --
--- Name: epmms_award_day epmms_award_day_award_sum_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_day epmms_award_day_award_sum_ins; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_day_award_sum_ins BEFORE INSERT ON public.epmms_award_day FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_day_award_sum_ins_tr();
 
 
 --
--- Name: TRIGGER epmms_award_day_award_sum_ins ON epmms_award_day; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER epmms_award_day_award_sum_ins ON epmms_award_day; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TRIGGER epmms_award_day_award_sum_ins ON public.epmms_award_day IS '更新每日各项奖金累计';
 
 
 --
--- Name: epmms_award_day epmms_award_day_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_day epmms_award_day_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_day_award_sum_total_after AFTER INSERT OR UPDATE ON public.epmms_award_day FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_day_award_sum_total_after_tr();
 
 
 --
--- Name: epmms_award_day_sum_all epmms_award_day_sum_all_tr; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all epmms_award_day_sum_all_tr; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_day_sum_all_tr BEFORE INSERT ON public.epmms_award_day_sum_all FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_day_sum_all_replace();
 
 
 --
--- Name: epmms_award_day_sum epmms_award_day_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum epmms_award_day_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_day_sum_ins_sum BEFORE INSERT ON public.epmms_award_day_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_day_sum_ins_sum_tr();
 
 
 --
--- Name: epmms_award_day_sum epmms_award_day_sum_ins_sum_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum epmms_award_day_sum_ins_sum_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_day_sum_ins_sum_after AFTER INSERT OR UPDATE ON public.epmms_award_day_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_day_sum_ins_sum_after_tr();
 
 
 --
--- Name: epmms_award_month epmms_award_month_award_sum_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_month epmms_award_month_award_sum_ins; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_month_award_sum_ins BEFORE INSERT ON public.epmms_award_month FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_month_award_sum_ins_tr();
 
 
 --
--- Name: epmms_award_month epmms_award_month_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_month epmms_award_month_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_month_award_sum_total_after AFTER INSERT OR UPDATE ON public.epmms_award_month FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_month_award_total_sum_after_tr();
 
 
 --
--- Name: epmms_award_month_sum_all epmms_award_month_sum_all_tr; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all epmms_award_month_sum_all_tr; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_month_sum_all_tr BEFORE INSERT ON public.epmms_award_month_sum_all FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_month_sum_all_tr_replace();
 
 
 --
--- Name: epmms_award_month_sum epmms_award_month_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum epmms_award_month_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_month_sum_ins_sum BEFORE INSERT ON public.epmms_award_month_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_month_sum_ins_sum_tr();
 
 
 --
--- Name: epmms_award_month_sum epmms_award_month_sum_total_sum_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum epmms_award_month_sum_total_sum_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_month_sum_total_sum_after AFTER INSERT OR UPDATE ON public.epmms_award_month_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_month_sum_total_sum_after_tr();
 
 
 --
--- Name: epmms_award_period epmms_award_period_date_type_sum; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_period epmms_award_period_date_type_sum; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_period_date_type_sum AFTER INSERT OR UPDATE ON public.epmms_award_period FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_period_date_type_sum_tr();
 
 
 --
--- Name: TRIGGER epmms_award_period_date_type_sum ON epmms_award_period; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: TRIGGER epmms_award_period_date_type_sum ON epmms_award_period; Type: COMMENT; Schema: public; Owner: -
 --
 
 COMMENT ON TRIGGER epmms_award_period_date_type_sum ON public.epmms_award_period IS '产生每个奖金时，进行每项奖金的汇总';
 
 
 --
--- Name: epmms_award_period_sum epmms_award_period_sum_sum_award_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum epmms_award_period_sum_sum_award_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_period_sum_sum_award_after AFTER INSERT OR UPDATE ON public.epmms_award_period_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_period_sum_sum_award_after_tr();
 
 
 --
--- Name: epmms_award_period_sum epmms_award_period_sum_tr; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum epmms_award_period_sum_tr; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_period_sum_tr BEFORE INSERT ON public.epmms_award_period_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_period_sum_tr_ins();
 
 
 --
--- Name: epmms_award_period epmms_award_period_tr; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_period epmms_award_period_tr; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_period_tr BEFORE INSERT ON public.epmms_award_period FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_period_tr_ins();
 
 
 --
--- Name: epmms_award_total epmms_award_total_award_sum_before; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_total epmms_award_total_award_sum_before; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_total_award_sum_before BEFORE INSERT ON public.epmms_award_total FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_total_award_sum_before_tr();
 
 
 --
--- Name: epmms_award_total_sum epmms_award_total_sum_award_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum epmms_award_total_sum_award_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_total_sum_award_after AFTER INSERT OR UPDATE ON public.epmms_award_total_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_total_sum_award_after_tr();
 
 
 --
--- Name: epmms_award_total_sum epmms_award_total_sum_before; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum epmms_award_total_sum_before; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_total_sum_before BEFORE INSERT ON public.epmms_award_total_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_total_sum_before_tr();
 
 
 --
--- Name: epmms_award_week epmms_award_week_award_sum_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_week epmms_award_week_award_sum_ins; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_week_award_sum_ins BEFORE INSERT ON public.epmms_award_week FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_week_award_sum_ins_tr();
 
 
 --
--- Name: epmms_award_week epmms_award_week_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_week epmms_award_week_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_week_award_sum_total_after AFTER INSERT OR UPDATE ON public.epmms_award_week FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_week_award_sum_total_after_tr();
 
 
 --
--- Name: epmms_award_week_sum_all epmms_award_week_sum_all_ins_sum; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all epmms_award_week_sum_all_ins_sum; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_week_sum_all_ins_sum BEFORE INSERT ON public.epmms_award_week_sum_all FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_week_sum_all_replace();
 
 
 --
--- Name: epmms_award_week_sum epmms_award_week_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum epmms_award_week_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_week_sum_ins_sum BEFORE INSERT ON public.epmms_award_week_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_week_sum_ins_sum_tr();
 
 
 --
--- Name: epmms_award_week_sum epmms_award_week_sum_ins_sum_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum epmms_award_week_sum_ins_sum_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_week_sum_ins_sum_after AFTER INSERT OR UPDATE ON public.epmms_award_week_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_week_sum_ins_sum_after_tr();
 
 
 --
--- Name: epmms_award_year epmms_award_year_award_sum_ins; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_year epmms_award_year_award_sum_ins; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_year_award_sum_ins BEFORE INSERT ON public.epmms_award_year FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_year_award_sum_ins_tr();
 
 
 --
--- Name: epmms_award_year epmms_award_year_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_year epmms_award_year_award_sum_total_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_year_award_sum_total_after AFTER INSERT OR UPDATE ON public.epmms_award_year FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_year_award_sum_total_after_tr();
 
 
 --
--- Name: epmms_award_year_sum epmms_award_year_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum epmms_award_year_sum_ins_sum; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_year_sum_ins_sum BEFORE INSERT ON public.epmms_award_year_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_year_sum_ins_sum_tr();
 
 
 --
--- Name: epmms_award_year_sum epmms_award_year_sum_total_sum_after; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum epmms_award_year_sum_total_sum_after; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_award_year_sum_total_sum_after AFTER INSERT OR UPDATE ON public.epmms_award_year_sum FOR EACH ROW EXECUTE PROCEDURE public.epmms_award_year_sum_total_sum_after_tr();
 
 
 --
--- Name: epmms_finance epmms_finance_replace_before; Type: TRIGGER; Schema: public; Owner: postgres
+-- Name: epmms_finance epmms_finance_replace_before; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER epmms_finance_replace_before BEFORE INSERT ON public.epmms_finance FOR EACH ROW EXECUTE PROCEDURE public.epmms_finance_replace_before_tr();
 
 
 --
--- Name: epmms_agent epmms_agent_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_agent epmms_agent_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_agent
@@ -33810,7 +33291,7 @@ ALTER TABLE ONLY public.epmms_agent
 
 
 --
--- Name: epmms_agent epmms_agent_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_agent epmms_agent_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_agent
@@ -33818,7 +33299,7 @@ ALTER TABLE ONLY public.epmms_agent
 
 
 --
--- Name: epmms_agent epmms_agent_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_agent epmms_agent_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_agent
@@ -33826,7 +33307,7 @@ ALTER TABLE ONLY public.epmms_agent
 
 
 --
--- Name: epmms_announcement epmms_announcement_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_announcement epmms_announcement_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_announcement
@@ -33834,7 +33315,7 @@ ALTER TABLE ONLY public.epmms_announcement
 
 
 --
--- Name: epmms_announcement epmms_announcement_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_announcement epmms_announcement_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_announcement
@@ -33842,7 +33323,7 @@ ALTER TABLE ONLY public.epmms_announcement
 
 
 --
--- Name: epmms_appropriate epmms_appropriate_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_appropriate epmms_appropriate_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_appropriate
@@ -33850,7 +33331,7 @@ ALTER TABLE ONLY public.epmms_appropriate
 
 
 --
--- Name: epmms_appropriate epmms_appropriate_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_appropriate epmms_appropriate_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_appropriate
@@ -33858,7 +33339,7 @@ ALTER TABLE ONLY public.epmms_appropriate
 
 
 --
--- Name: epmms_authassignment epmms_authassignment_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_authassignment epmms_authassignment_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authassignment
@@ -33866,7 +33347,7 @@ ALTER TABLE ONLY public.epmms_authassignment
 
 
 --
--- Name: epmms_authitemchild epmms_authitemchild_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_authitemchild epmms_authitemchild_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authitemchild
@@ -33874,7 +33355,7 @@ ALTER TABLE ONLY public.epmms_authitemchild
 
 
 --
--- Name: epmms_authitemchild epmms_authitemchild_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_authitemchild epmms_authitemchild_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_authitemchild
@@ -33882,7 +33363,7 @@ ALTER TABLE ONLY public.epmms_authitemchild
 
 
 --
--- Name: epmms_award_config epmms_award_config_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_config epmms_award_config_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_config
@@ -33890,7 +33371,7 @@ ALTER TABLE ONLY public.epmms_award_config
 
 
 --
--- Name: epmms_award_day epmms_award_day_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day epmms_award_day_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day
@@ -33898,7 +33379,7 @@ ALTER TABLE ONLY public.epmms_award_day
 
 
 --
--- Name: epmms_award_day_sum_all epmms_award_day_sum_all_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum_all epmms_award_day_sum_all_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum_all
@@ -33906,7 +33387,7 @@ ALTER TABLE ONLY public.epmms_award_day_sum_all
 
 
 --
--- Name: epmms_award_day_sum epmms_award_day_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum epmms_award_day_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum
@@ -33914,7 +33395,7 @@ ALTER TABLE ONLY public.epmms_award_day_sum
 
 
 --
--- Name: epmms_award_day_sum epmms_award_day_sum_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_day_sum epmms_award_day_sum_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_day_sum
@@ -33922,7 +33403,7 @@ ALTER TABLE ONLY public.epmms_award_day_sum
 
 
 --
--- Name: epmms_award_group epmms_award_group_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_group epmms_award_group_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_group
@@ -33930,7 +33411,7 @@ ALTER TABLE ONLY public.epmms_award_group
 
 
 --
--- Name: epmms_award_group epmms_award_group_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_group epmms_award_group_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_group
@@ -33938,7 +33419,7 @@ ALTER TABLE ONLY public.epmms_award_group
 
 
 --
--- Name: epmms_award_month epmms_award_month_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month epmms_award_month_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month
@@ -33946,7 +33427,7 @@ ALTER TABLE ONLY public.epmms_award_month
 
 
 --
--- Name: epmms_award_month_sum_all epmms_award_month_sum_all_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum_all epmms_award_month_sum_all_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month_sum_all
@@ -33954,7 +33435,7 @@ ALTER TABLE ONLY public.epmms_award_month_sum_all
 
 
 --
--- Name: epmms_award_month_sum epmms_award_month_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum epmms_award_month_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month_sum
@@ -33962,7 +33443,7 @@ ALTER TABLE ONLY public.epmms_award_month_sum
 
 
 --
--- Name: epmms_award_month_sum epmms_award_month_sum_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_month_sum epmms_award_month_sum_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_month_sum
@@ -33970,7 +33451,7 @@ ALTER TABLE ONLY public.epmms_award_month_sum
 
 
 --
--- Name: epmms_award_year_sum epmms_award_month_year_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum epmms_award_month_year_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year_sum
@@ -33978,7 +33459,7 @@ ALTER TABLE ONLY public.epmms_award_year_sum
 
 
 --
--- Name: epmms_award_year_sum epmms_award_month_year_sum_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_year_sum epmms_award_month_year_sum_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year_sum
@@ -33986,7 +33467,7 @@ ALTER TABLE ONLY public.epmms_award_year_sum
 
 
 --
--- Name: epmms_award_period epmms_award_period_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period epmms_award_period_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period
@@ -33994,7 +33475,7 @@ ALTER TABLE ONLY public.epmms_award_period
 
 
 --
--- Name: epmms_award_period epmms_award_period_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period epmms_award_period_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period
@@ -34002,7 +33483,7 @@ ALTER TABLE ONLY public.epmms_award_period
 
 
 --
--- Name: epmms_award_period_sum epmms_award_period_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum epmms_award_period_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period_sum
@@ -34010,7 +33491,7 @@ ALTER TABLE ONLY public.epmms_award_period_sum
 
 
 --
--- Name: epmms_award_period_sum epmms_award_period_sum_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum epmms_award_period_sum_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period_sum
@@ -34018,7 +33499,7 @@ ALTER TABLE ONLY public.epmms_award_period_sum
 
 
 --
--- Name: epmms_award_period_sum epmms_award_period_sum_ibfk_3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_period_sum epmms_award_period_sum_ibfk_3; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_period_sum
@@ -34026,7 +33507,7 @@ ALTER TABLE ONLY public.epmms_award_period_sum
 
 
 --
--- Name: epmms_award_total epmms_award_total_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_total epmms_award_total_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_total
@@ -34034,7 +33515,7 @@ ALTER TABLE ONLY public.epmms_award_total
 
 
 --
--- Name: epmms_award_total_sum epmms_award_total_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum epmms_award_total_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_total_sum
@@ -34042,7 +33523,7 @@ ALTER TABLE ONLY public.epmms_award_total_sum
 
 
 --
--- Name: epmms_award_total_sum epmms_award_total_sum_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_total_sum epmms_award_total_sum_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_total_sum
@@ -34050,7 +33531,7 @@ ALTER TABLE ONLY public.epmms_award_total_sum
 
 
 --
--- Name: epmms_award_week epmms_award_week_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week epmms_award_week_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week
@@ -34058,7 +33539,7 @@ ALTER TABLE ONLY public.epmms_award_week
 
 
 --
--- Name: epmms_award_week_sum_all epmms_award_week_sum_all_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum_all epmms_award_week_sum_all_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week_sum_all
@@ -34066,7 +33547,7 @@ ALTER TABLE ONLY public.epmms_award_week_sum_all
 
 
 --
--- Name: epmms_award_week_sum epmms_award_week_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum epmms_award_week_sum_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week_sum
@@ -34074,7 +33555,7 @@ ALTER TABLE ONLY public.epmms_award_week_sum
 
 
 --
--- Name: epmms_award_week_sum epmms_award_week_sum_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_week_sum epmms_award_week_sum_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_week_sum
@@ -34082,7 +33563,7 @@ ALTER TABLE ONLY public.epmms_award_week_sum
 
 
 --
--- Name: epmms_award_year epmms_award_year_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_award_year epmms_award_year_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_award_year
@@ -34090,7 +33571,7 @@ ALTER TABLE ONLY public.epmms_award_year
 
 
 --
--- Name: epmms_bankaccount epmms_bankaccount_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_bankaccount epmms_bankaccount_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_bankaccount
@@ -34098,7 +33579,15 @@ ALTER TABLE ONLY public.epmms_bankaccount
 
 
 --
--- Name: epmms_cap_member_sum epmms_cap_member_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_buy epmms_buy_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_buy
+    ADD CONSTRAINT epmms_buy_fk FOREIGN KEY (buy_member_id) REFERENCES public.epmms_memberinfo(memberinfo_id) ON DELETE CASCADE;
+
+
+--
+-- Name: epmms_cap_member_sum epmms_cap_member_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_cap_member_sum
@@ -34106,7 +33595,7 @@ ALTER TABLE ONLY public.epmms_cap_member_sum
 
 
 --
--- Name: epmms_charge epmms_charge_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_charge epmms_charge_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_charge
@@ -34114,7 +33603,7 @@ ALTER TABLE ONLY public.epmms_charge
 
 
 --
--- Name: epmms_charge epmms_charge_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_charge epmms_charge_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_charge
@@ -34122,7 +33611,7 @@ ALTER TABLE ONLY public.epmms_charge
 
 
 --
--- Name: epmms_charge epmms_charge_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_charge epmms_charge_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_charge
@@ -34130,7 +33619,47 @@ ALTER TABLE ONLY public.epmms_charge
 
 
 --
--- Name: epmms_finance epmms_finance_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_deal epmms_deal_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_deal
+    ADD CONSTRAINT epmms_deal_fk FOREIGN KEY (deal_sale_id) REFERENCES public.epmms_sale(sale_id) ON DELETE CASCADE;
+
+
+--
+-- Name: epmms_deal epmms_deal_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_deal
+    ADD CONSTRAINT epmms_deal_fk1 FOREIGN KEY (deal_buy_id) REFERENCES public.epmms_buy(buy_id) ON DELETE CASCADE;
+
+
+--
+-- Name: epmms_deal epmms_deal_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_deal
+    ADD CONSTRAINT epmms_deal_fk2 FOREIGN KEY (deal_sale_member_id) REFERENCES public.epmms_memberinfo(memberinfo_id);
+
+
+--
+-- Name: epmms_deal epmms_deal_fk3; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_deal
+    ADD CONSTRAINT epmms_deal_fk3 FOREIGN KEY (deal_buy_member_id) REFERENCES public.epmms_memberinfo(memberinfo_id);
+
+
+--
+-- Name: epmms_dup epmms_dup_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_dup
+    ADD CONSTRAINT epmms_dup_fk FOREIGN KEY (dup_member_id) REFERENCES public.epmms_memberinfo(memberinfo_id);
+
+
+--
+-- Name: epmms_finance epmms_finance_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_finance
@@ -34138,7 +33667,7 @@ ALTER TABLE ONLY public.epmms_finance
 
 
 --
--- Name: epmms_finance epmms_finance_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_finance epmms_finance_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_finance
@@ -34146,7 +33675,7 @@ ALTER TABLE ONLY public.epmms_finance
 
 
 --
--- Name: epmms_foundation epmms_foundation_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_foundation epmms_foundation_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_foundation
@@ -34154,7 +33683,7 @@ ALTER TABLE ONLY public.epmms_foundation
 
 
 --
--- Name: epmms_futou epmms_futou_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_futou epmms_futou_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_futou
@@ -34162,7 +33691,7 @@ ALTER TABLE ONLY public.epmms_futou
 
 
 --
--- Name: epmms_game_charge epmms_game_charge_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_game_charge epmms_game_charge_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_game_charge
@@ -34170,7 +33699,7 @@ ALTER TABLE ONLY public.epmms_game_charge
 
 
 --
--- Name: epmms_groupmap epmms_groupmap_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_groupmap epmms_groupmap_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_groupmap
@@ -34178,7 +33707,7 @@ ALTER TABLE ONLY public.epmms_groupmap
 
 
 --
--- Name: epmms_groupmap epmms_groupmap_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_groupmap epmms_groupmap_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_groupmap
@@ -34186,7 +33715,7 @@ ALTER TABLE ONLY public.epmms_groupmap
 
 
 --
--- Name: epmms_layer epmms_layer_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_layer epmms_layer_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_layer
@@ -34194,7 +33723,7 @@ ALTER TABLE ONLY public.epmms_layer
 
 
 --
--- Name: epmms_map_edit epmms_map_edit_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_map_edit epmms_map_edit_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_map_edit
@@ -34202,7 +33731,7 @@ ALTER TABLE ONLY public.epmms_map_edit
 
 
 --
--- Name: epmms_map_edit epmms_map_edit_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_map_edit epmms_map_edit_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_map_edit
@@ -34210,7 +33739,7 @@ ALTER TABLE ONLY public.epmms_map_edit
 
 
 --
--- Name: epmms_map_edit epmms_map_edit_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_map_edit epmms_map_edit_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_map_edit
@@ -34218,7 +33747,7 @@ ALTER TABLE ONLY public.epmms_map_edit
 
 
 --
--- Name: epmms_member_upgrade epmms_member_upgrade_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade epmms_member_upgrade_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_member_upgrade
@@ -34226,7 +33755,7 @@ ALTER TABLE ONLY public.epmms_member_upgrade
 
 
 --
--- Name: epmms_member_upgrade epmms_member_upgrade_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_member_upgrade epmms_member_upgrade_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_member_upgrade
@@ -34234,7 +33763,7 @@ ALTER TABLE ONLY public.epmms_member_upgrade
 
 
 --
--- Name: epmms_memberinfo epmms_memberinfo_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberinfo epmms_memberinfo_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberinfo
@@ -34242,7 +33771,7 @@ ALTER TABLE ONLY public.epmms_memberinfo
 
 
 --
--- Name: epmms_membermap2 epmms_membermap2_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap2 epmms_membermap2_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap2
@@ -34250,7 +33779,7 @@ ALTER TABLE ONLY public.epmms_membermap2
 
 
 --
--- Name: epmms_membermap2 epmms_membermap2_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap2 epmms_membermap2_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap2
@@ -34258,7 +33787,7 @@ ALTER TABLE ONLY public.epmms_membermap2
 
 
 --
--- Name: epmms_membermap3 epmms_membermap3_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap3 epmms_membermap3_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap3
@@ -34266,7 +33795,7 @@ ALTER TABLE ONLY public.epmms_membermap3
 
 
 --
--- Name: epmms_membermap4 epmms_membermap4_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap4 epmms_membermap4_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap4
@@ -34274,7 +33803,7 @@ ALTER TABLE ONLY public.epmms_membermap4
 
 
 --
--- Name: epmms_membermap epmms_membermap_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34282,7 +33811,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34290,7 +33819,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34298,7 +33827,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_fk3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_fk3; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34306,7 +33835,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34314,7 +33843,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_ibfk_2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34322,7 +33851,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_ibfk_7; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_ibfk_7; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34330,7 +33859,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_ibfk_8; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_ibfk_8; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34338,7 +33867,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_membermap epmms_membermap_ibfk_9; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_membermap epmms_membermap_ibfk_9; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_membermap
@@ -34346,7 +33875,7 @@ ALTER TABLE ONLY public.epmms_membermap
 
 
 --
--- Name: epmms_memberstatus epmms_memberstatus_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_memberstatus epmms_memberstatus_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_memberstatus
@@ -34354,7 +33883,7 @@ ALTER TABLE ONLY public.epmms_memberstatus
 
 
 --
--- Name: epmms_menu epmms_menu_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_menu epmms_menu_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_menu
@@ -34362,7 +33891,7 @@ ALTER TABLE ONLY public.epmms_menu
 
 
 --
--- Name: epmms_messages epmms_messages_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_messages epmms_messages_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_messages
@@ -34370,7 +33899,7 @@ ALTER TABLE ONLY public.epmms_messages
 
 
 --
--- Name: epmms_messages epmms_messages_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_messages epmms_messages_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_messages
@@ -34378,7 +33907,7 @@ ALTER TABLE ONLY public.epmms_messages
 
 
 --
--- Name: epmms_messages epmms_messages_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_messages epmms_messages_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_messages
@@ -34386,7 +33915,23 @@ ALTER TABLE ONLY public.epmms_messages
 
 
 --
--- Name: epmms_orders epmms_orders_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_mybank epmms_mybank_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_mybank
+    ADD CONSTRAINT epmms_mybank_fk FOREIGN KEY (mybank_bank_id) REFERENCES public.epmms_bank(bank_id);
+
+
+--
+-- Name: epmms_mybank epmms_mybank_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_mybank
+    ADD CONSTRAINT epmms_mybank_fk1 FOREIGN KEY (mybank_memberinfo_id) REFERENCES public.epmms_memberinfo(memberinfo_id);
+
+
+--
+-- Name: epmms_orders epmms_orders_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders
@@ -34394,7 +33939,7 @@ ALTER TABLE ONLY public.epmms_orders
 
 
 --
--- Name: epmms_orders_product epmms_orders_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_orders_product epmms_orders_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders_product
@@ -34402,7 +33947,7 @@ ALTER TABLE ONLY public.epmms_orders_product
 
 
 --
--- Name: epmms_orders_product epmms_orders_product_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_orders_product epmms_orders_product_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_orders_product
@@ -34410,7 +33955,7 @@ ALTER TABLE ONLY public.epmms_orders_product
 
 
 --
--- Name: epmms_prize epmms_prize_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_prize epmms_prize_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_prize
@@ -34418,7 +33963,7 @@ ALTER TABLE ONLY public.epmms_prize
 
 
 --
--- Name: epmms_product epmms_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_product epmms_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_product
@@ -34426,7 +33971,7 @@ ALTER TABLE ONLY public.epmms_product
 
 
 --
--- Name: epmms_rights epmms_rights_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_rights epmms_rights_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_rights
@@ -34434,7 +33979,15 @@ ALTER TABLE ONLY public.epmms_rights
 
 
 --
--- Name: epmms_signing epmms_signing_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_sale epmms_sale_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_sale
+    ADD CONSTRAINT epmms_sale_fk FOREIGN KEY (sale_member_id) REFERENCES public.epmms_memberinfo(memberinfo_id) ON DELETE CASCADE;
+
+
+--
+-- Name: epmms_signing epmms_signing_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_signing
@@ -34442,7 +33995,7 @@ ALTER TABLE ONLY public.epmms_signing
 
 
 --
--- Name: epmms_star epmms_star_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_star epmms_star_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_star
@@ -34450,7 +34003,7 @@ ALTER TABLE ONLY public.epmms_star
 
 
 --
--- Name: epmms_star epmms_star_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_star epmms_star_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_star
@@ -34458,7 +34011,7 @@ ALTER TABLE ONLY public.epmms_star
 
 
 --
--- Name: epmms_stock_trend epmms_stock_trend_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_stock_trend epmms_stock_trend_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_stock_trend
@@ -34466,7 +34019,7 @@ ALTER TABLE ONLY public.epmms_stock_trend
 
 
 --
--- Name: epmms_supplement epmms_supplement_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_supplement epmms_supplement_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_supplement
@@ -34474,7 +34027,7 @@ ALTER TABLE ONLY public.epmms_supplement
 
 
 --
--- Name: epmms_transfer epmms_transfer_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer epmms_transfer_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer
@@ -34482,7 +34035,7 @@ ALTER TABLE ONLY public.epmms_transfer
 
 
 --
--- Name: epmms_transfer epmms_transfer_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer epmms_transfer_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer
@@ -34490,7 +34043,7 @@ ALTER TABLE ONLY public.epmms_transfer
 
 
 --
--- Name: epmms_transfer epmms_transfer_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer epmms_transfer_fk2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer
@@ -34498,7 +34051,7 @@ ALTER TABLE ONLY public.epmms_transfer
 
 
 --
--- Name: epmms_transfer epmms_transfer_fk3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_transfer epmms_transfer_fk3; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_transfer
@@ -34506,7 +34059,7 @@ ALTER TABLE ONLY public.epmms_transfer
 
 
 --
--- Name: epmms_userinfo epmms_userinfo_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_userinfo epmms_userinfo_ibfk_1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_userinfo
@@ -34514,7 +34067,7 @@ ALTER TABLE ONLY public.epmms_userinfo
 
 
 --
--- Name: epmms_withdrawals epmms_withdrawals_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals epmms_withdrawals_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_withdrawals
@@ -34522,11 +34075,41 @@ ALTER TABLE ONLY public.epmms_withdrawals
 
 
 --
--- Name: epmms_withdrawals epmms_withdrawals_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: epmms_withdrawals epmms_withdrawals_fk1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.epmms_withdrawals
     ADD CONSTRAINT epmms_withdrawals_fk1 FOREIGN KEY (withdrawals_finance_type_id) REFERENCES public.epmms_finance_type(finance_type_id);
+
+
+--
+-- Name: epmms_activation_record memberinfo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_activation_record
+    ADD CONSTRAINT memberinfo FOREIGN KEY (activation_member_id) REFERENCES public.epmms_memberinfo(memberinfo_id);
+
+
+--
+-- Name: CONSTRAINT memberinfo ON epmms_activation_record; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON CONSTRAINT memberinfo ON public.epmms_activation_record IS '会员信息';
+
+
+--
+-- Name: epmms_jackpot_win_record memeber_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.epmms_jackpot_win_record
+    ADD CONSTRAINT memeber_id FOREIGN KEY (jackpot_id) REFERENCES public.epmms_memberinfo(memberinfo_id);
+
+
+--
+-- Name: CONSTRAINT memeber_id ON epmms_jackpot_win_record; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON CONSTRAINT memeber_id ON public.epmms_jackpot_win_record IS '会员信息';
 
 
 --
