@@ -32,8 +32,8 @@ class JackpotCommand extends CConsoleCommand
         if($endTime-1 <= time()){
 //        if(true){
             $this->addJackpotInfo($model);
-            $fundMoney = 10000;   // 扣除发展基金
-            $model->config_jackpot_fund      -= $fundMoney;
+            $fundMoney = $model->config_jackpot_fund;   // 扣除发展基金
+//            $model->config_jackpot_fund      -= $fundMoney;
             $model->config_jackpot_start_time = time();
             $model->config_jackpot_end_time   = time()+86400;
             // 数据库取数据：大于开始时间 小于当前时间
