@@ -159,7 +159,7 @@ deploy_db_server:
      && ssh root@$CI_DEPLOY_SERVER "export PGPASSWORD=${dbpasswd} \
      && createdb -h localhost -U $CI_DEPLOY_DBNAME $CI_DEPLOY_DBNAME \
      && psql -h localhost -U $CI_DEPLOY_DBNAME -d $CI_DEPLOY_DBNAME -f $CI_DEPLOY_PATH/${CI_DEPLOY_DBNAME}.sql \
-     && echo -e "host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5" >> /etc/postgresql/10/main/pg_hba.conf \
+     && echo -e \"host\t${CI_DEPLOY_DBNAME}\tall\t0.0.0.0/0\tmd5\" >> /etc/postgresql/10/main/pg_hba.conf \
      && systemctl reload postgresql" \
      && echo "${dbpasswd}">dbpasswd.txt \
      ; echo "create and import database"
