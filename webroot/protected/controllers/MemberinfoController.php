@@ -1836,10 +1836,10 @@ public function actionUpdateName($id=null){
                     'pageSize'=>$pageSize,
                 ),
                 'includeDataProviderInformation'=>true,
-                'relations'=>['memberinfoBank',
                     'memberinfoBank',
                     'membermap'=>['relations'=>[
                         'membermapParent'=>['relations'=>'memberinfo'],
+                'relations'=>['memberinfoBank',
                         'membermapRecommend'=>['relations'=>'memberinfo'],
                         'membermapAgent'=>['relations'=>'memberinfo'],
                         //'membermapbond'=>['relations'=>'memberinfo'],
@@ -1859,21 +1859,25 @@ public function actionUpdateName($id=null){
         }
     }
     public function actionTeam(){
-        if(isset($_POST['Memberinfo']['account'])){
-            $parent=Memberinfo::model()->find("memberinfo_account=:account" ,[':account'=>$_POST['Memberinfo']['account']]);
-            $parents = Membermap::model()->find($parent->memberinfo_id);    
-            $dat['a']=Membermap::model()->count("membermap_order=1 and membermap_path like '$parents->membermap_path%'");
-            $dat['b']=Membermap::model()->count("membermap_order=2 and membermap_path like '$parents->membermap_path%'");       
-            if($dat){
+
+       if(isset($_POST['Memberinfo']['account'])){
+            $parent=Memberinfo::model()->find("memberinfo_account=:account",[':account'=>$_POST['Memberinfo']['account']]);
+            $parents = Membermap::model()->findByPk($parent->memberinfo_id);
+        }else{
+            $parents = Membermap::model()->findByPk(user()->id);
+        }
+         $dat['a']=Membermap::model()->count("membermap_order=1 and membermap_path like '$parents->membermap_path/%'");
+         $dat['b']=Membermap::model()->count("membermap_order=2 and membermap_path like '$parents->membermap_path/%'");
+        if($dat){
                 if(webapp()->request->isAjaxRequest){
-                header('Content-Type: application/json');
+                    header('Content-Type: application/json');
                     $data['success']=true;
                     $data['team']=$dat;
                     echo CJSON::encode($data);
                     return;
                 }
-            }     
-        }
-        
+        }     
     }
+        
+     
 }

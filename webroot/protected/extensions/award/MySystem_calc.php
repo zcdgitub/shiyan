@@ -26,7 +26,7 @@ class MySystem_calc extends \AwardSystem
         //拿600的见点奖送点位
         $connection=Yii::app()->db;
         $transaction=webapp()->db->beginTransaction();
-        $sql="select membermap_id as id from epmms_finance,epmms_membermap where membermap_id=finance_memberinfo_id and finance_type=5 and current_date-coalesce(membermap_futou_date,current_date-30)=30 and finance_award>=iif(membermap_membertype_level=1,3000,9000);";
+        $sql="select membermap_id as id from epmms_finance,epmms_membermap where membermap_id=finance_memberinfo_id and finance_type=5 and current_date-coalesce(membermap_futou_date,current_date-30)>=30 and finance_award>=iif(membermap_membertype_level=1,3000,9000);";
 
         $command=$connection->createCommand($sql);
         $datareader=$command->query();
@@ -34,6 +34,8 @@ class MySystem_calc extends \AwardSystem
         {
             if($mymember=Membermap::model()->findByPk($row['id']))
             {
+                $mymember->membermap_futou_date=new CDbExpression("now()");
+                $mymember->saveAttributes(['membermap_futou_date']);
                 $newMember=$this->genNewMember($mymember);
                 if(is_object($newMember))
                 {
@@ -48,9 +50,6 @@ class MySystem_calc extends \AwardSystem
                     $transaction->rollback();
                     throw new Error('自动注册会员失败');
                 }
-
-                $mymember->membermap_is_active=0;
-                $mymember->saveAttributes(['membermap_is_active']);
             }
         }
         $transaction->commit();
@@ -67,8 +66,8 @@ class MySystem_calc extends \AwardSystem
         $info->attributes=$root_info->attributes;
         $info->unsetAttributes(['memberinfo_id','memberinfo_is_verify','memberinfo_last_date','memberinfo_last_ip','memberinfo_nickname']);
         $sys=SystemStatus::model()->find();
-        $info->memberinfo_account=$root_info->memberinfo_account . '_auto_' . $sys->system_status_verify_seq;
-        $info->memberinfo_nickname=$info->memberinfo_account . '_' . $root_info->memberinfo_nickname;
+        $info->memberinfo_account=$root_info->memberinfo_account . '_' . $sys->system_status_verify_seq;
+        $info->memberinfo_nickname=$root_info->memberinfo_nickname;
         $info->memberinfo_password_repeat=$info->memberinfo_password;
         $info->memberinfo_password_repeat2=$info->memberinfo_password2;
         $info->memberinfo_add_date=new CDbExpression('now()');
@@ -96,6 +95,8 @@ class MySystem_calc extends \AwardSystem
 
             if(!$map->save())
             {
+                print_r($map->getErrors());
+                print_r($map->attributes);
                 $transaction->rollback();
                 return false;
             }
@@ -110,8 +111,8 @@ class MySystem_calc extends \AwardSystem
                 throw new Error('生成会员时审核失败或电子币不足');
             }
         }
-        print_r($info->getErrors());
         $transaction->rollback();
+        print_r($info->getErrors());
         return false;
     }
 }

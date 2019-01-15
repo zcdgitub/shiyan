@@ -441,9 +441,6 @@ class Memberinfo extends Model
 	 */
 	public function verify($isAll=false,$verifyType=1)
 	{
-
-
-
 		if($this->memberinfo_is_verify==0 || $verifyType==8)
 		{
 			if($verifyType==1 && webapp()->id!='150608')

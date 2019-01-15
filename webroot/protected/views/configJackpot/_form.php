@@ -30,6 +30,19 @@ $form=$this->beginWidget('ActiveForm', array(
 	<?php echo $form->errorSummary($model); ?>
 <table class="form">
 
+    <tr class="row">
+        <td class="title">
+            <?php echo $form->labelEx($model,'config_jackpot_addmember_money'); ?>
+        </td>
+        <td class="value">
+            <?php echo $form->textField($model,'config_jackpot_addmember_money',array('size'=>20,'maxlength'=>16)); ?>
+        </td>
+        <td class="hint"></td>
+        <td class="error">
+            <?php echo $form->error($model,'config_jackpot_addmember_money',array(),false); ?>
+        </td>
+    </tr>
+
 	<tr class="row">
 		<td class="title">
 			<?php echo $form->labelEx($model,'config_jackpot_fund'); ?>
