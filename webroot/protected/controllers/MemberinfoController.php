@@ -1868,11 +1868,7 @@ public function actionUpdateName($id=null){
         }
          $dat['a']=Membermap::model()->count("membermap_order=1 and membermap_path like '$parents->membermap_path/%'");
          $dat['b']=Membermap::model()->count("membermap_order=2 and membermap_path like '$parents->membermap_path/%'");
-<<<<<<< HEAD
-          if($dat){
-=======
         if($dat){
->>>>>>> 89a4a832f3906685997ab91476a75586e6cfc40a
                 if(webapp()->request->isAjaxRequest){
                     header('Content-Type: application/json');
                     $data['success']=true;

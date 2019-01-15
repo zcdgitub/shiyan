@@ -3,7 +3,7 @@
 ini_set('date.timezone','Asia/Shanghai');
 mb_internal_encoding("UTF-8");
 // remove the following lines when in production mode
-defined('YII_DEBUG') or define('YII_DEBUG',false);
+defined('YII_DEBUG') or define('YII_DEBUG',true);
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 if(defined('YII_DEBUG') && YII_DEBUG==true)
 {
