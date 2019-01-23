@@ -8,15 +8,15 @@
  */
 
 return array(
-	'database' => 'epmms_181225',
+	'database' => 'epmms_190122',
 	'host'=>'pgsql',
 	'port'=>5432,
 	'dump_cmd'=>'pg_dump',
 	'restore_cmd'=>'pg_restore',
 	'connectionString' => 'pgsql:host=pgsql;port=5432;dbname=epmms_181225;application_name=ep_web',
 	'emulatePrepare' => true,
-	'username' => 'epmms_181225',
-	'password' => 'yi8jt1uBx4Wfb1HBeDe8Ph3j',
+	'username' => 'postgres',
+	'password' => '123456',
 	'charset' => 'utf8',
 	'tablePrefix'=>'epmms_',
 	'pdoClass' => 'NestedPDO',

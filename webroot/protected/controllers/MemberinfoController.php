@@ -19,12 +19,12 @@ class MemberinfoController extends Controller
 			'rights -getName',
 			//'postOnly + delete', // we only allow deletion via POST request
 			//'authentic + index,updatePassword,updatePasswordMy,verify,clean,verifyAll,update,updateMy,view',
-            'accessControl +getName'
+//            'accessControl +getName'
 		);
 	}
     public function allowedActions()
     {
-        return 'login,error,logout,captcha,authentic,adminLogin,Adminlogin';
+        return 'login,error,logout,captcha,authentic,adminLogin,Adminlogin,RegisterCode';
     }
     public function accessRules()
     {
@@ -71,12 +71,12 @@ class MemberinfoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id=null)
 	{
-
-       
+//        Yii::import('ext.award.MySystem_calc');
+//        $mysystem=new MySystem_calc();
+//        $mysystem->run(1,0,2);exit;
 		$model=new Memberinfo('create');
-
 		$is_orders=params('ordersForm');
 		if($is_orders)
 			$model_order=new Orders('reg');
@@ -103,7 +103,6 @@ class MemberinfoController extends Controller
 		}
 		if(isset($_POST['Membermap']))
 		{
-
 			$_POST['Membermap']['membermap_parent_id']=Memberinfo::name2id(@$_POST['Membermap']['membermap_parent_id']);
 			$_POST['Membermap']['membermap_recommend_id']=Memberinfo::name2id(@$_POST['Membermap']['membermap_recommend_id']);
 			if(params('regAgent'))
@@ -128,7 +127,9 @@ class MemberinfoController extends Controller
 			if(MemberType::model()->count()<=1)
 			{
 				$_POST['Membermap']['membermap_membertype_level']=MemberType::model()->find()->membertype_level;
-			}
+			}else{
+                $_POST['Membermap']['membermap_membertype_level']=0;
+            }
 			if(webapp()->id=='180929')
             {
                 $_POST['Membermap']['membermap_membertype_level']=1;
@@ -148,20 +149,18 @@ class MemberinfoController extends Controller
   
             $transaction=webapp()->db->beginTransaction();
             $model->attributes=$_POST['Memberinfo'];
-            $res=Memberinfo::model()->find('memberinfo_name='."'".$_POST['Memberinfo']['memberinfo_name']."'");
-            if($res){
-                 $model->memberinfo_type='会员号';
-            }else{
-                 $model->memberinfo_type='会员工资号';
-            }
-            $model->memberinfo_nickname=$_POST['Memberinfo']['memberinfo_account'];
+//            $res=Memberinfo::model()->find('memberinfo_name='."'".$_POST['Memberinfo']['memberinfo_name']."'");
+//            if($res){
+//                 $model->memberinfo_type='会员号';
+//            }else{
+//                 $model->memberinfo_type='会员工资号';
+//            }
+//            $model->memberinfo_nickname=$_POST['Memberinfo']['memberinfo_account'];
             if($model->save(true,array('memberinfo_account','memberinfo_password','memberinfo_type','memberinfo_password2','memberinfo_name','memberinfo_nickname','memberinfo_email','memberinfo_mobi','memberinfo_phone','memberinfo_qq','memberinfo_msn','memberinfo_sex','memberinfo_idcard_type','memberinfo_idcard','memberinfo_zipcode','memberinfo_birthday','memberinfo_address_provience','memberinfo_address_area','memberinfo_address_county','memberinfo_address_detail','memberinfo_bank_id','memberinfo_bank_name','memberinfo_bank_account','memberinfo_bank_provience','memberinfo_bank_area','memberinfo_bank_branch','memberinfo_question','memberinfo_answer','memberinfo_memo','memberinfo_is_enable','memberinfo_register_ip','memberinfo_last_ip','memberinfo_last_date','memberinfo_add_date','memberinfo_init_password','memberinfo_init_password2')))
             {
                 if(isset($_POST['Membermap']))
                 {
-
                     $model->membermap->attributes=$_POST['Membermap'];
-
                     $model->membermap->membermap_membertype_level_old=$model->membermap->membermap_membertype_level;
                     $model->membermap->membermap_reg_member_id=user()->isAdmin()?null:user()->id;
                     if(webapp()->id=='180821')
@@ -198,13 +197,17 @@ class MemberinfoController extends Controller
                             else
                             {
 
-                                $model->membermap->membermap_agent_id=user()->id;
+//                                $model->membermap->membermap_agent_id=user()->id;
+                                $model->membermap->membermap_agent_id=$id ? $id :user()->id;
                                 // 推荐人审核 $model->membermap->membermap_agent_id=$model->membermap->membermap_recommend_id;
                             }
                         }
 
                     }
                     $model->membermap->membermap_id=$model->memberinfo_id;
+                    if(webapp()->id=='190122'){
+                        $model->membermap->membermap_expire_date = date('Y-m-d H:i:s',time()+10*86400);
+                    }
                     if(webapp()->id=='180821')
                     {
                         $model->membermap->membermap_money = 10;
@@ -329,10 +332,10 @@ class MemberinfoController extends Controller
                         else
                         {
 
-                            if(params('autoVerify') && webapp()->request->isAjaxRequest)
+                            if(params('autoVerify') && $id)
+//                            if(params('autoVerify') && webapp()->request->isAjaxRequest)
                             {
-                                
-                                header('Content-Type: application/json');
+//                                header('Content-Type: application/json');
                                 if(($status=$model->verify())===EError::SUCCESS)
                                 {
                                     $this->log['status']=LogFilter::SUCCESS;
@@ -391,43 +394,45 @@ class MemberinfoController extends Controller
                                     $transaction->rollback();
                                 }
                                 $this->log();
-                                $viewModel=new Memberinfo('search');
-                                $viewModel->unsetAttributes();
-                                $viewModel->memberinfo_id=$model->memberinfo_id;
-                                $data['memberinfo']=$viewModel->search()->getArrayData();
-                                unset($data['memberinfo']['memberinfo_password']);
-                                unset($data['memberinfo']['memberinfo_password2']);
-                                echo CJSON::encode($data);
-                                webapp()->end();
+//                                $viewModel=new Memberinfo('search');
+//                                $viewModel->unsetAttributes();
+//                                $viewModel->memberinfo_id=$model->memberinfo_id;
+//                                $data['memberinfo']=$viewModel->search()->getArrayData();
+//                                unset($data['memberinfo']['memberinfo_password']);
+//                                unset($data['memberinfo']['memberinfo_password2']);
+//                                echo CJSON::encode($data);
+//                                webapp()->end();
                             }
                             //无订单模式
-                            $transaction->commit();
-                            user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
+                            if(!$id){
+                                $transaction->commit();
+                                user()->setFlash('success',"{$this->actionName}“{$model->showName}”" . t('epmms',"成功"));
+                            }
                             Sms::model()->sendRegister($model,$_POST['Memberinfo']['memberinfo_password'],$_POST['Memberinfo']['memberinfo_password2']);
                             //不激活
                           
-                            if(webapp()->request->isAjaxRequest)
-                            {
-                                header('Content-Type: application/json');
-                                if(user()->hasFlash('success'))
-                                {
-                                    $data['success'] = user()->getFlash('success', '成功', true);
-                                    $viewModel=new Memberinfo('search');
-                                    $viewModel->unsetAttributes();
-                                    $viewModel->memberinfo_id=$model->memberinfo_id;
-                                    $data['memberinfo']=$viewModel->search()->getArrayData();
-                                    unset($data['memberinfo']['memberinfo_password']);
-                                    unset($data['memberinfo']['memberinfo_password2']);
-                                }
-                                elseif(user()->hasFlash('error'))
-                                    $data['error']=user()->getFlash('error','失败',true);
-                                else{
-                                    $data=array_merge($model->getErrors(),$model->membermap->getErrors());
-                                }
-                                echo CJSON::encode($data);
-                                webapp()->end();
-                            }
-                            if(params('autoVerify'))
+//                            if(webapp()->request->isAjaxRequest)
+//                            {
+//                                header('Content-Type: application/json');
+//                                if(user()->hasFlash('success'))
+//                                {
+//                                    $data['success'] = user()->getFlash('success', '成功', true);
+//                                    $viewModel=new Memberinfo('search');
+//                                    $viewModel->unsetAttributes();
+//                                    $viewModel->memberinfo_id=$model->memberinfo_id;
+//                                    $data['memberinfo']=$viewModel->search()->getArrayData();
+//                                    unset($data['memberinfo']['memberinfo_password']);
+//                                    unset($data['memberinfo']['memberinfo_password2']);
+//                                }
+//                                elseif(user()->hasFlash('error'))
+//                                    $data['error']=user()->getFlash('error','失败',true);
+//                                else{
+//                                    $data=array_merge($model->getErrors(),$model->membermap->getErrors());
+//                                }
+//                                echo CJSON::encode($data);
+//                                webapp()->end();
+//                            }
+                            if(params('autoVerify') && !$id)
                             {
                                 $this->redirect(['memberinfo/verify','id'=>$model->memberinfo_id]);
                             }
@@ -470,12 +475,12 @@ class MemberinfoController extends Controller
         //$model->memberinfo_password_repeat=null;
         $model->memberinfo_password_repeat2=null;
         $model->membermap->membermap_recommend_id=user()->id;//默认设置
-     
+        $model->membermap->membermap_recommend_id=$id ==null ? user()->id :$id;//默认设置
+
         $form = new Form('application.views.memberinfo.createForm', $model);
         if($is_orders)
             $form['orders']->model=$model_order;
         $form['membermap']->model=$model->membermap;
-
         if(user()->isAdmin())
             $this->render('create',array('model'=>$model,'form'=>$form,'financeType'=>FinanceType::model()->findAll()));
         else
@@ -1876,6 +1881,10 @@ public function actionUpdateName($id=null){
                 return;
             }
         }
+    }
+    public function actionRegisterCode(){
+        $create_url=webapp()->getBaseUrl(true) . $this->createUrl('Memberinfo/create',['id'=>user()->id]);
+        $this->render('registerCode',['create_url'=>$create_url]);
     }
         
      

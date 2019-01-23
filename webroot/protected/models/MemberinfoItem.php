@@ -183,7 +183,7 @@ class MemberinfoItem extends Model
 			'membermap_product_count' => array('type'=>'spinner'),
 			'membermap_agent_id' => array('type'=>'RelativeFormInputElement2','relativeName'=>'membermapAgent','visible'=>true),
 			'membermap_bond_id' =>array('type'=>'RelativeFormInputElement2','relativeName'=>'membermapbond','visible'=>true),
-			'membermap_membertype_level' => array('type'=>'RelativeFormInputElement','relativeName'=>'membermapMembertypeLevel','visible'=>true,/*'htmlOptions'=>['onchange'=>new CJavaScriptExpression("
+			'membermap_membertype_level' => array('type'=>'RelativeFormInputElement','relativeName'=>'membermapMembertypeLevel','visible'=>isset($_GET['id'])?false:true,/*'htmlOptions'=>['onchange'=>new CJavaScriptExpression("
 				if(this.value<=3)
 				{
 					$('#Membermap_membermap_order').html('" . MemberinfoItem::mapOrder(Membermap::model(),'membermap_order',[],2) . "');

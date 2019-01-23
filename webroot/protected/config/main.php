@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__) . DIRECTORY_SEPARATOR .'..'  ,
 	'name'=>'易软市场管理系统',
-	'id'=>'181225',
+	'id'=>'190122',
 	'language'=>'zh_cn',
 	'sourceLanguage'=>'zh_cn',
 	'theme'=>'classic',
@@ -231,8 +231,8 @@ return array(
         'shop_logout_url'=>'http://192.168.31.31:9201/customer/account/logout',
         'mobile_url'=>'http://1211.youtuoapp.com/',
         'fecshop'=>false,
-        'regAgent'=>true,
-        'autoVerify'=>false,
+        'regAgent'=>false,
+        'autoVerify'=>true,
        //'img_host'=>'http://192.168.31.107:3000/', 
         'img_host'=>'http://zhang.youtuoapp.com/',
 

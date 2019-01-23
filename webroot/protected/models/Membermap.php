@@ -43,6 +43,7 @@
  * @property integer $membermap_agent_type
  * @property string $membermap_layer_order
  * @property integer $membermap_reg_member_id
+ * @property integer $membermap_expire_date
  *
  * The followings are the available model relations:
  * @property  * @property  * @property  * @property  * @property  * @property  * @property  * @property  * @property  * @property  */
@@ -217,7 +218,8 @@ class Membermap extends Model
 			'membermap_level'=>t('epmms','会员等级'),
 			'membermap_is_delete'=>t('epmms','图谱删除'),
 			'membermap_buyall'=>'购买累计',
-            'membermap_verify_seq2'=>'金卡审核顺序'
+            'membermap_verify_seq2'=>'金卡审核顺序',
+            'membermap_expire_date'=>'会员到期时间'
 		);
 		return array_merge($labels,$new_labels);
 	}

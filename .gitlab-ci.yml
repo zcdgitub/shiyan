@@ -136,7 +136,7 @@ deploy_nginx:
   variables:
     CI_DEPLOY_PATH: /opt/web/data/web/www
     CI_DEPLOY_SERVER: web.youtuoweb.com
-    CI_WEB_PORT: 8001
+    CI_WEB_PORT: 8501
   environment:
     name: test
     url: web.youtuoweb.com

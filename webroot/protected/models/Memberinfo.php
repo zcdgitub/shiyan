@@ -127,7 +127,8 @@ class Memberinfo extends Model
 				array('memberinfo_account','unique','className'=>'Userinfo','attributeName'=>'userinfo_account','on'=>'create,update,updateMy'),
 				array('memberinfo_account','unique','className'=>'Agent','attributeName'=>'agent_account','on'=>'create,update,updateMy'),
 		        //array('memberinfo_nickname','unique','on'=>'create,update,updateMy'),
-		        array('memberinfo_name','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'姓名必须为汉字'),
+//		        array('memberinfo_name','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'姓名必须为汉字'),
+                array('memberinfo_nickname','match','allowEmpty'=>false,'pattern'=>"/^[\x7f-\xff]+$/",'message'=>'姓名必须为汉字'),
 		    	//array('memberinfo_account','match','allowEmpty'=>false,'pattern'=>"/([0-9a-zA-Z]+$)/" ,'message'=>'账户名必须为数字或字母或组合'),
 				array('memberinfo_bank_id', 'exist', 'className'=>'Bank','attributeName'=>'bank_id'),
 				array('memberinfo_sex', 'ext.validators.Sex'),
@@ -476,21 +477,21 @@ class Memberinfo extends Model
 				$this->saveAttributes(['memberinfo_is_verify']);
 
 			    $parents = Membermap::model()->findByPk($membermap->membermap_recommend_id);
-              
-                $res=Membermap::model()->find('membermap_order='.$membermap->membermap_order.'and membermap_parent_id='.$parents->membermap_id); 
-          
-                if($res){        
-                    if($membermap->membermap_order==1){
-                      
-                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$res->membermap_path%'"]);   
-                    }else{                    
-                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path desc','condition'=>"membermap_child_number<2 and membermap_path like '$res->membermap_path%'"]);     
-                    }
-                        $membermap->membermap_parent_id=$parent->membermap_id;                           
-                }else{
 
-                       $membermap->membermap_parent_id=$parents->membermap_id;
-               }
+//                $res=Membermap::model()->find('membermap_order='.$membermap->membermap_order.'and membermap_parent_id='.$parents->membermap_id);
+//
+//                if($res){
+//                    if($membermap->membermap_order==1){
+//
+//                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path asc','condition'=>"membermap_child_number<2  and membermap_path like '$res->membermap_path%'"]);
+//                    }else{
+//                        $parent=Membermap::model()->find(['order'=>'membermap_layer desc,membermap_path desc','condition'=>"membermap_child_number<2 and membermap_path like '$res->membermap_path%'"]);
+//                    }
+//                        $membermap->membermap_parent_id=$parent->membermap_id;
+//                }else{
+//
+//                       $membermap->membermap_parent_id=$parents->membermap_id;
+//               }
                 $this->membermap->saveAttributes(['membermap_order']);
 				$status=$membermap->verify($verifyType);//去membermap模型里面验证
 				if($status!=EError::SUCCESS)
@@ -535,17 +536,21 @@ class Memberinfo extends Model
 
 				if($verifyType==1 || $verifyType==3 || $verifyType==5 || $verifyType==10)
 				{
+
 					$status=SystemStatus::model()->find();
 					$status->system_status_last_verify=new CDbExpression('now()');
 					//webapp()->db->createCommand('insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(finance_type_id=3,:money,0::numeric),finance_type_id,' . $this->memberinfo_id . ' from epmms_finance_type')->execute([':money'=>$membermap->membermap_money/6000*5000]);
                     webapp()->db->createCommand('insert into epmms_finance(finance_award,finance_type,finance_memberinfo_id) select iif(finance_type_id=4,:money,0::numeric),finance_type_id,' . $this->memberinfo_id . ' from epmms_finance_type')->execute([':money'=>
-                  0]);
+                    0]);
+
+                    // 首次激活给10电子币(新增)
+                    $member_finace = Finance::getMemberFinance($this->memberinfo_id,2);
+                    $member_finace->add(10);
                     
 // $membermap->membermap_is_empty==1?0:6800]);
 	                // if($this->membermap->membermap_is_empty==0){
 
 	                    if($this->membermap->membermap_membertype_level==1){
-	                    
 	                    	 $type_money=MemberType::model()->findByAttributes(['membertype_level'=>$this->membermap->membermap_membertype_level]);	                    	
 	                                if($finance2=Finance::getMemberFinance($this->memberinfo_id,4)){
 	                                
@@ -566,9 +571,9 @@ class Memberinfo extends Model
 				}
 				if($verifyType==1 || $verifyType==8|| $verifyType==5)
 				{
-
-					$mysystem->run(1,0,0);//运行分组1中的奖金 见点奖秒结进入现金钱包
-					$mysystem->run(3,0,0);//运行分组1中的奖金 见点奖秒结进入游戏币
+//				    $mysystem->run();
+//					$mysystem->run(1,0,0);//运行分组1中的奖金 见点奖秒结进入现金钱包
+//					$mysystem->run(3,0,0);//运行分组1中的奖金 见点奖秒结进入游戏币
 					// $mysystem->run(1,1,0);//运行分组1中的奖金  日结
                     //$mysystem->run(2,0,0);//运行分组2中的奖金  抵扣秒结
                     // $mysystem->run(2,1,0);//运行分组2中的奖金   抵扣日结
